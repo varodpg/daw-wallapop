@@ -6,12 +6,12 @@ This is a practice for the subject of web application development simulating the
 |Name                     |E-mail                       |GitHub Name        |
 |:-----------------------:|:---------------------------:|:-----------------:|
 |Juan Manuel Verano Garri |jm.verano@alumnos.urjc.es    |juanmaverano       |
-|Daniel Anguita Viñas     |                             |                   |
-|Alvaro Porres Gonzalez   |                             |varodpg            |
+|Daniel Anguita Viñas     |d.anguita@alumnos.urjc.es    |daniel097541       |
+|Alvaro Porres Gonzalez   |a.deporres@alumnos.urjc.es   |varodpg            |
 |David Rial Vega          |d.rial@alumnos.urjc.es       |davidrialvega      |
-|Alberto Alvarez Gomez    |                             |                   |
+|Alberto Alvarez Gomez    |a.alvarezgom@alumnos.urjc.es |alberalgo          |
 
-#### Trello:
+#### Trello: https://trello.com/b/hSJ9ryp5/practica-daw
 
 #### Data base entity diagram:
 
