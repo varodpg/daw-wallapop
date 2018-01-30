@@ -37,68 +37,52 @@
 </head>
 
 <body class="body-wrapper">
-
-<section>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<nav class="navbar navbar-expand-lg  navigation">
-					<a class="navbar-brand" href="index.html">
-						<img src="images/logo.png" alt="">
-					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ml-auto main-nav ">
-							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Dashboard</a>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Pages <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="category.html">Category</a>
-									<a class="dropdown-item" href="single.html">Single Page</a>
-									<a class="dropdown-item" href="store-single.html">Store Single</a>
-									<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-									<a class="dropdown-item" href="user-profile.html">User Profile</a>
-									<a class="dropdown-item" href="submit-coupon.html">Submit Coupon</a>
-									<a class="dropdown-item" href="blog.html">Blog</a>
-									<a class="dropdown-item" href="single-blog.html">Single Post</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Listing <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</div>
-							</li>
-						</ul>
-						<ul class="navbar-nav ml-auto mt-10">
-							<li class="nav-item">
-								<a class="nav-link login-button" href="index.html">Login</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link add-button" href="#"><i class="fa fa-plus-circle"></i> Add Listing</a>
-							</li>
-						</ul>
-					</div>
-				</nav>
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<nav class="navbar navbar-expand-lg  navigation">
+						<a class="navbar-brand" href="index.html">
+							<img src="images/logo.png" alt="">
+						</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav ml-auto main-nav ">
+								<li class="nav-item active">
+									<a class="nav-link" href="index.html">Inicio</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="dashboard.html">Perfil</a>
+								</li>
+								<li class="nav-item dropdown dropdown-slide">
+									<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Categorias <span><i class="fa fa-angle-down"></i></span>
+									</a>
+									<!-- Dropdown list -->
+									<div class="dropdown-menu dropdown-menu-right">
+										<a class="dropdown-item" href="category.html">Electronica e Informatica</a>
+										<a class="dropdown-item" href="category.html">Inmobiliaria</a>
+										<a class="dropdown-item" href="category.html">Deportes y Ocio</a>
+										<a class="dropdown-item" href="category.html">Consolas y Videojuegos</a>
+										<a class="dropdown-item" href="category.html">Moda</a>									
+									</div>
+								</li>							
+							</ul>
+							<ul class="navbar-nav ml-auto mt-10">
+								<li class="nav-item">
+									<a class="nav-link login-button" href="login.html">Iniciar Sesion</a>
+								</li>							
+							</ul>
+						</div>
+					</nav>
+				</div>		
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+	
 <!--==================================
 =            User Profile            =
 ===================================-->
@@ -107,7 +91,7 @@
 	<div class="container">
 		<!-- Row Start -->
 		<div class="row">
-			<div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
+			<div class="col-md-12"> 
 				<div class="sidebar">
 					<!-- User Widget -->
 					<div class="widget user-dashboard-profile">
@@ -121,7 +105,7 @@
 						<a href="user-profile.html" class="btn btn-main-sm">Edit Profile</a>
 					</div>
 					<!-- Dashboard Links -->
-					<div class="widget user-dashboard-menu">
+					<!--<div class="widget user-dashboard-menu">
 						<ul>
 							<li class="active" ><a href=""><i class="fa fa-user"></i> My Ads</a></li>
 							<li><a href=""><i class="fa fa-bookmark-o"></i> Favourite Ads <span>5</span></a></li>
@@ -130,36 +114,38 @@
 							<li><a href=""><i class="fa fa-cog"></i> Logout</a></li>
 							<li><a href=""><i class="fa fa-power-off"></i>Delete Account</a></li>
 						</ul>
-					</div>
+					</div> -->
 				</div>
 			</div>
-			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+		</div>
+		<div class="row">
+			<div class="col-md-12 ">
 				<!-- Recently Favorited -->
-				<div class="widget dashboard-container my-adslist">
-					<h3 class="widget-header">My Ads</h3>
+				<div class="widget dashboard-container my-adslist centered">
+					<h3 class="widget-header">Mis Productos</h3>
 					<table class="table table-responsive product-dashboard-table">
 						<thead>
 							<tr>
-								<th>Image</th>
-								<th>Product Title</th>
-								<th class="text-center">Category</th>
-								<th class="text-center">Action</th>
+								<th width="300" class="text-center"> Imágen</th>
+								<th width=" " class="text-center">Producto</th>
+								<th class="text-center">Categoría</th>
+								<th class="text-center">Acción</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								
-								<td class="product-thumb">
-									<img width="80px" height="auto" src="images/products/products-1.jpg" alt="image description"></td>
-								<td class="product-details">
+								<td class="product-thumb" >
+									<img width="200px" height="auto" src="images/products/products-1.jpg" alt="image description"></td>
+								<td class="product-details" style="padding-left:20px">
 									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+									<span class="add-id"><strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+									<span><strong>Subido: </strong><time>Jun 27, 2017</time> </span>
+									<span class="status active"><strong>Estado</strong>Activo</span>
+									<span class="location"><strong>Localización</strong>Móstoles, Madrid</span>
 								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
+								<td class="product-category" style="padding-left:20px"><span class="categories">Electrónica e informática</span></td>
+								<td class="action" data-title="Action" style="padding-left:20px">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
@@ -184,16 +170,16 @@
 							<tr>
 								
 								<td class="product-thumb">
-									<img width="80px" height="auto" src="images/products/products-2.jpg" alt="image description"></td>
-								<td class="product-details">
+									<img width="200px" height="auto" src="images/products/products-2.jpg" alt="image description"></td>
+								<td class="product-details" style="padding-left:20px">
 									<h3 class="title">Study Table Combo</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Feb 12, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>USA</span>
+									<span class="add-id"><strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+									<span><strong>Subido: </strong><time>Jun 27, 2017</time> </span>
+									<span class="status active"><strong>Estado</strong>Activo</span>
+									<span class="location"><strong>Localización</strong>Móstoles, Madrid</span>
 								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
+								<td class="product-category"><span class="categories">Electrónica e informática</span></td>
+								<td class="action" data-title="Action" style="padding-left:20px">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
@@ -218,16 +204,16 @@
 							<tr>
 								
 								<td class="product-thumb">
-									<img width="80px" height="auto" src="images/products/products-3.jpg" alt="image description"></td>
-								<td class="product-details">
-									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+									<img width="200px" height="auto" src="images/products/products-3.jpg" alt="image description"></td>
+								<td class="product-details" style="padding-left:20px">
+									<h3 class="title">Ipad Pro</h3>
+									<span class="add-id"><strong>ID producto:</strong> ng3D544444PajQrM</span>
+									<span><strong>Subido: </strong><time>May 28, 2017</time> </span>
+									<span class="status active"><strong>Estado</strong>Activo</span>
+									<span class="location"><strong>Localización</strong>Móstoles, Madrid</span>
 								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
+								<td class="product-category"><span class="categories">Electrónica e informática</span></td>
+								<td class="action" data-title="Action" style="padding-left:20px">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
@@ -252,16 +238,16 @@
 							<tr>
 								
 								<td class="product-thumb">
-									<img width="80px" height="auto" src="images/products/products-4.jpg" alt="image description"></td>
-								<td class="product-details">
+									<img width="200px" height="auto" src="images/products/products-4.jpg" alt="image description"></td>
+								<td class="product-details" style="padding-left:20px">
 									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+									<span class="add-id"><strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+									<span><strong>Subido: </strong><time>Jun 27, 2017</time> </span>
+									<span class="status active"><strong>Estado</strong>Activo</span>
+									<span class="location"><strong>Localización</strong>Móstoles, Madrid</span>
 								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
+								<td class="product-category"><span class="categories">Electrónica e informática</span></td>
+								<td class="action" data-title="Action" style="padding-left:20px">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
@@ -286,16 +272,16 @@
 							<tr>
 								
 								<td class="product-thumb">
-									<img width="80px" height="auto" src="images/products/products-1.jpg" alt="image description"></td>
-								<td class="product-details">
+									<img width="200px" height="auto" src="images/products/products-1.jpg" alt="image description"></td>
+								<td class="product-details" style="padding-left:20px">
 									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+									<span class="add-id"><strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+									<span><strong>Subido: </strong><time>Jun 27, 2017</time> </span>
+									<span class="status active"><strong>Estado</strong>Activo</span>
+									<span class="location"><strong>Localización</strong>Móstoles, Madrid</span>
 								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
+								<td class="product-category"><span class="categories">Electrónica e informática</span></td>
+								<td class="action" data-title="Action" style="padding-left:20px">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
@@ -415,7 +401,7 @@
 </footer>
 
   <!-- JAVASCRIPTS -->
-  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/jquery/dist/jquery.min.js"></script>
   <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
   <script src="plugins/tether/js/tether.min.js"></script>
   <script src="plugins/raty/jquery.raty-fa.js"></script>
