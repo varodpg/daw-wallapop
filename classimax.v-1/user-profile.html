@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calssimax</title>
+  <title>Dawllapop</title>
   
   <!-- PLUGINS CSS STYLE -->
   <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
 				<div class="col-md-12">
 					<nav class="navbar navbar-expand-lg  navigation">
 						<a class="navbar-brand" href="index.html">
-							<img src="images/logo.png" alt="">
+							<img src="images/logoNuevo.png" alt="">
 						</a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -74,7 +74,7 @@
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
 								<li class="nav-item">
-									<a class="nav-link login-button" href="login.html">Iniciar Sesion</a>
+									<a class="nav-link login-button" href="logout.html">Cerrar Sesión</a>
 								</li>							
 							</ul>
 						</div>
@@ -93,7 +93,7 @@
 <section class="user-profile section">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
+			<div class="col-md-12">
 				<div class="sidebar">
 					<!-- User Widget -->
 					<div class="widget user-dashboard-profile">
@@ -102,46 +102,26 @@
 							<img src="images/user/user-thumb.jpg" alt="" class="rounded-circle">
 						</div>
 						<!-- User Name -->
-						<h5 class="text-center">Samanta Doe</h5>
-						<p>Joined February 06, 2017</p>
-					</div>
-					<!-- Dashboard Links -->
-					<div class="widget user-dashboard-menu">
-						<ul>
-							<li>
-								<a href="dashboard-my-ads.html"><i class="fa fa-user"></i> My Ads</a></li>
-							<li>
-								<a href="dashboard-favourite-ads.html"><i class="fa fa-bookmark-o"></i> Favourite Ads <span>5</span></a>
-							</li>
-							<li>
-								<a href="dashboard-archived-ads.html"><i class="fa fa-file-archive-o"></i>Archeved Ads <span>12</span></a>
-							</li>
-							<li>
-								<a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
-							</li>
-							<li>
-								<a href="logout.html"><i class="fa fa-cog"></i> Logout</a>
-							</li>
-							<li>
-								<a href="delete-account.html"><i class="fa fa-power-off"></i>Delete Account</a>
-							</li>
-						</ul>
+						<h5 class="text-center">Paco Ríos</h5>
+						<p>Se unió: 06 de Febrero de 2017</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
+		</div>
+		<div>
+			<div class="col-md-12">
 				<!-- Edit Personal Info -->
 				<div class="widget personal-info">
-					<h3 class="widget-header user">Edit Personal Information</h3>
+					<h3 class="widget-header user">Editar información personal</h3>
 					<form action="#">
 						<!-- First Name -->
 						<div class="form-group">
-						    <label for="first-name">First Name</label>
+						    <label for="first-name">Nombre</label>
 						    <input type="text" class="form-control" id="first-name">
 						</div>
 						<!-- Last Name -->
 						<div class="form-group">
-						    <label for="last-name">Last Name</label>
+						    <label for="last-name">Apellido</label>
 						    <input type="text" class="form-control" id="last-name">
 						</div>
 						<!-- File chooser -->
@@ -151,64 +131,64 @@
 						 </div>
 						<!-- Comunity Name -->
 						<div class="form-group">
-						    <label for="comunity-name">Comunity Name</label>
+						    <label for="comunity-name">Mi ciudad</label>
 						    <input type="text" class="form-control" id="comunity-name">
 						</div>
 						<!-- Checkbox -->
 						<div class="form-check">
 						  <label class="form-check-label" for="hide-profile">
 						    <input class="form-check-input" type="checkbox" value="" id="hide-profile">
-						    Hide Profile from Public/Comunity
+						    Ocultar mi perfil
 						  </label>
 						</div>
 						<!-- Zip Code -->
 						<div class="form-group">
-						    <label for="zip-code">Zip Code</label>
+						    <label for="zip-code">Código Postal</label>
 						    <input type="text" class="form-control" id="zip-code">
 						</div>
 						<!-- Submit button -->
-						<button class="btn btn-transparent">Save My Changes</button>
+						<button class="btn btn-transparent">Guardar cambios</button>
 					</form>
 				</div>
 				<!-- Change Password -->
 				<div class="widget change-password">
-					<h3 class="widget-header user">Edit Password</h3>
+					<h3 class="widget-header user">Cambiar contraseña</h3>
 					<form action="#">
 						<!-- Current Password -->
 						<div class="form-group">
-						    <label for="current-password">Current Password</label>
+						    <label for="current-password">Contraseña actual</label>
 						    <input type="password" class="form-control" id="current-password">
 						</div>
 						<!-- New Password -->
 						<div class="form-group">
-						    <label for="new-password">New Password</label>
+						    <label for="new-password">Nueva contraseña</label>
 						    <input type="password" class="form-control" id="new-password">
 						</div>
 						<!-- Confirm New Password -->
 						<div class="form-group">
-						    <label for="confirm-password">Confirm New Password</label>
+						    <label for="confirm-password">Confirmar nueva contraseña</label>
 						    <input type="password" class="form-control" id="confirm-password">
 						</div>
 						<!-- Submit Button -->
-						<button class="btn btn-transparent">Change Password</button>
+						<button class="btn btn-transparent">Guardar contraseña</button>
 					</form>
 				</div>
 				<!-- Change Email Address -->
 				<div class="widget change-email mb-0">
-					<h3 class="widget-header user">Edit Email Address</h3>
+					<h3 class="widget-header user">Cambiar correo electrónico</h3>
 					<form action="#">
 						<!-- Current Password -->
 						<div class="form-group">
-						    <label for="current-email">Current Email</label>
+						    <label for="current-email">Correo electrónico actual</label>
 						    <input type="email" class="form-control" id="current-email">
 						</div>
 						<!-- New email -->
 						<div class="form-group">
-						    <label for="new-email">New email</label>
+						    <label for="new-email">Nuevo correo electrónico</label>
 						    <input type="email" class="form-control" id="new-email">
 						</div>
 						<!-- Submit Button -->
-						<button class="btn btn-transparent">Change email</button>
+						<button class="btn btn-transparent">Guardar nuevo correo electrónico</button>
 					</form>
 				</div>
 			</div>
@@ -228,7 +208,7 @@
         <!-- About -->
         <div class="block about">
           <!-- footer logo -->
-          <img src="images/logo-footer.png" alt="">
+          <img src="images/logoNuevo.png" alt="">
           <!-- description -->
           <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
