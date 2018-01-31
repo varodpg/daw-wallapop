@@ -24,6 +24,7 @@
   <!-- CUSTOM CSS -->
   <link href="css/style.css" rel="stylesheet">
 	<link href="css/edit_single_product.css" rel="stylesheet">
+	<link href="css/login.css" rel="stylesheet">
 
   <!-- FAVICON -->
 	<link href="img/favicon.png" rel="shortcut icon">
@@ -37,7 +38,9 @@
 </head>
 
 <body class="body-wrapper">
-
+<!--===================================
+=            Header Section           =
+====================================-->
 <section>
 	<div class="container">
 		<div class="row">
@@ -46,51 +49,38 @@
 					<a class="navbar-brand" href="index.html">
 						<img src="images/logo.png" alt="">
 					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home</a>
+								<a class="nav-link" href="index.html">Inicio</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="dashboard.html">Dashboard</a>
+								<a class="nav-link" href="dashboard.html">Perfil</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Pages <span><i class="fa fa-angle-down"></i></span>
+								<a class="nav-link dropdown-toggle" href="category.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Categorias
+									<span>
+										<i class="fa fa-angle-down"></i>
+									</span>
 								</a>
 								<!-- Dropdown list -->
 								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="category.html">Category</a>
-									<a class="dropdown-item" href="single.html">Single Page</a>
-									<a class="dropdown-item" href="store-single.html">Store Single</a>
-									<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-									<a class="dropdown-item" href="user-profile.html">User Profile</a>
-									<a class="dropdown-item" href="submit-coupon.html">Submit Coupon</a>
-									<a class="dropdown-item" href="blog.html">Blog</a>
-									<a class="dropdown-item" href="single-blog.html">Single Post</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Listing <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu dropdown-menu-right">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
+									<a class="dropdown-item" href="category.html">Electronica e Informatica</a>
+									<a class="dropdown-item" href="category.html">Inmobiliaria</a>
+									<a class="dropdown-item" href="category.html">Deportes y Ocio</a>
+									<a class="dropdown-item" href="category.html">Consolas y Videojuegos</a>
+									<a class="dropdown-item" href="category.html">Moda</a>
 								</div>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="index.html">Login</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link add-button" href="#"><i class="fa fa-plus-circle"></i> Add Listing</a>
+								<a class="nav-link login-button" onclick="$('#myModal').modal('toggle')">Iniciar Sesion</a>
 							</li>
 						</ul>
 					</div>
@@ -99,6 +89,53 @@
 		</div>
 	</div>
 </section>
+<!--===================================
+=            Login Modal Section      =
+====================================-->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">        
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				<div class="row justify-content-md-center login-img">
+					<div class="col-12 col-md-auto">
+						<img src="images/logo.png">
+					</div>
+				</div>
+				<div class="form-group-login">
+					<div class="row justify-content-md-center">
+						<div class="col-12 col-md-auto input-group input-group-login">
+							<span class="input-group-addon" id="sizing-addon2">@</span>
+							<input type="text" class="form-control tf-login" placeholder="Username" aria-describedby="sizing-addon2">
+						</div>
+					</div>
+				</div>				
+				<div class="row justify-content-md-center" style="margin-top: 20px">
+					<div class="col-12 col-md-auto input-group input-group-login">
+						<span class="input-group-addon" id="sizing-addon2">@</span>
+						<input type="text" class="form-control tf-login" placeholder="Username" aria-describedby="sizing-addon2">
+					</div>
+				</div>
+				<div class="row justify-content-md-center">
+					<div class="col-12 col-md-auto btn-enter-div">
+						<button class="btn btn-main btn-enter">Entrar</button>
+					</div>
+				</div>
+				<div class="row justify-content-md-center login-footer" style="margin-top: 50px">
+					<div class="col-12 col-md-auto btn-enter-div">
+						<p>¿Todavía no tienes una cuenta? <span class="join_text">Regístrate</span></p>
+					</div>
+				</div>
+			</div>	
+		</div>							
+	</div>      
+</div>
+
 <!--===================================
 =            Store Section            =
 ====================================-->
@@ -430,6 +467,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/edit_single_product.js"></script>
+	<script src="js/login.js"></script>
 
 </body>
 
