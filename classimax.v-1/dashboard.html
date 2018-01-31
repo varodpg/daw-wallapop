@@ -24,6 +24,7 @@
 	<link href="plugins/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
 	<!-- CUSTOM CSS -->
 	<link href="css/style.css" rel="stylesheet">
+	<link href="css/profile.css" rel="stylesheet">
 
 	<!-- FAVICON -->
 	<link href="img/favicon.png" rel="shortcut icon">
@@ -78,7 +79,7 @@
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
 								<li class="nav-item">
-									<a class="nav-link login-button" href="logout.html"> Cerrar Sesión</a>
+									<a class="nav-link login-button" href="logout.html">Cerrar Sesión</a>
 								</li>
 							</ul>
 						</div>
@@ -124,8 +125,12 @@
 									 aria-selected="true">Mis productos</a>
 								</li>
 								<li class="nav-item">
+									<a class="nav-link" id="pills-buyed-tab" data-toggle="pill" href="#pills-buyed" role="tab" aria-controls="pills-buyed"
+									 aria-selected="false">Mis compras</a>
+								<li class="nav-item">
 									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
 									 aria-selected="false">Mis estadísticas</a>
+								</li>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
@@ -378,10 +383,189 @@
 												<td>Balance</td>
 												<td>+127€</td>
 											</tr>
-											<!--Podríamos añadir aquí los gráficos: gráficos de queso de las categorías que más has comprado o más has vendido-->
+											<!--Podríamos añadir graficos-->
 										</tbody>
 									</table>
 								</div>
+								<!--MIS COMPRAS-->
+								<div class="tab-pane fade" id="pills-buyed" role="tabpanel" aria-labelledby="pills-buyed-tab">
+									<table class="table table-responsive product-dashboard-table">
+									<thead>
+										<tr>
+											<th width="300" class="text-center"> Imágen</th>
+											<th width=" " class="text-center">Producto</th>
+											<th class="text-center">Categoría</th>
+											<th class="text-center">Acción</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="product-thumb">
+												<img width="200px" height="auto" src="images/products/Macbook Pro 15inch.jpg" alt="image description">
+											</td>
+											<td class="product-details" style="padding-left:20px">
+												<h3 class="title">Macbook Pro 15inch</h3>
+												<span class="add-id">
+													<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+												<span>
+													<strong>Subido: </strong>
+													<time>Jun 27, 2017</time>
+												</span>
+												<span class="status active">
+													<strong>Estado</strong>Activo</span>
+												<span class="location">
+													<strong>Localización</strong>Móstoles, Madrid</span>
+											</td>
+											<td class="product-category">
+												<span class="categories">Electrónica e informática</span>
+											</td>
+											<td class="action" data-title="Action" style="padding-left:20px">
+												<div class="">
+														<input type="checkbox" id="spoiler1"></input>
+														<label for="spoiler1">Dejar una valoración del vendedor</label>
+														<div class="spoiler">
+																<div class="review-submission">	
+																		
+																		<!-- Rate --> 
+																		<div class="rate">
+																			<div class="starrr"></div>
+																		</div>
+																		<div class="review-submit">
+																			<form action="#" class="row">
+																				<div class="col-lg-6">
+																					<input type="text" name="name" id="name" class="form-control" placeholder="Nombre">
+																				</div>
+																				<div class="col-lg-6">
+																					<input type="email" name="email" id="email" class="form-control" placeholder="Email">
+																				</div>
+																				<div class="col-12">
+																					<textarea name="review" id="review" rows="10" class="form-control" placeholder="Mensaje"></textarea>
+																				</div>
+																				<div class="col-12">
+																					<button type="submit" class="btn btn-main">Enviar</button>
+																				</div>
+																			</form>
+																		</div>
+																</div>
+														</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+
+											<td class="product-thumb">
+												<img width="200px" height="auto" src="images/products/products-4.jpg" alt="image description">
+											</td>
+											<td class="product-details" style="padding-left:20px">
+												<h3 class="title">Juguete escavadora</h3>
+												<span class="add-id">
+													<strong>ID producto:</strong> 008D5feAMHtybcM</span>
+												<span>
+													<strong>Subido: </strong>
+													<time>Dic 25, 2017</time>
+												</span>
+												<span class="status active">
+													<strong>Estado</strong>Activo</span>
+												<span class="location">
+													<strong>Localización</strong>Alcobendas, Madrid</span>
+											</td>
+											<td class="product-category">
+												<span class="categories">Deporte y ocio</span>
+											</td>
+											<td class="action" data-title="Action" style="padding-left:20px">
+												<div class="">
+													<!--Codigo añadido-->
+													<input type="checkbox" id="spoiler3"></input>
+													<label for="spoiler3">Dejar una valoración del vendedor</label>
+													<div class="spoiler">
+															<div class="review-submission">	
+																	
+																	<!-- Rate --> 
+																	<div class="rate">
+																		<div class="starrr"></div>
+																	</div>
+																	<div class="review-submit">
+																		<form action="#" class="row">
+																			<div class="col-lg-6">
+																				<input type="text" name="name" id="name" class="form-control" placeholder="Nombre">
+																			</div>
+																			<div class="col-lg-6">
+																				<input type="email" name="email" id="email" class="form-control" placeholder="Email">
+																			</div>
+																			<div class="col-12">
+																				<textarea name="review" id="review" rows="10" class="form-control" placeholder="Mensaje"></textarea>
+																			</div>
+																			<div class="col-12">
+																				<button type="submit" class="btn btn-main">Enviar</button>
+																			</div>
+																		</form>
+																	</div>
+															</div>
+													</div>
+													<!--Fin codigo añadido-->
+												</div>
+											</td>
+										</tr>
+										<tr>
+
+											<td class="product-thumb">
+												<img width="200px" height="auto" src="images/products/products-1.jpg" alt="image description">
+											</td>
+											<td class="product-details" style="padding-left:20px">
+												<h3 class="title">Macbook Pro 15inch</h3>
+												<span class="add-id">
+													<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+												<span>
+													<strong>Subido: </strong>
+													<time>Jun 27, 2017</time>
+												</span>
+												<span class="status active">
+													<strong>Estado</strong>Activo</span>
+												<span class="location">
+													<strong>Localización</strong>Móstoles, Madrid</span>
+											</td>
+											<td class="product-category">
+												<span class="categories">Electrónica e informática</span>
+											</td>
+											<td class="action" data-title="Action" style="padding-left:20px">
+												<div class="">
+														<input type="checkbox" id="spoiler2"></input>
+														<label for="spoiler2">Dejar una valoración del vendedor</label>
+														<div class="spoiler">
+																<div class="review-submission">	
+																		
+																		<!-- Rate --> 
+																		<div class="rate">
+																			<div class="starrr"></div>
+																		</div>
+																		<div class="review-submit">
+																			<form action="#" class="row">
+																				<div class="col-lg-6">
+																					<input type="text" name="name" id="name" class="form-control" placeholder="Nombre">
+																				</div>
+																				<div class="col-lg-6">
+																					<input type="email" name="email" id="email" class="form-control" placeholder="Email">
+																				</div>
+																				<div class="col-12">
+																					<textarea name="review" id="review" rows="10" class="form-control" placeholder="Mensaje"></textarea>
+																				</div>
+																				<div class="col-12">
+																					<button type="submit" class="btn btn-main">Enviar</button>
+																				</div>
+																			</form>
+																		</div>
+																</div>
+														</div>
+												</div>
+											</td>
+										</tr>
+									</tbody>
+									</table>
+								</div>
+
+
+
+
 								<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 									<h3 class="tab-title">Comentarios</h3>
 									<table class="table table-responsive">
@@ -471,29 +655,7 @@
 									</table>
 									</div>
 
-									<!--<div class="review-submission">		ESTA PARTE PARA EL PERFIL PÚBLICO PARA QUE PUEDAN DEJAR OPINIONES DEL VENDEDOR
-							  			<h3 class="tab-title">Submit your review</h3>
-						  				<!-- Rate -> 
-						  				<div class="rate">
-						  					<div class="starrr"></div>
-						  				</div>
-						  				<div class="review-submit">
-						  					<form action="#" class="row">
-						  						<div class="col-lg-6">
-						  							<input type="text" name="name" id="name" class="form-control" placeholder="Name">
-						  						</div>
-						  						<div class="col-lg-6">
-						  							<input type="email" name="email" id="email" class="form-control" placeholder="Email">
-						  						</div>
-						  						<div class="col-12">
-						  							<textarea name="review" id="review" rows="10" class="form-control" placeholder="Message"></textarea>
-						  						</div>
-						  						<div class="col-12">
-						  							<button type="submit" class="btn btn-main">Sumbit</button>
-						  						</div>
-						  					</form>
-						  				</div>-->
-									</div>
+									
 								</div>
 							</div>
 						</div>
