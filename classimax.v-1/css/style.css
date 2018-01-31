@@ -73,7 +73,7 @@ label {
 }
 
 .nav-pills.with-background .nav-link:hover {
-  color: #5672f9;
+  color: #5671f9da;
 }
 
 .nav-pills.with-background .nav-link.active {
@@ -1587,7 +1587,7 @@ ul.pagination .active a {
 }
 
 .widget.price-range .slider-handle {
-  background: #5672f9;
+  background: #8e08db;
 }
 
 .widget.price-range .slider-track {
@@ -1604,7 +1604,7 @@ ul.pagination .active a {
 }
 
 .widget.price {
-  background: #5672f9;
+  background: #840ee4;
 }
 
 .widget.price h4 {
