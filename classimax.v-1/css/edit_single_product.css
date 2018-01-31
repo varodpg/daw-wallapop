@@ -1,0 +1,43 @@
+.w-bg{
+    background-color: white;
+}
+.w-bg:active{
+    background-color: white;
+}
+
+.talign-center{
+    text-align: center;
+}
+
+.add-img-icon{
+    font-size: 52px;
+}
+
+.add-img-btn{
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.tl_desc{
+    resize: none;
+    min-height: 200px;
+}
+
+.table-btn{    
+  padding: 5px 15px;
+}
+
+#btn_add_tag{
+    font-size: 20px;
+    padding: 10px 30px !important;
+    margin-top: 23px;
+    max-height: 50px;
+}
+
+.badge-primary{
+    background-color: #5672f9;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;        
+}
