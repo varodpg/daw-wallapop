@@ -6,7 +6,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Calssimax</title>
+  <title>Dawllapop</title>
+
   
   <!-- PLUGINS CSS STYLE -->
   <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
@@ -25,7 +26,7 @@
   <link href="css/style.css" rel="stylesheet">
 
   <!-- FAVICON -->
-  <link href="img/favicon.png" rel="shortcut icon">
+  <link href="images/favicon.png" rel="shortcut icon">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +43,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<nav class="navbar navbar-expand-lg  navigation">
+					<nav class="navbar navbar-expand-lg navbar-light navigation">
 						<a class="navbar-brand" href="index.html">
 							<img src="images/logoNuevo.png" alt="">
 						</a>
@@ -118,10 +119,130 @@
 				</div>
 			</div>
 		</div>
+        <div class="row">
+        <div class="col-md-12"> 
+        <ul class="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+									 aria-selected="true">En venta</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="pills-sold-tab" data-toggle="pill" href="#pills-sold" role="tab" aria-controls="pills-sold"
+									 aria-selected="false">Vendidos</a>
+                                <li class="nav-item">
+									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+									 aria-selected="false">Reseñas</a>
+								</li>
+		</ul><br>
+        </div>
+        </div>
+        <!-- En venta -->
+        <div class="tab-content" id="pills-tabContent">
+		<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 		<div class="row">
-			<!-- offer 01 -->
+			<div class="col-sm-12 col-lg-4">
+<div class="product-item bg-light">
+	<div class="card">
+		<div class="thumb-content">
+			<!-- <div class="price">$200</div> -->
+			<a href="">
+				<img class="card-img-top img-fluid" src="images/products/Macbook Pro 15inch.jpg" alt="Card image cap">
+			</a>
+		</div>
+		<div class="card-body">
+		    <h4 class="card-title"><a href="">Macbook Pro</a></h4>
+            <h4 class="card-title">
+		    		<a href="">200<i class="fa fa-eur" aria-hidden="true"></i></a>
+                
+								
+            </h4>
+            
+		    <ul class="list-inline product-meta">
+		    	<li class="list-inline-item">
+		    		<a href=""><i class="fa fa-laptop" style="background: #ccdb38;
+			box-shadow:0 0 0px 4px rgba(204, 219, 56, 0.35);border-radius: 40px;"></i>Informatica</a>
+
+								
+		    	</li>
+		    	<li class="list-inline-item">
+		    		<a href=""><i class="fa fa-calendar"></i>26 de Diciembre</a>
+		    	</li>
+		    </ul>
+			<p class="card-text">Potente portatil para edicion y ofimatica</p>
+		    <div class="product-ratings">
+		    </div>
+		</div>
+	</div>
+</div>
+
+
+
+			</div>
 			<div class="col-sm-12 col-lg-4">
 				<!-- product card -->
+<div class="product-item bg-light">
+	<div class="card">
+		<div class="thumb-content">
+			<!-- <div class="price">$200</div> -->
+			<a href="">
+				<img class="card-img-top img-fluid" src="images/products/products-2.jpg" alt="Card image cap">
+			</a>
+		</div>
+		<div class="card-body">
+		    <h4 class="card-title"><a href="">Escritorio</a></h4>
+		    <ul class="list-inline product-meta">
+		    	<li class="list-inline-item">
+		    		<a href=""><i class="fa fa-folder-open-o"></i>Inmobiliaria</a>
+		    	</li>
+		    	<li class="list-inline-item">
+		    		<a href=""><i class="fa fa-calendar"></i>15 de mayo</a>
+		    	</li>
+		    </ul>
+			<p class="card-text">Escritorio de mesa con gran capacidad de espacio</p>
+		</div>
+	</div>
+</div>
+
+
+
+			</div>
+			<div class="col-sm-12 col-lg-4">
+				<!-- product card -->
+<div class="product-item bg-light">
+	<div class="card">
+		<div class="thumb-content">
+			<!-- <div class="price">$200</div> -->
+			<a href="">
+				<img class="card-img-top img-fluid" src="images/products/products-3.jpg" alt="Card image cap">
+			</a>
+		</div>
+		<div class="card-body">
+		    <h4 class="card-title"><a href="">Escritorio Pequeño</a></h4>
+		    <ul class="list-inline product-meta">
+		    	<li class="list-inline-item">
+		    		<a href=""><i class="fa fa-folder-open-o"></i>Inmobiliaria</a>
+		    	</li>
+		    	<li class="list-inline-item">
+		    		<a href=""><i class="fa fa-calendar"></i>2 de Junio</a>
+		    	</li>
+		    </ul>
+		    <p class="card-text">Escritorio de mesa para habitaciones pequeñas</p>
+		    <div class="product-ratings">
+		    </div>
+		</div>
+	</div>
+</div>
+
+
+
+			</div>
+        </div>
+        </div>    
+    <!-- Fin en venta -->
+    <!-- Comienzo Vendidos -->   
+	<div class="tab-pane fade" id="pills-sold" role="tabpanel" aria-labelledby="pills-sold-tab">
+					<div class="row">
+			<div class="col-sm-12 col-lg-4">
 <div class="product-item bg-light">
 	<div class="card">
 		<div class="thumb-content">
@@ -217,11 +338,63 @@
 
 
 			</div>
-			
-			
-        </div>
+        </div>						
 	</div>
+    <!-- Fin Vendidos --> 
+    <!-- Comienzo Reseñas -->   
+	<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+									<h3 class="tab-title">Comentarios</h3>
+									<table class="table table-responsive">
+										<tbody>
+											<tr>
+												<td>
+													<div class="product-review">
+														<div class="media">
+															<!-- Avater -->
+															<img src="images/user/user-thumb.jpg" alt="avater">
+															<div class="media-body">
+																<!-- Ratings -->
+																<div class="ratings">
+																	<ul class="list-inline">
+																		<li class="list-inline-item">
+																			<i class="fa fa-star"></i>
+																		</li>
+																		<li class="list-inline-item">
+																			<i class="fa fa-star"></i>
+																		</li>
+																		<li class="list-inline-item">
+																			<i class="fa fa-star"></i>
+																		</li>
+																		<li class="list-inline-item">
+																			<i class="fa fa-star"></i>
+																		</li>
+																		<li class="list-inline-item">
+																			<i class="fa fa-star"></i>
+																		</li>
+																	</ul>
+																</div>
+																<div class="name">
+																	<h5>Jessica Brown</h5>
+																</div>
+																<div class="date">
+																	<p>Mar 20, 2018</p>
+																</div>
+																<div class="review-comment">
+																	<p>
+																		Vendedor muy serio y comprometido. Todo ha ido perfecto.
+																	</p>
+																</div>
+															</div>
+                                                        </div>
+                                                    </div>
+                                                </td></tr></tbody></table>
+                                                            
+											
+	</div>
+    <!-- Fin del navegador entre pestañas -->  
+    </div>
 	<!-- Container End -->
+    </div>
 </section>
 <!--============================
 =            Footer            =
