@@ -74,7 +74,7 @@
 							<ul class="navbar-nav ml-auto mt-10">
 								<li class="nav-item">
 									<a class="nav-link login-button" href="login.html">Iniciar Sesion</a>
-								</li>							
+								</li>			
 							</ul>
 						</div>
 					</nav>
@@ -124,7 +124,7 @@
 					<h1 class="product-title">Apple MacBook Air 13'</h1>
 					<div class="product-meta">
 						<ul class="list-inline">
-							<li class="list-inline-item"><i class="fa fa-user-o"></i> Vendedor: <a href="">Andrew</a></li>
+							<li class="list-inline-item"><i class="fa fa-user-o"></i> Vendedor: <a href="">David</a></li>
 							<li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Categoria<a href="">Infromática</a></li>
 							<!--<li class="list-inline-item"><i class="fa fa-location-arrow"></i> Location<a href="">Dhaka Bangladesh</a></li>-->
 						</ul>
@@ -174,35 +174,35 @@
 								<table class="table table-bordered product-table">
 								  <tbody>
 								    <tr>
-								      <td>Seller Price</td>
-								      <td>$450</td>
+								      <td>Precio del vendedor</td>
+								      <td>450 €</td>
 								    </tr>
 								    <tr>
-								      <td>Added</td>
-								      <td>26th December</td>
+								      <td>Añadido</td>
+								      <td>26 de Diciembre</td>
 								    </tr>
 								    <tr>
-								      <td>State</td>
+								      <td>Estado</td>
 								      <td>Dhaka</td>
 								    </tr>
 								    <tr>
-								      <td>Brand</td>
+								      <td>Marca</td>
 								      <td>Apple</td>
 								    </tr>
 								    <tr>
-								      <td>Condition</td>
+								      <td>Condición</td>
 								      <td>Used</td>
 								    </tr>
 								    <tr>
-								      <td>Model</td>
+								      <td>Modelo</td>
 								      <td>2017</td>
 								    </tr>
 								    <tr>
-								      <td>State</td>
+								      <td>Estado</td>
 								      <td>Dhaka</td>
 								    </tr>
 								    <tr>
-								      <td>Battery Life</td>
+								      <td>Vida de la Batería</td>
 								      <td>23</td>
 								    </tr>
 								  </tbody>
@@ -288,10 +288,59 @@
 							<img class="rounded" src="images/user/user-thumb.jpg" alt="David Rial" width="100%" >
 						<h4><a href="">David Rial</a></h4>
 						<p class="member-time">Miembro desde 27 de Junio, 2017</p>
-						<a href="">Ver todos sus productos</a>
 						<ul class="list-inline mt-20">
-							<li class="list-inline-item"><a href="" class="btn btn-contact">Contacto</a></li>
-							<li class="list-inline-item"><a href="" class="btn btn-offer">Proponer una oferta</a></li>
+							<li class="list-inline-item"><a href="#" class="btn btn-contact" data-toggle="modal" data-target="#myModal" >Contacto</a></li>
+							<!-- Modal -->
+							<div id="myModal" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+							
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Información de contacto</h4>
+											<img src="images/logoNuevo.png" alt="">
+										</div>
+										<div class="modal-body">
+											<p>Correo: correoejemplo@gmail.com</p>
+											<p>Teléfono: xxx xxx xxx</p>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+										</div>
+									</div>
+							
+								</div>
+							</div>
+							<li class="list-inline-item"><a href="#" class="btn btn-contact" data-toggle="modal" data-target="#myModal2" >Proponer una oferta</a></li>
+							<!-- Modal -->
+							<div id="myModal2" class="modal fade" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Propón una oferta</h4>
+											<img src="images/logoNuevo.png" alt="">
+										</div>
+										<div class="modal-body">
+											<div class="widget price text-center">
+												<h4>Precio actual</h4>
+												<p>230 €</p>
+											</div>
+											<div class="form-group">
+												<label for="inputsm">Precio que ofreces</label>
+												<input class="form-control input-sm" id="inputsm" type="text">
+											</div>
+											<div class="form-group">
+												<label for="exampleFormControlTextarea1">Breve descripción de la oferta:</label>
+												<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+											</div>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal">Proponer</button>
+										</div>
+									</div>
+								</div>
+							</div>
 						</ul>
 					</div>
 					<!-- Map Widget -->
@@ -302,12 +351,11 @@
 					</div>
 					<!-- Safety tips widget -->
 					<div class="widget disclaimer">
-						<h5 class="widget-header">Safety Tips</h5>
+						<h5 class="widget-header">Consejos de seguridad</h5>
 						<ul>
-							<li>Meet seller at a public place</li>
-							<li>Check the item before you buy</li>
-							<li>Pay only after collecting the item</li>
-							<li>Pay only after collecting the item</li>
+							<li>Reúnete con el vendedor en un lugar público</li>
+							<li>Comprueba el producto antes de comprarlo</li>
+							<li>Paga sólo cuando hayas recibido el producto</li>
 						</ul>
 					</div>
 					<!-- Coupon Widget -->
