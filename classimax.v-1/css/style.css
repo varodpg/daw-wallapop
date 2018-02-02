@@ -310,7 +310,7 @@ button {
 }
 
 .bg-shadow {
-  background-color: #fff;
+  background-color: #ffffff;
   box-shadow: 0 16px 24px rgba(0, 0, 0, 0.08);
   padding: 20px;
 }
@@ -377,7 +377,7 @@ button {
 
 .overly:before {
   content: '';
-  background: rgba(0, 0, 0, 0.51);
+  background: rgba(0, 0, 0, 0);
   position: absolute;
   top: 0;
   left: 0;
@@ -635,7 +635,7 @@ ul.pagination .active a {
 }
 
 .bg-1 {
-  background: url("../images/home/hero.jpg");
+  /*background: url("../images/objetos.png");*/
   background-size: cover;
   background-repeat: no-repeat;
 }
