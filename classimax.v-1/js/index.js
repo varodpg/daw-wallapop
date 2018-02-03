@@ -2,7 +2,7 @@ $('.carousel').carousel({
     interval: 3000
   });
 
-  $('#carouselExample').on('slide.bs.carousel', function (e) {
+/*  $('#carouselExample').on('slide.bs.carousel', function (e) {
 
     var $e = $(e.relatedTarget);
     var idx = $e.index();
@@ -22,4 +22,4 @@ $('.carousel').carousel({
         }
     }
 });
-  
+  */

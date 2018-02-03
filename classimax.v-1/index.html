@@ -27,7 +27,7 @@
 	<link href="css/edit_single_product.css" rel="stylesheet">
 	<link href="css/login.css" rel="stylesheet">
     <link href="css/navbar.css" rel="stylesheet">
-	<link href="css/carousel.css" rel="stylesheet">
+	<!--<link href="css/carousel.css" rel="stylesheet">-->
 
 
 	<!-- FAVICON -->
@@ -128,11 +128,120 @@
 	</div>
 	<!-- Container End -->
 </section>
-
+<!--===================================
+=            Login Modal Section      =
+====================================-->
+<div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">    
+		<div class="modal-body">
+				  <div class="row justify-content-md-center login-img">
+					  <div class="col-12 col-md-auto">
+						  <img src="images/logoNuevo.png">
+					  </div>
+				  </div>
+				  <div class="form-group-login">
+					  <div class="row justify-content-md-center">
+						  <div class="col-12 col-md-auto input-group input-group-login">
+							  <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user"></i></span>
+							  <input type="text" class="form-control tf-login" placeholder="Usuario" aria-describedby="sizing-addon2">
+						  </div>
+					  </div>
+					  <div class="row justify-content-md-center" style="margin-top: 20px">
+							  <div class="col-12 col-md-auto input-group input-group-login">
+								  <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-lock"></i></span>
+								  <input type="password" class="form-control tf-login" placeholder="Contraseña" aria-describedby="sizing-addon2">
+							  </div>
+						  </div>
+						  <div class="row justify-content-md-center">
+							  <div class="col-12 col-md-auto btn-enter-div">
+								  <button class="btn btn-main btn-enter">Entrar</button>
+							  </div>
+						  </div>
+						  <div class="row justify-content-md-center login-footer" style="margin-top: 50px">
+							  <div class="col-12 col-md-auto btn-enter-div">
+								  <p>¿Todavía no tienes una cuenta? <span class="join_text" onclick="open_signup()">Regístrate</span></p>
+							  </div>
+						  </div>
+				  </div>				
+			  </div>	
+		  </div>							
+	  </div>      
+  </div>
+  <!--===================================
+  =            SignUp Modal Section     =
+  ====================================-->
+  <div class="modal fade" id="signup_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+	  <div class="modal-content">    
+		<div class="modal-body">
+				  <div class="row justify-content-md-center login-img">
+					  <div class="col-12 col-md-auto">
+						  <img src="images/logoNuevo.png">
+					  </div>
+				  </div>				
+				  <div class="form-group">
+					  <label for="signup_username">Usuario</label>
+					  <input id="signup_username" type="text" class="form-control">
+				  </div>
+				  <div class="form-group">
+					  <label for="signup_password1">Contraseña</label>
+					  <input id="signup_password1" type="password" class="form-control">
+				  </div>
+				  <div class="form-group">
+					  <label for="signup_password2">Repita la contraseña</label>
+					  <input id="signup_password2" type="password" class="form-control">
+				  </div>
+				  <div class="form-group">
+					  <label for="signup_email">Correo Electrónico</label>
+					  <input id="signup_email" type="password" class="form-control">
+				  </div>
+				  <div class="row">
+					  <div class="col-md-6">
+						  <label for="signup_provincia">Provincia</label>
+						  <select class="form-control w-bg" id="signup_provincia">
+							  <option selected>Provincia</option>
+							  <option>Madrid</option>
+						  </select>
+					  </div>
+					  <div class="col-md-6">
+						  <label for="signup_ciudad">Ciudad</label>
+						  <select class="form-control w-bg" id="signup_ciudad">
+							  <option selected>Ciudad</option>
+							  <option>Madrid</option>
+							  <option>Alcorcón</option>
+							  <option>Mostoles</option>
+						  </select>
+					  </div>
+				  </div>		
+				  <div class="row justify-content-md-center login-img">					
+					  <div class="col-12 col-md-auto add-img-btn" onclick="open_file_browser_profile()" id="signup_img">
+						  <span class="add-img-icon">+</span>
+						  <br>
+						  <span>Imagen de Perfil</span>
+					  </div>	
+					  <input id="profile_img_input" type="file" style="display:none" onchange="preview_profile_image()">
+				  </div>		
+				  <div class="row justify-content-md-center">
+						  <div class="col-12 col-md-auto btn-enter-div">
+							  <div class="row">
+								  <div class="col-md-6">
+									  <button class="btn btn-transparent btn-enter">Cancelar</button>
+								  </div>
+								  <div class="col-md-6">
+									  <button class="btn btn-main btn-enter">Enviar</button>					
+								  </div>
+							  </div>							
+						  </div>									
+				  </div>								
+			  </div>	
+		  </div>							
+	  </div>      
+  </div>
 <!--===================================
 =            Client Slider            =
 ====================================-->
-<section>
+<section style="background-color: #F5F5F5;">
 		
 	<div class="popular-deals section bg-gray container">
 			<div class="row">
@@ -143,24 +252,56 @@
 					</div>
 				</div>
 		<div class="container-fluid">
-			<div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
-				<div class="carousel-inner row w-100 mx-auto" role="listbox">
-					<div class="carousel-item col-md-3 active">
-						<img class="img-fluid mx-auto d-block" src="images/products/products-2.jpg" alt="slide 1">
+			<div id="carouselExample" class="carousel slide">
+				<div class="carousel-inner" data-ride="false">
+					<div class="carousel-item active">
+						<div class="row" style="padding: 15px 15px">
+							<div class="col-md-3 carousel-product" id="test">
+								<img class="img-fluid mx-auto d-block product-img" src="images/products/products-2.jpg">	
+							</div>
+							<div class="col-md-3 carousel-product">
+								<img class="img-fluid mx-auto d-block product-img" src="images/products/products-1.jpg">
+							</div>
+							<div class="col-md-3 carousel-product">
+								<img class="img-fluid mx-auto d-block product-img" src="images/products/nokia.jpg">
+							</div>
+							<div class="col-md-3 carousel-product">
+								<img class="img-fluid mx-auto d-block product-img" src="images/products/ps4.jpg">
+							</div>
+						</div>
 					</div>
-					<div class="carousel-item col-md-3">
-						<img class="img-fluid mx-auto d-block" src="images/products/products-1.jpg" alt="slide 2">
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-3">
+								<img class="img-fluid mx-auto d-block" src="images/products/ps4.jpg" alt="slide 3">							
+							</div>
+							<div class="col-md-3">
+								<img class="img-fluid mx-auto d-block" src="images/products/products-3.jpg" alt="slide 1">								
+							</div>
+							<div class="col-md-3">
+								<img class="img-fluid mx-auto d-block" src="images/products/products-2.jpg" alt="slide 2">							
+							</div>
+							<div class="col-md-3">
+								<img class="img-fluid mx-auto d-block" src="images/products/nokia.jpg" alt="slide 3">							
+							</div>
+						</div>						
 					</div>
-					<div class="carousel-item col-md-3">
-						<img class="img-fluid mx-auto d-block" src="images/products/nokia.jpg" alt="slide 3">
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-md-3">
+								<img class="img-fluid mx-auto d-block" src="images/products/products-2.jpg">	
+							</div>
+							<div class="col-md-3">
+								<img class="img-fluid mx-auto d-block" src="images/products/products-1.jpg">
+							</div>
+							<div class="col-md-3">
+								<img class="img-fluid mx-auto d-block" src="images/products/nokia.jpg">
+							</div>
+							<div class="col-md-3">
+								<img class="img-fluid mx-auto d-block" src="images/products/ps4.jpg">
+							</div>
+						</div>
 					</div>
-					<div class="carousel-item col-md-3 active">
-						<img class="img-fluid mx-auto d-block" src="images/products/ps4.jpg" alt="slide 3">
-					</div>
-					<div class="carousel-item col-md-3">
-						<img class="img-fluid mx-auto d-block" src="images/products/nike.jpg" alt="slide 3">
-					</div>
-					
 				</div>
 				<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
 					<i class="fa fa-chevron-left fa-lg text-muted"></i>
@@ -604,7 +745,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
 <script src="js/scripts.js"></script>
 <script src="js/index.js"></script>
-
+<script src="js/login.js"></script>
 
 </body>
 
