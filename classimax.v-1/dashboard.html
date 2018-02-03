@@ -54,10 +54,10 @@
 						</button>
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<ul class="navbar-nav ml-auto main-nav ">
-								<li class="nav-item active">
+								<li class="nav-item">
 									<a class="nav-link" href="index.html">Inicio</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item active">
 									<a class="nav-link" href="dashboard.html">Perfil</a>
 								</li>
 								<li class="nav-item dropdown dropdown-slide">
@@ -116,7 +116,6 @@
 			<div class="row">
 				<div class="col-md-12 ">
 					<!-- Recently Favorited -->
-					<div class="widget dashboard-container my-adslist centered">
 						<!--<h3 class="widget-header">Mis Productos</h3>-->
 						<div class="content">
 							<ul class="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
@@ -131,12 +130,13 @@
 									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
 									 aria-selected="false">Mis estadísticas</a>
 								</li>
-								</li>
 								<li class="nav-item">
 									<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
 									 aria-selected="false">Reseñas</a>
 								</li>
-							</ul>
+							</ul><br>
+                            <div class="widget dashboard-container my-adslist centered">
+                            
 							<div class="tab-content" id="pills-tabContent">
 								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 									<table class="table table-responsive product-dashboard-table">
@@ -173,12 +173,12 @@
 													<div class="">
 														<ul class="list-inline justify-content-center">
 															<li class="list-inline-item">
-																<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
+																<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="single.html">
 																	<i class="fa fa-eye"></i>
 																</a>
 															</li>
 															<li class="list-inline-item">
-																<a class="edit" href="">
+																<a class="edit" href="edit_single_product.html">
 																	<i class="fa fa-pencil"></i>
 																</a>
 															</li>
@@ -439,7 +439,7 @@
 																					<input type="email" name="email" id="email" class="form-control" placeholder="Email">
 																				</div>
 																				<div class="col-12">
-																					<textarea name="review" id="review" rows="10" class="form-control" placeholder="Mensaje"></textarea>
+																					<textarea name="review" id="review" rows="10" class="form-control" placeholder="Mensaje"rows="10" cols="50" style="resize:none"></textarea><br>
 																				</div>
 																				<div class="col-12">
 																					<button type="submit" class="btn btn-main">Enviar</button>
@@ -448,7 +448,6 @@
 																		</div>
 																</div>
 														</div>
-												</div>
 											</td>
 										</tr>
 										<tr>
