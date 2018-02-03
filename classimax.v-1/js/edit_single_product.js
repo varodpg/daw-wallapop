@@ -18,9 +18,7 @@ function open_file_browser(){
     $('#file_input').click();
 }
 
-function preview_image(){
-    console.log("Entro en el metodo");
-    //var img_div = '<div class="col-md-2"><img class="w-100"></div>';
+function preview_image(){    
     var file    = document.querySelector('#file_input').files[0];
     var reader  = new FileReader();
     var src;

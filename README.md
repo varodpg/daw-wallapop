@@ -25,3 +25,13 @@ We are going to show the user history of purchases and his sales. And for more a
 
 #### Funcionality with advanced technology:
 To facilitate the contact of the users we will introduce a chat so they can talk in real time with their friends and with the sellers. 
+
+#### Screenshots
+Screenshots of the pages
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index1.png "Index1")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index2.png "Index2")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index3.png "Index3")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/category1.png "Category1")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/category2.png "Category2")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/category3.png "Category3")

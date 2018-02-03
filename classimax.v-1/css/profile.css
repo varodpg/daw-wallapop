@@ -30,3 +30,6 @@ input[id^="spoiler"]{
   height: auto;
   opacity: 1;
   }
+.review-submit textarea{
+    height: 100px;
+}
