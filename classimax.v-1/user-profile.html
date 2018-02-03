@@ -74,7 +74,16 @@
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
 								<li class="nav-item">
-									<a class="nav-link login-button" href="logout.html">Cerrar Sesión</a>
+									<button class="btn btn-primary" data-target=".bs-example-modal-sm" data-toggle="modal">Cerrar sesión</button>
+									<div tabindex="-1" class="modal bs-example-modal-sm" role="dialog" aria-hidden="true">
+										<div class="modal-dialog modal-sm">
+											<div class="modal-content">
+												<div class="modal-header"><h4>¿Estás seguro?<i class="fa fa-lock"></i></h4></div>
+												<div class="modal-body"><i class="fa fa-question-circle"></i> ¿Estás seguro de que quieres cerrar sesión?</div>
+												<div class="modal-footer"><a class="btn btn-primary btn-block" href="index.html">Cerrar Sesión</a></div>
+											</div>
+										</div>
+									</div>							
 								</li>							
 							</ul>
 						</div>
