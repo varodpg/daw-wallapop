@@ -90,6 +90,33 @@
 <section class="dashboard section">
 	<!-- Container Start -->
 	<div class="container">
+        <!-- MODAL for contact->
+          <!-- The Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Contacto</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p><i class="fa fa-phone"></i> Telefono: 666 66 66 66</p>
+                    <p><i class="fa fa-envelope"></i> Correo: example@example.com</p>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        <!-- end modal -->
 		<!-- Row Start -->
 		<div class="row">
 			<div class="col-md-12"> 
@@ -115,6 +142,9 @@
                         <p><i class="fa fa-bar-chart" aria-hidden="true"></i>
                         Compras: 0 Ventas: 0 <br>
                         <i class="fa fa-map-marker" aria-hidden="true"></i> Madrid</p>
+                            <p>
+                                <a href="" class="btn btn-main-sm" data-toggle="modal" data-target="#myModal"> Contacto: <i class="fa fa-address-card" aria-hidden="true"></i></a>
+                            </p>
 					</div>
 				</div>
 			</div>
