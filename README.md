@@ -29,9 +29,33 @@ To facilitate the contact of the users we will introduce a chat so they can talk
 #### Screenshots
 Screenshots of the pages
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index1.png "Index1")
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index2.png "Index2")
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index3.png "Index3")
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/category1.png "Category1")
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/category2.png "Category2")
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/category3.png "Category3")
+1. Inicio: Main page from the Dawllapop web. Include some sections like "more selling" and "trending" products.
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index.jpeg "Index1")
+
+2. Categorias: Advanced web search for products ordered by categories.
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/categorias.jpeg "Categories")
+
+3. Perfil:  A simple view for an user profile. There are two profile pages: public and private. You can access to your products, what are you looking for and statistics from private page.
+You can see the public information of an user from public profile.
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/perfil_privado.jpeg "Private Profile")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/perfil_publico.jpeg "Public Profile")
+
+4. Editar Perfil: Personal data edition page.
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/editar_perfil.jpeg "Edit Profile")
+
+5. Producto: The main information about a product and how to buy it.
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/producto.jpeg "Product")
+
+6. Editar Producto: A complete form to create or edit the information about a product for sale.
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/editar_producto.jpeg "Edit Product")
+
+7. Registro: You must login on the "Iniciar sesion" button on the rigth corner where. If you have not an account, you can register on the web through the form. 
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/registro.jpeg "Register form")
+
