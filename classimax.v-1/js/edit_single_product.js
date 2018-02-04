@@ -1,3 +1,13 @@
+function add_product(){
+    swal({
+        title: 'Exito',
+        text: 'Se ha añadido tu producto correctamente',
+        type: 'success'
+    }, function(){
+        window.location.replace("dashboard.html");
+    });   
+}
+
 function add_product_tag(){
     var tag_text;
     tag_text = $("#tf_tag").val();
@@ -12,6 +22,16 @@ function add_table_row(){
 
 function delete_table_row(){
     $('#specification_table tr:last-child').remove();
+}
+
+function edit_product(){
+    swal({
+        title: 'Exito',
+        text: 'Se ha editado tu producto correctamente',
+        type: 'success'
+    }, function(){
+        window.location.replace("dashboard.html");
+    });  
 }
 
 function open_file_browser(){
