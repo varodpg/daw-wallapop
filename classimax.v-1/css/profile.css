@@ -37,3 +37,16 @@ input[id^="spoiler"]{
 .button_ofertas{
     width: 100px;
 }
+
+.delete_account{
+    color: rgb(255, 0, 0);
+    background-color: transparent;
+    width: 200px;
+    height: 50px;
+    border-color: red;
+    font: bold;
+    font-size: 16px;
+}
+.delete_account:hover{
+    background: red;
+}

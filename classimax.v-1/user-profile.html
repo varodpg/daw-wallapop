@@ -24,6 +24,7 @@
   <!-- CUSTOM CSS -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/navbar.css" rel="stylesheet">
+  <link href="css/profile.css" rel="stylesheet">
   <!-- FAVICON -->
   <link href="images/favicon.png" rel="shortcut icon">
 
@@ -190,6 +191,19 @@
 						<!-- Submit Button -->
 						<button class="btn btn-transparent">Guardar nuevo correo electrónico</button>
 					</form>
+				</div>
+				<!-- Delete account-->
+				<div class="widget delete-account mb-0">
+					<button class="delete_account btn-transparent" data-target=".bs-delete" data-toggle="modal"> Eliminar cuenta <i class="fa fa-trash"></i></button>
+				</div>
+
+				<div  class="modal bs-delete" role="dialog" aria-hidden="true">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+							<div class="modal-body"> ¿Estás seguro de que quieres eliminar tu cuenta?</div>
+							<div class="modal-footer"><button class="delete_account btn-transparent" link="index.html">Eliminar cuenta</button></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
