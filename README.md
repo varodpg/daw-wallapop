@@ -59,3 +59,5 @@ You can see the public information of an user from public profile.
 
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/registro.jpeg "Register form")
 
+### NAVIGATION DIAGRAM
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/diagrams/Diagrama%20de%20navegaci%C3%B3n.png "Navigation diagram")
