@@ -1,0 +1,38 @@
+.login-button{
+    cursor:pointer;
+}
+
+.login-img{
+    margin-top: 60px;
+}
+
+.form-group-login{
+    margin-top: 65px;
+}
+
+.tf-login{
+    max-height: 40px;
+}
+
+.input-group-login{
+    width: 75%;
+    max-height: 40px;
+}
+
+.btn-enter{
+    min-width: 100%;
+    max-height: 45px;
+    padding: 6px 12px;
+}
+
+.btn-enter-div{
+    min-width: 65%;
+    padding: 0px 25px;
+    margin-top: 40px;    
+}
+
+.join_text{
+    cursor: pointer;
+    color: #5672f9;
+    font-weight: bold;
+}
