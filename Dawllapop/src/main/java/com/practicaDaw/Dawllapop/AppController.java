@@ -1,10 +1,10 @@
-package controller;
+package com.practicaDaw.Dawllapop;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-public class Dashboard_publicController {
+public class AppController {
 	
 	
 	
