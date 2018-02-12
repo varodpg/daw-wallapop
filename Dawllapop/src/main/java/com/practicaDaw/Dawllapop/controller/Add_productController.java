@@ -8,7 +8,7 @@ public class Add_productController {
 	
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String index() {	
 		return "index";
 	}
