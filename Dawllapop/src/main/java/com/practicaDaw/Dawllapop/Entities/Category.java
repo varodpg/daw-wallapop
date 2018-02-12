@@ -12,8 +12,13 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	private String name;
 	
 	protected Category() {
+	}
+	
+	protected Category(String name) {
+		
 	}
 	
 }

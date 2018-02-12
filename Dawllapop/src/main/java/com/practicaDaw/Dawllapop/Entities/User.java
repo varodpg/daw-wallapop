@@ -6,13 +6,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Producto {
-
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	private String name, email, password, location;
 	
-	protected Producto() {
+	protected User() {
+		
 	}
 	
+	protected User(String name, String email, String password, String location) {
+		
+	}
 }
