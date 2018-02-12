@@ -8,9 +8,9 @@ public class CategoryController {
 	
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/category")
 	public String index() {	
-		return "index";
+		return "category";
 	}
 
 }

@@ -8,9 +8,9 @@ public class SingleController {
 	
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/single")
 	public String index() {	
-		return "index";
+		return "single";
 	}
 
 }

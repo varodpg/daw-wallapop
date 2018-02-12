@@ -8,9 +8,9 @@ public class Dashboard_publicController {
 	
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/dashboard-public")
 	public String index() {	
-		return "index";
+		return "dashboard-public";
 	}
 
 }

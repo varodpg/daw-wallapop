@@ -8,9 +8,9 @@ public class Edit_single_productController {
 	
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/edit_single_product")
 	public String index() {	
-		return "index";
+		return "edit_single_product";
 	}
 
 }

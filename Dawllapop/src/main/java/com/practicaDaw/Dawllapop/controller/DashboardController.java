@@ -8,9 +8,9 @@ public class DashboardController {
 	
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/dashboard")
 	public String index() {	
-		return "index";
+		return "dashboard";
 	}
 
 }

@@ -8,9 +8,9 @@ public class User_profileController {
 	
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/user-profile")
 	public String index() {	
-		return "index";
+		return "user-profile";
 	}
 
 }
