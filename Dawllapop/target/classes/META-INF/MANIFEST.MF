@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: Dawllapop
-Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: juanma
-Implementation-Vendor-Id: com.practicaDaw
-Build-Jdk: 1.8.0_25
-Created-By: Maven Integration for Eclipse
-Implementation-Vendor: Pivotal Software, Inc.
-
