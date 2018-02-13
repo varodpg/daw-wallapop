@@ -22,7 +22,6 @@ This is a practice for the subject of web application development simulating the
 User: id(PK), name (UQ), email,  password, img ?, location
 Product: id(PK), id_user(FK), id_category(FK), tags, imgs?, description, specifications, state, price
 Category: id(PK), name
-Mesage: id(PK), title, text, user_from(FK), user_to(PK)
 Friend_request: id(PK), from(FK), to(FK), mesage, state
 Product_request: id(PK), from(FK), to(FK), product(FK), mesage, state
 
