@@ -31,7 +31,7 @@ public class User_profileController {
         User u = new User("Alvaro", "varoTheBestNoob@hotmail.com", "soy tontito", "Mostoles", Rol.Admin);
         repository.save(u);
 
-	
+
 
 
 	}

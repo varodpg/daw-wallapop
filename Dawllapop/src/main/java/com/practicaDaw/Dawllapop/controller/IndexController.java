@@ -22,7 +22,7 @@ import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 
 
 @Controller
-<<<<<<< HEAD
+
 
 public class IndexController{
     //Si se abre la URL http://127.0.0.1:8080/h2-console y se configura
@@ -52,32 +52,7 @@ public class IndexController{
     }
 
 
-=======
-@RequestMapping("/index")
-public class IndexController {
-	//Si se abre la URL http://127.0.0.1:8080/h2-console y se configura
-	//la URL JDBC con el valor jdbc:h2:mem:testdb se puede acceder a la 
-	//base de datos de la aplicación
-	
-	@Autowired
-	private ProductRepository repository;
-	
-	@PostConstruct
-	public void init() {
-	ArrayList<String[]> especificaciones=new ArrayList<>();
-		
-		ArrayList<String> tags=new ArrayList<>();
-		String[] a= new String[2];
-		a[0] = "titulo";
-		a[1] = "hi";
-		especificaciones.add(a);
-		tags.add("tag1");
-		Product p = new Product("Mack","es la leche",especificaciones,tags,300);
-		repository.save(p);
-	}
-	
 
-	
-	
->>>>>>> 7c7f7601fc5ba69b41dd5997c3b9655c4c275453
+
+
 }
