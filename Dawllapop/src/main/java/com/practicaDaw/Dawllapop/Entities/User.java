@@ -15,12 +15,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 public class User {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name, email, location;
 	private String passwordHash;
-	
+	private Rol rol;
+
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
@@ -31,12 +33,22 @@ public class User {
 		
 	}
 	
+<<<<<<< HEAD
 	public User(String name, String email, String password, String location, String roles) {
+=======
+	public User(String name, String email, String password, String location,Rol rol) {
+>>>>>>> origin/master
 		this.name = name;
 		this.email=email;
 		this.location=location;
+<<<<<<< HEAD
 		this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
+=======
+		this.rol=rol;
+		//this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		//this.roles = new ArrayList<>(Arrays.asList(roles));
+>>>>>>> origin/master
 	}
 	
 	public String getName() {

@@ -1,6 +1,7 @@
 package com.practicaDaw.Dawllapop.controller;
 
 import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.Entities.Rol;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
@@ -25,8 +26,12 @@ public class User_profileController {
 	@PostConstruct
 	public void init() {
 
-		User u=new User("Alvaro","varoTheBestNoob@hotmail.com","soy tontito","Mostoles");
-		repository.save(u);
+
+
+        User u = new User("Alvaro", "varoTheBestNoob@hotmail.com", "soy tontito", "Mostoles", Rol.Admin);
+        repository.save(u);
+
+
 
 
 	}
