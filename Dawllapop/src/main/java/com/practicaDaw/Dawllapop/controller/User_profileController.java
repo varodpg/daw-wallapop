@@ -32,8 +32,6 @@ public class User_profileController {
         repository.save(u);
 
 
-
-
 	}
 
 
