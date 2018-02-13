@@ -1,18 +1,23 @@
 package com.practicaDaw.Dawllapop.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 
+
+
 @Controller
+@RequestMapping("/index")
 public class IndexController {
 	//Si se abre la URL http://127.0.0.1:8080/h2-console y se configura
 	//la URL JDBC con el valor jdbc:h2:mem:testdb se puede acceder a la 
@@ -34,12 +39,8 @@ public class IndexController {
 		Product p = new Product("Mack","es la leche",especificaciones,tags,300);
 		repository.save(p);
 	}
-
+	
 
 	
-	@RequestMapping("/index")
-	public String index() {	
-		return "index";
-	}
-
+	
 }
