@@ -1,21 +1,23 @@
 package com.practicaDaw.Dawllapop.controller;
 
-import org.springframework.stereotype.Controller;
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 
-@Controller
+
 public class Add_productController {
 	
+	
+
+	
 	@RequestMapping("/add_product")
-	public String add_product() {
+	public String index() {	
 		return "add_product";
 	}
-
-	/*@RequestMapping("/add_new_product")
-	public String add_product(Model model, Product product){
-		System.out.println("Entrooo");
-		return "";
-	}*/
 
 }
