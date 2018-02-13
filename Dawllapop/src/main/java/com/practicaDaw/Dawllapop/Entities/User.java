@@ -31,8 +31,11 @@ public class User {
 	
 	public User(String name, String email, String password, String location) {
 		this.name = name;
-		this.passwordHash = new BCryptPasswordEncoder().encode(password);
-		this.roles = new ArrayList<>(Arrays.asList(roles));
+		this.email=email;
+		this.passwordHash=password;
+		this.location=location;
+		//this.passwordHash = new BCryptPasswordEncoder().encode(password);
+		//this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 	
 	public String getName() {
