@@ -1,5 +1,6 @@
 package com.practicaDaw.Dawllapop.Entities;
 
+import java.awt.Image;
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;
@@ -19,6 +20,7 @@ public class Product {
 	private ArrayList<String[]> especifications;
 	private ArrayList<String> tags;
 	private double price;
+
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Category category;
@@ -32,6 +34,7 @@ public class Product {
 		this.especifications=especifications;
 		this.tags=tags;
 		this.price=price;
+
 	}
 	
 }
