@@ -13,12 +13,14 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name, email, location;
 	private String passwordHash;
-	
+	private Rol rol;
+
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
 	
@@ -29,11 +31,12 @@ public class User {
 		
 	}
 	
-	public User(String name, String email, String password, String location) {
+	public User(String name, String email, String password, String location,Rol rol) {
 		this.name = name;
 		this.email=email;
 		this.passwordHash=password;
 		this.location=location;
+		this.rol=rol;
 		//this.passwordHash = new BCryptPasswordEncoder().encode(password);
 		//this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
