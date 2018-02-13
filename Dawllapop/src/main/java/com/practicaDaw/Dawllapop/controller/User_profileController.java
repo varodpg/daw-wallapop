@@ -17,19 +17,24 @@ import java.util.ArrayList;
 @RequestMapping("/user-profile")
 
 public class User_profileController {
+	
+	
 
-    @Autowired
-    private UserRepository repository;
+	@Autowired
+	private UserRepository repository;
 
-    @PostConstruct
-    public void init() {
+	@PostConstruct
+	public void init() {
+
 
 
         User u = new User("Alvaro", "varoTheBestNoob@hotmail.com", "soy tontito", "Mostoles", Rol.Admin);
         repository.save(u);
 
+	
 
-    }
+
+	}
 
 
 }

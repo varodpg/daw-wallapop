@@ -10,23 +10,24 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
-
 @Controller
 @RequestMapping("/single")
 
 public class SingleController {
 
 
-    @Autowired
-    private OfferRepository repository;
+		@Autowired
+		private OfferRepository repository;
 
-    @PostConstruct
-    public void init() {
+		@PostConstruct
+		public void init() {
 
-        Offer o = new Offer(60, "Quiero este precio");
-        repository.save(o);
+			Offer o= new Offer(60,"Quiero este precio");
+			repository.save(o);
 
-    }
+		}
+
+
 
 
 }
