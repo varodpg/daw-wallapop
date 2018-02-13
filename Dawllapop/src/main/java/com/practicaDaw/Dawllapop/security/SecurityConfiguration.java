@@ -2,7 +2,9 @@ package com.practicaDaw.Dawllapop.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-/*
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 @Configuration
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -22,8 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// Private pages (all other pages)
 		http.authorizeRequests().antMatchers("/perfil").hasAnyRole("USER");
 		http.authorizeRequests().antMatchers("/editarPerfil").permitAll();
-		http.authorizeRequests().antMatchers("/admin").permitAll("ADMIN");
+		http.authorizeRequests().antMatchers("/admin").permitAll();
 		
 	}
 }
-*/
