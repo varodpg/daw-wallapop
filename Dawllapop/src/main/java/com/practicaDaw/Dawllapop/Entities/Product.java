@@ -1,6 +1,6 @@
 package com.practicaDaw.Dawllapop.Entities;
 
-import java.awt.Image;
+
 import java.util.ArrayList;
 
 import javax.persistence.CascadeType;

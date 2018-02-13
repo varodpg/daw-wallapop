@@ -17,8 +17,8 @@ public class Category {
 	protected Category() {
 	}
 	
-	protected Category(String name) {
-		
+	public Category(String name) {
+		this.name=name;
 	}
 	
 }
