@@ -11,13 +11,11 @@ import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 
 
 public class Add_productController {
-	
-	
 
-	
-	@RequestMapping("/add_product")
-	public String index() {	
-		return "add_product";
-	}
+
+    @RequestMapping("/add_product")
+    public String index() {
+        return "add_product";
+    }
 
 }
