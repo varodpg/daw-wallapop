@@ -26,8 +26,12 @@ public class Product {
 	protected Product() {
 	}
 	
-	protected Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price) {
-		
+	public Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price) {
+		this.name=name;
+		this.description=description;
+		this.especifications=especifications;
+		this.tags=tags;
+		this.price=price;
 	}
 	
 }
