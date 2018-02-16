@@ -79,7 +79,7 @@
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="add_product.html">Añadir producto <i class="fa fa-plus"></i></a>
+								<a class="nav-link" href="../templates/add_product.html">Añadir producto <i class="fa fa-plus"></i></a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
@@ -342,13 +342,13 @@
 					<div class="card">
 						<div class="thumb-content">
 							<!-- <div class="price">$200</div> -->
-							<a href="single.html">
+							<a href="../templates/single.html">
 								<img class="card-img-top img-fluid" src="images/products/products-1.jpg" alt="Card image cap">
 							</a>
 						</div>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="single.html">Macbook Air</a>
+								<a href="../templates/single.html">Macbook Air</a>
 							</h4>
 							<ul class="list-inline product-meta">
 								<li class="list-inline-item">
@@ -374,13 +374,13 @@
 					<div class="card">
 						<div class="thumb-content">
 							<!-- <div class="price">$200</div> -->
-							<a href="single.html">
+							<a href="../templates/single.html">
 								<img class="card-img-top img-fluid" src="images/products/products-2.jpg" alt="Card image cap">
 							</a>
 						</div>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="single.html">Escritorio</a>
+								<a href="../templates/single.html">Escritorio</a>
 							</h4>
 							<ul class="list-inline product-meta">
 								<li class="list-inline-item">
@@ -406,13 +406,13 @@
 					<div class="card">
 						<div class="thumb-content">
 							<!-- <div class="price">$200</div> -->
-							<a href="single.html">
+							<a href="../templates/single.html">
 								<img class="card-img-top img-fluid" src="images/products/products-3.jpg" alt="Card image cap">
 							</a>
 						</div>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="single.html">Escritorio Pequeño</a>
+								<a href="../templates/single.html">Escritorio Pequeño</a>
 							</h4>
 							<ul class="list-inline product-meta">
 								<li class="list-inline-item">
@@ -438,13 +438,13 @@
 					<div class="card">
 						<div class="thumb-content">
 							<!-- <div class="price">$200</div> -->
-							<a href="single.html">
+							<a href="../templates/single.html">
 								<img class="card-img-top img-fluid" src="images/products/nokia.jpg" alt="Card image cap">
 							</a>
 						</div>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="single.html">Reliquia</a>
+								<a href="../templates/single.html">Reliquia</a>
 							</h4>
 							<ul class="list-inline product-meta">
 								<li class="list-inline-item">
@@ -486,20 +486,22 @@
 			</div>
 		</div>
 		<div class="row">
+            {{#productos}}
 			<!-- offer 01 -->
 			<div class="col-sm-12 col-lg-3">
 				<!-- product card -->
 				<div class="product-item bg-light">
 					<div class="card">
+                        
 						<div class="thumb-content">
 							<!-- <div class="price">$200</div> -->
-							<a href="single.html">
+							<a href="../templates/single.html">
 								<img class="card-img-top img-fluid" src="images/products/afeitadora.jpg" alt="Card image cap">
 							</a>
 						</div>
 						<div class="card-body">
 							<h4 class="card-title">
-								<a href="single.html">Afeitadora</a>
+								<a href="../templates/single.html">Afeitadora</a>
 							</h4>
 							<ul class="list-inline product-meta">
 								<li class="list-inline-item">
@@ -517,106 +519,13 @@
 					</div>
 				</div>
 			</div>
+            {{/productos}}
 
 
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single.html">
-								<img class="card-img-top img-fluid" src="images/products/xiaomi.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single.html">Xiaomi mi band 2</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item">
-									<a href="category.html">
-										<i class="fa fa-folder-open-o"></i>Electronica</a>
-								</li>
-								<li class="list-inline-item">
-									<a href="">
-										<i class="fa fa-calendar"></i>1 de Marzo</a>
-								</li>
-							</ul>
-							<p class="card-text">Si quieres una pulsera que alucinas esta es la tuya</p>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single.html">
-								<img class="card-img-top img-fluid" src="images/products/nike.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single.html">Deportivas Nike</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item">
-									<a href="category.html">
-										<i class="fa fa-folder-open-o"></i>Deporte</a>
-								</li>
-								<li class="list-inline-item">
-									<a href="">
-										<i class="fa fa-calendar"></i>11 de Junio</a>
-								</li>
-							</ul>
-							<p class="card-text">Si quieres correr como nunca estas son las tuyas</p>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single.html">
-								<img class="card-img-top img-fluid" src="images/products/ps4.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single.html">PS4</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item">
-									<a href="category.html">
-										<i class="fa fa-folder-open-o"></i>Informatica</a>
-								</li>
-								<li class="list-inline-item">
-									<a href="">
-										<i class="fa fa-calendar"></i>2 de Enero</a>
-								</li>
-							</ul>
-							<p class="card-text">Juega sin parar</p>
-							<p></p>
-							<p></p>
-							<p></p>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
+    </div>
 </section>
+
 
 
 
