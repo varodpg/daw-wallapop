@@ -9,7 +9,7 @@ public class Edit_single_productController {
 	
 	
 	@RequestMapping("/edit_single_product")
-	public String index() {	
+	public String editSingleProduct() {	
 		return "edit_single_product";
 	}
 

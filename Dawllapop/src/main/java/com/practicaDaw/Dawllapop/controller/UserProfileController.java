@@ -1,26 +1,23 @@
 package com.practicaDaw.Dawllapop.controller;
 
-import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.Rol;
 import com.practicaDaw.Dawllapop.Entities.User;
-import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
-
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 
 @Controller
-@RequestMapping("/user-profile")
 
-public class User_profileController {
+public class UserProfileController {
 	
-	
+	@RequestMapping("/user-profile")
+	public String userProfile() {
+		return "user-profile";
+	}
 
-	@Autowired
+	@Autowired    
 	private UserRepository repository;
 
 	@PostConstruct

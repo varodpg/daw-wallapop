@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
 @Controller
-@RequestMapping("/single")
 
 public class SingleController {
 
-
+	@RequestMapping("/single")
+	public String single() {
+		return "single";
+	}
 		@Autowired
 		private OfferRepository repository;
 
