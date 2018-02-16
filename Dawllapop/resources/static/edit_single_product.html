@@ -221,7 +221,7 @@
 							<div class="row">
 								<div class="form-group col-md-8">
 									<label for="ft_product_name">Nombre producto</label>
-									<input type="text" class="form-control w-bg" id="ft_product_name" placeholder="Apple MacBook Air 13'">
+									<input type="text" class="form-control w-bg" id="ft_product_name" placeholder="{{product.name}}">
 								</div>
 								<div class="form-group col-md-4">
 									<div class="row col-md-12">
@@ -239,7 +239,7 @@
 							<div class="row">
 								<div class="col-md-4 form-group">
 									<label for="tl_product_prize">Precio</label>
-									<input type="text" class="form-control w-bg" id="tl_product_prize" placeholder="450$">
+									<input type="text" class="form-control w-bg" id="tl_product_prize" placeholder="{{product.price}}">
 								</div>
 							</div>
 						</div>
@@ -303,7 +303,7 @@
 								<div class="row">
 									<div class="form-group col-md-12">
 										<textarea class="form-control tl_desc">
-												Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia laudantium beatae quod perspiciatis, neque dolores eos rerum, ipsa iste cum culpa numquam amet provident eveniet pariatur, sunt repellendus quas voluptate dolor cumque autem molestias. Ab quod quaerat molestias culpa eius, perferendis facere vitae commodi maxime qui numquam ex voluptatem voluptate, fuga sequi, quasi! Accusantium eligendi vitae unde iure officia amet molestiae velit assumenda, quidem beatae explicabo dolore laboriosam mollitia quod eos, eaque voluptas enim fuga laborum, error provident labore nesciunt ad. Libero reiciendis necessitatibus voluptates ab excepturi rem non, nostrum aut aperiam? Itaque, aut. Quas nulla perferendis neque eveniet ullam?		
+												{{product.description}}		
 										</textarea>
 									</div>
 								</div>								
@@ -326,7 +326,7 @@
 											</td>
 								      <td>
 												<div class="form_group">
-													<input type="text" class="form-control w-bg" placeholder="450$">
+													<input type="text" class="form-control w-bg" placeholder="{{product.price}}">
 												</div>
 											</td>
 								    </tr>
@@ -357,73 +357,6 @@
 								  </tbody>
 								</table>
 							</div>
-							<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-								<h3 class="tab-title">Product Review</h3>
-								<div class="product-review">
-							  		<div class="media">
-							  			<!-- Avater -->
-							  			<img src="images/user/user-thumb.jpg" alt="avater">
-							  			<div class="media-body">
-							  				<!-- Ratings -->
-							  				<div class="ratings">
-							  					<ul class="list-inline">
-							  						<li class="list-inline-item">
-							  							<i class="fa fa-star"></i>
-							  						</li>
-							  						<li class="list-inline-item">
-							  							<i class="fa fa-star"></i>
-							  						</li>
-							  						<li class="list-inline-item">
-							  							<i class="fa fa-star"></i>
-							  						</li>
-							  						<li class="list-inline-item">
-							  							<i class="fa fa-star"></i>
-							  						</li>
-							  						<li class="list-inline-item">
-							  							<i class="fa fa-star"></i>
-							  						</li>
-							  					</ul>
-							  				</div>
-							  				<div class="name">
-							  					<h5>Jessica Brown</h5>
-							  				</div>
-							  				<div class="date">
-							  					<p>Mar 20, 2018</p>
-							  				</div>
-							  				<div class="review-comment">
-							  					<p>
-							  						Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremqe laudant tota rem ape riamipsa eaque.
-							  					</p>
-							  				</div>
-							  			</div>
-							  		</div>
-							  		<div class="review-submission">
-							  			<h3 class="tab-title">Submit your review</h3>
-						  				<!-- Rate -->
-						  				<div class="rate">
-						  					<div class="starrr"></div>
-						  				</div>
-						  				<div class="review-submit">
-						  					<form action="#" class="row">
-						  						<div class="col-lg-6">
-						  							<input type="text" name="name" id="name" class="form-control" placeholder="Name">
-						  						</div>
-						  						<div class="col-lg-6">
-						  							<input type="email" name="email" id="email" class="form-control" placeholder="Email">
-						  						</div>
-						  						<div class="col-12">
-						  							<textarea name="review" id="review" rows="10" class="form-control" placeholder="Message"></textarea>
-						  						</div>
-						  						<div class="col-12">
-						  							<button type="submit" class="btn btn-main">Sumbit</button>
-						  						</div>
-						  					</form>
-						  				</div>
-							  		</div>
-							  	</div>
-							</div>
-						</div>
-					</div>
 					<div class="row pull-right" style="margin-top:20px">
 						<div class="col-md-12 ">
 								<button class="btn btn-main" onclick="edit_product()">Editar</button>
