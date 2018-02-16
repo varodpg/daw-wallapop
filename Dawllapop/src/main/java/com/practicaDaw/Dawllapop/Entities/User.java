@@ -35,6 +35,7 @@ public class User {
 		this.name = name;
 		this.email=email;
 		this.location=location;
+		this.passwordHash=password;
 		this.rol=rol;
 	}
 	
