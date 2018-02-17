@@ -44,7 +44,7 @@ public class IndexController{
         a[1] = "hi";
         especificaciones.add(a);
         tags.add("tag1");
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 100; i++) {
             Product p = new Product("Mack", "es la leche", especificaciones, tags, 300);
             repository.save(p);
         }

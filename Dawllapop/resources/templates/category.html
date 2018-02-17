@@ -27,6 +27,34 @@
     <link href="css/navbar.css" rel="stylesheet">
 	<!-- FAVICON -->
 	<link href="images/favicon.png" rel="shortcut icon">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var page = 0;
+    $("#showMore").click(function(){
+    	page++;
+        alert("The paragraph was clicked.");
+        $.ajax({
+        		url: "/categoryAjax",
+        		data: {
+        			'page': page, 
+        			'size': 10, 
+        			  },
+        		dataType: "json",
+        		success: function(items){
+        			 $.each(items.content, function (key,value){
+        				html='<div class="col-sm-12 col-lg-4 col-md-6">HOLAAAAA' + value[name] + key + '</div>';
+        				$('#productsList').append(html);
+        			 //alert("exito" + page+ "o");
+        			 });
+        			 //$('#productsList').append("Mas productos" + page);
+        			 //var cadena = '<div>hola</div>';
+        			 //$('#productosLista').append(cadena);
+        }});
+    });
+});
+</script>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -218,7 +246,7 @@
 
 					</div>
 				</div>
-				<div class="col-md-9">
+				<div class="col-md-9"">
 					<div class="category-search-filter">
 						<div class="row">
 							<div class="col-md-6">
@@ -250,13 +278,14 @@
 						</div>
 					</div>
 					<div class="product-grid-list">
-						<div class="row mt-30">
+						<div id="productsList" class="row mt-30" >
                             <!-- BEGINING PRODUCT -->
-                            {{#productos}}
+                            {{#products}}
 							<div class="col-sm-12 col-lg-4 col-md-6">
 								<div class="product-item bg-light">
 									<div class="card">
 										<div class="thumb-content">
+											<b>{{id}}</b>
 											<!-- <div class="price">$200</div> -->
 											<a href="https://www.amazon.es/Apple-Macbook-Ordenador-port%C3%A1til-Teclado/dp/B0721BNGVR/ref=sr_1_2?ie=UTF8&qid=1517394780&sr=8-2&keywords=macbook+12">
 												<img class="card-img-top img-fluid" src="images/products/products-1.jpg" alt="Card image cap">
@@ -282,38 +311,22 @@
 									</div>
 								</div>
 							  </div>
-                            {{/productos}}
+                            {{/products}}
                             
                             <!-- END OF THE PRODUCT-->
 				            </div>
 						</div>
 					</div>
+				<div class="col-md-12">
 					<div class="pagination justify-content-center">
 						<nav aria-label="Page navigation example">
 							<ul class="pagination">
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="Previous">
-										<span aria-hidden="true">&laquo;</span>
-										<span class="sr-only">Previous</span>
-									</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#">1</a>
-								</li>
-								<li class="page-item active">
-									<a class="page-link" href="#">2</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#">3</a>
-								</li>
-								<li class="page-item">
-									<a class="page-link" href="#" aria-label="Next">
-										<span aria-hidden="true">&raquo;</span>
-										<span class="sr-only">Next</span>
-									</a>
-								</li>
+
+									<a class="page-link" id="showMore">Mostrar más</a>
+
 							</ul>
 						</nav>
+					</div><br><br>
 					</div>
 				</div>
 			</div>
