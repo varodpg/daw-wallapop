@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.stereotype.Component;
+
 @Entity
 public class Product {
 
@@ -37,8 +39,76 @@ public class Product {
 
 	}
 	
+	public Product(String name, String description, double price) {
+		this.name=name;
+		this.description=description;
+		this.price=price;
+
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(int id) {
+		this.name = name;
+	}
+
+	
 	@Override
 	public String toString() {
 		return "Producto [nombre=" + name + "]";
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public ArrayList<String[]> getEspecifications() {
+		return especifications;
+	}
+
+	public void setEspecifications(ArrayList<String[]> especifications) {
+		this.especifications = especifications;
+	}
+
+	public ArrayList<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(ArrayList<String> tags) {
+		this.tags = tags;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

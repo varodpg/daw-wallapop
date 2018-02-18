@@ -29,32 +29,6 @@
 	<link href="images/favicon.png" rel="shortcut icon">
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-	var page = 0;
-    $("#showMore").click(function(){
-    	page++;
-        alert("The paragraph was clicked.");
-        $.ajax({
-        		url: "/categoryAjax",
-        		data: {
-        			'page': page, 
-        			'size': 10, 
-        			  },
-        		dataType: "json",
-        		success: function(items){
-        			 $.each(items.content, function (key,value){
-        				html='<div class="col-sm-12 col-lg-4 col-md-6">HOLAAAAA' + value[name] + key + '</div>';
-        				$('#productsList').append(html);
-        			 //alert("exito" + page+ "o");
-        			 });
-        			 //$('#productsList').append("Mas productos" + page);
-        			 //var cadena = '<div>hola</div>';
-        			 //$('#productosLista').append(cadena);
-        }});
-    });
-});
-</script>
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -324,6 +298,9 @@ $(document).ready(function(){
 
 									<a class="page-link" id="showMore">Mostrar más</a>
 
+									<div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;">
+									<img src='images/demo_wait.gif' width="64" height="64" />
+									<br>Cargando productos..</div>
 							</ul>
 						</nav>
 					</div><br><br>
@@ -455,6 +432,7 @@ $(document).ready(function(){
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/login.js"></script>
+	<script src="js/category.js"></script>
 </body>
 
 </html>

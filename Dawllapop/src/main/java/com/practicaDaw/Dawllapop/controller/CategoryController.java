@@ -1,33 +1,25 @@
 package com.practicaDaw.Dawllapop.controller;
 
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
-import antlr.collections.List;
-import javassist.compiler.ast.ArrayInit;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.SystemEnvironmentPropertySource;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Collection;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.annotation.PostConstruct;
 
 @Controller
 public class CategoryController {
@@ -40,12 +32,11 @@ public class CategoryController {
 		@Autowired
 		private ProductServices prs;
 		
-		//private Map<Integer,Product> productos = new ConcurrentHashMap<Integer, Product>();
 		
 		@PostConstruct
 		public void init() {
 			Category c= new Category("Informatica");
-			//repository.save(c);
+			repository.save(c);
 		}
 
 
@@ -62,6 +53,13 @@ public class CategoryController {
 			return "category";
 		}
 		
+		@RequestMapping("/producto")
+		public @ResponseBody
+		Product getProduct() {
+			return new Product("MC", "es la lecheW", 300);
+		}
+		
+
 		
 		@RequestMapping(value="/categoryAjax", produces = "application/json; charset=UTF-8")
 		public @ResponseBody Page<Product> CategoriasAjax(Model model, Pageable page) {
