@@ -33,7 +33,9 @@ $(document).ready(function(){
         				'</li></ul><p class="card-text">'
         				+ value['description']+
         				+ '</p></div></div></div></div>';
-        				
+        			if(items.last==true){
+        				$("#showMore").css("display", "none");
+        			}
         				
         				
 						
