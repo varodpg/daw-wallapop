@@ -14,11 +14,15 @@ public class Category {
 	private long id;
 	private String name;
 	
-	protected Category() {
+	public Category() {
 	}
 	
 	public Category(String name) {
 		this.name=name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }
