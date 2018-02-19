@@ -2,6 +2,7 @@ package com.practicaDaw.Dawllapop.Entities;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -99,7 +100,7 @@ public class Product {
 	public void setTags(ArrayList<String> tags) {
 		this.tags = tags;
 	}
-
+	
 	public double getPrice() {
 		return price;
 	}
@@ -111,4 +112,13 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Category getCategory() {
+		return category;
+	}
+	
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
 }
