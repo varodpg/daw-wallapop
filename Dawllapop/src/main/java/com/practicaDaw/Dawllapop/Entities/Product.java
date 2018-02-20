@@ -40,11 +40,28 @@ public class Product {
 
 	}
 	
+	public Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price, Category category) {
+		this.name=name;
+		this.description=description;
+		this.especifications=especifications;
+		this.tags=tags;
+		this.price=price;
+		this.category = category;
+		
+	}
+	
 	public Product(String name, String description, double price) {
 		this.name=name;
 		this.description=description;
 		this.price=price;
 
+	}
+	
+	public Product(String name, String description, double price, Category category) {
+		this.name=name;
+		this.description=description;
+		this.price=price;
+		this.category = category;
 	}
 	
 	public String getName() {

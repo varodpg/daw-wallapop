@@ -3,9 +3,11 @@ package com.practicaDaw.Dawllapop.controller;
 
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
+import com.practicaDaw.Dawllapop.services.ProductServices;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
@@ -13,6 +15,8 @@ import org.springframework.ui.Model;
 
 @Controller
 public class Add_productController {
+	@Autowired
+	private ProductServices prs;
 	
 	@Autowired
     private ProductRepository repository;
@@ -27,5 +31,12 @@ public class Add_productController {
 		product.setState("on_sale");
 		repository.save(product);
 		return "add_product";
+	}
+	
+	@RequestMapping("/edit_single_product/{id}")
+	public String editSingleProduct(Model model, @PathVariable long id) {	
+		Product product = prs.findOne(id);
+		model.addAttribute(product);		
+		return "edit_single_product";
 	}
 }

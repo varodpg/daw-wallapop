@@ -158,25 +158,24 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
+										{{#products}}											
+							  				<tr>
 												<td class="product-thumb">
 													<img width="200px" height="auto" src="images/products/Macbook Pro 15inch.jpg" alt="image description">
 												</td>
 												<td class="product-details" style="padding-left:20px">
-													<h3 class="title">Macbook Pro 15inch</h3>
-													<span class="add-id">
-														<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+													<h3 class="title">{{name}}</h3>
 													<span>
 														<strong>Subido: </strong>
 														<time>Jun 27, 2017</time>
 													</span>
 													<span class="status active">
-														<strong>Estado</strong>Activo</span>
+														<strong>Estado</strong>{{#state}}{{state}}{{/state}}</span>
 													<span class="location">
 														<strong>Localización</strong>Móstoles, Madrid</span>
 												</td>
 												<td class="product-category">
-													<span class="categories">Electrónica e informática</span>
+													<span class="categories">{{#category}}{{category.name}}{{/category}}</span>
 												</td>
 												<td class="action" data-title="Action" style="padding-left:20px">
 													<div class="">
@@ -187,206 +186,23 @@
 																</a>
 															</li>
 															<li class="list-inline-item">
-																<a class="edit" href="edit_single_product.html">
+																<a class="edit" href="/edit_single_product/{{id}}">
 																	<i class="fa fa-pencil"></i>
 																</a>
 															</li>
 															<li class="list-inline-item">
-																<a class="delete" href="">
+																<a class="delete" href="/delete_product/{{id}}">
 																	<i class="fa fa-trash"></i>
 																</a>
 															</li>
 														</ul>
 													</div>
                                                     <div>
-															<a class="btn btn-main-sm " style="width:100px; margin-top:2px;">Hay ofertas</a>	
+														<a class="btn btn-main-sm " style="width:100px; margin-top:2px;">Hay ofertas</a>	
                                                     </div>
 												</td>
 											</tr>
-											<tr>
-
-												<td class="product-thumb">
-													<img width="200px" height="auto" src="images/products/products-2.jpg" alt="image description">
-												</td>
-												<td class="product-details" style="padding-left:20px">
-													<h3 class="title">Study Table Combo</h3>
-													<span class="add-id">
-														<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
-													<span>
-														<strong>Subido: </strong>
-														<time>Jun 27, 2017</time>
-													</span>
-													<span class="status active">
-														<strong>Estado</strong>Activo</span>
-													<span class="location">
-														<strong>Localización</strong>Móstoles, Madrid</span>
-												</td>
-												<td class="product-category">
-													<span class="categories">Electrónica e informática</span>
-												</td>
-												<td class="action" data-title="Action" style="padding-left:20px">
-													<div class="">
-														<ul class="list-inline justify-content-center">
-															<li class="list-inline-item">
-																<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-																	<i class="fa fa-eye"></i>
-																</a>
-															</li>
-															<li class="list-inline-item">
-																<a class="edit" href="">
-																	<i class="fa fa-pencil"></i>
-																</a>
-															</li>
-															<li class="list-inline-item">
-																<a class="delete" href="">
-																	<i class="fa fa-trash"></i>
-																</a>
-															</li>
-														</ul>
-													</div>
-                                                    <div>
-															<a class="btn btn-main-sm" style="width:100px; margin-top:2px;">Vendido</a>	
-                                                    </div>
-												</td>
-											</tr>
-											<tr>
-
-												<td class="product-thumb">
-													<img width="200px" height="auto" src="images/products/ipad-pro-12in.jpg" alt="image description">
-												</td>
-												<td class="product-details" style="padding-left:20px">
-													<h3 class="title">Ipad Pro</h3>
-													<span class="add-id">
-														<strong>ID producto:</strong> ng3D544444PajQrM</span>
-													<span>
-														<strong>Subido: </strong>
-														<time>May 28, 2017</time>
-													</span>
-													<span class="status active">
-														<strong>Estado</strong>Activo</span>
-													<span class="location">
-														<strong>Localización</strong>Móstoles, Madrid</span>
-												</td>
-												<td class="product-category">
-													<span class="categories">Electrónica e informática</span>
-												</td>
-												<td class="action" data-title="Action" style="padding-left:20px">
-													<div class="">
-														<ul class="list-inline justify-content-center">
-															<li class="list-inline-item">
-																<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-																	<i class="fa fa-eye"></i>
-																</a>
-															</li>
-															<li class="list-inline-item">
-																<a class="edit" href="">
-																	<i class="fa fa-pencil"></i>
-																</a>
-															</li>
-															<li class="list-inline-item">
-																<a class="delete" href="">
-																	<i class="fa fa-trash"></i>
-																</a>
-															</li>
-														</ul>
-													</div>
-                                                    <div>
-															<a class="btn btn-main-sm" style="width:100px; margin-top:2px;">Vendido</a>	
-                                                    </div>
-												</td>
-											</tr>
-											<tr>
-
-												<td class="product-thumb">
-													<img width="200px" height="auto" src="images/products/products-4.jpg" alt="image description">
-												</td>
-												<td class="product-details" style="padding-left:20px">
-													<h3 class="title">Macbook Pro 15inch</h3>
-													<span class="add-id">
-														<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
-													<span>
-														<strong>Subido: </strong>
-														<time>Jun 27, 2017</time>
-													</span>
-													<span class="status active">
-														<strong>Estado</strong>Activo</span>
-													<span class="location">
-														<strong>Localización</strong>Móstoles, Madrid</span>
-												</td>
-												<td class="product-category">
-													<span class="categories">Electrónica e informática</span>
-												</td>
-												<td class="action" data-title="Action" style="padding-left:20px">
-													<div class="">
-														<ul class="list-inline justify-content-center">
-															<li class="list-inline-item">
-																<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-																	<i class="fa fa-eye"></i>
-																</a>
-															</li>
-															<li class="list-inline-item">
-																<a class="edit" href="">
-																	<i class="fa fa-pencil"></i>
-																</a>
-															</li>
-															<li class="list-inline-item">
-																<a class="delete" href="">
-																	<i class="fa fa-trash"></i>
-																</a>
-															</li>
-														</ul>
-                                                        <div>
-															<a class="btn btn-main-sm" style="width:100px; margin-top:2px;">Vendido</a>	
-                                                        </div>
-													</div>
-												</td>
-											</tr>
-											<tr>
-
-												<td class="product-thumb">
-													<img width="200px" height="auto" src="images/products/products-1.jpg" alt="image description">
-												</td>
-												<td class="product-details" style="padding-left:20px">
-													<h3 class="title">Macbook Pro 15inch</h3>
-													<span class="add-id">
-														<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
-													<span>
-														<strong>Subido: </strong>
-														<time>Jun 27, 2017</time>
-													</span>
-													<span class="status active">
-														<strong>Estado</strong>Activo</span>
-													<span class="location">
-														<strong>Localización</strong>Móstoles, Madrid</span>
-												</td>
-												<td class="product-category">
-													<span class="categories">Electrónica e informática</span>
-												</td>
-												<td class="action" data-title="Action" style="padding-left:20px">
-													<div class="">
-														<ul class="list-inline justify-content-center">
-															<li class="list-inline-item">
-																<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-																	<i class="fa fa-eye"></i>
-																</a>
-															</li>
-															<li class="list-inline-item">
-																<a class="edit" href="">
-																	<i class="fa fa-pencil"></i>
-																</a>
-															</li>
-															<li class="list-inline-item">
-																<a class="delete" href="">
-																	<i class="fa fa-trash"></i>
-																</a>
-															</li>
-														</ul>
-													</div>
-                                                    <div>
-															<a class="btn btn-main-sm" style="width:100px; margin-top:2px;">Vendido</a>	
-                                                    </div>
-												</td>
-											</tr>
+                            					{{/products}}											
 										</tbody>
 									</table>
 
