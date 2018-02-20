@@ -26,4 +26,9 @@ public class ProductServices {
 		return  productRepository.findAll();
 	}
 
+	public Product findOne(long id) {
+		// TODO Auto-generated method stub
+		return productRepository.findOne(id);
+	}
+
 }

@@ -42,11 +42,11 @@ public class IndexController {
 
 		ArrayList<String> tags = new ArrayList<>();
 		String[] a = new String[2];
-		a[0] = "titulo";
-		a[1] = "hi";
+		a[0] = "CPU";
+		a[1] = "4,1GHZ";
 		especificaciones.add(a);
 		tags.add("tag1");
-		Product p1 = new Product("Mack", "es la leche", especificaciones, tags, 300);
+		Product p1 = new Product("Macbook Pro 2017", "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.", especificaciones, tags, 300);
 		repository.save(p1);
 		Product p2 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
 				"								espacio", especificaciones, tags, 300);

@@ -58,7 +58,7 @@ public class Product {
 	
 	@Override
 	public String toString() {
-		return "Producto [nombre=" + name + "]";
+		return "Producto [nombre=" + name + " y especificaciones: " + especifications + "]";
 	}
 
 	public long getId() {

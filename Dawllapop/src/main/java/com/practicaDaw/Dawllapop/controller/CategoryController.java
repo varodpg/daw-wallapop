@@ -9,8 +9,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
@@ -73,6 +75,14 @@ public class CategoryController {
 		
 		}
 
-		
+		@RequestMapping("category/{id}")
+		public String Product(Model model, @PathVariable int id ) {
+			
+			Product p=prs.findOne(id);
+			model.addAttribute("product",p);
+			
+			System.out.println(p);
+			return "single";
+		}
 
 }
