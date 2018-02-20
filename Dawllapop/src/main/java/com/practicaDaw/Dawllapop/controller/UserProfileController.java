@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import javax.annotation.PostConstruct;
+import com.practicaDaw.Dawllapop.security.*;
 
 @Controller
 
@@ -34,12 +35,11 @@ public class UserProfileController {
 
 
 
-        User u = new User("Alvaro", "varoTheBestNoob@hotmail.com", "soy tontito", "Mostoles", Rol.User);
+        User u = new User("Alvaro", "varo@hotmail.com","", "password",true, "Mostoles", "ROLE_ADMIN");
         repository.save(u);
-		User u2 = new User("Juanma", "juanmaaa@hotmail.com", "el pro", "Alcorcon", Rol.Admin);
+		User u2 = new User("Juanma", "tengomuchosproblemas@hotmail.com","", "tonto",true, "Alcorocn", "ROLE_USER");
 		repository.save(u);
 		repository.save(u2);
-
 
 	}
 

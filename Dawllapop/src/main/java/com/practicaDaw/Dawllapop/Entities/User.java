@@ -11,15 +11,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+
 @Entity
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String name, email, location;
+	
+	private String name;
 	private String passwordHash;
-	private Rol rol;
+	private String email;
+	private String location;
+	private String image;
+	private boolean activatedUser;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
@@ -31,12 +38,13 @@ public class User {
 		
 	}
 
-	public User(String name, String email, String passwordHash, String location,Rol rol) {
+	public User(String name, String email, String image, String passwordHash, boolean activedUser, String location,String...roles) {
 		this.name = name;
 		this.email=email;
+		this.image = image;
 		this.location=location;
-		this.passwordHash=passwordHash;
-		this.rol=rol;
+		this.passwordHash= new BCryptPasswordEncoder().encode(passwordHash);
+		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 	
 	public String getName() {
@@ -84,6 +92,22 @@ public class User {
 
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	public boolean isActivatedUser() {
+		return activatedUser;
+	}
+
+	public void setActivatedUser(boolean activatedUser) {
+		this.activatedUser = activatedUser;
 	}
 	
 }
