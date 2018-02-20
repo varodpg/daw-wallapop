@@ -25,9 +25,9 @@ public class UserProfileController {
 
 
 
-        User u = new User("Alvaro", "varoTheBestNoob@hotmail.com", "soy tontito", "Mostoles", Rol.User);
+        User u = new User("user", "email@hotmail.com", "userpass", "Mostoles", "ROLE_USER");
         repository.save(u);
-		User u2 = new User("Juanma", "juanmaaa@hotmail.com", "el pro", "Alcorcon", Rol.Admin);
+		User u2 = new User("admin", "email2@hotmail.com", "adminpass", "Alcorcon", "ROLE_ADMIN");
 		repository.save(u);
 		repository.save(u2);
 
