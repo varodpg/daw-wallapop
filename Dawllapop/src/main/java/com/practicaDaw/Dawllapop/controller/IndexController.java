@@ -46,32 +46,32 @@ public class IndexController {
 		a[1] = "4,1GHZ";
 		especificaciones.add(a);
 		tags.add("tag1");
-		Product p1 = new Product("Macbook Pro 2017", "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.", especificaciones, tags, 300);
-		repository.save(p1);
-		Product p2 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
-				"								espacio", especificaciones, tags, 300);
-		repository.save(p2);
-		Product p3 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
-				"								pequeñas", especificaciones, tags, 300);
-		repository.save(p3);
-		Product p4 = new Product("Nokia 8998", "Nunca se Rompe", especificaciones, tags, 300);
-		repository.save(p4);
-		Product p5 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-		repository.save(p5);
-		Product p6 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-		repository.save(p6);
-		Product p7 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-		repository.save(p7);
-		Product p8 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-		repository.save(p8);
-		Product p9 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-		repository.save(p9);
-		Product p10 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
-				"								espacio", especificaciones, tags, 300);
-		repository.save(p10);
-		Product p11 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
-				"								pequeñas", especificaciones, tags, 300);
-		repository.save(p11);
+//		Product p1 = new Product("Macbook Pro 2017", "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.", especificaciones, tags, 300);
+//		repository.save(p1);
+//		Product p2 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
+//				"								espacio", especificaciones, tags, 300);
+//		repository.save(p2);
+//		Product p3 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
+//				"								pequeñas", especificaciones, tags, 300);
+//		repository.save(p3);
+//		Product p4 = new Product("Nokia 8998", "Nunca se Rompe", especificaciones, tags, 300);
+//		repository.save(p4);
+//		Product p5 = new Product("Mack", "es la leche", especificaciones, tags, 300);
+//		repository.save(p5);
+//		Product p6 = new Product("Mack", "es la leche", especificaciones, tags, 300);
+//		repository.save(p6);
+//		Product p7 = new Product("Mack", "es la leche", especificaciones, tags, 300);
+//		repository.save(p7);
+//		Product p8 = new Product("Mack", "es la leche", especificaciones, tags, 300);
+//		repository.save(p8);
+//		Product p9 = new Product("Mack", "es la leche", especificaciones, tags, 300);
+//		repository.save(p9);
+//		Product p10 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
+//				"								espacio", especificaciones, tags, 300);
+//		repository.save(p10);
+//		Product p11 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
+//				"								pequeñas", especificaciones, tags, 300);
+//		repository.save(p11);
 	}
 
 	@RequestMapping("/")
