@@ -13,9 +13,6 @@ import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 public class AppController {
 
 	
-	@RequestMapping("/")
-	public String index() {	
-		return "index";
-	}
+
 
 }
