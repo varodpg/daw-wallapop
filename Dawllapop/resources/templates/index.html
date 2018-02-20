@@ -143,6 +143,7 @@
 <div class="modal fade" id="login_modal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
+
 		<div class="modal-content">
 			<div class="modal-body">
 				<div class="row justify-content-md-center login-img">
@@ -192,71 +193,74 @@
 <div class="modal fade" id="signup_modal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-body">
-				<div class="row justify-content-md-center login-img">
-					<div class="col-12 col-md-auto">
-						<img src="images/logoNuevo.png">
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="signup_username">Usuario</label> <input
-						id="signup_username" type="text" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="signup_password1">Contraseña</label> <input
-						id="signup_password1" type="password" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="signup_password2">Repita la contraseña</label> <input
-						id="signup_password2" type="password" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="signup_email">Correo Electrónico</label> <input
-						id="signup_email" type="password" class="form-control">
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<label for="signup_provincia">Provincia</label> <select
-							class="form-control w-bg" id="signup_provincia">
-							<option selected>Provincia</option>
-							<option>Madrid</option>
-						</select>
-					</div>
-					<div class="col-md-6">
-						<label for="signup_ciudad">Ciudad</label> <select
-							class="form-control w-bg" id="signup_ciudad">
-							<option selected>Ciudad</option>
-							<option>Madrid</option>
-							<option>Alcorcón</option>
-							<option>Mostoles</option>
-						</select>
-					</div>
-				</div>
-				<div class="row justify-content-md-center login-img">
-					<div class="col-12 col-md-auto add-img-btn"
-						onclick="open_file_browser_profile()" id="signup_img">
-						<span class="add-img-icon">+</span> <br> <span>Imagen
-							de Perfil</span>
-					</div>
-					<input id="profile_img_input" type="file" style="display: none"
-						onchange="preview_profile_image()">
-				</div>
-				<div class="row justify-content-md-center">
-					<div class="col-12 col-md-auto btn-enter-div">
-						<div class="row">
-							<div class="col-md-6">
-								<button class="btn btn-transparent btn-enter">Cancelar</button>
-							</div>
-							<div class="col-md-6">
-								<button class="btn btn-main btn-enter">Enviar</button>
-							</div>
+		<form action="add_new_user" method="post" id="form_add_user"
+			modelAttribute="user">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div class="row justify-content-md-center login-img">
+						<div class="col-12 col-md-auto">
+							<img src="images/logoNuevo.png">
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
+					<div class="form-group">
+						<label for="signup_username">Usuario</label> <input
+							id="signup_username" type="text" class="form-control" name="name">
+					</div>
+					<div class="form-group">
+						<label for="signup_password1">Contraseña</label> <input
+							id="signup_password1" type="password" class="form-control name="passwordHash">
+					</div>
+					<div class="form-group">
+						<label for="signup_password2">Repita la contraseña</label> <input
+							id="signup_password2" type="password" class="form-control" name="passwordHash">
+					</div>
+					<div class="form-group">
+						<label for="signup_email">Correo Electrónico</label> <input
+							id="signup_email" type="text" class="form-control" name="email">
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<label for="signup_provincia">Provincia</label> <select
+								class="form-control w-bg" id="signup_provincia">
+								<option selected>Provincia</option>
+								<option>Madrid</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<label for="signup_ciudad">Ciudad</label> <select name="location"
+								class="form-control w-bg" id="signup_ciudad">
+								<option selected>Ciudad</option>
+								<option value="Madrid">Madrid</option>
+								<option value="Alcorcon">Alcorcón</option>
+								<option value="Mostoles">Mostoles</option>
+							</select>
+						</div>
+					</div>
+					<div class="row justify-content-md-center login-img">
+						<div class="col-12 col-md-auto add-img-btn"
+							onclick="open_file_browser_profile()" id="signup_img">
+							<span class="add-img-icon">+</span> <br> <span>Imagen
+								de Perfil</span>
+						</div>
+						<input id="profile_img_input" type="file" style="display: none"
+							onchange="preview_profile_image()">
+					</div>
+					<div class="row justify-content-md-center">
+						<div class="col-12 col-md-auto btn-enter-div">
+							<div class="row">
+								<div class="col-md-6">
+									<button class="btn btn-transparent btn-enter">Cancelar</button>
+								</div>
+								<div class="col-md-6">
+									<button class="btn btn-main btn-enter">Enviar</button>
+								</div>
+							</div>
+		</form>
 	</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <!--===================================
 =            Client Slider            =
@@ -523,9 +527,9 @@
 				<!-- product card -->
 				<div class="product-item bg-light">
 					<div class="card">
-						
+
 						<div class="thumb-content">
-						
+
 							<!-- <div class="price">$200</div> -->
 							<a href="../templates/single.html"> <img
 								class="card-img-top img-fluid"

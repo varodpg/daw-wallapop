@@ -23,3 +23,7 @@ function preview_profile_image(){
         reader.readAsDataURL(file);
     }
 }
+function add_user(){
+   
+    $('#form_add_user').submit();
+}

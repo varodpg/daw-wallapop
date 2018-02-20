@@ -31,11 +31,11 @@ public class User {
 		
 	}
 
-	public User(String name, String email, String password, String location,Rol rol) {
+	public User(String name, String email, String passwordHash, String location,Rol rol) {
 		this.name = name;
 		this.email=email;
 		this.location=location;
-		this.passwordHash=password;
+		this.passwordHash=passwordHash;
 		this.rol=rol;
 	}
 	
