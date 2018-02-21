@@ -140,6 +140,8 @@
 <!--===================================
 =            Login Modal Section      =
 ====================================-->
+
+
 <div class="modal fade" id="login_modal" tabindex="-1" role="dialog"
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
@@ -151,13 +153,14 @@
 						<img src="images/logoNuevo.png">
 					</div>
 				</div>
+				<form action="/login" method="post">
 				<div class="form-group-login">
 					<div class="row justify-content-md-center">
 						<div class="col-12 col-md-auto input-group input-group-login">
 							<span class="input-group-addon" id="sizing-addon2"><i
 								class="fa fa-user"></i></span> <input type="text"
 								class="form-control tf-login" placeholder="Usuario"
-								aria-describedby="sizing-addon2">
+								aria-describedby="sizing-addon2" name="username">
 						</div>
 					</div>
 					<div class="row justify-content-md-center" style="margin-top: 20px">
@@ -165,12 +168,13 @@
 							<span class="input-group-addon" id="sizing-addon2"><i
 								class="fa fa-lock"></i></span> <input type="password"
 								class="form-control tf-login" placeholder="Contraseña"
-								aria-describedby="sizing-addon2">
+								aria-describedby="sizing-addon2" name="password">
 						</div>
 					</div>
 					<div class="row justify-content-md-center">
 						<div class="col-12 col-md-auto btn-enter-div">
-							<button class="btn btn-main btn-enter">Entrar</button>
+							<input type="submit" value="Entrar" class="btn btn-main btn-enter" /><br/>
+							<input type="hidden" name="_csrf"/>
 						</div>
 					</div>
 					<div class="row justify-content-md-center login-footer"
@@ -183,10 +187,12 @@
 						</div>
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
+
 <!--===================================
   =            SignUp Modal Section     =
   ====================================-->

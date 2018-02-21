@@ -42,6 +42,7 @@ public class User {
 		this.name = name;
 		this.email=email;
 		this.image = image;
+		this.activatedUser=activedUser;
 		this.location=location;
 		this.passwordHash= new BCryptPasswordEncoder().encode(passwordHash);
 		this.roles = new ArrayList<>(Arrays.asList(roles));
@@ -108,6 +109,11 @@ public class User {
 
 	public void setActivatedUser(boolean activatedUser) {
 		this.activatedUser = activatedUser;
+	}
+	@Override
+	public String toString() {
+		return this.name;
+		
 	}
 	
 }
