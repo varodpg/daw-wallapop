@@ -55,7 +55,7 @@ public class CategoryController {
 			return "category";
 		}
 		
-		@RequestMapping("/producto")
+		@RequestMapping("/product")
 		public @ResponseBody
 		Product getProduct() {
 			return new Product("MC", "es la lecheW", 300);

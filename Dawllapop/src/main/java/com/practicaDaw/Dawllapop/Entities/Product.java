@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.springframework.stereotype.Component;
@@ -25,24 +26,25 @@ public class Product {
 	private ArrayList<String[]> especifications;
 	private ArrayList<String> tags;
 	private double price;
-	private ArrayList<Image> images;
-	
+	private ArrayList<String> images;
+	private String mainImage;
 	@OneToOne(cascade=CascadeType.ALL)
 	private Category category;
 	
 	protected Product() {
 	}
 	
-	public Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price, ArrayList<Image> images) {
+	public Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price, ArrayList<String> images) {
 		this.name=name;
 		this.description=description;
 		this.especifications=especifications;
 		this.tags=tags;
 		this.price=price;
 		this.images = images;
+		this.mainImage = images.get(0);
 	}
 	
-	public Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price, Category category, ArrayList<Image> images) {
+	public Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price, Category category, ArrayList<String> images) {
 		this.name=name;
 		this.description=description;
 		this.especifications=especifications;
@@ -139,18 +141,18 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	public ArrayList<Image> getImages() {
-		return this.images;
-	}
-	public void removeImage(Image image) {
-		if(this.images.contains(image)) {
-			images.remove(image);
-		}
-	}
-	public void addImage(Image image) {
-		this.images.add(image);
-	}
-	public void removeAllImages() {
-		this.images.clear();
-	}
+//	public ArrayList<Image> getImages() {
+//		return this.images;
+//	}
+//	public void removeImage(Image image) {
+//		if(this.images.contains(image)) {
+//			images.remove(image);
+//		}
+//	}
+//	public void addImage(Image image) {
+//		this.images.add(image);
+//	}
+//	public void removeAllImages() {
+//		this.images.clear();
+//	}
 }

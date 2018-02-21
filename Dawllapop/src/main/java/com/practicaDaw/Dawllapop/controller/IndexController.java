@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
@@ -39,15 +40,22 @@ public class IndexController {
 	@PostConstruct
 	public void init() {
 		ArrayList<String[]> especificaciones = new ArrayList<>();
-
+		
 		ArrayList<String> tags = new ArrayList<>();
 		String[] a = new String[2];
 		a[0] = "CPU";
 		a[1] = "4,1GHZ";
 		especificaciones.add(a);
 		tags.add("tag1");
-//		Product p1 = new Product("Macbook Pro 2017", "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.", especificaciones, tags, 300);
-//		repository.save(p1);
+		ArrayList<String> images = new ArrayList();
+		String img1 = "image-0.jpg";
+		String img2 = "image-1.jpg";
+//
+		images.add(img1);
+		images.add(img2);
+//		
+		Product p1 = new Product("Macbook Pro 2017", "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.", especificaciones, tags, 300,images);
+		repository.save(p1);
 //		Product p2 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
 //				"								espacio", especificaciones, tags, 300);
 //		repository.save(p2);

@@ -281,7 +281,12 @@
 										<br>
 										<span>Añadir imagen</span>
 									</div>
-									<input id="file_input" type="file" style="display:none" onchange="preview_image()">
+									<form action="/images/upload" method="post"
+									enctype="multipart/form-data">
+										<p>
+											<input id="file_input" type="file" name="file "style="display:none" onchange="preview_image()">
+										</p>
+									</form>
 								</div>
 							</div>
 						</div>

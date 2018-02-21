@@ -25,7 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 public class ImageManagerController {
 
-	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "files");
+	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "ImgFiles");
 
 	private AtomicInteger imageId = new AtomicInteger();
 	private Map<String, Image> images = new ConcurrentHashMap<>();
@@ -40,12 +40,12 @@ public class ImageManagerController {
 
 
 
-	@RequestMapping(value = "/images/upload", method = RequestMethod.POST)
-	public String handleFileUpload(Model model, @RequestParam("imageTitle") String imageTitle,
+	@RequestMapping(value = "/imgs/upload", method = RequestMethod.POST)
+	public String handleFileUpload(Model model,
 			@RequestParam("file") MultipartFile file) {
 
 		String fileName = "image-" + imageId.getAndIncrement() + ".jpg";
-
+		String imageTitle = file.getName(); //the title is the name of the uploaded image
 		if (!file.isEmpty()) {
 			try {
 
@@ -74,14 +74,14 @@ public class ImageManagerController {
 	// NOTE: The url format "/image/{fileName:.+}" avoid Spring MVC remove file
 	// extension.
 
-	@RequestMapping("/images/{fileName:.+}")
+	@RequestMapping("/imgs/{fileName:.+}")
 	public void handleFileDownload(@PathVariable String fileName, HttpServletResponse res)
 			throws FileNotFoundException, IOException {
 
 		Path image = FILES_FOLDER.resolve(fileName);
 
 		if (Files.exists(image)) {
-			res.setContentType("images/jpeg");
+			res.setContentType("imgs/jpeg");
 			res.setContentLength((int) image.toFile().length());
 			FileCopyUtils.copy(Files.newInputStream(image), res.getOutputStream());
 
