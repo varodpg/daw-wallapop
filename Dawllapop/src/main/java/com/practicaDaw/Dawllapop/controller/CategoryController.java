@@ -74,7 +74,7 @@ public class CategoryController {
 		
 		}
 
-		@RequestMapping("category/{id}")
+		@RequestMapping("category/#{id}")
 		public String Product(Model model, @PathVariable int id ) {
 			
 			Product p=prs.findOne(id);
@@ -84,17 +84,22 @@ public class CategoryController {
 			return "single";
 		}
 		
-		@RequestMapping("/category/infor")
-		public String CategoriaInfor(Model model, @PageableDefault(size = 10) Pageable page) {
+		@RequestMapping("/category/{cat_id}")
+		public String CategoriaInfor(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat_id) {
 			
-			Page<Product> products = prs.getAllProducts(page);
+			Category cat_inf = repository.getOne(cat_id);
+			
+			Page<Product> products = prs.getAllbyCat(page, cat_inf);
 
 			model.addAttribute("products", products);
 			
-			model.addAttribute("morePages", prs.getAllbyCat(page).isFirst());
+			model.addAttribute("morePages", prs.getAllbyCat(page, cat_inf).isFirst());
 
 			
 			return "category";
+			
 		}
+		
+		
 
 }
