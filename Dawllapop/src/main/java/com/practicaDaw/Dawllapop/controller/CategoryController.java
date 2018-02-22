@@ -96,7 +96,7 @@ public class CategoryController {
 		
 		}
 
-		@RequestMapping("category/#{id}")
+		@RequestMapping("category/p{id}")
 		public String Product(Model model, @PathVariable int id ) {
 			
 			Product p=prs.findOne(id);
