@@ -12,4 +12,5 @@ import antlr.collections.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> findAll(Pageable pageable);
 	Page<Product> findByCategory(Pageable pageable, Category categoria);
+	Long countByCategory(Category categoria);
 }

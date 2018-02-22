@@ -60,39 +60,64 @@ public class IndexController {
 		
 		images.add(img1);
 		images.add(img2);
-	
+		
+		//creating categories entities
 		Category c1 = new Category("Informatica");
 		c_repository.save(c1);
+		Category c2 = new Category("Inmobiliaria");
+		c_repository.save(c2);
+		Category c3 = new Category("Ocio");
+		c_repository.save(c3);
+		
 		Product p1 = new Product("Macbook Pro 2017", "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.", especificaciones, tags, 300,images);		
 		p1.setCategory(c1);
-		
 		p_repository.save(p1);
 		// end example
 		
-//		Product p2 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
-//				"								espacio", especificaciones, tags, 300);
-//		repository.save(p2);
-//		Product p3 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
-//				"								pequeñas", especificaciones, tags, 300);
-//		repository.save(p3);
-//		Product p4 = new Product("Nokia 8998", "Nunca se Rompe", especificaciones, tags, 300);
-//		repository.save(p4);
-//		Product p5 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-//		repository.save(p5);
-//		Product p6 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-//		repository.save(p6);
-//		Product p7 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-//		repository.save(p7);
-//		Product p8 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-//		repository.save(p8);
-//		Product p9 = new Product("Mack", "es la leche", especificaciones, tags, 300);
-//		repository.save(p9);
-//		Product p10 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
-//				"								espacio", especificaciones, tags, 300);
-//		repository.save(p10);
-//		Product p11 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
-//				"								pequeñas", especificaciones, tags, 300);
-//		repository.save(p11);
+		//Creating more products
+		Product p2 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
+				"								espacio", especificaciones, tags, 300,images);
+		p2.setCategory(c1);
+		p_repository.save(p2);
+		Product p3 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
+				"								pequeñas", especificaciones, tags, 300,images);
+		p3.setCategory(c2);
+		p_repository.save(p3);
+		Product p4 = new Product("Nokia 8998", "Nunca se Rompe", especificaciones, tags, 300,images);
+		p4.setCategory(c2);
+		p_repository.save(p4);
+		Product p5 = new Product("Mack", "es la leche", especificaciones, tags, 300,images);
+		p5.setCategory(c2);
+		p_repository.save(p5);
+		Product p6 = new Product("Mack", "es la leche", especificaciones, tags, 300,images);
+		p6.setCategory(c2);
+		p_repository.save(p6);
+		Product p7 = new Product("Mack", "es la leche", especificaciones, tags, 300,images);
+		p7.setCategory(c2);
+		p_repository.save(p7);
+		Product p8 = new Product("Mack", "es la leche", especificaciones, tags, 300,images);
+		p8.setCategory(c2);
+		p_repository.save(p8);
+		Product p9 = new Product("Mack", "es la leche", especificaciones, tags, 300,images);
+		p9.setCategory(c2);
+		p_repository.save(p9);
+		Product p10 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
+				"								espacio", especificaciones, tags, 300,images);
+		p10.setCategory(c2);
+		p_repository.save(p10);
+		Product p11 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
+				"								pequeñas", especificaciones, tags, 300,images);
+		p11.setCategory(c2);
+		p_repository.save(p11);
+		Product p12 = new Product("Mack", "es la leche", especificaciones, tags, 300,images);
+		p12.setCategory(c2);
+		p_repository.save(p12);
+		Product p13 = new Product("Mack", "es la leche", especificaciones, tags, 300,images);
+		p13.setCategory(c2);
+		p_repository.save(p13);
+		Product p14 = new Product("Mack", "es la leche", especificaciones, tags, 300,images);
+		p14.setCategory(c2);
+		p_repository.save(p14);
 	}
 
 	@RequestMapping("/")

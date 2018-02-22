@@ -22,7 +22,12 @@ public class ProductServices {
 	public Page<Product> getAllProducts(Pageable page) {
 		return productRepository.findAll(page);
 	}
+	
+	public long getNumberOfProductsByCat(Category cat) {
+		return productRepository.countByCategory(cat);
+	}
 
+	
 	public List<Product> getAllProducts() {
 		return  productRepository.findAll();
 	}
@@ -34,4 +39,6 @@ public class ProductServices {
 	public Page<Product> getAllbyCat(Pageable page, Category cat) {
 		return productRepository.findByCategory(page, cat);
 	}
+	
+	
 }

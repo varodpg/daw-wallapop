@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.List;
 
 @Entity
@@ -17,6 +21,7 @@ public class Category {
 	private String name;
 	
 	@OneToMany(mappedBy="category")
+	@JsonBackReference
 	private List<Product> productos; 
 	
 	public Category() {

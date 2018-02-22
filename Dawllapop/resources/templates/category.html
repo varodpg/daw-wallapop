@@ -128,7 +128,7 @@
 				<div class="col-md-12">
 					<div class="search-result bg-gray">
 						<h2>Estos son los Resultados para la categoria seleccionada</h2>
-						<p>8 Resultados obtenidos</p>
+						<p>{{numberOfProducts}} Resultados obtenidos</p>
 					</div>
 				</div>
 			</div>
@@ -139,28 +139,28 @@
 							<h4 class="widget-header">Todas las categorias</h4>
 							<ul class="category-list">
 								<li>
-									<a href="category">Electrónica e Informática
-										<span>2</span>
+									<a href="1">Electrónica e Informática
+										<span>{{num1}}</span>
 									</a>
 								</li>
 								<li>
-									<a href="category">Inmobiliaria
-										<span>1</span>
+									<a href="2">Inmobiliaria
+										<span>{{num2}}</span>
 									</a>
 								</li>
 								<li>
-									<a href="category">Deportes y Ocio
-										<span>1</span>
+									<a href="3">Deportes y Ocio
+										<span>{{num3}}</span>
 									</a>
 								</li>
 								<li>
-									<a href="category.html">Consolas y Videojuegos
-										<span>2</span>
+									<a href="4">Consolas y Videojuegos
+										<span>{{num4}}</span>
 									</a>
 								</li>
 								<li>
-									<a href="category.html">Moda
-										<span>2</span>
+									<a href="5">Moda
+										<span>{{num5}}</span>
 									</a>
 								</li>
 							</ul>
@@ -191,41 +191,34 @@
 								</li>
 							</ul>
 						</div>
-
+						
+						<form action="/filter" method="POST">
 						<div class="widget filter">
-							<h4 class="widget-header">Mostrar Productos</h4>
-							<select>
-								<option>Popularidad</option>
-								<option value="1">Precio mas caro</option>
-								<option value="2">Precio mas barato</option>
-								<option value="4">Nombre</option>
-							</select>
-						</div>
-
-						<div class="widget price-range">
-							<h4 class="widget-header">Rango del precio</h4>
-							<div class="block">
-								<b>1€</b>
-								<input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"
-								/>
-								<b>30000€</b>
+							<div class="widget price-range">
+								<h4 class="widget-header">Rango del precio</h4>
+								<div class="block">
+									<b>1€</b>
+									<input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"
+									/>
+									<b>30000€</b>
+								</div>
 							</div>
-						</div>
 
-						<div class="widget product-shorting">
-							<h4 class="widget-header">Estado</h4>
-							<div class="form-check">
-								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" value=""> Nuevo
-								</label>
+							<div class="widget product-shorting">
+								<h4 class="widget-header">Estado</h4>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input class="form-check-input" type="checkbox" value=""> Nuevo
+									</label>
+								</div>
+								<div class="form-check">
+									<label class="form-check-label">
+										<input class="form-check-input" type="checkbox" value=""> Seminuevo
+									</label>
+								</div>
 							</div>
-							<div class="form-check">
-								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox" value=""> Seminuevo
-								</label>
-							</div>
-						</div>
-
+					    </div>
+					    </form>
 					</div>
 				</div>
 				<div class="col-md-9"">

@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.practicaDaw.Dawllapop.ImageManager.Image;
 
 @Entity
@@ -31,6 +32,7 @@ public class Product {
 	private String mainImage;
 	
 	@ManyToOne
+	@JsonManagedReference
 	private Category category;
 	
 	protected Product() {
