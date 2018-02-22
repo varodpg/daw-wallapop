@@ -26,7 +26,7 @@ public class Add_productController {
 		return "add_product";
 	}
 
-	@RequestMapping("/add_new_product")
+	@RequestMapping("/add-new-product")
 	public String add_new_product(Model model, Product product){
 		product.setState("on_sale");
 		repository.save(product);
