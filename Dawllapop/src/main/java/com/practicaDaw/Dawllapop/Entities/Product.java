@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import org.springframework.stereotype.Component;
 
@@ -28,7 +29,8 @@ public class Product {
 	private double price;
 	private ArrayList<String> images;
 	private String mainImage;
-	@OneToOne(cascade=CascadeType.ALL)
+	
+	@ManyToOne
 	private Category category;
 	
 	protected Product() {
@@ -50,7 +52,6 @@ public class Product {
 		this.especifications=especifications;
 		this.tags=tags;
 		this.price=price;
-		this.category = category;
 		this.images = images;
 	}
 	
@@ -65,7 +66,6 @@ public class Product {
 		this.name=name;
 		this.description=description;
 		this.price=price;
-		this.category = category;
 	}
 	
 	public String getName() {
@@ -137,10 +137,11 @@ public class Product {
 	public Category getCategory() {
 		return category;
 	}
-	
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
 //	public ArrayList<Image> getImages() {
 //		return this.images;
 //	}

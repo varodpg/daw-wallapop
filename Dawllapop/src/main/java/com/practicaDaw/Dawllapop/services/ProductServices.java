@@ -27,8 +27,10 @@ public class ProductServices {
 	}
 
 	public Product findOne(long id) {
-		// TODO Auto-generated method stub
 		return productRepository.findOne(id);
 	}
 
+	public Page<Product> getAllbyCat(Pageable page) {
+		return productRepository.findAll(page);
+	}
 }

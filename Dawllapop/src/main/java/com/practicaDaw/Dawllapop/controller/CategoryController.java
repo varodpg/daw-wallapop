@@ -37,8 +37,7 @@ public class CategoryController {
 		
 		@PostConstruct
 		public void init() {
-			Category c= new Category("Informatica");
-			repository.save(c);
+
 		}
 
 
@@ -83,6 +82,19 @@ public class CategoryController {
 			
 			System.out.println(p);
 			return "single";
+		}
+		
+		@RequestMapping("/category/infor")
+		public String CategoriaInfor(Model model, @PageableDefault(size = 10) Pageable page) {
+			
+			Page<Product> products = prs.getAllProducts(page);
+
+			model.addAttribute("products", products);
+			
+			model.addAttribute("morePages", prs.getAllbyCat(page).isFirst());
+
+			
+			return "category";
 		}
 
 }
