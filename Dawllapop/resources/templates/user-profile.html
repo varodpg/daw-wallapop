@@ -75,7 +75,7 @@
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
 								<li class="nav-item">
-									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a href="/">Cerrar sesió</a>n</button>
+									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a href="/">Cerrar sesión</a>n</button>
 								</li>	
 							</ul>
 						</div>
@@ -85,7 +85,15 @@
 		</div>
 	</section>
 	
-
+	<div tabindex="-1" class="modal bs-logout-modal-sm" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header"><h4>¿Estás seguro?<i class="fa fa-lock"></i></h4></div>
+				<div class="modal-body"><i class="fa fa-question-circle"></i> ¿Estás seguro de que quieres cerrar sesión?</div>
+				<div class="modal-footer"><a class="btn btn-primary btn-block" href="/">Cerrar Sesión</a></div>
+			</div>
+		</div>
+	</div>
 
 <!--==================================
 =            User Profile            =
@@ -103,8 +111,9 @@
 							<img src="images/user/user-thumb.jpg" alt="" class="rounded-circle">
 						</div>
 						<!-- User Name -->
-						<h5 class="text-center">Paco Ríos</h5>
-						<p>Se unió: 06 de Febrero de 2017</p>
+						<h5 class="text-center">{{user.name}}</h5>
+						<!-- <p>Se unió: 06 de Febrero de 2017</p> -->
+						
 					</div>
 				</div>
 			</div>
@@ -114,11 +123,11 @@
 				<!-- Edit Personal Info -->
 				<div class="widget personal-info">
 					<h3 class="widget-header user">Editar información personal</h3>
-					<form action="edit_user" id="form_edit_user">
+					<form action="editDatesProfileBBDD" id="formEditDatesUser">
 						<!-- First Name -->
 						<div class="form-group">
 						    <label for="first-name">Nombre y Apellidos</label>
-						    <input type="text" class="form-control" id="first-name name="name">
+						    <input type="text" class="form-control" id="first-name" name="name" value="{{user.name}}" placeholder="{{user.name}}">
 						</div>
 						
 						<!-- File chooser -->
@@ -129,7 +138,7 @@
 						<!-- Comunity Name -->
 						<div class="form-group">
 						    <label for="comunity-name">Mi ciudad</label>
-						    <input type="text" class="form-control" id="comunity-name" name="location">
+						    <input type="text" class="form-control" id="comunity-name" name="location" value="{{user.location}}" placeholder="{{user.location}}">
 						</div>
 						
 						<!-- Zip Code 
@@ -144,7 +153,7 @@
 				<!-- Change Password -->
 				<div class="widget change-password">
 					<h3 class="widget-header user">Cambiar contraseña</h3>
-					<form action="#">
+					<form action="editPasswordProfileBBDD" id="formEditPasswordUser">
 						<!-- Current Password -->
 						<div class="form-group">
 						    <label for="current-password">Contraseña actual</label>
@@ -167,34 +176,44 @@
 				<!-- Change Email Address -->
 				<div class="widget change-email mb-0">
 					<h3 class="widget-header user">Cambiar correo electrónico</h3>
-					<form action="#">
+					<form action="editEmailProfileBBDD" id="formEditEMailUser">
 						<!-- Current Password -->
 						<div class="form-group">
 						    <label for="current-email">Correo electrónico actual</label>
-						    <input type="email" class="form-control" id="current-email">
+						    <input type="email" class="form-control" id="current-email" value="{{user.email}}" placeholder="{{user.email}}">
 						</div>
 						<!-- New email -->
 						<div class="form-group">
 						    <label for="new-email">Nuevo correo electrónico</label>
-						    <input type="email" class="form-control" id="new-email">
+						    <input type="email" class="form-control" id="new-email" name="email">
 						</div>
 						<!-- Submit Button -->
 						<button class="btn btn-transparent">Guardar nuevo correo electrónico</button>
+						<div  class="modal bs-delete" role="dialog" aria-hidden="true">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+							<div class="modal-body"> ¿Estás seguro de que quieres eliminar tu cuenta?</div>
+							<div class="modal-footer"><button class="delete_account btn-transparent" link="/">Eliminar cuenta</button></div>
+						</div>
+					</div>
+				</div>
 					</form>
 				</div>
+				<form action="deleteProfileBBDD" id="formDeleteUser">
 				<!-- Delete account-->
 				<div class="widget delete-account mb-0">
 					<button class="delete_account btn-transparent" data-target=".bs-delete" data-toggle="modal"> Eliminar cuenta <i class="fa fa-trash"></i></button>
 				</div>
-
+					
 				<div  class="modal bs-delete" role="dialog" aria-hidden="true">
 					<div class="modal-dialog modal-sm">
 						<div class="modal-content">
 							<div class="modal-body"> ¿Estás seguro de que quieres eliminar tu cuenta?</div>
-							<div class="modal-footer"><button class="delete_account btn-transparent" link="index.html">Eliminar cuenta</button></div>
+							<div class="modal-footer"><button class="delete_account btn-transparent" >Eliminar cuenta</button></div>
 						</div>
 					</div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -322,15 +341,9 @@
   <script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
   <script src="js/scripts.js"></script>
-	<div tabindex="-1" class="modal bs-logout-modal-sm" role="dialog" aria-hidden="true">
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-header"><h4>¿Estás seguro?<i class="fa fa-lock"></i></h4></div>
-				<div class="modal-body"><i class="fa fa-question-circle"></i> ¿Estás seguro de que quieres cerrar sesión?</div>
-				<div class="modal-footer"><a class="btn btn-primary btn-block" href="/">Cerrar Sesión</a></div>
-			</div>
-		</div>
-	</div>
+  <script src="js/login.js"></script>
+  
+
 </body>
 
 </html>

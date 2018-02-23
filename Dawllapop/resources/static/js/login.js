@@ -27,10 +27,18 @@ function add_user(){
    
     $('#form_add_user').submit();
 }
-function edit_user(){
+function editEmailProfileBBDD(){
 	   
-    $('#form_edit_user').submit();
+    $('#formEditEMailUser').submit();
 }
-function delete_user(){	   
-    $('#form_delete_user').submit();
+function editPasswordProfileBBDD(){
+	   
+    $('#formEditPasswordUser').submit();
+}
+function editDatesProfileBBDD(){
+	   
+    $('#formEditDatesUser').submit();
+}
+function deleteUser(){	   
+    $('#formDeleteUser').submit();
 }
