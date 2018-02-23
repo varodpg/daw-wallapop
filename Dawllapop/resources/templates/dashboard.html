@@ -82,7 +82,7 @@
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
 								<li class="nav-item">
-									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a href="/">Cerrar sesión</a> </button>
+									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a>Cerrar sesión</a> </button>
 								</li>	
 							</ul>
 						</div>
@@ -710,15 +710,18 @@
 	<script src="js/scripts.js"></script>
 
 	<!-- MODAL PARA EL LOGOUT -->
+	<form action="logout"id="formDelete">
 	<div tabindex="-1" class="modal bs-logout-modal-sm" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 			<div class="modal-content">
 				<div class="modal-header"><h4>¿Estás seguro?<i class="fa fa-lock"></i></h4></div>
 				<div class="modal-body"><i class="fa fa-question-circle"></i> ¿Estás seguro de que quieres cerrar sesión?</div>
-				<div class="modal-footer"><a class="btn btn-primary btn-block" href="/">Cerrar Sesión</a></div>
+				<div class="modal-footer"><button class="btn btn-primary btn-block" >Cerrar Sesión</button></div>
+				
 			</div>
 		</div>
 	</div>
+	</form>
 </body>
 
 </html>

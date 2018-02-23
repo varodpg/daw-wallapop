@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
+import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
 @Controller
@@ -40,6 +43,8 @@ public class IndexController {
 	private CategoryRepository c_repository;
 	@Autowired
 	private ProductServices prs;
+	@Autowired
+	private  UserRepository  userRepository;
 
 	@PostConstruct
 	public void init() {
@@ -48,6 +53,7 @@ public class IndexController {
 		ArrayList<String[]> especificaciones = new ArrayList<>();
 		
 		ArrayList<String> tags = new ArrayList<>();
+		User user = userRepository.findOne((long) 3);
 		String[] a = new String[2];
 		a[0] = "CPU";
 		a[1] = "4,1GHZ";
@@ -71,6 +77,7 @@ public class IndexController {
 		
 		Product p1 = new Product("Macbook Pro 2017", "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.", "new", especificaciones, tags, 300,images);		
 		p1.setCategory(c1);
+		p1.setUser(user);
 		p_repository.save(p1);
 		// end example
 		
@@ -78,6 +85,7 @@ public class IndexController {
 		Product p2 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
 				"								espacio", "new", especificaciones, tags, 300,images);
 		p2.setCategory(c1);
+		p2.setUser(user);
 		p_repository.save(p2);
 		Product p3 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
 				"								pequeñas", "new", especificaciones, tags, 300,images);
@@ -121,11 +129,15 @@ public class IndexController {
 	}
 
 	@RequestMapping("/")
-	public String Categorias(Model model) {
+	public String Categorias(Model model, Authentication http) {
 
 		List<Product> products = prs.getAllProducts();
 
 		model.addAttribute("products", products);
+		if (http != null) {
+		model.addAttribute("usuario", userRepository.findByName(http.getName()));
+		}
+		System.out.println(model.toString());
 
 		return "index";
 	}
