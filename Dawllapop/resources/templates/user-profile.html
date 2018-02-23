@@ -114,17 +114,13 @@
 				<!-- Edit Personal Info -->
 				<div class="widget personal-info">
 					<h3 class="widget-header user">Editar información personal</h3>
-					<form action="#">
+					<form action="edit_user" id="form_edit_user">
 						<!-- First Name -->
 						<div class="form-group">
-						    <label for="first-name">Nombre</label>
-						    <input type="text" class="form-control" id="first-name">
+						    <label for="first-name">Nombre y Apellidos</label>
+						    <input type="text" class="form-control" id="first-name name="name">
 						</div>
-						<!-- Last Name -->
-						<div class="form-group">
-						    <label for="last-name">Apellido</label>
-						    <input type="text" class="form-control" id="last-name">
-						</div>
+						
 						<!-- File chooser -->
 						<div class="form-group choose-file">
 							<i class="fa fa-user text-center"></i>
@@ -133,20 +129,14 @@
 						<!-- Comunity Name -->
 						<div class="form-group">
 						    <label for="comunity-name">Mi ciudad</label>
-						    <input type="text" class="form-control" id="comunity-name">
+						    <input type="text" class="form-control" id="comunity-name" name="location">
 						</div>
-						<!-- Checkbox -->
-						<div class="form-check">
-						  <label class="form-check-label" for="hide-profile">
-						    <input class="form-check-input" type="checkbox" value="" id="hide-profile">
-						    Ocultar mi perfil
-						  </label>
-						</div>
-						<!-- Zip Code -->
+						
+						<!-- Zip Code 
 						<div class="form-group">
 						    <label for="zip-code">Código Postal</label>
 						    <input type="text" class="form-control" id="zip-code">
-						</div>
+						</div>-->
 						<!-- Submit button -->
 						<button class="btn btn-transparent">Guardar cambios</button>
 					</form>
@@ -163,7 +153,7 @@
 						<!-- New Password -->
 						<div class="form-group">
 						    <label for="new-password">Nueva contraseña</label>
-						    <input type="password" class="form-control" id="new-password">
+						    <input type="password" class="form-control" id="new-password" name="passwordHash">
 						</div>
 						<!-- Confirm New Password -->
 						<div class="form-group">
