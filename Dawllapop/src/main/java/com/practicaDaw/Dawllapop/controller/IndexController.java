@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
+import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
 @Controller
@@ -40,6 +42,8 @@ public class IndexController {
 	private CategoryRepository c_repository;
 	@Autowired
 	private ProductServices prs;
+	@Autowired
+	private  UserRepository  userRepository;
 
 	@PostConstruct
 	public void init() {
@@ -121,11 +125,13 @@ public class IndexController {
 	}
 
 	@RequestMapping("/")
-	public String Categorias(Model model) {
+	public String Categorias(Model model, Authentication http) {
 
 		List<Product> products = prs.getAllProducts();
 
 		model.addAttribute("products", products);
+		model.addAttribute("usuario", (http));
+		System.out.println(model.toString());
 
 		return "index";
 	}
