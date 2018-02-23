@@ -134,7 +134,9 @@ public class IndexController {
 		List<Product> products = prs.getAllProducts();
 
 		model.addAttribute("products", products);
-		model.addAttribute("usuario", (http));
+		if (http != null) {
+		model.addAttribute("usuario", userRepository.findByName(http.getName()));
+		}
 		System.out.println(model.toString());
 
 		return "index";

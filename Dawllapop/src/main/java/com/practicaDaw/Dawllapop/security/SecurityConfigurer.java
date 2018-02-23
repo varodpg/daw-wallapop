@@ -44,6 +44,8 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 		//http.logout().logoutSuccessHandler((rq,rs,a) -> {});
 		
 		 http.authorizeRequests().antMatchers("/dashboard").hasAnyRole("USER");
+		 http.authorizeRequests().antMatchers("/add-new-product").hasAnyRole("USER");
+		 
 	}
 
 	@Override
