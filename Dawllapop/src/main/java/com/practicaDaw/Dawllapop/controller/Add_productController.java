@@ -42,8 +42,15 @@ public class Add_productController {
 	
 	@RequestMapping("/edit_product_db/{id}")
 	public String editProductDb(Model model, Product product, @PathVariable long id) {
-		product.setId(id);
+		product.setId(id);	
 		repository.saveAndFlush(product);		
+		return "/";
+	}
+	
+	@RequestMapping("/deleteProduct/{id}")
+	public String deleteProduct(Model model, @PathVariable long id) {
+		Product product = prs.findOne(id);
+		repository.delete(product);
 		return "/";
 	}
 	
