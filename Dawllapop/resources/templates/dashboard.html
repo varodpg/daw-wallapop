@@ -111,7 +111,7 @@
 							</div>
                             </a>
 							<!-- User Name -->
-							<h5 class="text-center">{{usuario.name}}</h5>
+							<h5 class="text-center"></h5>
 							<p>Se unió: 06 de Febrero de 2017</p>
 							<a href="user-profile" class="btn btn-main-sm">Editar Perfil</a>
 						</div>
@@ -268,18 +268,13 @@
 																		
 																		<!-- Rate --> 
 																		<div class="rate">
-																			<div class="starrr"></div>
+																			<div class="starrr" name="value"></div>
 																		</div>
 																		<div class="review-submit">
-																			<form action="#" class="row">
-																				<div class="col-lg-6">
-																					<input type="text" name="name" id="name" class="form-control" placeholder="Nombre">
-																				</div>
-																				<div class="col-lg-6">
-																					<input type="email" name="email" id="email" class="form-control" placeholder="Email">
-																				</div>
+																			<form action="add_new_assessment" class="row" id="form_add_assessment">	
+																																					
 																				<div class="col-12">
-																					<textarea name="review" id="review" rows="10" class="form-control" placeholder="Mensaje"rows="10" cols="50" style="resize:none"></textarea><br>
+																					<textarea id="review" rows="10" class="form-control" placeholder="Mensaje"rows="10" cols="50" style="resize:none" name="text"></textarea><br>
 																				</div>
 																				<div class="col-12">
 																					<button type="submit" class="btn btn-main">Enviar</button>
@@ -411,87 +406,39 @@
 										<tbody>
 											<tr>
 												<td>
+												
 													<div class="product-review">
+													{{#assessments}}
 														<div class="media">
 															<!-- Avater -->
 															<img src="images/user/user-thumb.jpg" alt="avater">
 															<div class="media-body">
 																<!-- Ratings -->
 																<div class="ratings">
-																	<ul class="list-inline">
+																	<ul class="list-inline">																	
 																		<li class="list-inline-item">
 																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
+																		</li>		
+																																	
 																	</ul>
 																</div>
 																<div class="name">
-																	<h5>Jessica Brown</h5>
-																</div>
-																<div class="date">
-																	<p>Mar 20, 2018</p>
-																</div>
+																	<h5>{{name}} ( {{email}})</h5>
+																</div>																
 																<div class="review-comment">
 																	<p>
-																		Vendedor muy serio y comprometido. Todo ha ido perfecto.
+																		{{text}}
 																	</p>
 																</div>
 															</div>
                                                         </div>
+                                                        {{/assessments}}
                                                     </div>
 												</td>
 											</tr>
 											<tr>
 												<td>
-													<div class="product-review">
-														<div class="media">
-															<!-- Avater -->
-															<img src="images/user/user-thumb.jpg" alt="avater">
-															<div class="media-body">
-																<!-- Ratings -->
-																<div class="ratings">
-																	<ul class="list-inline">
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																	</ul>
-																</div>
-																<div class="name">
-																	<h5>Pedro Serrano</h5>
-																</div>
-																<div class="date">
-																	<p>Ene 10, 2018</p>
-																</div>
-																<div class="review-comment">
-																	<p>
-																		Le compré una silla y todo genial. Siempre constesta rápido a los mensajes.
-																</div>
-															</div>
-                                                        </div>
-                                                    </div>
+													
 												</td>
 											</tr>
 										</tbody>
@@ -757,6 +704,9 @@
 	<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
 	<script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+	<script src="js/index.js"></script>
+	<script src="js/login.js"></script>
+	
 	<script src="js/scripts.js"></script>
 
 	<!-- MODAL PARA EL LOGOUT -->

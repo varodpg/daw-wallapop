@@ -3,6 +3,8 @@ package com.practicaDaw.Dawllapop.security;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -23,9 +25,11 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private UserComponent userComponent;
+	@Autowired
+	private HttpSession session;
 
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
@@ -37,8 +41,8 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 		if (user == null) {
 			throw new BadCredentialsException("User not found");
 		}
-		
-		if(!user.isActivatedUser()) {
+
+		if (!user.isActivatedUser()) {
 			throw new BadCredentialsException("User not activated");
 		}
 
@@ -47,7 +51,7 @@ public class UserRepositoryAuthenticationProvider implements AuthenticationProvi
 			throw new BadCredentialsException("User wrong password");
 		} else {
 
-			userComponent.setLoggedUser(user);
+			userComponent.setLoggedUser(user, session);
 
 			List<GrantedAuthority> roles = new ArrayList<>();
 			for (String role : user.getRoles()) {
