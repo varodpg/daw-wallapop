@@ -27,3 +27,10 @@ function add_user(){
    
     $('#form_add_user').submit();
 }
+function edit_user(){
+	   
+    $('#form_edit_user').submit();
+}
+function delete_user(){	   
+    $('#form_delete_user').submit();
+}
