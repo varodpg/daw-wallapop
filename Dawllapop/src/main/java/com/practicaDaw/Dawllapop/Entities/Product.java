@@ -38,9 +38,10 @@ public class Product {
 	protected Product() {
 	}
 	
-	public Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price, ArrayList<String> images) {
+	public Product(String name, String description, String state, ArrayList<String[]> especifications, ArrayList<String> tags, double price, ArrayList<String> images) {
 		this.name=name;
 		this.description=description;
+		this.state=state;
 		this.especifications=especifications;
 		this.tags=tags;
 		this.price=price;
@@ -48,14 +49,6 @@ public class Product {
 		this.mainImage = images.get(0);
 	}
 	
-	public Product(String name, String description, ArrayList<String[]> especifications, ArrayList<String> tags, double price, Category category, ArrayList<String> images) {
-		this.name=name;
-		this.description=description;
-		this.especifications=especifications;
-		this.tags=tags;
-		this.price=price;
-		this.images = images;
-	}
 	
 	public Product(String name, String description, double price) {
 		this.name=name;

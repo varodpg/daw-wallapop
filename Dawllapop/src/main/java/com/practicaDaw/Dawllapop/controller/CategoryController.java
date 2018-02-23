@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -107,7 +108,7 @@ public class CategoryController {
 		}
 		
 		@RequestMapping("/category/{cat_id}")
-		public String CategoriaInfor(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat_id) {
+		public String Category(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat_id) {
 			
 			Category cat_selected = repository.getOne(cat_id);
 			Category cat_1 = repository.getOne((long) 1);
@@ -134,6 +135,7 @@ public class CategoryController {
 			model.addAttribute("num3", num3);
 			model.addAttribute("num4", num4);
 			model.addAttribute("num5", num5);
+			model.addAttribute("cat_id", cat_id);
 			
 			model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).isFirst());
 
@@ -142,6 +144,47 @@ public class CategoryController {
 			
 		}
 		
-		
+		@RequestMapping("category/filter/{cat_id}")
+		public String CategoryFiltering(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat_id, @RequestParam String price, @RequestParam String product_new) {
+			
+			Category cat_selected = repository.getOne(cat_id);
+			Category cat_1 = repository.getOne((long) 1);
+			Category cat_2 = repository.getOne((long) 2);
+			Category cat_3 = repository.getOne((long) 3);
+			Category cat_4 = repository.getOne((long) 4);
+			Category cat_5 = repository.getOne((long) 5);
+			
+			//queries for products list by category (products and number of products)
+			Page<Product> products = prs.getAllbyCatAndFilterExample(page, product_new);
+			long numOfSelectedCat = prs.getNumberOfProductsByCat(cat_selected);
+			
+			//queries to show the number of the rest of the products in other categories
+			long num1 = prs.getNumberOfProductsByCat(cat_1);
+			long num2 = prs.getNumberOfProductsByCat(cat_2);
+			long num3 = prs.getNumberOfProductsByCat(cat_3);
+			long num4 = prs.getNumberOfProductsByCat(cat_4);
+			long num5 = prs.getNumberOfProductsByCat(cat_5);
+			
+			model.addAttribute("products", products);
+			model.addAttribute("numberOfProducts", numOfSelectedCat);
+			model.addAttribute("num1", num1);
+			model.addAttribute("num2", num2);
+			model.addAttribute("num3", num3);
+			model.addAttribute("num4", num4);
+			model.addAttribute("num5", num5);
+			
+			model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).isFirst());
+			
+			model.addAttribute("price", price);
+			model.addAttribute("product_new", product_new);
+//			model.addAttribute("product_not_new", product_not_new);
+			
+			System.out.println(price);
+			System.out.println(product_new);
+//			System.out.println(product_not_new);
+			return "category";
+			
+		}
+				
 
 }

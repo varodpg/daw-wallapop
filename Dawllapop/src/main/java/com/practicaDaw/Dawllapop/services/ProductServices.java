@@ -39,6 +39,15 @@ public class ProductServices {
 	public Page<Product> getAllbyCat(Pageable page, Category cat) {
 		return productRepository.findByCategory(page, cat);
 	}
+
+	public Page<Product> getAllbyCatAndFilter(Pageable page, Category cat_selected, String state) {
+		return productRepository.findByCategoryFiltering(page, cat_selected, state);
+	}
+
+	public Page<Product> getAllbyCatAndFilterExample(Pageable page, String state) {
+		return productRepository.findByCategoryFilteringExample(page, state);
+		
+	}
 	
 	
 }

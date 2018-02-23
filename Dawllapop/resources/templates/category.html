@@ -139,22 +139,22 @@
 							<h4 class="widget-header">Todas las categorias</h4>
 							<ul class="category-list">
 								<li>
-									<a href="1">Electrónica e Informática
+									<a href="/category/1">Electrónica e Informática
 										<span>{{num1}}</span>
 									</a>
 								</li>
 								<li>
-									<a href="2">Inmobiliaria
+									<a href="/category/2">Inmobiliaria
 										<span>{{num2}}</span>
 									</a>
 								</li>
 								<li>
-									<a href="3">Deportes y Ocio
+									<a href="/category/3">Deportes y Ocio
 										<span>{{num3}}</span>
 									</a>
 								</li>
 								<li>
-									<a href="4">Consolas y Videojuegos
+									<a href="/category/4">Consolas y Videojuegos
 										<span>{{num4}}</span>
 									</a>
 								</li>
@@ -192,13 +192,13 @@
 							</ul>
 						</div>
 						
-						<form action="/filter" method="POST">
+						<form action="/category/filter/{{cat_id}}" method="POST">
 						<div class="widget filter">
 							<div class="widget price-range">
 								<h4 class="widget-header">Rango del precio</h4>
 								<div class="block">
 									<b>1€</b>
-									<input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"
+									<input id="ex2" type="text" name="price" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"
 									/>
 									<b>30000€</b>
 								</div>
@@ -208,15 +208,20 @@
 								<h4 class="widget-header">Estado</h4>
 								<div class="form-check">
 									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" value=""> Nuevo
+										<input class="form-check-input" type="checkbox" name="product_new" value="new"> Nuevo
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" value=""> Seminuevo
+										<input class="form-check-input" type="checkbox" name="product_not_new" value="not_new"> Seminuevo
 									</label>
 								</div>
 							</div>
+								<div class="form-check" style="align-content: center;">
+									<label class="form-check-label">
+										<button type="submit" class="btn btn-primary">Filtrar</button>
+									</label>
+								</div>			
 					    </div>
 					    </form>
 					</div>
