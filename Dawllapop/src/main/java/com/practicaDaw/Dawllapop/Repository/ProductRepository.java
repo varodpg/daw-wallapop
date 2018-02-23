@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.Entities.User;
 
 import antlr.collections.List;
 
@@ -25,7 +26,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 			countQuery = "SELECT COUNT(*) FROM PRODUCT WHERE state = :state",
 			nativeQuery=true)
 	Page<Product> findByCategoryFilteringExample(@Param("state") String state, Pageable pageable);
-	
+	Page<Product> findfindByUser(Pageable pageable, User user);
 	
 	
 }
