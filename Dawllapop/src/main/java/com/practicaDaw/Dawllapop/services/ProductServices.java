@@ -40,13 +40,14 @@ public class ProductServices {
 		return productRepository.findByCategory(page, cat);
 	}
 
-	public Page<Product> getAllbyCatAndFilter(Pageable page, Category cat_selected, String state) {
-		return productRepository.findByCategoryFiltering(page, cat_selected, state);
+
+	public Page<Product> getAllbyCatAndFilterExample(String state, Pageable page) {
+		return productRepository.findByCategoryFilteringExample(state, page);
+		
 	}
 
-	public Page<Product> getAllbyCatAndFilterExample(Pageable page, String state) {
-		return productRepository.findByCategoryFilteringExample(page, state);
-		
+	public Page<Product> getAllbyCatAndFilter(String state, Category cat_selected, Pageable page) {
+		return productRepository.findByCategoryFiltering(state, cat_selected, page);
 	}
 	
 	

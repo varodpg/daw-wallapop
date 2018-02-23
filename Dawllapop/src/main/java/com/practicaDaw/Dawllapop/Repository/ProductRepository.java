@@ -15,11 +15,19 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> findAll(Pageable pageable);
 	Page<Product> findByCategory(Pageable pageable, Category categoria);
 	Long countByCategory(Category categoria);
-	@Query(value = "SELECT * FROM Product u WHERE u.category like ':categoria[id]' and state like ':state' ORDER BY ?#{#pageable}", nativeQuery=true)
-	Page<Product> findByCategoryFiltering(Pageable pageable, @Param("categoria") Category categoria, @Param("state") String state);
 	
-	@Query(value = "SELECT * FROM PRODUCT u WHERE state = ':state' ORDER BY ?#{#pageable}", 
-			countQuery = "SELECT count(*) FROM PRODUCT",
+	@Query(value = "SELECT * FROM PRODUCT WHERE CATEGORY_ID= :category AND state = :state /*#pageable*/", 
+			countQuery = "SELECT COUNT(*) FROM PRODUCT WHERE CATEGORY_ID= :category AND state = :state",
 			nativeQuery=true)
-	Page<Product> findByCategoryFilteringExample(Pageable page, @Param("state") String state);
+	Page<Product> findByCategoryFiltering(@Param("state") String state, @Param("category") Category category, Pageable pageable);
+	
+	@Query(value = "SELECT * FROM PRODUCT WHERE state = :state /*#pageable*/", 
+			countQuery = "SELECT COUNT(*) FROM PRODUCT WHERE state = :state",
+			nativeQuery=true)
+	Page<Product> findByCategoryFilteringExample(@Param("state") String state, Pageable pageable);
+	
+	
+	
 }
+
+

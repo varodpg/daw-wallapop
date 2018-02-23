@@ -153,10 +153,13 @@ public class CategoryController {
 			Category cat_3 = repository.getOne((long) 3);
 			Category cat_4 = repository.getOne((long) 4);
 			Category cat_5 = repository.getOne((long) 5);
+			String product_state = product_new;
 			
 			//queries for products list by category (products and number of products)
-			Page<Product> products = prs.getAllbyCatAndFilterExample(page, product_new);
+			Page<Product> products = prs.getAllbyCatAndFilter(product_state, cat_selected, page);
+			//Page<Product> products = prs.getAllbyCatAndFilterExample(product_new, page);
 			long numOfSelectedCat = prs.getNumberOfProductsByCat(cat_selected);
+			
 			
 			//queries to show the number of the rest of the products in other categories
 			long num1 = prs.getNumberOfProductsByCat(cat_1);
