@@ -2,6 +2,7 @@ package com.practicaDaw.Dawllapop.Entities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -10,8 +11,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 @Entity
@@ -26,10 +31,16 @@ public class User {
 	private String email;
 	private String location;
 	private String image;
+	private long phone;
+	private Date registerDate;
 	private boolean activatedUser;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
+	
+	@OneToMany(mappedBy = "user")
+	@JsonBackReference
+	private List<Product> productos; 
 	
 	//Constructor, getter and setters
 	
@@ -48,6 +59,21 @@ public class User {
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 	}
 	
+	
+	
+	public User(String name, String email, String location, String image, String passwordHash, long phone, Date registerDate,
+			boolean activatedUser, String...roles) {		
+		this.name = name;
+		this.email = email;
+		this.location = location;
+		this.image = image;
+		this.passwordHash = passwordHash;
+		this.phone = phone;
+		this.registerDate = registerDate;
+		this.activatedUser = activatedUser;
+		this.roles = new ArrayList<>(Arrays.asList(roles));
+	}
+
 	public String getName() {
 		return name;
 	}

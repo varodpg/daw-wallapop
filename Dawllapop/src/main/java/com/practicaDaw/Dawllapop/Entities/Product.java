@@ -35,6 +35,10 @@ public class Product {
 	@JsonManagedReference
 	private Category category;
 	
+	@ManyToOne
+	@JsonManagedReference
+	private User user;
+	
 	protected Product() {
 	}
 	
@@ -135,6 +139,14 @@ public class Product {
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 //	public ArrayList<Image> getImages() {

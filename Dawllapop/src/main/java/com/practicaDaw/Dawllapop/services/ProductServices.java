@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 
 
@@ -47,6 +48,10 @@ public class ProductServices {
 	public Page<Product> getAllbyCatAndFilterExample(Pageable page, String state) {
 		return productRepository.findByCategoryFilteringExample(page, state);
 		
+	}
+	
+	public Page<Product> getAllByUser(Pageable pageable, User user) {
+		return productRepository.findByUser(pageable, user);
 	}
 	
 	
