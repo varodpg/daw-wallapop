@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.practicaDaw.Dawllapop.Entities.Assessment;
 import com.practicaDaw.Dawllapop.Entities.Offer;
+import com.practicaDaw.Dawllapop.Entities.OfferEnum;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
@@ -91,14 +92,14 @@ public class DashboardController {
 
 	@RequestMapping("/pendingOfferAcept")
 	public String pendingOfferAcept(Model model, Offer offer, Product product) {
-		offer.setPendingOffer(true);
+		offer.setOfferEnum(OfferEnum.Acepted);
 		product.setSold(true);
 		return "dashboard";
 	}
 
 	@RequestMapping("/pendingOfferCancel")
 	public String pendingOfferCancel(Model model, Offer offer, Product product) {
-		offer.setPendingOffer(false);
+		offer.setOfferEnum(OfferEnum.Cancel);
 		product.setSold(false);
 		return "dashboard";
 	}

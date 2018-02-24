@@ -13,16 +13,17 @@ public class Offer {
 	private long id;
 	private int price;
 	private String message;
-	private boolean pendingOffer;
+	private OfferEnum offerEnum;
 
 	protected Offer() {
 	}
 
-	public Offer(int price, String message,boolean pendingOffer) {
+	public Offer(int price, String message,OfferEnum offerEnum) {
 		super();
 		this.price = price;
 		this.message = message;
-		this.pendingOffer=pendingOffer;
+		this.offerEnum=offerEnum;
+		
 	}
 
 	public long getId() {
@@ -49,8 +50,8 @@ public class Offer {
 		this.message = message;
 	}
 
-	public void setPendingOffer(boolean pendingOffer) {
-		this.pendingOffer = pendingOffer;
+	public void setOfferEnum(OfferEnum offerEnum) {
+		this.offerEnum = offerEnum;
 	}
 
 }

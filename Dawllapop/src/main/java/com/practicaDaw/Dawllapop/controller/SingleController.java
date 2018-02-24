@@ -2,6 +2,7 @@ package com.practicaDaw.Dawllapop.controller;
 
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Offer;
+import com.practicaDaw.Dawllapop.Entities.OfferEnum;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
@@ -23,15 +24,13 @@ public class SingleController {
 
 	@PostConstruct
 	public void init() {
-
-		Offer o = new Offer(60, "Quiero este precio",true);
+		OfferEnum offerEnum = null;
+		Offer o = new Offer(60, "Quiero este precio", offerEnum.Acepted);
 		repository.save(o);
-		Offer o2 = new Offer(700, "Te ofrezco",true);
+		Offer o2 = new Offer(700, "Te ofrezco", offerEnum.Cancel);
 		repository.save(o2);
-		Offer o3 = new Offer(650, "toma esto, no subo mas",false);
+		Offer o3 = new Offer(650, "toma esto, no subo mas", offerEnum.Pending);
 		repository.save(o3);
-
-
 
 	}
 
