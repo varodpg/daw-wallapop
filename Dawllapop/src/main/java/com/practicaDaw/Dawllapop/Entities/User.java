@@ -42,6 +42,12 @@ public class User {
 	@JsonBackReference
 	private List<Product> productos; 
 	
+	@OneToMany
+	@JsonBackReference
+	private List<Offer> offers; 
+	
+	
+	
 	//Constructor, getter and setters
 	
 	

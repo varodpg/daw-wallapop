@@ -26,6 +26,7 @@ import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.AssessmentServices;
 import com.practicaDaw.Dawllapop.services.OfferServices;
 import com.practicaDaw.Dawllapop.services.ProductServices;
+import com.practicaDaw.Dawllapop.services.UserServices;
 
 @Controller
 public class DashboardController {
@@ -48,10 +49,16 @@ public class DashboardController {
 
 	@Autowired
 	private OfferServices oss;
+	@Autowired
+	ProductServices productServices;
+	@Autowired
+	UserServices userService;
+	
 
 	@PostConstruct
 	public void init() {
-
+	
+	
 		// Assessment a = new Assessment("juanma", "juanma@hotmail.com", "increible
 		// vendedor super amable", 5);
 		// assessmentRepository.save(a);
@@ -76,6 +83,19 @@ public class DashboardController {
 			model.addAttribute("usuario", userRepository.findByName(http.getName()));
 			System.out.println(model.toString());
 		}
+		User user1 = userService.findUser(1);
+		User user2 = userService.findUser(2);
+		Product p = productServices.findOne(1);
+		
+		
+
+		OfferEnum offerEnum = null;
+		Offer o = new Offer(60, "Quiero este precio", offerEnum.Acepted, user1, user2, p);
+		offerRepository.save(o);
+		Offer o2 = new Offer(700, "Te ofrezco", offerEnum.Cancel, user1, user2, p);
+		offerRepository.save(o2);
+		Offer o3 = new Offer(650, "toma esto, no subo mas", offerEnum.Pending, user1, user2, p);
+		offerRepository.save(o3);
 		Page<Product> products = prs.getAllProducts(page);
 
 		model.addAttribute("products", products);

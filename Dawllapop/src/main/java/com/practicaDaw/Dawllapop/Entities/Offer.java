@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Offer {
@@ -14,15 +18,29 @@ public class Offer {
 	private int price;
 	private String message;
 	private OfferEnum offerEnum;
+	@ManyToOne
+	@JsonBackReference
+	private User buyer;
+	
+	@ManyToOne
+	@JsonBackReference
+	private User seller;
+	
+	@ManyToOne
+	@JsonBackReference
+	private Product product;
+	
 
 	protected Offer() {
 	}
 
-	public Offer(int price, String message,OfferEnum offerEnum) {
-		super();
+	public Offer(int price, String message,OfferEnum offerEnum,User buyer, User seller,Product product ) {		
 		this.price = price;
 		this.message = message;
 		this.offerEnum=offerEnum;
+		this.buyer=buyer;
+		this.seller=seller;
+		this.product=product;
 		
 	}
 
