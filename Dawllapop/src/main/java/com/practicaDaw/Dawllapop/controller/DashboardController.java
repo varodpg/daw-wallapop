@@ -44,18 +44,18 @@ public class DashboardController {
 	@PostConstruct
 	public void init() {
 
-		Assessment a = new Assessment("juanma", "juanma@hotmail.com", "increible vendedor super amable", 5);
-		assessmentRepository.save(a);
-		Assessment a2 = new Assessment("alvaro", "alvaro@hotmail.com", "envio un poco lento", 4);
-		assessmentRepository.save(a2);
+//		Assessment a = new Assessment("juanma", "juanma@hotmail.com", "increible vendedor super amable", 5);
+//		assessmentRepository.save(a);
+//		Assessment a2 = new Assessment("David", "alvaro@hotmail.com", "envio un poco lento", 4);
+//		assessmentRepository.save(a2);
 
 	}
 
 	@RequestMapping("/add_new_assessment")
 	public String add_new_user(Model model, Assessment assessment, HttpSession session) {
 		System.out.println(session.getAttribute("user").toString());
-		assessment.setName(session.getAttribute("user").toString());
-		assessment.setEmail("juanma@hotmail.com");
+//		assessment.setName(session.getAttribute("user").toString());
+		//assessment.setEmail("juanma@hotmail.com");
 		assessmentRepository.save(assessment);
 		return "dashboard";
 	}

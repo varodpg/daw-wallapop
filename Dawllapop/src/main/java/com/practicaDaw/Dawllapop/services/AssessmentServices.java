@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.practicaDaw.Dawllapop.Entities.Assessment;
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 
@@ -22,6 +23,9 @@ public class AssessmentServices {
 		return assessmentRepository.findAll();
 	}
 	
+	public Page<Assessment> getUserAssessments(User userTo, Pageable pageable){
+		return assessmentRepository.findByUserTo(userTo, pageable);
+	}
 	
 	
 }
