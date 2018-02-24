@@ -13,12 +13,19 @@ $(document).ready(function(){
     
     $("#showMore").click(function(){
     	page++;
+    	
+    var id = $( "#actual_id" ).val();
+    var pi = $( "#inf" ).val();
+    var pt = $( "#p_top" ).val();
+    var pn = $( "#product_n" ).val();
+    var pnn = $( "#product_nn" ).val();
+    
         //alert("The paragraph was clicked.");
         $.ajax({
-        		url: "/categoryAjax",
+        		url: "/categoryAjax/" + id + "/" + pi + "/" + pt  + "/" + pn + "/" + pnn,
         		data: {
         			'page': page, 
-        			'size': 10, 
+        			'size': 10,
         			  },
         		dataType: "json",
         		success: function(items){

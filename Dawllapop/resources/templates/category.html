@@ -165,7 +165,7 @@
 								</li>
 							</ul>
 						</div>
-
+						<!--  
 						<div class="widget category-list">
 							<h4 class="widget-header">Cerca de ti</h4>
 							<ul class="category-list">
@@ -191,7 +191,7 @@
 								</li>
 							</ul>
 						</div>
-						
+						-->
 						<form action="/category/filter/{{cat_id}}" method="POST">
 						<div class="widget filter">
 							<div class="widget price-range">
@@ -427,7 +427,11 @@
 		</a>
 	</div>
 </footer>
-
+<input id="actual_id" value="{{cat_id}}">
+<input id="inf" value="{{inf}}">
+<input id="p_top" value="{{top}}">
+<input id="product_n" value="{{product_new}}">
+<input id="product_nn" value="{{product_not_new}}">
 
 	<!-- JAVASCRIPTS -->
 	<script src="/plugins/jquery/dist/jquery.min.js"></script>

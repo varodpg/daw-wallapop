@@ -82,19 +82,55 @@ public class CategoryController {
 			return new Product("MC", "es la lecheW", 300);
 		}
 		
-		//interface CategoryListView extends Category.BasicAtt, Category.ProductAtt, Product.BasicAtt {}
-		
-		//@JsonView(Product.class)
-		@RequestMapping(value="/categoryAjax")
-		public @ResponseBody Page<Product> CategoriasAjax(Model model, @PageableDefault(size = 10) Pageable page) {
+
+		@RequestMapping(value="/categoryAjax/{cat}/{pi}/{pt}/{pn}/{pnn}")
+		public @ResponseBody Page<Product> CategoriasAjax(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat, @PathVariable String pi, @PathVariable String pt, @PathVariable String pn, @PathVariable String pnn) {
 
 			System.out.println( "Los elementos son :" );
 			System.out.println(prs.getAllProducts(page).toString());
+			System.out.println(cat);
+			System.out.println(pi);
+			System.out.println(pt);
+			System.out.println(pn);
+			System.out.println(pnn);
+			
+			Category cat_selected = repository.getOne(cat);
+			
+			if((pi.equalsIgnoreCase("null"))&&(pt.equalsIgnoreCase("null"))) {
+				//control of showMore or not showMore elements
+				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+				return prs.getAllbyCat(page, cat_selected);
+			}
+				else {
+					
+			if((pn.equalsIgnoreCase("null"))&&(pnn.equalsIgnoreCase("null"))){
+						//control of showMore or not showMore elements
+						model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+						return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
+			}
+			else if((pn.equalsIgnoreCase("null"))&&(pnn.equalsIgnoreCase("not_new"))) {
+				//control of showMore or not showMore elements
+				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+			    return prs.getAllbyCatAndFilter(pi, pt, "not_new", cat_selected, page);
+			}
+			else if((pnn.equalsIgnoreCase("null"))&&(pn.equalsIgnoreCase("new"))) {
+				//control of showMore or not showMore elements
+				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+				return prs.getAllbyCatAndFilter(pi, pt, "new", cat_selected, page);
+			}
+			else if((pn.equalsIgnoreCase("new"))&&(pnn.equalsIgnoreCase("not_new"))) {
+				//control of showMore or not showMore elements
+				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+				return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
+				}
+			}
+			return null;
 			
 			
-			return prs.getAllProducts(page);
+//			Category cat_selected = repository.getOne(cat);
+//			return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
 
-		
+			
 		}
 
 		@RequestMapping("category/p{id}")
@@ -137,8 +173,13 @@ public class CategoryController {
 			model.addAttribute("num5", num5);
 			model.addAttribute("cat_id", cat_id);
 			
-			model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).isFirst());
-
+			//control of showMore or not showMore elements
+			model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+			
+			model.addAttribute("inf", "null");
+			model.addAttribute("top", "null");
+			model.addAttribute("product_new", "null");
+			model.addAttribute("product_not_new", "null");
 			
 			return "category";
 			
@@ -168,28 +209,31 @@ public class CategoryController {
 			if(((product_new==null)&&(product_not_new==null))){
 				Page<Product> products = prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page);
 				model.addAttribute("products", products);
-				model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).isFirst());	
+				//control of showMore or not showMore elements
+				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+				
 			}else {
 			if((product_new==null)&&(product_not_new.equalsIgnoreCase("not_new"))) {
 			Page<Product> products = prs.getAllbyCatAndFilter(inf, top, "not_new", cat_selected, page);
 			model.addAttribute("products", products);
-			model.addAttribute("morePages", prs.getAllbyCatAndFilter(inf, top, "not_new", cat_selected, page).isFirst());	
+			//control of showMore or not showMore elements
+			model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
 			}
 			else if((product_not_new==null)&&(product_new.equalsIgnoreCase("new"))) {
 				Page<Product> products = prs.getAllbyCatAndFilter(inf, top, "new", cat_selected, page);
 				model.addAttribute("products", products);
-				model.addAttribute("morePages", prs.getAllbyCatAndFilter(inf, top, "new", cat_selected, page).isFirst());	
+				//control of showMore or not showMore elements
+				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
 			}
 			else if((product_new.equalsIgnoreCase("new"))&&(product_not_new.equalsIgnoreCase("not_new"))) {
 				Page<Product> products = prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page);
 				model.addAttribute("products", products);
-				model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).isFirst());	
+				//control of showMore or not showMore elements
+				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
 			}
 			}
 
 			//queries for products list by category (products and number of products)
-			//Page<Product> products = prs.getAllbyCatAndFilter(product_state, cat_selected, page);
-			//Page<Product> products = prs.getAllbyCatAndFilterExample(product_new, page);
 			long numOfSelectedCat = prs.getNumberOfProductsByCat(cat_selected);
 			
 			
@@ -209,7 +253,23 @@ public class CategoryController {
 			model.addAttribute("num5", num5);
 			
 			
-			model.addAttribute("price", price);
+			model.addAttribute("inf", inf);
+			model.addAttribute("top", top);
+			if(product_new!=null) {
+				model.addAttribute("product_new", product_new);
+			}
+			if(product_not_new!=null) {
+				model.addAttribute("product_not_new", product_not_new);
+			}
+			if(product_new==null) {
+				String product_new1="null";
+				model.addAttribute("product_new", product_new1);
+			}
+			if(product_not_new==null) {
+				String product_not_new1="null";
+				model.addAttribute("product_not_new", product_not_new1);
+			}
+			
 
 			
 			return "category";
