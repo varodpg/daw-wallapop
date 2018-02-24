@@ -1,6 +1,5 @@
 package com.practicaDaw.Dawllapop.Entities;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -30,43 +29,57 @@ public class Product {
 	private double price;
 	private ArrayList<String> images;
 	private String mainImage;
-	
+	private boolean sold = false;
+
 	@ManyToOne
 	@JsonManagedReference
 	private Category category;
-	
+
 	@ManyToOne
 	@JsonManagedReference
 	private User user;
-	
+
 	protected Product() {
 	}
-	
-	public Product(String name, String description, String state, ArrayList<String[]> especifications, ArrayList<String> tags, double price, ArrayList<String> images) {
-		this.name=name;
-		this.description=description;
-		this.state=state;
-		this.especifications=especifications;
-		this.tags=tags;
-		this.price=price;
+
+	public Product(String name, String description, String state, ArrayList<String[]> especifications,
+			ArrayList<String> tags, double price, ArrayList<String> images) {
+		this.name = name;
+		this.description = description;
+		this.state = state;
+		this.especifications = especifications;
+		this.tags = tags;
+		this.price = price;
 		this.images = images;
 		this.mainImage = images.get(0);
 	}
-	
-	
+
+	public Product(String name, String description, String state, ArrayList<String[]> especifications,
+			ArrayList<String> tags, double price, ArrayList<String> images, boolean sold) {
+		this.name = name;
+		this.description = description;
+		this.state = state;
+		this.especifications = especifications;
+		this.tags = tags;
+		this.price = price;
+		this.images = images;
+		this.mainImage = images.get(0);
+		this.sold = sold;
+	}
+
 	public Product(String name, String description, double price) {
-		this.name=name;
-		this.description=description;
-		this.price=price;
+		this.name = name;
+		this.description = description;
+		this.price = price;
 
 	}
-	
+
 	public Product(String name, String description, double price, Category category) {
-		this.name=name;
-		this.description=description;
-		this.price=price;
+		this.name = name;
+		this.description = description;
+		this.price = price;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -75,7 +88,6 @@ public class Product {
 		this.name = name;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "Producto [nombre=" + name + " y especificaciones: " + especifications + "]";
@@ -120,7 +132,7 @@ public class Product {
 	public void setTags(ArrayList<String> tags) {
 		this.tags = tags;
 	}
-	
+
 	public double getPrice() {
 		return price;
 	}
@@ -140,7 +152,7 @@ public class Product {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -148,19 +160,23 @@ public class Product {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public void setSold(boolean sold) {
+		this.sold = sold;
+	}
 
-//	public ArrayList<Image> getImages() {
-//		return this.images;
-//	}
-//	public void removeImage(Image image) {
-//		if(this.images.contains(image)) {
-//			images.remove(image);
-//		}
-//	}
-//	public void addImage(Image image) {
-//		this.images.add(image);
-//	}
-//	public void removeAllImages() {
-//		this.images.clear();
-//	}
+	// public ArrayList<Image> getImages() {
+	// return this.images;
+	// }
+	// public void removeImage(Image image) {
+	// if(this.images.contains(image)) {
+	// images.remove(image);
+	// }
+	// }
+	// public void addImage(Image image) {
+	// this.images.add(image);
+	// }
+	// public void removeAllImages() {
+	// this.images.clear();
+	// }
 }

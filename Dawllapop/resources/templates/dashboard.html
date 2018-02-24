@@ -469,6 +469,7 @@
 												</td>
                                                 <td> <!--POSIBLES COMPRADORES -->
                                                     <div>
+                                                    {{#offers}}
 													<div class="product-review">
 														<div class="media">
 															<!-- Avater -->
@@ -502,62 +503,24 @@
 																</div>
 																<div class="review-comment">
 																	<p>
-																		Te ofrezco 300 euros por el producto.
+																		{{message}}
 																	</p>
 																</div>
-                                                                <div>Oferta: 300€</div>
+                                                                <div>Oferta: {{price}}</div>
                                                                 <div class="btn-group btn-group-sm">
-                                                                <a href="user-profile.html" class="btn btn-success">Aceptar</a>
-                                                                <a href="user-profile.html" class="btn btn-danger">Rechazar</a>
+                                                                	<form action="pendingOfferAcept" id="formPendingOfferAcept">
+                                                                <a href="dashboard" class="btn btn-success">Aceptar</a>
+                                                                </form>
+                                                                	<form action="pendingOfferCancel" id="formEditDatesUser">
+                                                                <a href="formPendingOfferCancel" class="btn btn-danger">Rechazar</a>
+                                                                </form>
                                                                 </div>
 															</div>
                                                         </div>
                                                     </div>
+                                                    {{/offers}}
                                                     </div>
-                                                    <div>
-                                                    <div class="product-review">
-														<div class="media">
-															<!-- Avater -->
-															<img src="images/user/user-thumb.jpg" alt="avater">
-															<div class="media-body">
-																<!-- Ratings -->
-																<div class="ratings">
-																	<ul class="list-inline">
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																	</ul>
-																</div>
-																<div class="name">
-																	<h5>Pedro Serrano</h5>
-																</div>
-																<div class="date">
-																	<p>Ene 10, 2018</p>
-																</div>
-																<div class="review-comment">
-																	<p>
-																		Te doy 280, que te parece.
-																</div>
-                                                                <div class="btn-group btn-group-sm">
-                                                                <a href="user-profile.html" class="btn btn-success">Aceptar</a>
-                                                                <a href="user-profile.html" class="btn btn-danger">Rechazar</a>
-                                                                </div>
-															</div>
-                                                        </div>
-                                                    </div>
-                                                    </div>
+                                                  
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -706,7 +669,7 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
 	<script src="js/index.js"></script>
 	<script src="js/login.js"></script>
-	
+	<script src="js/offer.js"></script>
 	<script src="js/scripts.js"></script>
 
 	<!-- MODAL PARA EL LOGOUT -->

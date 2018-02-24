@@ -7,22 +7,24 @@ import javax.persistence.Id;
 
 @Entity
 public class Offer {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private int price;
 	private String message;
-	
+	private boolean pendingOffer;
+
 	protected Offer() {
 	}
 
-	public Offer(int price,String message) {
+	public Offer(int price, String message,boolean pendingOffer) {
 		super();
-		this.price=price;
+		this.price = price;
 		this.message = message;
+		this.pendingOffer=pendingOffer;
 	}
-	
+
 	public long getId() {
 		return id;
 	}
@@ -34,7 +36,7 @@ public class Offer {
 	public int getPrice() {
 		return price;
 	}
-	
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
@@ -45,6 +47,10 @@ public class Offer {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	public void setPendingOffer(boolean pendingOffer) {
+		this.pendingOffer = pendingOffer;
 	}
 
 }

@@ -83,47 +83,47 @@ public class IndexController {
 		
 		//Creating more products
 		Product p2 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
-				"								espacio", "new", especificaciones, tags, 300,images);
+				"								espacio", "new", especificaciones, tags, 300,images,false);
 		p2.setCategory(c1);
 		p2.setUser(user);
 		p_repository.save(p2);
 		Product p3 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
-				"								pequeñas", "new", especificaciones, tags, 300,images);
+				"								pequeñas", "new", especificaciones, tags, 300,images,false);
 		p3.setCategory(c2);
 		p_repository.save(p3);
-		Product p4 = new Product("Nokia 8998", "Nunca se Rompe", "new", especificaciones, tags, 300,images);
+		Product p4 = new Product("Nokia 8998", "Nunca se Rompe", "new", especificaciones, tags, 300,images,false);
 		p4.setCategory(c2);
 		p_repository.save(p4);
-		Product p5 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images);
+		Product p5 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images,false);
 		p5.setCategory(c2);
 		p_repository.save(p5);
-		Product p6 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images);
+		Product p6 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images,false);
 		p6.setCategory(c2);
 		p_repository.save(p6);
-		Product p7 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images);
+		Product p7 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images,false);
 		p7.setCategory(c2);
 		p_repository.save(p7);
-		Product p8 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images);
+		Product p8 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images,false);
 		p8.setCategory(c2);
 		p_repository.save(p8);
-		Product p9 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images);
+		Product p9 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images,false);
 		p9.setCategory(c2);
 		p_repository.save(p9);
 		Product p10 = new Product("Escritorio", "Escritorio de mesa con gran capacidad de\r\n" + 
-				"								espacio", "new", especificaciones, tags, 300,images);
+				"								espacio", "new", especificaciones, tags, 300,images,false);
 		p10.setCategory(c2);
 		p_repository.save(p10);
 		Product p11 = new Product("Escritorio Pequeño", "Escritorio de mesa para habitaciones\r\n" + 
-				"								pequeñas", "new", especificaciones, tags, 300,images);
+				"								pequeñas", "new", especificaciones, tags, 300,images,false);
 		p11.setCategory(c2);
 		p_repository.save(p11);
-		Product p12 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images);
+		Product p12 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images,false);
 		p12.setCategory(c2);
 		p_repository.save(p12);
-		Product p13 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images);
+		Product p13 = new Product("Mack", "es la leche", "new", especificaciones, tags, 300,images,false);
 		p13.setCategory(c2);
 		p_repository.save(p13);
-		Product p14 = new Product("Mack", "es la leche", "not_new", especificaciones, tags, 300,images);
+		Product p14 = new Product("Mack", "es la leche", "not_new", especificaciones, tags, 300,images,false);
 		p14.setCategory(c2);
 		p_repository.save(p14);
 	}

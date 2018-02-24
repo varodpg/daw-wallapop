@@ -19,9 +19,11 @@ import com.practicaDaw.Dawllapop.Entities.Offer;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
+import com.practicaDaw.Dawllapop.Repository.OfferRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.AssessmentServices;
+import com.practicaDaw.Dawllapop.services.OfferServices;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
 @Controller
@@ -40,22 +42,29 @@ public class DashboardController {
 
 	@Autowired
 	private AssessmentRepository assessmentRepository;
+	@Autowired
+	private OfferRepository offerRepository;
+
+	@Autowired
+	private OfferServices oss;
 
 	@PostConstruct
 	public void init() {
 
-//		Assessment a = new Assessment("juanma", "juanma@hotmail.com", "increible vendedor super amable", 5);
-//		assessmentRepository.save(a);
-//		Assessment a2 = new Assessment("David", "alvaro@hotmail.com", "envio un poco lento", 4);
-//		assessmentRepository.save(a2);
+		// Assessment a = new Assessment("juanma", "juanma@hotmail.com", "increible
+		// vendedor super amable", 5);
+		// assessmentRepository.save(a);
+		// Assessment a2 = new Assessment("David", "alvaro@hotmail.com", "envio un poco
+		// lento", 4);
+		// assessmentRepository.save(a2);
 
 	}
 
 	@RequestMapping("/add_new_assessment")
 	public String add_new_user(Model model, Assessment assessment, HttpSession session) {
 		System.out.println(session.getAttribute("user").toString());
-//		assessment.setName(session.getAttribute("user").toString());
-		//assessment.setEmail("juanma@hotmail.com");
+		// assessment.setName(session.getAttribute("user").toString());
+		// assessment.setEmail("juanma@hotmail.com");
 		assessmentRepository.save(assessment);
 		return "dashboard";
 	}
@@ -73,9 +82,24 @@ public class DashboardController {
 		model.addAttribute("morePages", prs.getAllProducts(page).isFirst());
 
 		List<Assessment> assessments = ass.getAllAssessment();
+		List<Offer> offers = oss.getAllOffer();
 
 		model.addAttribute("assessments", assessments);
+		model.addAttribute("offers", offers);
+		return "dashboard";
+	}
 
+	@RequestMapping("/pendingOfferAcept")
+	public String pendingOfferAcept(Model model, Offer offer, Product product) {
+		offer.setPendingOffer(true);
+		product.setSold(true);
+		return "dashboard";
+	}
+
+	@RequestMapping("/pendingOfferCancel")
+	public String pendingOfferCancel(Model model, Offer offer, Product product) {
+		offer.setPendingOffer(false);
+		product.setSold(false);
 		return "dashboard";
 	}
 

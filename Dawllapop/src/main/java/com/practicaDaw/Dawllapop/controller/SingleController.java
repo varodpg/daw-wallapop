@@ -24,8 +24,14 @@ public class SingleController {
 	@PostConstruct
 	public void init() {
 
-		Offer o = new Offer(60, "Quiero este precio");
+		Offer o = new Offer(60, "Quiero este precio",true);
 		repository.save(o);
+		Offer o2 = new Offer(700, "Te ofrezco",true);
+		repository.save(o2);
+		Offer o3 = new Offer(650, "toma esto, no subo mas",false);
+		repository.save(o3);
+
+
 
 	}
 
