@@ -47,17 +47,17 @@ public class ProductServices {
 		
 	}
 
-	public Page<Product> getAllbyCatAndFilter(String state, Category cat_selected, Pageable page) {
-		return productRepository.findByCategoryFiltering(state, cat_selected, page);
+	public Page<Product> getAllbyCatAndFilter(String price_low, String price_top, String state, Category cat_selected, Pageable page) {
+		return productRepository.findByCategoryFiltering(price_low, price_top, state, cat_selected, page);
 	}
 	
 	public Page<Product> getAllByUser(Pageable pageable, User user) {
 		return productRepository.findByUser(pageable, user);
 	}
 
-	public Page<Product> getAllbyCatAndFilter2(String product_state_1, String product_state_2, Category cat_selected,
+	public Page<Product> getAllbyCatAndFilter2(String price_low, String price_top, String product_state_1, String product_state_2, Category cat_selected,
 			Pageable page) {
-		return productRepository.findByCategoryFiltering2(product_state_1, product_state_2, cat_selected, page);
+		return productRepository.findByCategoryFiltering2(price_low, price_top, product_state_1, product_state_2, cat_selected, page);
 	}
 	
 	
