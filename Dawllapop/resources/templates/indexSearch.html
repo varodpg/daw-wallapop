@@ -47,7 +47,6 @@
   <![endif]-->
 
 </head>
-
 <section>
 	<div class="container">
 		<div class="row">
@@ -106,44 +105,6 @@
 	</div>
 </section>
 
-
-
-
-
-
-<!--===============================
-=            Hero Area            =
-================================-->
-
-<section class="hero-area bg-custom text-center overly"
-	style="margin-bottom: 100px">
-	<!-- Container Start -->
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<!-- Advance Search -->
-				<div class="advance-search">
-					<div class="row">
-						<!-- Store Search -->
-						<form action="/indexSearch" method="post" id="searchForm">
-							<div class="col-lg-12 col-md-12">
-								<div class="block d-flex">
-									<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0"
-										id="searchInput" placeholder="Buscar por la tienda"
-										name="searchText">
-									<!-- Search Button -->
-									<button class="btn btn-main" id="searchButton">Buscar</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-	<!-- Container End -->
-</section>
 <!--===================================
 =            Login Modal Section      =
 ====================================-->
@@ -278,273 +239,29 @@
 </div>
 </div>
 </div>
-<!--===================================
-=            Client Slider            =
-====================================-->
-<section class="bg-custom">
-
-	<div class="popular-deals section container page-content">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-title">
-					<h2>Productos que te podrian interesar</h2>
-				</div>
-			</div>
-		</div>
-		<div class="container-fluid">
-			<div id="carouselExample" class="carousel slide">
-				<div class="carousel-inner" data-ride="false" style="height: 200px">
-					<div class="carousel-item active">
-						<div class="row" style="padding: 15px 15px">
-							<div class="col-md-3 carousel-product" id="test">
-								<img class="img-fluid mx-auto d-block product-img"
-									src="images/products/products-2.jpg">
-							</div>
-							<div class="col-md-3 carousel-product">
-								<img class="img-fluid mx-auto d-block product-img"
-									src="images/products/products-1.jpg">
-							</div>
-							<div class="col-md-3 carousel-product">
-								<img class="img-fluid mx-auto d-block product-img"
-									src="images/products/nokia.jpg">
-							</div>
-							<div class="col-md-3 carousel-product">
-								<img class="img-fluid mx-auto d-block product-img"
-									src="images/products/ps4.jpg">
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-md-3">
-								<img class="img-fluid mx-auto d-block"
-									src="images/products/ps4.jpg" alt="slide 3">
-							</div>
-							<div class="col-md-3">
-								<img class="img-fluid mx-auto d-block"
-									src="images/products/products-3.jpg" alt="slide 1">
-							</div>
-							<div class="col-md-3">
-								<img class="img-fluid mx-auto d-block"
-									src="images/products/products-2.jpg" alt="slide 2">
-							</div>
-							<div class="col-md-3">
-								<img class="img-fluid mx-auto d-block"
-									src="images/products/nokia.jpg" alt="slide 3">
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-md-3">
-								<img class="img-fluid mx-auto d-block"
-									src="images/products/products-2.jpg">
-							</div>
-							<div class="col-md-3">
-								<img class="img-fluid mx-auto d-block"
-									src="images/products/products-1.jpg">
-							</div>
-							<div class="col-md-3">
-								<img class="img-fluid mx-auto d-block"
-									src="images/products/nokia.jpg">
-							</div>
-							<div class="col-md-3">
-								<img class="img-fluid mx-auto d-block"
-									src="images/products/ps4.jpg">
-							</div>
-						</div>
-					</div>
-				</div>
-				<a class="carousel-control-prev" href="#carouselExample"
-					role="button" data-slide="prev"> <i
-					class="fa fa-chevron-left fa-lg text-muted"></i> <span
-					class="sr-only">Previous</span>
-				</a> <a class="carousel-control-next text-faded" href="#carouselExample"
-					role="button" data-slide="next"> <i
-					class="fa fa-chevron-right fa-lg text-muted"></i> <span
-					class="sr-only">Next</span>
-				</a>
-			</div>
-		</div>
-	</div>
-
-</section>
-
 <!--===========================================
-=            Popular deals section            =
+=            Product search section           =
 ============================================-->
 
 <section class="popular-deals section bg-custom zero-top"
-	style="padding: 0px">
+	style="padding: 0px; margin-top: 100px">
 	<div class="container page-content" style="margin-top: 0px">
 
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2>Productos mas populares</h2>
+					<h2>Productos que coinciden con la busqueda</h2>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<!-- offer 01 -->
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/products-1.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">Macbook Air</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Informatica
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>26 de Diciembre
-								</a></li>
-							</ul>
-							<p class="card-text">Potento portatil para edicion</p>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/products-2.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">Escritorio</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Inmobiliaria
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>15 de mayo
-								</a></li>
-							</ul>
-							<p class="card-text">Escritorio de mesa con gran capacidad de
-								espacio</p>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/products-3.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">Escritorio Pequeño</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Inmobiliaria
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>2 de Junio
-								</a></li>
-							</ul>
-							<p class="card-text">Escritorio de mesa para habitaciones
-								pequeñas</p>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/nokia.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">Nokia 8998</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Electronica
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>5 de Marzo
-								</a></li>
-							</ul>
-							<p class="card-text">Nunca se Rompe</p>
-							<p></p>
-							<p></p>
-							<p></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-</section>
-
-
-
-
-
-<!--===========================================
-=            Sold deals section            =
-============================================-->
-
-<section class="popular-deals section bg-custom zero-top">
-	<div class="container page-content" style="margin-top: 0px">
-
-		<div class="row">
-			<div class="col-md-12">
-				<div class="section-title">
-					<h2>Productos Cerca de ti</h2>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-
-			<!-- offer 01 -->
-			<!-- BEGINING PRODUCT -->
 			{{#products}}
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
+			<div class="col-sm-12 col-lg-3">			
 				<div class="product-item bg-light">
 					<div class="card">
-
-						<div class="thumb-content">
-
-							<!-- <div class="price">$200</div> -->
+						<div class="thumb-content">							
 							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/afeitadora.jpg" alt="Card image cap">
+								src="/images/products/products-1.jpg" alt="Card image cap">
 							</a>
 						</div>
 						<div class="card-body">
@@ -553,10 +270,10 @@
 							</h4>
 							<ul class="list-inline product-meta">
 								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Electronica
+										class="fa fa-folder-open-o"></i>{{category.name}}
 								</a></li>
 								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>15 de Diciembre
+										class="fa fa-calendar"></i>26 de Diciembre
 								</a></li>
 							</ul>
 							<p class="card-text">{{description}}</p>
@@ -566,8 +283,42 @@
 				</div>
 			</div>
 			{{/products}}
+		</div>
+	</div>
+</section>
+<!--===========================================
+=            Users search section           =
+============================================-->
 
+<section class="popular-deals section bg-custom zero-top"
+	style="padding: 0px; margin-top: 100px; margin-bottom: 100px">
+	<div class="container page-content" style="margin-top: 0px">
 
+		<div class="row">
+			<div class="col-md-12">
+				<div class="section-title">
+					<h2>Usuarios:</h2>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			{{#users}}
+			<div class="col-sm-12 col-lg-3">
+				<!-- product card -->
+				<div class="product-item bg-light">
+					<div class="card">
+						<div class="thumb-content">
+							<img class="card-img-top img-fluid" src="/images/user/user-thumb.jpg" alt="Card image cap">
+						</div>
+						<div class="card-body">
+							<h4 class="card-title" style="text-align:center">
+								<a href="single">{{name}}</a>
+							</h4>						
+						</div>
+					</div>
+				</div>
+			</div>
+			{{/users}}
 		</div>
 	</div>
 </section>
@@ -595,12 +346,6 @@
 		</div>
 	</div>
 </form>
-
-
-
-
-
-
 
 
 <!--============================
@@ -704,7 +449,7 @@
 <script src="/plugins/smoothscroll/SmoothScroll.min.js"></script>
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-<!--<script src="/js/scripts.js"></script>-->
+<script src="/js/scripts.js"></script>
 <script src="/js/index.js"></script>
 <script src="/js/login.js"></script>
 

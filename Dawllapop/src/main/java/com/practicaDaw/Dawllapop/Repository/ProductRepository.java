@@ -1,5 +1,7 @@
 package com.practicaDaw.Dawllapop.Repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,7 +12,7 @@ import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
 
-import antlr.collections.List;
+
 
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> findAll(Pageable pageable);
@@ -33,7 +35,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> findByCategoryFilteringExample(@Param("state") String state, Pageable pageable);
 
 	Page<Product> findByUser(Pageable pageable, User user);
-
+	
+	//By the time the query just shows 4 products because the view only can load 4
+	@Query(value = "SELECT * FROM product WHERE UPPER(name) LIKE CONCAT('%', CONCAT(UPPER(:name), '%')) LIMIT 4", nativeQuery = true)
+	List<Product> searchByName(@Param("name") String name);
 	
 }
 

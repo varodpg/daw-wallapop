@@ -1,5 +1,7 @@
 package com.practicaDaw.Dawllapop.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,5 +17,8 @@ public class UserServices {
 	public User findUser(long id) {
 		return userRepo.findOne(id);
 	}
-
+	
+	public List<User> searchUsers(String name){
+		return userRepo.searchByName(name);
+	}
 }

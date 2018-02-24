@@ -29,6 +29,7 @@ import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.ProductServices;
+import com.practicaDaw.Dawllapop.services.UserServices;
 
 @Controller
 
@@ -45,7 +46,9 @@ public class IndexController {
 	private ProductServices prs;
 	@Autowired
 	private  UserRepository  userRepository;
-
+	@Autowired
+	private UserServices userServices;
+	
 	@PostConstruct
 	public void init() {
 		
@@ -140,6 +143,16 @@ public class IndexController {
 		System.out.println(model.toString());
 
 		return "index";
+	}
+	
+	@RequestMapping("/indexSearch")
+	public String indexSearch(Model model, @RequestParam("searchText") String searchText) {
+		List<User> searchUsers = userServices.searchUsers(searchText);
+		List<Product> searchProducts = prs.searchProductsByName(searchText);
+		
+		model.addAttribute("users", searchUsers);
+		model.addAttribute("products", searchProducts);
+		return "indexSearch";
 	}
 
 }

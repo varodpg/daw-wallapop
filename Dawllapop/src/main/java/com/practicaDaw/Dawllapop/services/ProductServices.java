@@ -60,5 +60,8 @@ public class ProductServices {
 		return productRepository.findByCategoryFiltering2(price_low, price_top, product_state_1, product_state_2, cat_selected, page);
 	}
 	
+	public List<Product> searchProductsByName(String name){
+		return productRepository.searchByName(name);
+	}
 	
 }
