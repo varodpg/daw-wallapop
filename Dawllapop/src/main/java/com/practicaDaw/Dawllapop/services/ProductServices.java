@@ -54,6 +54,11 @@ public class ProductServices {
 	public Page<Product> getAllByUser(Pageable pageable, User user) {
 		return productRepository.findByUser(pageable, user);
 	}
+
+	public Page<Product> getAllbyCatAndFilter2(String product_state_1, String product_state_2, Category cat_selected,
+			Pageable page) {
+		return productRepository.findByCategoryFiltering2(product_state_1, product_state_2, cat_selected, page);
+	}
 	
 	
 }
