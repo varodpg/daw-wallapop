@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	var page = 0;
-	
     //Logo loading
    
     $(document).ajaxStart(function(){
@@ -10,10 +9,25 @@ $(document).ready(function(){
         $("#wait").css("display", "none");
     });
     
+    //jquery remember filters checked on the form through inputs on the end of the html with values 
+    //printed by the model with mustache
+    if($("#product_n").val()=="new"){
+    		$("#product_new").prop('checked', true);
+    }
+    if($("#product_n").val()=="null"){
+		$("#product_new").prop('checked', false);
+    }
+    if($("#product_nn").val()=="not_new"){
+		$("#product_not_new").prop('checked', true);
+    }
+    if($("#product_nn").val()=="null"){
+		$("#product_not_new").prop('checked', false);
+    }
+    
     
     $("#showMore").click(function(){
     	page++;
-    	
+    	var srt_val1 = $('select.changeSort').val();
     var id = $( "#actual_id" ).val();
     var pi = $( "#inf" ).val();
     var pt = $( "#p_top" ).val();
@@ -22,7 +36,7 @@ $(document).ready(function(){
     
         //alert("The paragraph was clicked.");
         $.ajax({
-        		url: "/categoryAjax/" + id + "/" + pi + "/" + pt  + "/" + pn + "/" + pnn,
+        		url: "/categoryAjax/" + id + "/" + pi + "/" + pt  + "/" + pn + "/" + pnn + "/?sort=" + srt_val1,
         		data: {
         			'page': page, 
         			'size': 10,
@@ -40,9 +54,13 @@ $(document).ready(function(){
         				'</li></ul><p class="card-text">'
         				+ value['description']+
         				+ '</p></div></div></div></div>';
-        			if(items.last==true){
-        				$("#showMore").css("display", "none");
-        			}
+        			
+
+	        			if(items.last==true){
+	        				$("#showMore").css("display", "none");
+	        			}else{
+	        				$("#showMore").css("display", "block");
+	        			}
 					  
         				$('#productsList').append(html);
         			 //alert("exito" + page+ "o");
@@ -54,20 +72,20 @@ $(document).ready(function(){
     });
     
     $("select.changeSort").change(function(){
-    		 var srt_val = $('select.changeSort').val();
-    		 var page2 = 0;
+    		 var srt_val = $('select.changeSort').val();   		 
     		 var id2 = $( "#actual_id" ).val();
     		 var pi2 = $( "#inf" ).val();
     		 var pt2 = $( "#p_top" ).val();
     		 var pn2 = $( "#product_n" ).val();
     		 var pnn2 = $( "#product_nn" ).val();
-
      	 $( "#sort_type" ).val(srt_val);
-    		 
+     	 //reset variable from "show more" to show again from 0 
+     	 page = 0;
+     	 
     		 $.ajax({
-    			 url: "/categoryAjax/" + id2 + "/" + pi2 + "/" + pt2 + "/" + pn2 + "/" + pnn2,
+    			 url: "/categoryAjax/" + id2 + "/" + pi2 + "/" + pt2 + "/" + pn2 + "/" + pnn2 + "/?sort=" + srt_val,
     			 data: {
-         			'page': page2, 
+         			'page': 0, 
          			'size': 10,
          			  },
          	 dataType: "json",
@@ -86,9 +104,13 @@ $(document).ready(function(){
     	        				+ value['description']+
     	        				+ '</p></div></div></div></div>';
     					 
+
     					 if(result.last==true){
     	        				$("#showMore").css("display", "none");
-    	        		     }
+    	        		     }else{
+    		        				$("#showMore").css("display", "block");
+    		        			}
+    					 
     					 
     					 $('#productsList').append(html2);
     				 });

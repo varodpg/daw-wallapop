@@ -277,12 +277,12 @@
 								<h4 class="widget-header">Estado</h4>
 								<div class="form-check">
 									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" name="product_new" value="new"> Nuevo
+										<input class="form-check-input" type="checkbox" id="product_new" name="product_new" value="new"> Nuevo
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" name="product_not_new" value="not_new"> Seminuevo
+										<input class="form-check-input" type="checkbox" id="product_not_new" name="product_not_new" value="not_new"> Seminuevo
 									</label>
 								</div>
 							</div>
@@ -301,8 +301,8 @@
 							<div class="col-md-6">
 								<strong>Ordenar</strong>
 								<select class="changeSort" name="changeSort">
-									<option value="low_high">Precio mas bajo</option>
-									<option value="high_low">Precio mas caro</option>
+									<option value="price">Precio mas bajo</option>
+									<option value="name">Precio mas caro</option>
 								</select>
 							</div>
 							<div class="col-md-6">
@@ -499,7 +499,8 @@
 <input id="p_top" value="{{top}}">
 <input id="product_n" value="{{product_new}}">
 <input id="product_nn" value="{{product_not_new}}">
-<input id="sort_type" value="price_low">
+<input id="sort_type" value="price">
+
 
 
 <!-- MODAL PARA EL LOGOUT -->

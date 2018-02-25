@@ -138,8 +138,8 @@ public class CategoryController {
 			
 		}
 		
-		@RequestMapping(value="/categoryAjaxSort/{cat}/{pi}/{pt}/{pn}/{pnn}/?sort=price")
-		public @ResponseBody Page<Product> CategoriasAjaxSort(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat, @PathVariable String pi, @PathVariable String pt, @PathVariable String pn, @PathVariable String pnn) {
+		@RequestMapping(value="/categoryAjaxSort/{cat}/{pi}/{pt}/{pn}/{pnn}/?sort={srt}")
+		public @ResponseBody Page<Product> CategoriasAjaxSort(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat, @PathVariable String pi, @PathVariable String pt, @PathVariable String pn, @PathVariable String pnn, @PathVariable String srt) {
 
 			System.out.println( "Los elementos son :" );
 			System.out.println(prs.getAllProducts(page).toString());
@@ -148,6 +148,7 @@ public class CategoryController {
 			System.out.println(pt);
 			System.out.println(pn);
 			System.out.println(pnn);
+			System.out.println(srt);
 			
 			Category cat_selected = repository.getOne(cat);
 			
@@ -314,7 +315,6 @@ public class CategoryController {
 			model.addAttribute("num3", num3);
 			model.addAttribute("num4", num4);
 			model.addAttribute("num5", num5);
-			
 			
 			model.addAttribute("inf", inf);
 			model.addAttribute("top", top);
