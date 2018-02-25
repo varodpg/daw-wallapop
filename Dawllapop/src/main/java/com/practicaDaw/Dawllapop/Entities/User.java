@@ -147,5 +147,38 @@ public class User {
 		return this.name;
 		
 	}
+
+	public long getPhone() {
+		return phone;
+	}
+
+	public void setPhone(long phone) {
+		this.phone = phone;
+	}
+
+	public Date getRegisterDate() {
+		return registerDate;
+	}
+
+	public void setRegisterDate(Date registerDate) {
+		this.registerDate = registerDate;
+	}
+
+	public List<Product> getProductos() {
+		return productos;
+	}
+
+	public void setProductos(List<Product> productos) {
+		this.productos = productos;
+	}
+
+	public List<Offer> getOffers() {
+		return offers;
+	}
+
+	public void setOffers(List<Offer> offers) {
+		this.offers = offers;
+	}
+	
 	
 }

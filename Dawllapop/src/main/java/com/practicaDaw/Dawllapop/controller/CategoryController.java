@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
+import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
 
@@ -34,6 +36,9 @@ public class CategoryController {
 
 		@Autowired
 		private ProductServices prs;
+		
+		@Autowired
+		private UserRepository userRepository;
 		
 		
 		@PostConstruct
@@ -134,17 +139,21 @@ public class CategoryController {
 		}
 
 		@RequestMapping("category/p{id}")
-		public String Product(Model model, @PathVariable int id ) {
+		public String Product(Model model, @PathVariable int id, Authentication http ) {
 			
 			Product p=prs.findOne(id);
 			model.addAttribute("product",p);
+			
+			if (http != null) {
+				model.addAttribute("usuario", userRepository.findByName(http.getName()));
+			}
 			
 			System.out.println(p);
 			return "single";
 		}
 		
 		@RequestMapping("/category/{cat_id}")
-		public String Category(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat_id) {
+		public String Category(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat_id, Authentication http) {
 			
 			Category cat_selected = repository.getOne(cat_id);
 			Category cat_1 = repository.getOne((long) 1);
@@ -180,6 +189,10 @@ public class CategoryController {
 			model.addAttribute("top", "null");
 			model.addAttribute("product_new", "null");
 			model.addAttribute("product_not_new", "null");
+			
+			if (http != null) {
+				model.addAttribute("usuario", userRepository.findByName(http.getName()));
+			}
 			
 			return "category";
 			

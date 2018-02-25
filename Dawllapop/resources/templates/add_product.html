@@ -79,10 +79,13 @@
 									<a class="dropdown-item" href="category/">Moda</a>
 								</div>
 							</li>
+							<li class="nav-item"><a class="nav-link"
+								href="add-new-product">Añadir producto <i class="fa fa-plus"></i></a>
+							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" onclick="$('#login_modal').modal('toggle')">Iniciar Sesion</a>
+									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a>Cerrar sesión</a> </button>
 							</li>
 						</ul>
 					</div>
@@ -91,116 +94,29 @@
 		</div>
 	</div>
 </section>
-<!--===================================
-=            Login Modal Section      =
-====================================-->
-<div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">    
-      <div class="modal-body">
-				<div class="row justify-content-md-center login-img">
-					<div class="col-12 col-md-auto">
-						<img src="images/logoNuevo.png">
-					</div>
+<!-- MODAL PARA EL LOGOUT -->
+<form action="logout" id="formDelete">
+	<div tabindex="-1" class="modal bs-logout-modal-sm" role="dialog"
+		aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>
+						¿Estás seguro?<i class="fa fa-lock"></i>
+					</h4>
 				</div>
-				<div class="form-group-login">
-					<div class="row justify-content-md-center">
-						<div class="col-12 col-md-auto input-group input-group-login">
-							<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-user"></i></span>
-							<input type="text" class="form-control tf-login" placeholder="Usuario" aria-describedby="sizing-addon2">
-						</div>
-					</div>
-					<div class="row justify-content-md-center" style="margin-top: 20px">
-							<div class="col-12 col-md-auto input-group input-group-login">
-								<span class="input-group-addon" id="sizing-addon2"><i class="fa fa-lock"></i></span>
-								<input type="password" class="form-control tf-login" placeholder="Contraseña" aria-describedby="sizing-addon2">
-							</div>
-						</div>
-						<div class="row justify-content-md-center">
-							<div class="col-12 col-md-auto btn-enter-div">
-								<button class="btn btn-main btn-enter">Entrar</button>
-							</div>
-						</div>
-						<div class="row justify-content-md-center login-footer" style="margin-top: 50px">
-							<div class="col-12 col-md-auto btn-enter-div">
-								<p>¿Todavía no tienes una cuenta? <span class="join_text" onclick="open_signup()">Regístrate</span></p>
-							</div>
-						</div>
-				</div>				
-			</div>	
-		</div>							
-	</div>      
-</div>
-<!--===================================
-=            SignUp Modal Section     =
-====================================-->
-<div class="modal fade" id="signup_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">    
-      <div class="modal-body">
-				<div class="row justify-content-md-center login-img">
-					<div class="col-12 col-md-auto">
-						<img src="images/logoNuevo.png">
-					</div>
-				</div>				
-				<div class="form-group">
-					<label for="signup_username">Usuario</label>
-					<input id="signup_username" type="text" class="form-control">
+				<div class="modal-body">
+					<i class="fa fa-question-circle"></i> ¿Estás seguro de que quieres
+					cerrar sesión?
 				</div>
-				<div class="form-group">
-					<label for="signup_password1">Contraseña</label>
-					<input id="signup_password1" type="password" class="form-control">
+				<div class="modal-footer">
+					<button class="btn btn-primary btn-block">Cerrar Sesión</button>
 				</div>
-				<div class="form-group">
-					<label for="signup_password2">Repita la contraseña</label>
-					<input id="signup_password2" type="password" class="form-control">
-				</div>
-				<div class="form-group">
-					<label for="signup_email">Correo Electrónico</label>
-					<input id="signup_email" type="password" class="form-control">
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<label for="signup_provincia">Provincia</label>
-						<select class="form-control w-bg" id="signup_provincia">
-							<option selected>Provincia</option>
-							<option>Madrid</option>
-						</select>
-					</div>
-					<div class="col-md-6">
-						<label for="signup_ciudad">Ciudad</label>
-						<select class="form-control w-bg" id="signup_ciudad">
-							<option selected>Ciudad</option>
-							<option>Madrid</option>
-							<option>Alcorcón</option>
-							<option>Mostoles</option>
-						</select>
-					</div>
-				</div>		
-				<div class="row justify-content-md-center login-img">					
-					<div class="col-12 col-md-auto add-img-btn" onclick="open_file_browser_profile()" id="signup_img">
-						<span class="add-img-icon">+</span>
-						<br>
-						<span>Imagen de Perfil</span>
-					</div>	
-					<input id="profile_img_input" type="file" style="display:none" onchange="preview_profile_image()">
-				</div>		
-				<div class="row justify-content-md-center">
-						<div class="col-12 col-md-auto btn-enter-div">
-							<div class="row">
-								<div class="col-md-6">
-									<button class="btn btn-transparent btn-enter">Cancelar</button>
-								</div>
-								<div class="col-md-6">
-									<button class="btn btn-main btn-enter">Enviar</button>					
-								</div>
-							</div>							
-						</div>									
-				</div>								
-			</div>	
-		</div>							
-	</div>      
-</div>
+
+			</div>
+		</div>
+	</div>
+</form>
 <!--===================================
 =            Store Section            =
 ====================================-->
