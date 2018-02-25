@@ -300,11 +300,9 @@
 						<div class="row">
 							<div class="col-md-6">
 								<strong>Ordenar</strong>
-								<select>
-									<option>Mas recientes</option>
-									<option value="1">Popularidad</option>
-									<option value="2">Precio mas bajo</option>
-									<option value="4">Precio mas caro</option>
+								<select class="changeSort" name="changeSort">
+									<option value="low_high">Precio mas bajo</option>
+									<option value="high_low">Precio mas caro</option>
 								</select>
 							</div>
 							<div class="col-md-6">
@@ -501,6 +499,8 @@
 <input id="p_top" value="{{top}}">
 <input id="product_n" value="{{product_new}}">
 <input id="product_nn" value="{{product_not_new}}">
+<input id="sort_type" value="price_low">
+
 
 <!-- MODAL PARA EL LOGOUT -->
 <form action="logout" id="formDelete">
