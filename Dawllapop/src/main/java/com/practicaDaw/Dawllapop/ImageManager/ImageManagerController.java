@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -41,9 +42,11 @@ public class ImageManagerController {
 
 
 	@RequestMapping(value = "/imgs/upload", method = RequestMethod.POST)
-	public String handleFileUpload(Model model,
-			@RequestParam("file") MultipartFile file) {
+	public @ResponseBody
+ String handleFileUpload(Model model,
+			@RequestParam("file") MultipartFile[] files) {
 
+		for(MultipartFile file: files) {
 		String fileName = "image-" + imageId.getAndIncrement() + ".jpg";
 		String imageTitle = file.getName(); //the title is the name of the uploaded image
 		if (!file.isEmpty()) {
@@ -54,21 +57,23 @@ public class ImageManagerController {
 
 				images.put(fileName, new Image(imageTitle, fileName));
 
-				return "uploaded";
+				continue;
 
 			} catch (Exception e) {
 
 				model.addAttribute("fileName", fileName);
 				model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
 
-				return "uploaded";
+				continue;
 			}
 		} else {
 			
-			model.addAttribute("error", "The file is empty");
 
-			return "uploaded";
+			return "error file " + file.getName() + " is empty";
 		}
+		}
+		return "uploaded";
+
 	}
 
 	// NOTE: The url format "/image/{fileName:.+}" avoid Spring MVC remove file
