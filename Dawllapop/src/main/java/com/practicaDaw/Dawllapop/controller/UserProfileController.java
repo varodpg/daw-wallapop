@@ -35,7 +35,12 @@ public class UserProfileController {
 
 	@RequestMapping("/add_new_user")
 	public String add_new_user(Model model, User user) {
-		repository.save(user);
+		user.setRoles("ROLE_USER");
+//		user.setActivatedUser(true);
+//		user.setRegisterDate(new Date());
+		//User u = new User( user.getName(),user.getEmail(),user.getLocation(),user.getImage(),user.getPasswordHash(),user.getPhone(),user.getRegisterDate(),true,"ROLE_USER");
+		User u2 = new User(user.getName(), user.getEmail(), user.getLocation(),"", user.getPasswordHash(),45678900,new Date(), true);
+		userRepository.save(u2);
 		return "index";
 	}
 

@@ -98,7 +98,11 @@
 						<ul class="navbar-nav ml-auto mt-10">
 							{{#usuario.name}}
 							<li class="nav-item">
-									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a>Cerrar sesión</a> </button>
+							
+								<a class="btn nav-link" href="dashboard"><i class = "fa fa-user"></i> ¡Hola {{usuario.name}}!</a>
+							
+							<li class="nav-item">
+									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a> Cerrar sesión</a> </button>
 							</li>	 
 							{{/usuario.name}} 
 							{{^usuario.name}}
@@ -267,6 +271,8 @@
 						</div>
 						<input id="profile_img_input" type="file" style="display: none"
 							onchange="preview_profile_image()">
+							<input hidden id= "signup_rol" name = "roles">
+							<!--  <input hidden id= "signup_date" name = "registerDate">-->
 					</div>
 					<div class="row justify-content-md-center">
 						<div class="col-12 col-md-auto btn-enter-div">

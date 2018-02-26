@@ -219,12 +219,11 @@ public class IndexController {
 		p_repository.save(p);
 		}
 	
-		User u = new User("Alvaro", "varo@hotmail.com", "", "password", true, "Mostoles", "ROLE_ADMIN", "ROLE_USER");
+		User u = new User("Alvaro", "varo@hotmail.com", "Móstoles","", "password",677654565, new Date(), true, "ROLE_ADMIN");
 		userRepository.save(u);
-		User u2 = new User("Juanma", "juanma@hotmail.com", "", "password", true, "Alcorocn", "ROLE_USER");
+		User u2 = new User("Juanma", "juanma@hotmail.com", "Alcorcón","", "password",45678900,new Date(), true);
 		userRepository.save(u2);
-		User user3 = new User("David", "david.r.3.a@gmail.com", "Alcorcon", "", "a", 612595959, new Date(), true,
-				"ROLE_USER");
+		User user3 = new User("David", "david.r.3.a@gmail.com", "Alcorcon", "", "a", 612595959, new Date(), true);
 		userRepository.save(user3);
 
 		// Users Creation

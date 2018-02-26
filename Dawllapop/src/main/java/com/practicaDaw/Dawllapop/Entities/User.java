@@ -55,15 +55,15 @@ public class User {
 		
 	}
 
-	public User(String name, String email, String image, String passwordHash, boolean activedUser, String location,String...roles) {
-		this.name = name;
-		this.email=email;
-		this.image = image;
-		this.activatedUser=activedUser;
-		this.location=location;
-		this.passwordHash= new BCryptPasswordEncoder().encode(passwordHash);
-		this.roles = new ArrayList<>(Arrays.asList(roles));
-	}
+//	public User(String name, String email, String image, String passwordHash, boolean activedUser, String location,String...roles) {
+//		this.name = name;
+//		this.email=email;
+//		this.image = image;
+//		this.activatedUser=activedUser;
+//		this.location=location;
+//		this.passwordHash= new BCryptPasswordEncoder().encode(passwordHash);
+//		this.roles = new ArrayList<>(Arrays.asList(roles));
+//	}
 	
 	
 	
@@ -73,11 +73,12 @@ public class User {
 		this.email = email;
 		this.location = location;
 		this.image = image;
-		this.passwordHash = passwordHash;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
 		this.phone = phone;
 		this.registerDate = registerDate;
 		this.activatedUser = activatedUser;
 		this.roles = new ArrayList<>(Arrays.asList(roles));
+		this.setRoles("ROLE_USER");
 	}
 
 	public String getName() {
@@ -125,6 +126,9 @@ public class User {
 
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
+	}
+	public void setRoles(String roles) {
+		this.roles.add(roles);
 	}
 
 	public String getImage() {

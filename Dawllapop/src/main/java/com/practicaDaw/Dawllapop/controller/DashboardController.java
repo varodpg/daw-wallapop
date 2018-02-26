@@ -81,6 +81,8 @@ public class DashboardController {
 	public String dashBoard(Model model, @PageableDefault(size = 10) Pageable page, Authentication http) {
 		if (http != null) {
 			model.addAttribute("usuario", userRepository.findByName(http.getName()));
+			//model.addAttribute("usuario", userRepository.findByName(http.getName()).getRegisterDate());
+			
 			System.out.println(model.toString());
 		}
 		
