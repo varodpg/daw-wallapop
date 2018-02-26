@@ -195,9 +195,13 @@ public class CategoryController {
 			Product p=prs.findOne(id);
 			model.addAttribute("product",p);
 			
-			if (http != null) {
-				model.addAttribute("usuario", userRepository.findByName(http.getName()));
-			}
+			model.addAttribute("user_seller", p.getUser().getName());
+			model.addAttribute("seller_location", p.getUser().getLocation());
+			model.addAttribute("id_seller", p.getUser().getId());
+			
+//			if (http != null) {
+//				model.addAttribute("user_seller", userRepository.findByName(http.getName()));
+//			}
 			
 			System.out.println(p);
 			return "single";

@@ -109,9 +109,8 @@
 					<h1 class="product-title">{{product.name}}</h1>
 					<div class="product-meta">
 						<ul class="list-inline">
-							<li class="list-inline-item"><i class="fa fa-user-o"></i> Vendedor: <a href="/dashboard-public/persona">AÑADIR USER A Product.entity</a></li>
-							<li class="list-inline-item"><i class="fa fa-folder-open-o"></i> Categoria<a href="">CATEGORIA POR AÑADIR A Product.entity</a></li>
-							<!--<li class="list-inline-item"><i class="fa fa-location-arrow"></i> Location<a href="">Dhaka Bangladesh</a></li>-->
+							<li class="list-inline-item"><i class="fa fa-user-o"></i> Vendedor: <a href="/publicDashboard/{{id_seller}}">{{user_seller}}</a></li>
+							<li class="list-inline-item"><i class="fa fa-location-arrow"></i> Localizacion<a href="">{{seller_location}}</a></li>
 						</ul>
 					</div>
 					<div id="carouselExampleIndicators" class="/product-slider carousel slide" data-ride="false">					
@@ -240,8 +239,7 @@
 					<!-- User Profile widget -->
 					<div class="widget user">
 							<img class="rounded" src="/images/user/user-thumb.jpg" alt="David Rial" width="100%" >
-						<h4><a href="">David Rial</a></h4>
-						<p class="member-time">Miembro desde 27 de Junio, 2017</p>
+						<br><h4 align="center"><a href="/publicDashboard/{{id_seller}}">{{user_seller}}</a></h4>
 						<ul class="list-inline mt-20">
 							{{#usuario.name}}
 							<li class="list-inline-item"><a href="#" class="btn btn-contact" data-toggle="modal" data-target="#myModal" >Contacto</a></li>
