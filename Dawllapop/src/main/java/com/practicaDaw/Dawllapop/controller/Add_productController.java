@@ -46,7 +46,8 @@ public class Add_productController {
 	public String add_new_product(Model model, @RequestParam("name") String name,
 			@RequestParam("description") String description, 
 			@RequestParam("price") double price,
-			@RequestParam("files") MultipartFile[] files){
+			@RequestParam("files") MultipartFile[] files
+			){
 		
 		
 		Product product = new Product(name, description, price);
@@ -82,7 +83,7 @@ public class Add_productController {
 
 		product.setState("on_sale");
 		repository.save(product);
-		return "dashboard";
+		return "add_product";
 	}
 	
 	@RequestMapping("/edit_single_product/{id}")
