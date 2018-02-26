@@ -35,8 +35,7 @@ public class Dashboard_publicController {
 	private ProductServices prs;
 	@Autowired
 	private AssessmentServices assessmentService;
-	@Autowired
-	private AssessmentRepository assessmentRepo;
+
 	@Autowired
 	ProductServices productServices;
 	
@@ -45,14 +44,8 @@ public class Dashboard_publicController {
 	
 	@PostConstruct
 	public void init() {
-		User user1 = userService.findUser(3);
-		User user2 = userService.findUser(2);
-		User user3 = userService.findUser(1);
+	
 		
-		Assessment assess1 = new Assessment("Gran vendedor", 4, user2, user1, new Date());
-		assessmentRepo.save(assess1);
-		Assessment assess2 = new Assessment("Gran vendedor, mejor persona", 3, user3, user1, new Date());
-		assessmentRepo.save(assess2);
 	}
 	
 	

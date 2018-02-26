@@ -85,12 +85,7 @@ public class UserProfileController {
 	@PostConstruct
 	public void init() {
 
-		User u = new User("Alvaro", "varo@hotmail.com", "", "password", true, "Mostoles", "ROLE_ADMIN", "ROLE_USER");
-		repository.save(u);
-		User u2 = new User("Juanma", "juanma@hotmail.com", "", "password", true, "Alcorocn", "ROLE_USER");
-		repository.save(u2);
-		User user3 = new User("David", "david.r.3.a@gmail.com", "Alcorcon", "", "a", 612595959, new Date(), true, "ROLE_USER");
-		repository.save(user3);
+	
 
 	}
 
