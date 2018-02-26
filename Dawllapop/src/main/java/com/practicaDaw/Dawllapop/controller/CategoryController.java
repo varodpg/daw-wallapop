@@ -138,56 +138,56 @@ public class CategoryController {
 			
 		}
 		
-		@RequestMapping(value="/categoryAjaxSort/{cat}/{pi}/{pt}/{pn}/{pnn}/?sort={srt}")
-		public @ResponseBody Page<Product> CategoriasAjaxSort(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat, @PathVariable String pi, @PathVariable String pt, @PathVariable String pn, @PathVariable String pnn, @PathVariable String srt) {
-
-			System.out.println( "Los elementos son :" );
-			System.out.println(prs.getAllProducts(page).toString());
-			System.out.println(cat);
-			System.out.println(pi);
-			System.out.println(pt);
-			System.out.println(pn);
-			System.out.println(pnn);
-			System.out.println(srt);
-			
-			Category cat_selected = repository.getOne(cat);
-			
-			if((pi.equalsIgnoreCase("null"))&&(pt.equalsIgnoreCase("null"))) {
-				//control of showMore or not showMore elements
-				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
-				return prs.getAllbyCat(page, cat_selected);
-			}
-				else {
-					
-			if((pn.equalsIgnoreCase("null"))&&(pnn.equalsIgnoreCase("null"))){
-						//control of showMore or not showMore elements
-						model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
-						return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
-			}
-			else if((pn.equalsIgnoreCase("null"))&&(pnn.equalsIgnoreCase("not_new"))) {
-				//control of showMore or not showMore elements
-				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
-			    return prs.getAllbyCatAndFilter(pi, pt, "not_new", cat_selected, page);
-			}
-			else if((pnn.equalsIgnoreCase("null"))&&(pn.equalsIgnoreCase("new"))) {
-				//control of showMore or not showMore elements
-				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
-				return prs.getAllbyCatAndFilter(pi, pt, "new", cat_selected, page);
-			}
-			else if((pn.equalsIgnoreCase("new"))&&(pnn.equalsIgnoreCase("not_new"))) {
-				//control of showMore or not showMore elements
-				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
-				return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
-				}
-			}
-			return null;
-			
-			
+//		@RequestMapping(value="/categoryAjaxSort/{cat}/{pi}/{pt}/{pn}/{pnn}/?sort={srt}")
+//		public @ResponseBody Page<Product> CategoriasAjaxSort(Model model, @PageableDefault(size = 10) Pageable page, @PathVariable long cat, @PathVariable String pi, @PathVariable String pt, @PathVariable String pn, @PathVariable String pnn, @PathVariable String srt) {
+//
+//			System.out.println( "Los elementos son :" );
+//			System.out.println(prs.getAllProducts(page).toString());
+//			System.out.println(cat);
+//			System.out.println(pi);
+//			System.out.println(pt);
+//			System.out.println(pn);
+//			System.out.println(pnn);
+//			System.out.println(srt);
+//			
 //			Category cat_selected = repository.getOne(cat);
-//			return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
+//			
+//			if((pi.equalsIgnoreCase("null"))&&(pt.equalsIgnoreCase("null"))) {
+//				//control of showMore or not showMore elements
+//				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+//				return prs.getAllbyCat(page, cat_selected);
+//			}
+//				else {
+//					
+//			if((pn.equalsIgnoreCase("null"))&&(pnn.equalsIgnoreCase("null"))){
+//						//control of showMore or not showMore elements
+//						model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+//						return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
+//			}
+//			else if((pn.equalsIgnoreCase("null"))&&(pnn.equalsIgnoreCase("not_new"))) {
+//				//control of showMore or not showMore elements
+//				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+//			    return prs.getAllbyCatAndFilter(pi, pt, "not_new", cat_selected, page);
+//			}
+//			else if((pnn.equalsIgnoreCase("null"))&&(pn.equalsIgnoreCase("new"))) {
+//				//control of showMore or not showMore elements
+//				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+//				return prs.getAllbyCatAndFilter(pi, pt, "new", cat_selected, page);
+//			}
+//			else if((pn.equalsIgnoreCase("new"))&&(pnn.equalsIgnoreCase("not_new"))) {
+//				//control of showMore or not showMore elements
+//				model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
+//				return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
+//				}
+//			}
+//			return null;
+//			
+//			
+////			Category cat_selected = repository.getOne(cat);
+////			return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
 
 			
-		}
+//		}
 
 		@RequestMapping("category/p{id}")
 		public String Product(Model model, @PathVariable int id, Authentication http ) {
@@ -243,6 +243,7 @@ public class CategoryController {
 			model.addAttribute("top", "null");
 			model.addAttribute("product_new", "null");
 			model.addAttribute("product_not_new", "null");
+			model.addAttribute("filter", "fil_no");
 			
 			if (http != null) {
 				model.addAttribute("usuario", userRepository.findByName(http.getName()));
@@ -277,26 +278,26 @@ public class CategoryController {
 				Page<Product> products = prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page);
 				model.addAttribute("products", products);
 				//control of showMore or not showMore elements
-				model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).getTotalPages()>1);
+				model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).getTotalElements()>10);
 				
 			}else {
 			if((product_new==null)&&(product_not_new.equalsIgnoreCase("not_new"))) {
 			Page<Product> products = prs.getAllbyCatAndFilter(inf, top, "not_new", cat_selected, page);
 			model.addAttribute("products", products);
 			//control of showMore or not showMore elements
-			model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).getTotalPages()>1);
+			model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).getTotalElements()>10);
 			}
 			else if((product_not_new==null)&&(product_new.equalsIgnoreCase("new"))) {
 				Page<Product> products = prs.getAllbyCatAndFilter(inf, top, "new", cat_selected, page);
 				model.addAttribute("products", products);
 				//control of showMore or not showMore elements
-				model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).getTotalPages()>1);
+				model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).getTotalElements()>10);
 			}
 			else if((product_new.equalsIgnoreCase("new"))&&(product_not_new.equalsIgnoreCase("not_new"))) {
 				Page<Product> products = prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page);
 				model.addAttribute("products", products);
 				//control of showMore or not showMore elements
-				model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).getTotalPages()>1);
+				model.addAttribute("morePages", prs.getAllbyCatAndFilter2(inf, top, "new", "not_new", cat_selected, page).getTotalElements()>10);
 			}
 			}
 
@@ -335,8 +336,8 @@ public class CategoryController {
 				String product_not_new1="null";
 				model.addAttribute("product_not_new", product_not_new1);
 			}
-			
-
+			model.addAttribute("filter", "fil_yes");
+			model.addAttribute("name_cat", cat_selected.getName());
 			
 			return "category";
 			

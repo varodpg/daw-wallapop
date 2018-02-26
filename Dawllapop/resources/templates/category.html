@@ -163,41 +163,12 @@
 	</div>
 </div>
 
-	<section class="page-search">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<!-- Advance Search -->
-					<div class="advance-search">
-						<form>
-							<div class="form-row">
-								<div class="form-group col-md-4">
-									<input type="text" class="form-control" id="inputtext4" placeholder="Buscar Por">
-								</div>
-								<div class="form-group col-md-3">
-									<input type="text" class="form-control" id="inputCategory4" placeholder="Categoria">
-								</div>
-								<div class="form-group col-md-3">
-									<input type="text" class="form-control" id="inputLocation4" placeholder="Localización">
-								</div>
-								<div class="form-group col-md-2">
-
-									<button type="submit" class="btn btn-primary">Buscar</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="section-sm" style="padding: 0px;">
+	<section class="section-sm" style="padding: 70px;">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
 					<div class="search-result bg-gray">
 						<h2>Estos son los Resultados para la categoria seleccionada</h2>
-						<p>{{numberOfProducts}} Resultados obtenidos</p>
 					</div>
 				</div>
 			</div>
@@ -267,7 +238,7 @@
 								<h4 class="widget-header">Rango del precio</h4>
 								<div class="block">
 									<b>1€</b>
-									<input id="ex2" type="text" name="price" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"
+									<input id="ex2" type="text" name="price" class="span2" value="" data-slider-min="10" data-slider-max="30000" data-slider-step="5" data-slider-value="[250,450]"
 									/>
 									<b>30000€</b>
 								</div>
@@ -296,34 +267,6 @@
 					</div>
 				</div>
 				<div class="col-md-9"">
-					<div class="category-search-filter">
-						<div class="row">
-							<div class="col-md-6">
-								<strong>Ordenar</strong>
-								<select class="changeSort" name="changeSort">
-									<option value="price">Precio mas bajo</option>
-									<option value="name">Precio mas caro</option>
-								</select>
-							</div>
-							<div class="col-md-6">
-								<div class="view">
-									<strong>Vista</strong>
-									<ul class="list-inline view-switcher">
-										<li class="list-inline-item">
-											<a href="javascript:void(0);">
-												<i class="fa fa-th-large"></i>
-											</a>
-										</li>
-										<li class="list-inline-item">
-											<a href="javascript:void(0);">
-												<i class="fa fa-reorder"></i>
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="product-grid-list">
 						<div id="productsList" class="row mt-30" >
                             <!-- BEGINING PRODUCT -->
@@ -333,31 +276,23 @@
 									<div class="card">
 										<div class="thumb-content">
 											<b>{{id}}</b>
-											<!-- <div class="price">$200</div> -->
 											<a href="p{{id}}">
-												<img class="card-img-top img-fluid" src="/imgs/{{mainImage}}" alt="Card image cap">
+												<img class="card-img-top img-fluid" src="" alt="Card image cap">
 											</a>
 										</div>
 										<div class="card-body">
 											<h4 class="card-title">
-												<a href="single">{{name}} Air</a>
+												<a href="p{{id}}">{{name}}</a>
 											</h4>
 											<ul class="list-inline product-meta">
 												<li class="list-inline-item">
-													<a href="single">
-														<i class="fa fa-folder-open-o"></i>{{name_cat}}</a>
+														<i class="fa fa-calendar"></i>{{date}}
 												</li>
 												<li class="list-inline-item">
-													<a href="">
-														<i class="fa fa-calendar"></i>{{date}}</a>
+														<i class="fa fa-thumbs-up"></i>Estado: {{state}}
 												</li>
 												<li class="list-inline-item">
-													<a href="">
-														<i class="fa fa-thumbs-up"></i>Estado: {{state}}</a>
-												</li>
-												<li class="list-inline-item">
-													<a href="">
-														<i class="fa fa-eur"></i>Precio: {{price}}</a>
+														<i class="fa fa-eur"></i>Precio: {{price}}
 												</li>
 											</ul>
 											<p class="card-text">{{description}}</p>
@@ -502,12 +437,13 @@
 		</a>
 	</div>
 </footer>
-<input id="actual_id" value="{{cat_id}}">
-<input id="inf" value="{{inf}}">
-<input id="p_top" value="{{top}}">
-<input id="product_n" value="{{product_new}}">
-<input id="product_nn" value="{{product_not_new}}">
-<input id="sort_type" value="price">
+<input id="actual_id" type="hidden" value="{{cat_id}}">
+<input id="inf" type="hidden" value="{{inf}}">
+<input id="p_top" type="hidden" value="{{top}}">
+<input id="product_n" type="hidden" value="{{product_new}}">
+<input id="product_nn" type="hidden" value="{{product_not_new}}">
+<input id="sort_type" type="hidden" value="price">
+<input id="filter"type="hidden" value="{{filter}}">
 
 
 
