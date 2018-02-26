@@ -31,6 +31,7 @@ public class Product {
 	private ArrayList<String> images;
 	private String mainImage;
 	private boolean sold = false;
+	private String date; 
 
 	@ManyToOne
 	@JsonManagedReference
@@ -61,7 +62,7 @@ public class Product {
 	}
 
 	public Product(String name, String description, String state, ArrayList<String[]> especifications,
-			ArrayList<String> tags, double price, ArrayList<String> images, boolean sold) {
+			ArrayList<String> tags, double price, ArrayList<String> images, boolean sold, String date) {
 		this.name = name;
 		this.description = description;
 		this.state = state;
@@ -71,6 +72,7 @@ public class Product {
 		this.images = images;
 		this.mainImage = images.get(0);
 		this.sold = sold;
+		this.date=date;
 	}
 
 	public Product(String name, String description, double price) {
@@ -169,6 +171,14 @@ public class Product {
 	
 	public void setSold(boolean sold) {
 		this.sold = sold;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	// public ArrayList<Image> getImages() {

@@ -233,6 +233,9 @@ public class CategoryController {
 			model.addAttribute("num5", num5);
 			model.addAttribute("cat_id", cat_id);
 			
+			String name_cat = cat_selected.getName();
+			model.addAttribute("name_cat", name_cat);
+			
 			//control of showMore or not showMore elements
 			model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
 			

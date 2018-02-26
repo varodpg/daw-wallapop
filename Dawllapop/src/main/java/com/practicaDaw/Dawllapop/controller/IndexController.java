@@ -94,102 +94,106 @@ public class IndexController {
 		images.add(img2);
 
 		// Category Creation
-		Category c1 = new Category("Informatica");
+		Category c1 = new Category("Electronica");
 		c_repository.save(c1);
-		Category c2 = new Category("Electronica");
+		Category c2 = new Category("Inmobiliaria");
 		c_repository.save(c2);
-		Category c3 = new Category("Inmobiliaria");
+		Category c3 = new Category("Deportes_y_ocio");
 		c_repository.save(c3);
-		Category c4 = new Category("Ocio");
+		Category c4 = new Category("Videojuegos");
 		c_repository.save(c4);
-		Category c5 = new Category("Deportes");
+		Category c5 = new Category("Moda");
 		c_repository.save(c5);
-		Category c6 = new Category("Consolas");
-		c_repository.save(c6);
-		Category c7 = new Category("Videojuegos");
-		c_repository.save(c7);
-		Category c8 = new Category("Moda");
-		c_repository.save(c8);
+
 
 		// product Creation
 		Product p1 = new Product("Macbook Pro 2017",
 				"Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.",
-				"new", especificaciones, tags, 1500, images, false);
+				"new", especificaciones, tags, 1900, images, false, "21/02/2018");
 		p1.setCategory(c1);
 		p1.setUser(user);
 		p_repository.save(p1);
 
 		Product p2 = new Product("Escritorio",
 				"Escritorio de mesa con gran capacidad de\r\n" + "								espacio", "new",
-				especificaciones, tags, 800, images, false);
-		p2.setCategory(c3);
+				especificaciones, tags, 800, images, false, "21/02/2018");
+		p2.setCategory(c2);
 		p2.setUser(user);
 		p_repository.save(p2);
 
 		Product p3 = new Product("Escritorio Pequeño",
 				"Escritorio de mesa para habitaciones\r\n" + "								pequeñas", "new",
-				especificaciones, tags, 300, images, false);
-		p3.setCategory(c3);
+				especificaciones, tags, 300, images, false, "21/02/2018");
+		p3.setCategory(c2);
 		p3.setUser(user);
 		p_repository.save(p3);
 		Product p4 = new Product("Nokia 8998", "Vendo movil en buen estado, y con bateria nueva", "not_new",
-				especificaciones, tags, 530, images, false);
+				especificaciones, tags, 530, images, false, "21/02/2018");
 		p4.setCategory(c1);
 		p4.setUser(user);
 		p_repository.save(p4);
 		Product p5 = new Product("xiaomi mi band 2", "Incluye la pulsera de metal en vez de la de plastico", "not_new",
-				especificaciones, tags, 300, images, false);
-		p5.setCategory(c2);
+				especificaciones, tags, 300, images, false, "21/02/2018");
+		p5.setCategory(c1);
 		p5.setUser(user);
 		p_repository.save(p5);
 		Product p6 = new Product("Samsung galxy s9", "Me toco en un sorteo y no lo quiero", "new", especificaciones,
-				tags, 1100, images, false);
-		p6.setCategory(c2);
+				tags, 1100, images, false, "21/02/2018");
+		p6.setCategory(c1);
 		p6.setUser(user);
 		p_repository.save(p6);
 		Product p7 = new Product("Zapatillas New Balance 365 ", "Sólo me las he puesto 3 veces muy cómodas", "not_new",
-				especificaciones, tags, 120, images, false);
+				especificaciones, tags, 120, images, false, "21/02/2018");
 		p7.setCategory(c5);
 		p7.setUser(user);
 		p_repository.save(p7);
 		Product p8 = new Product("Play Station 4", "Me la regalaron y no la necesito esta completamente nueva", "new",
-				especificaciones, tags, 400, images, false);
-		p8.setCategory(c6);
+				especificaciones, tags, 400, images, false, "21/02/2018");
+		p8.setCategory(c4);
 		p8.setUser(user);
 		p_repository.save(p8);
 		Product p9 = new Product("Ratón inalámbrico Razer",
 				"Solo lo he usado un mes, tiene el precinto y sus complementos", "new", especificaciones, tags, 35,
-				images, false);
+				images, false, "21/02/2018");
 		p9.setCategory(c1);
 		p9.setUser(user);
 		p_repository.save(p9);
 		Product p10 = new Product("Camiseta Hollyster",
 				"Nueva sin estrenar muy bonita de\r\n" + "								espacio", "new",
-				especificaciones, tags, 15, images, false);
-		p10.setCategory(c8);
+				especificaciones, tags, 15, images, false, "21/02/2018");
+		p10.setCategory(c5);
 		p10.setUser(user);
 		p_repository.save(p10);
 		Product p11 = new Product("Fallout 4",
 				"Funciona a la perfeccion es de play 3\r\n" + "								pequeñas", "not_new",
-				especificaciones, tags, 10, images, false);
-		p11.setCategory(c7);
+				especificaciones, tags, 10, images, false, "21/02/2018");
+		p11.setCategory(c4);
 		p11.setUser(user);
 		p_repository.save(p11);
 		Product p12 = new Product("Shadow of mordor", "Nuevo es de ordenador", "new", especificaciones, tags, 45,
-				images, false);
-		p12.setCategory(c7);
+				images, false, "21/02/2018");
+		p12.setCategory(c4);
 		p12.setUser(user);
 		p_repository.save(p12);
 		Product p13 = new Product("Iphone 8", "Me cambio a android y no lo quiero", "not_new", especificaciones, tags,
-				850, images, false);
-		p13.setCategory(c2);
+				850, images, false, "21/02/2018");
+		p13.setCategory(c1);
 		p13.setUser(user);
 		p_repository.save(p13);
 		Product p14 = new Product("xBox 360", "Incluye 3 mandos", "not_new", especificaciones, tags, 264, images,
-				false);
-		p14.setCategory(c6);
+				false, "21/02/2018");
+		p14.setCategory(c5);
 		p14.setUser(user);
 		p_repository.save(p14);
+		
+		for(int i=0; i<10; i++) {
+		Product p = new Product("Macbook Pro 2017",
+				"Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.",
+				"new", especificaciones, tags, 1500, images, false, "21/02/2018");
+		p.setCategory(c1);
+		p.setUser(user);
+		p_repository.save(p);
+		}
 	
 		User u = new User("Alvaro", "varo@hotmail.com", "", "password", true, "Mostoles", "ROLE_ADMIN", "ROLE_USER");
 		userRepository.save(u);
