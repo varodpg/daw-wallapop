@@ -127,7 +127,7 @@
 			<!-- Left sidebar -->
 			<div class="col-md-12 ">
 				<div class="product-details">
-					<form action="add_new_product" method="post" id="form_add_product" modelAttribute="product">
+					<form action="add-new-product" method="post" id="form_add_product" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-md-12">
 								<h1 class="widget-header user">Añadir producto</h1>
@@ -197,12 +197,9 @@
 										<br>
 										<span>Añadir imagen</span>
 									</div>
-									<form action="/images/upload" method="post"
-									enctype="multipart/form-data">
 										<p>
 											<input id="file_input" type="file" name="file "style="display:none" onchange="preview_image()">
 										</p>
-									</form>
 								</div>
 							</div>
 						</div>

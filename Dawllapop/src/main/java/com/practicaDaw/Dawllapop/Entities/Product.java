@@ -28,7 +28,7 @@ public class Product {
 	private ArrayList<String[]> especifications;
 	private ArrayList<String> tags;
 	private double price;
-	private ArrayList<String> images;
+	private ArrayList<String> images = new ArrayList();
 	private String mainImage;
 	private boolean sold = false;
 	private String date; 
@@ -50,27 +50,23 @@ public class Product {
 	}
 
 	public Product(String name, String description, String state, ArrayList<String[]> especifications,
-			ArrayList<String> tags, double price, ArrayList<String> images) {
+			ArrayList<String> tags, double price) {
 		this.name = name;
 		this.description = description;
 		this.state = state;
 		this.especifications = especifications;
 		this.tags = tags;
 		this.price = price;
-		this.images = images;
-		this.mainImage = images.get(0);
 	}
 
 	public Product(String name, String description, String state, ArrayList<String[]> especifications,
-			ArrayList<String> tags, double price, ArrayList<String> images, boolean sold, String date) {
+			ArrayList<String> tags, double price, boolean sold, String date) {
 		this.name = name;
 		this.description = description;
 		this.state = state;
 		this.especifications = especifications;
 		this.tags = tags;
 		this.price = price;
-		this.images = images;
-		this.mainImage = images.get(0);
 		this.sold = sold;
 		this.date=date;
 	}
@@ -181,6 +177,11 @@ public class Product {
 		this.date = date;
 	}
 
+	public void addImage(String image) {
+		images.add(image);
+		this.mainImage = image;
+	}
+	
 	// public ArrayList<Image> getImages() {
 	// return this.images;
 	// }

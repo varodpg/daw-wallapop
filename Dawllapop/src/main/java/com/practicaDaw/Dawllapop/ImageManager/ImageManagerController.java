@@ -39,43 +39,6 @@ public class ImageManagerController {
 		}
 	}
 
-
-
-	@RequestMapping(value = "/imgs/upload", method = RequestMethod.POST)
-	public @ResponseBody
- String handleFileUpload(Model model,
-			@RequestParam("file") MultipartFile[] files) {
-
-		for(MultipartFile file: files) {
-		String fileName = "image-" + imageId.getAndIncrement() + ".jpg";
-		String imageTitle = file.getName(); //the title is the name of the uploaded image
-		if (!file.isEmpty()) {
-			try {
-
-				File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
-				file.transferTo(uploadedFile);
-
-				images.put(fileName, new Image(imageTitle, fileName));
-
-				continue;
-
-			} catch (Exception e) {
-
-				model.addAttribute("fileName", fileName);
-				model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
-
-				continue;
-			}
-		} else {
-			
-
-			return "error file " + file.getName() + " is empty";
-		}
-		}
-		return "uploaded";
-
-	}
-
 	// NOTE: The url format "/image/{fileName:.+}" avoid Spring MVC remove file
 	// extension.
 
