@@ -229,6 +229,7 @@ public class IndexController {
 				"new", especificaciones, tags, 1500, false, "21/02/2018");
 		p.setCategory(c1);
 		p.setUser(u3);
+		p.addImage("image-0.jpg");
 		p_repository.save(p);
 		}
 

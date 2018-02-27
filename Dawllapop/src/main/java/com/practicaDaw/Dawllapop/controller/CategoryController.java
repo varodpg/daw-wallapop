@@ -108,10 +108,13 @@ public class CategoryController {
 			}
 				else {
 					
+			
 			if((pn.equalsIgnoreCase("null"))&&(pnn.equalsIgnoreCase("null"))){
 						//control of showMore or not showMore elements
 						model.addAttribute("morePages", prs.getAllbyCat(page, cat_selected).getTotalPages()>1);
-						return prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
+						Page<com.practicaDaw.Dawllapop.Entities.Product> allbyCatAndFilter2 = prs.getAllbyCatAndFilter2(pi, pt, "new", "not_new", cat_selected, page);
+						System.out.println(allbyCatAndFilter2.getContent());
+						return allbyCatAndFilter2;
 			}
 			else if((pn.equalsIgnoreCase("null"))&&(pnn.equalsIgnoreCase("not_new"))) {
 				//control of showMore or not showMore elements

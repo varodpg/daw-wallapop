@@ -54,7 +54,7 @@ $(document).ready(function(){
         			 $.each(items.content, function (key,value){
         				html='<div class="col-sm-12 col-lg-4 col-md-6"><div class="product-item bg-light"><div class="card"><div class="thumb-content"><b>' 
 	        				+ value['id'] + 
-	        				'</b><a href="category/ ' + value['id'] + '"><img class="card-img-top img-fluid" src= /ImgFiles/imgs/"' + value['mainImage'] + '" alt="Card image cap"></a></div>'
+	        				'</b><a href="category/ ' + value['id'] + '"><img class="card-img-top img-fluid" src= "/imgs/' + value['mainimage'] + '"></a></div>'
 	        				+ '<div class="card-body"><h4 class="card-title"><a href="p' + value['id'] + '">' 
 	        				+ value['name'] + 
 	        				'</a></h4><ul class="list-inline product-meta"><li class="list-inline-item"><i class="fa fa-calendar"></i>'

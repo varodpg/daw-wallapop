@@ -29,7 +29,7 @@ public class Product {
 	private ArrayList<String> tags;
 	private double price;
 	private ArrayList<String> images = new ArrayList();
-	private String mainImage;
+	private String mainimage;
 	private boolean sold = false;
 	private String date; 
 
@@ -94,7 +94,10 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Producto [nombre=" + name + " y especificaciones: " + especifications + "]";
+		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", state=" + state
+				+ ", especifications=" + especifications + ", tags=" + tags + ", price=" + price + ", images=" + images
+				+ ", mainimage=" + mainimage + ", sold=" + sold + ", date=" + date + ", category=" + category
+				+ ", user=" + user + ", offers=" + offers + "]";
 	}
 
 	public long getId() {
@@ -179,7 +182,35 @@ public class Product {
 
 	public void addImage(String image) {
 		images.add(image);
-		this.mainImage = image;
+		this.mainimage = image;
+	}
+
+	public ArrayList<String> getImages() {
+		return images;
+	}
+
+	public void setImages(ArrayList<String> images) {
+		this.images = images;
+	}
+
+	public String getMainimage() {
+		return mainimage;
+	}
+
+	public void setMainimage(String mainimage) {
+		this.mainimage = mainimage;
+	}
+
+	public List<Offer> getOffers() {
+		return offers;
+	}
+
+	public void setOffers(List<Offer> offers) {
+		this.offers = offers;
+	}
+
+	public boolean isSold() {
+		return sold;
 	}
 	
 	// public ArrayList<Image> getImages() {
