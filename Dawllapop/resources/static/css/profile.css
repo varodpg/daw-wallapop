@@ -50,3 +50,72 @@ input[id^="spoiler"]{
 .delete_account:hover{
     background: red;
 }
+
+.friendsButton{
+	position: fixed;
+	bottom: 0px;
+	right: 20px;
+	height: 50px;
+	width: 50px;
+	background-color: white;
+	text-align: center;
+	border-radius: 3px 3px 0px 0px;
+	border: solid 1px;
+	border-color: #aaa;
+	box-shadow: 2px 2px 2px 2px #ccc;
+	cursor: pointer;
+}
+
+#friendsList{
+	position: fixed;
+	bottom: 52px;
+	right: 20px;
+	background-color: #5672f9;
+	text-align: center;
+	border-radius: 3px 3px 0px 0px;
+	border: solid 1px;
+	border-color: #aaa;
+	box-shadow: 2px 2px 2px 2px #ccc;
+	height: 400px;
+	width: 350px;
+	z-index: 100;
+	padding: 5px 2px;
+}
+
+#friendChat{
+	position: fixed;
+	bottom: 52px;
+	right: 70px;
+	background-color: #5672f9;
+	text-align: center;
+	border-radius: 3px 3px 0px 0px;
+	border: solid 1px;
+	border-color: #aaa;
+	box-shadow: 2px 2px 2px 2px #ccc;
+	height: 400px;
+	width: 350px;
+	z-index: 100;
+	padding: 5px 2px;
+}
+
+.friendChatHeader{
+	margin: 0px 10px;
+	text-align: center;
+	background-color: white;
+	border-radius: 3px;
+	height: 25px;
+}
+.friendChatBody{
+	margin: 5px 10px 0px 10px;
+	text-align: center;
+	background-color: white;
+	border-radius: 3px;
+	height: 300px;
+}
+.friendChatInput{
+	margin: 5px 10px 0px 10px;
+	text-align: center;
+	background-color: white;
+	border-radius: 3px;
+	height: 50px;
+}

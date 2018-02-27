@@ -95,154 +95,181 @@
 	<!--==================================
 =            User Profile            =
 ===================================-->
-	<section class="dashboard section">
-		<!-- Container Start -->
-		<div class="container">
-			<!-- MODAL for contact->
+
+	<!-- Container Start -->
+	<div class="container">
+		<!-- MODAL for contact->
           <!-- The Modal -->
-			<div class="modal fade" id="myModal">
-				<div class="modal-dialog">
-					<div class="modal-content">
+		<div class="modal fade" id="myModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
 					{{#user}}
-						<!-- Modal Header -->
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<h4 class="modal-title">Contacto</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+						<p>
+							<i class="fa fa-phone"></i> Telefono:
+							{{#phone}}{{phone}}{{/phone}}
+						</p>
+						<p>
+							<i class="fa fa-envelope"></i> Correo:
+							{{#email}}{{email}}{{/email}}
+						</p>
+					</div>
+
+					<!-- Modal footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+					</div>
+					{{/user}}
+				</div>
+			</div>
+		</div>
+		<!-- end modal -->
+
+<!------------------------------------
+-		FRIEND REQUEST MODAL			-  
+------------------------------------->
+		<div class="modal fade" id="modalFriendRequest">
+			<div class="modal-dialog">
+				<div class="modal-content">					
+					<form action="/sendFriendRequest/{{user.id}}" method="POST" id="formFriendRequest">
 						<div class="modal-header">
-							<h4 class="modal-title">Contacto</h4>
+							<h4 class="modal-title">Solicitud de amistad</h4>
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 						</div>
-
-						<!-- Modal body -->
 						<div class="modal-body">
-							<p>
-								<i class="fa fa-phone"></i> Telefono:
-								{{#phone}}{{phone}}{{/phone}}
-							</p>
-							<p>
-								<i class="fa fa-envelope"></i> Correo:
-								{{#email}}{{email}}{{/email}}
-							</p>
+							<textarea class="form-control" name="message" placeholder="Escribe tu mensaje de solicitud"></textarea>
 						</div>
-
-						<!-- Modal footer -->
 						<div class="modal-footer">
-							<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+							<a type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</a>
+							<a type="button" class="btn btn-main-sm" onclick="$('#formFriendRequest').submit()">Enviar</a>
 						</div>
-						{{/user}}
-					</div>
+					</form>
 				</div>
 			</div>
-			<!-- end modal -->
-			<!-- Row Start -->
-			<div class="row">
-				<div class="col-md-12">
-					<div class="sidebar">
-						{{#user}}
-						<!-- User Widget -->
-						<div class="widget user-dashboard-profile">
-							<!-- User Image -->
-							<div class="profile-thumb">
-								<img src="/images/user/user-thumb.jpg" alt=""
-									class="rounded-circle">
-							</div>
-							<!-- User Name -->
-							<h5 class="text-center">{{name}}</h5>
-							<p>Se unio el: {{#registerDate}}{{registerDate}}{{/registerDate}}</p>
-							<div class="product-ratings">
-								<ul class="list-inline">
-									<li class="list-inline-item selected"><i
-										class="fa fa-star"></i></li>
-									<li class="list-inline-item selected"><i
-										class="fa fa-star"></i></li>
-									<li class="list-inline-item selected"><i
-										class="fa fa-star"></i></li>
-									<li class="list-inline-item selected"><i
-										class="fa fa-star"></i></li>
-									<li class="list-inline-item"><i class="fa fa-star"></i></li>
-									(0)
-								</ul>
-							</div>
-							<p>
-								<i class="fa fa-bar-chart" aria-hidden="true"></i> Compras: 0
-								Ventas: 0 <br> <i class="fa fa-map-marker"
-									aria-hidden="true"></i>
-								{{#location}}{{location}}{{/location}}
-							</p>
-							
-							<p>
-								<a href="" class="btn btn-main-sm" data-toggle="modal"
-									data-target="#myModal"> Contacto: <i
-									class="fa fa-address-card" aria-hidden="true"></i></a>
-							</p>
+		</div>
+
+<!------------------------------------
+-	    END FRIEND REQUEST MODAL		-
+------------------------------------->
+		<!-- Row Start -->
+		<div class="row">
+			<div class="col-md-12">
+				<div class="sidebar">
+					{{#user}}
+					<!-- User Widget -->
+					<div class="widget user-dashboard-profile">
+						<!-- User Image -->
+						<div class="profile-thumb">
+							<img src="/images/user/user-thumb.jpg" alt=""
+								class="rounded-circle">
 						</div>
-						{{/user}}
+						<!-- User Name -->
+						<h5 class="text-center">{{name}}</h5>
+						<p>Se unio el:
+							{{#registerDate}}{{registerDate}}{{/registerDate}}</p>
+						<div class="product-ratings">
+							<ul class="list-inline">
+								<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+								<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+								<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+								<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+								<li class="list-inline-item"><i class="fa fa-star"></i></li> (0)
+							</ul>
+						</div>
+						<p>
+							<i class="fa fa-bar-chart" aria-hidden="true"></i> Compras: 0
+							Ventas: 0 <br> <i class="fa fa-map-marker"
+								aria-hidden="true"></i> {{#location}}{{location}}{{/location}}
+						</p>
+
+						<p>
+							<a href="" class="btn btn-main-sm" data-toggle="modal"
+								data-target="#myModal"> Contacto: <i
+								class="fa fa-address-card" aria-hidden="true"></i></a>
+						</p>
+						<p>
+							<a onclick="$('#modalFriendRequest').modal('toggle')" class="btn btn-main-sm" style="color: white; cursor: pointer"
+								data-toggle="model" data-target="#modalFriendRequest"  aria-hidden="true">Solicitud
+								de amistad +</a>
+						</p>
 					</div>
+					{{/user}}
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<ul class="nav nav-pills  justify-content-center" id="pills-tab"
-						role="tablist">
-						<li class="nav-item"><a class="nav-link active"
-							id="pills-home-tab" data-toggle="pill" href="#pills-home"
-							role="tab" aria-controls="pills-home" aria-selected="true">En
-								venta</a></li>
-						<li class="nav-item"><a class="nav-link" id="pills-sold-tab"
-							data-toggle="pill" href="#pills-sold" role="tab"
-							aria-controls="pills-sold" aria-selected="false">Vendidos</a>
-						<li class="nav-item"><a class="nav-link"
-							id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
-							role="tab" aria-controls="pills-profile" aria-selected="false">Reseñas</a>
-						</li>
-					</ul>
-					<br>
-				</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav nav-pills  justify-content-center" id="pills-tab"
+					role="tablist">
+					<li class="nav-item"><a class="nav-link active"
+						id="pills-home-tab" data-toggle="pill" href="#pills-home"
+						role="tab" aria-controls="pills-home" aria-selected="true">En
+							venta</a></li>
+					<li class="nav-item"><a class="nav-link" id="pills-sold-tab"
+						data-toggle="pill" href="#pills-sold" role="tab"
+						aria-controls="pills-sold" aria-selected="false">Vendidos</a>
+					<li class="nav-item"><a class="nav-link"
+						id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+						role="tab" aria-controls="pills-profile" aria-selected="false">Reseñas</a>
+					</li>
+				</ul>
+				<br>
 			</div>
-			<!-- En venta -->
-			<div class="widget dashboard-container my-adslist centered">
-				<div class="tab-content" id="pills-tabContent">
-					<div class="tab-pane fade show active" id="pills-home"
-						role="tabpanel" aria-labelledby="pills-home-tab">
-						<div class="row">
-							{{#products}}
-							<div class="col-sm-12 col-lg-4">
-								<div class="product-item bg-light">
-									<div class="card">
-										<div class="thumb-content">
-											<!-- <div class="price">$200</div> -->
-											<a href=""> <img class="card-img-top img-fluid"
-												src="/images/products/Macbook Pro 15inch.jpg"
-												alt="Card image cap">
-											</a>
-										</div>
-										<div class="card-body">
-											<h4 class="card-title">
-												<a href="">{{name}}</a>
-											</h4>
-											<h4 class="card-title">
-												<a href="">{{price}}<i class="fa fa-eur"
-													aria-hidden="true"></i></a>
-											</h4>
-											<ul class="list-inline product-meta">
-												<li class="list-inline-item"><a href=""><i
-														class="fa fa-laptop"></i>{{category.name}}</a></li>
-												<li class="list-inline-item"><a href=""><i
-														class="fa fa-calendar"></i>26 de Diciembre</a></li>
-											</ul>
-											<p class="card-text">{{description}}</p>
-										</div>
+		</div>
+		<!-- En venta -->
+		<div class="widget dashboard-container my-adslist centered">
+			<div class="tab-content" id="pills-tabContent">
+				<div class="tab-pane fade show active" id="pills-home"
+					role="tabpanel" aria-labelledby="pills-home-tab">
+					<div class="row">
+						{{#products}}
+						<div class="col-sm-12 col-lg-4">
+							<div class="product-item bg-light">
+								<div class="card">
+									<div class="thumb-content">
+										<!-- <div class="price">$200</div> -->
+										<a href=""> <img class="card-img-top img-fluid"
+											src="/images/products/Macbook Pro 15inch.jpg"
+											alt="Card image cap">
+										</a>
+									</div>
+									<div class="card-body">
+										<h4 class="card-title">
+											<a href="">{{name}}</a>
+										</h4>
+										<h4 class="card-title">
+											<a href="">{{price}}<i class="fa fa-eur"
+												aria-hidden="true"></i></a>
+										</h4>
+										<ul class="list-inline product-meta">
+											<li class="list-inline-item"><a href=""><i
+													class="fa fa-laptop"></i>{{category.name}}</a></li>
+											<li class="list-inline-item"><a href=""><i
+													class="fa fa-calendar"></i>26 de Diciembre</a></li>
+										</ul>
+										<p class="card-text">{{description}}</p>
 									</div>
 								</div>
 							</div>
-							{{/products}}
 						</div>
+						{{/products}}
 					</div>
+				</div>
 
-					<!-- Fin en venta -->
-					<!-- Comienzo Vendidos -->
+				<!-- Fin en venta -->
+				<!-- Comienzo Vendidos -->
 
-					<div class="tab-pane fade" id="pills-sold" role="tabpanel"
-						aria-labelledby="pills-sold-tab">
-						<div class="row">
-							<!--<div class="col-sm-12 col-lg-4">
+				<div class="tab-pane fade" id="pills-sold" role="tabpanel"
+					aria-labelledby="pills-sold-tab">
+					<div class="row">
+						<!--<div class="col-sm-12 col-lg-4">
 								<div class="product-item bg-light">
 									<div class="card">
 										<div class="thumb-content">
@@ -277,52 +304,52 @@
 									</div>
 								</div>
 							</div>-->
-						</div>
 					</div>
+				</div>
 
-					<!-- Fin Vendidos -->
-					<!-- Comienzo Reseñas -->
-					<div class="tab-pane fade" id="pills-profile" role="tabpanel"
-						aria-labelledby="pills-profile-tab">
-						<h3 class="tab-title">Comentarios</h3>
-						<table class="table table-responsive">
-							<tbody>
-								{{#assessments}}
-								<tr>
-									<td>
-										<div class="product-review">
-											<div class="media">
-												<img src="/images/user/user-thumb.jpg" alt="avater">
-												<div class="media-body">
-													<!-- Ratings -->
-													<div class="ratings">
-														<ul class="list-inline ratings" rate="{{value}}"></ul>
-													</div>
-													<div class="name">
-														<h5>{{userFrom.name}}</h5>
-													</div>
-													<div class="date">
-														<p>{{date}}</p>
-													</div>
-													<div class="review-comment">
-														<p>{{text}}</p>
-													</div>
+				<!-- Fin Vendidos -->
+				<!-- Comienzo Reseñas -->
+				<div class="tab-pane fade" id="pills-profile" role="tabpanel"
+					aria-labelledby="pills-profile-tab">
+					<h3 class="tab-title">Comentarios</h3>
+					<table class="table table-responsive">
+						<tbody>
+							{{#assessments}}
+							<tr>
+								<td>
+									<div class="product-review">
+										<div class="media">
+											<img src="/images/user/user-thumb.jpg" alt="avater">
+											<div class="media-body">
+												<!-- Ratings -->
+												<div class="ratings">
+													<ul class="list-inline ratings" rate="{{value}}"></ul>
+												</div>
+												<div class="name">
+													<h5>{{userFrom.name}}</h5>
+												</div>
+												<div class="date">
+													<p>{{date}}</p>
+												</div>
+												<div class="review-comment">
+													<p>{{text}}</p>
 												</div>
 											</div>
 										</div>
-									</td>
-								</tr>
-								{{/assessments}}
-							</tbody>
-						</table>
+									</div>
+								</td>
+							</tr>
+							{{/assessments}}
+						</tbody>
+					</table>
 
-					</div>
 				</div>
-				<!-- Fin del navegador entre pestañas -->
 			</div>
-			<!-- Container End -->
+			<!-- Fin del navegador entre pestañas -->
 		</div>
-		</div>
+		<!-- Container End -->
+	</div>
+	</div>
 	</section>
 	<!--============================
 =            Footer            =
@@ -424,7 +451,8 @@
 	<script src="/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 	<script src="/plugins/fancybox/jquery.fancybox.pack.js"></script>
 	<script src="/plugins/smoothscroll/SmoothScroll.min.js"></script>
-	<script	src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+	<script
+		src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
 	<script src="/js/scripts.js"></script>
 	<script src="/js/dashboard.js"></script>
 

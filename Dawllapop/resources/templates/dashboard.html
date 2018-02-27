@@ -10,24 +10,24 @@
 	<title>Dawllapop</title>
 
 	<!-- PLUGINS CSS STYLE -->
-	<link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+	<link href="/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
 	<!-- Bootstrap -->
-	<link href="plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Font Awesome -->
-	<link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<!-- Owl Carousel -->
-	<link href="plugins/slick-carousel/slick/slick.css" rel="stylesheet">
-	<link href="plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+	<link href="/plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+	<link href="/plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
 	<!-- Fancy Box -->
-	<link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
-	<link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
-	<link href="plugins/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
+	<link href="/plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+	<link href="/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+	<link href="/plugins/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet">
 	<!-- CUSTOM CSS -->
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/profile.css" rel="stylesheet">
-    <link href="css/navbar.css" rel="stylesheet">
+	<link href="/css/style.css" rel="stylesheet">
+	<link href="/css/profile.css" rel="stylesheet">
+    <link href="/css/navbar.css" rel="stylesheet">
 	<!-- FAVICON -->
-	<link href="images/favicon.png" rel="shortcut icon">
+	<link href="/images/favicon.png" rel="shortcut icon">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -77,7 +77,7 @@
 									</div>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" href="add_product">Añadir producto <i class="fa fa-plus"></i></a>
+									<a class="nav-link" href="add-new-product">Añadir producto <i class="fa fa-plus"></i></a>
 								</li>
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
@@ -91,8 +91,33 @@
 			</div>
 		</div>
 	</section>
-
-	<!--==================================
+<!--==================================
+=				Friends				= 
+ ==================================-->
+ <div class="friendsButton" onclick="showFriendsList()">
+ 	<i class="fa fa-user" style="color: #333; font-size: 40px; margin-top: 3px"></i>
+ </div>
+ 
+ <div id="friendsList" style='display: none'>
+ </div>
+ 
+ <div id="friendChat" style='display: none'>
+ 	<div class='row friendChatHeader'><h3 style='width: 100%; text-align: center'>Amigo</h3></div>
+ 	<div class='row friendChatBody'></div>
+ 	<div class='row friendChatInput'>
+ 		<div class="col-md-9">
+ 			<input type="text" class="form-control" style="color: white; width: 100%; height: 45px; margin-top: 2px; text-align: center;">
+ 		</div>
+ 		<div class="col-md-3" style='padding-left: 0px; padding-right: 0px'>
+ 			<a class="btn btn-main" style="color: white; width: 100%; height: 45px; margin-top: 2px; text-align: center;">Enviar</a>
+ 		</div>
+ 	</div>
+ </div>
+ 
+ <!--==================================
+=			End Friends				 = 
+ ===================================-->
+<!--==================================
 =            User Profile            =
 ===================================-->
 	<section class="dashboard section">
@@ -107,13 +132,15 @@
 							<!-- User Image -->
                             <a href="dashboard-public">
 							<div class="profile-thumb">
-								<img src="images/user/user-thumb.jpg" alt="" class="rounded-circle">
+								<img src="/images/user/user-thumb.jpg" alt="" class="rounded-circle">
 							</div>
                             </a>
 							<!-- User Name -->
-							<h5 class="text-center">{{usuario.name}}</h5>
-							<p></p>
+							{{#usuario}}
+							<h5 class="text-center">{{name}}</h5>
+							<p>{{#registerDate}}{{registerDate}}{{/registerDate}}</p>
 							<a href="edit_profile" class="btn btn-main-sm">Editar Perfil</a>
+							{{/usuario}}
 						</div>
 					</div>
 				</div>
@@ -142,6 +169,10 @@
                                 <li class="nav-item">
 									<a class="nav-link" id="pills-offers-tab" data-toggle="pill" href="#pills-offers" role="tab" aria-controls="pills-offers"
 									 aria-selected="false">Ofertas recibidas</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="pills-offers-tab" data-toggle="pill" href="#pills-friendRequest" role="tab" aria-controls="pills-friendRequest"
+									 aria-selected="false">Solicitudes de amistad</a>
 								</li>
 							</ul><br>
                             <div class="widget dashboard-container my-adslist centered">
@@ -288,7 +319,7 @@
 										<tr>
 
 											<td class="product-thumb">
-												<img width="200px" height="auto" src="images/products/products-4.jpg" alt="image description">
+												<img width="200px" height="auto" src="/images/products/products-4.jpg" alt="image description">
 											</td>
 											<td class="product-details" style="padding-left:20px">
 												<h3 class="title">Juguete escavadora</h3>
@@ -409,29 +440,26 @@
 												
 													<div class="product-review">
 													{{#assessments}}
-														<div class="media">
-															<!-- Avater -->
-															<img src="images/user/user-thumb.jpg" alt="avater">
-															<div class="media-body">
-																<!-- Ratings -->
-																<div class="ratings">
-																	<ul class="list-inline">																	
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>		
-																																	
-																	</ul>
-																</div>
-																<div class="name">
-																	<h5></h5>
-																</div>																
-																<div class="review-comment">
-																	<p>
-																		{{text}}
-																	</p>
+														<div class="product-review">
+															<div class="media">
+																<img src="/images/user/user-thumb.jpg" alt="avater">
+																<div class="media-body">
+																	<!-- Ratings -->
+																	<div class="ratings">
+																		<ul class="list-inline ratings" rate="{{value}}"></ul>
+																	</div>
+																	<div class="name">
+																		<h5>{{userFrom.name}}</h5>
+																	</div>
+																	<div class="date">
+																		<p>{{date}}</p>
+																	</div>
+																	<div class="review-comment">
+																		<p>{{text}}</p>
+																	</div>
 																</div>
 															</div>
-                                                        </div>
+														</div>
                                                         {{/assessments}}
                                                     </div>
 												</td>
@@ -446,87 +474,123 @@
 									</div>
             
                                     <div class="tab-pane fade" id="pills-offers" role="tabpanel" aria-labelledby="pills-offers-tab">
-									<h3 class="tab-title">Ofertas recibidas</h3>
-									<table class="table table-responsive">
-                                        <table class="table table-responsive product-dashboard-table">
-										<tbody>
-											<tr height="100">
-												<td class="product-thumb" style="vertical-align: top;">
-													<img width="200px" height="auto" src="images/products/Macbook Pro 15inch.jpg" alt="image description">
-												</td>
-												<td class="product-details" style="padding-left:20px; vertical-align: top;">
-													<h3 class="title">Macbook Pro 15inch</h3>
-													<span class="add-id">
-														<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
-													<span>
-														<strong>Subido: </strong>
-														<time>Jun 27, 2017</time>
-													</span>
-													<span class="status active">
-														<strong>Estado</strong>Activo</span>
-													<span class="location">
-														<strong>Localización</strong>Móstoles, Madrid</span>
-												</td>
-                                                <td> <!--POSIBLES COMPRADORES -->
-                                                    <div>
-                                                    {{#offers}}
-													<div class="product-review">
-														<div class="media">
-															<!-- Avater -->
-															<img src="images/user/user-thumb.jpg" alt="avater">
-															<div class="media-body">
-																<!-- Ratings -->
-																<div class="ratings">
-																	<ul class="list-inline">
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																		<li class="list-inline-item">
-																			<i class="fa fa-star"></i>
-																		</li>
-																	</ul>
+										<h3 class="tab-title">Ofertas recibidas</h3>
+									
+                                        	<table class="table table-responsive product-dashboard-table">
+											<tbody>
+												<tr height="100">
+													<td class="product-thumb" style="vertical-align: top;">
+														<img width="200px" height="auto" src="images/products/Macbook Pro 15inch.jpg" alt="image description">
+													</td>
+													<td class="product-details" style="padding-left:20px; vertical-align: top;">
+														<h3 class="title">Macbook Pro 15inch</h3>
+														<span class="add-id">
+															<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+														<span>
+															<strong>Subido: </strong>
+															<time>Jun 27, 2017</time>
+														</span>
+														<span class="status active">
+															<strong>Estado</strong>Activo</span>
+														<span class="location">
+															<strong>Localización</strong>Móstoles, Madrid</span>
+													</td>
+	                                                <td> <!--POSIBLES COMPRADORES -->
+	                                                    <div>
+	                                                    {{#offers}}
+														<div class="product-review">
+															<div class="media">
+																<!-- Avater -->
+																<img src="/images/user/user-thumb.jpg" alt="avater">
+																<div class="media-body">
+																	<!-- Ratings -->
+																	<div class="ratings">
+																		<ul class="list-inline">
+																			<li class="list-inline-item">
+																				<i class="fa fa-star"></i>
+																			</li>
+																			<li class="list-inline-item">
+																				<i class="fa fa-star"></i>
+																			</li>
+																			<li class="list-inline-item">
+																				<i class="fa fa-star"></i>
+																			</li>
+																			<li class="list-inline-item">
+																				<i class="fa fa-star"></i>
+																			</li>
+																			<li class="list-inline-item">
+																				<i class="fa fa-star"></i>
+																			</li>
+																		</ul>
+																	</div>
+																	<div class="name">
+																		<h5>Jessica Brown</h5>
+																	</div>
+																	<div class="date">
+																		<p>Mar 20, 2018</p>
+																	</div>
+																	<div class="review-comment">
+																		<p>
+																			{{message}} {{price}}
+																		</p>
+																	</div>
+	                                                                <div>Oferta: {{price}}</div>
+	                                                                <div class="btn-group btn-group-sm">
+	                                                                	<form action="pendingOfferAcept" id="formPendingOfferAcept">
+	                                                                <a href="dashboard" class="btn btn-success">Aceptar</a>
+	                                                                </form>
+	                                                                	<form action="pendingOfferCancel" id="formPendingOfferCancel">
+	                                                                <a href="dashboard" class="btn btn-danger">Rechazar</a>
+	                                                                </form>
+	                                                                </div>
 																</div>
-																<div class="name">
-																	<h5>Jessica Brown</h5>
-																</div>
-																<div class="date">
-																	<p>Mar 20, 2018</p>
-																</div>
-																<div class="review-comment">
-																	<p>
-																		{{message}} {{price}}
-																	</p>
-																</div>
-                                                                <div>Oferta: {{price}}</div>
-                                                                <div class="btn-group btn-group-sm">
-                                                                	<form action="pendingOfferAcept" id="formPendingOfferAcept">
-                                                                <a href="dashboard" class="btn btn-success">Aceptar</a>
-                                                                </form>
-                                                                	<form action="pendingOfferCancel" id="formPendingOfferCancel">
-                                                                <a href="dashboard" class="btn btn-danger">Rechazar</a>
-                                                                </form>
-                                                                </div>
-															</div>
-                                                        </div>
-                                                    </div>
-                                                    {{/offers}}
-                                                    </div>
-                                                  
-                                                </td>
-                                            </tr>
-                                        </tbody>
+	                                                        </div>
+	                                                    </div>
+	                                                    {{/offers}}
+	                                                    </div>
+	                                                  
+	                                                </td>
+	                                            </tr>
+	                                        </tbody>
                                         </table>
 									</div>
-								
+									<div class="tab-pane fade" id="pills-friendRequest" role="tabpanel" aria-labelledby="pills-friendRequest">
+										<h3 class="tab-title">Solicitudes de amistad recibidas</h3>
+										<table class="table table-responsive product-dashboard-table">
+											<tbody>
+												{{#friendRequests}}
+												<tr>
+													<td>
+														<div class="product-review">
+															<div class="media">
+																<img src="/images/user/user-thumb.jpg" alt="avater">
+																<div class="media-body">																	
+																	<div class="name">
+																		<h5>{{from.name}}</h5>
+																	</div>
+																	<div class="date">
+																		<p>{{creationDate}}</p>
+																	</div>
+																	<div class="review-comment">
+																		<p>{{message}}</p>
+																	</div>
+																	<div class="row">
+																		<div class="col-md-6">
+																			<a class="btn btn-trasparent" href="/declineFriendRequest/{{id}}" style="cursor: pointer">Ignorar</a>
+																		</div>
+																		<div class="col-md-6">
+																			<a class="btn btn-main" href="/acceptFriendRequest/{{id}}" style="color:white; cursor: pointer">Aceptar</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+												{{/friendRequests}}
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -598,7 +662,7 @@
 				<div class="block-2 app-promotion">
 					<a href="">
 						<!-- Icon -->
-						<img src="images/footer/phone-icon.png" alt="mobile-icon">
+						<img src="/images/footer/phone-icon.png" alt="mobile-icon">
 					</a>
 					<p>Descarga la aplicacion del movil para tener mas descuentos</p>
 				</div>
@@ -647,22 +711,23 @@
 </footer>
 
 	<!-- JAVASCRIPTS -->
-	<script src="plugins/jquery/dist/jquery.min.js"></script>
-	<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-	<script src="plugins/tether/js/tether.min.js"></script>
-	<script src="plugins/raty/jquery.raty-fa.js"></script>
-	<script src="plugins/bootstrap/dist/js/popper.min.js"></script>
-	<script src="plugins/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="plugins/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
-	<script src="plugins/slick-carousel/slick/slick.min.js"></script>
-	<script src="plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
-	<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
-	<script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
-	<script src="js/index.js"></script>
-	<script src="js/login.js"></script>
-	<script src="js/offer.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="/plugins/jquery/dist/jquery.min.js"></script>
+	<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script src="/plugins/tether/js/tether.min.js"></script>
+	<script src="/plugins/raty/jquery.raty-fa.js"></script>
+	<script src="/plugins/bootstrap/dist/js/popper.min.js"></script>
+	<script src="/plugins/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/plugins/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+	<script src="/plugins/slick-carousel/slick/slick.min.js"></script>
+	<script src="/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="/plugins/fancybox/jquery.fancybox.pack.js"></script>
+	<script src="/plugins/smoothscroll/SmoothScroll.min.js"></script>
+	<script src="/https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
+	<script src="/js/index.js"></script>
+	<script src="/js/login.js"></script>
+	<script src="/js/offer.js"></script>
+	<script src="/js/scripts.js"></script>
+	<script src="/js/dashboard.js"></script>
 
 	<!-- MODAL LOGOUT -->
 	<form action="logout"id="formDelete">

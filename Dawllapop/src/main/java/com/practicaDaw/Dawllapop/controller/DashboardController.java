@@ -12,18 +12,24 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.practicaDaw.Dawllapop.Entities.Assessment;
+import com.practicaDaw.Dawllapop.Entities.Friend_request;
 import com.practicaDaw.Dawllapop.Entities.Offer;
 import com.practicaDaw.Dawllapop.Entities.OfferEnum;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
+import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.AssessmentServices;
+import com.practicaDaw.Dawllapop.services.FriendRequestServices;
 import com.practicaDaw.Dawllapop.services.OfferServices;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 import com.practicaDaw.Dawllapop.services.UserServices;
@@ -53,6 +59,10 @@ public class DashboardController {
 	ProductServices productServices;
 	@Autowired
 	UserServices userService;
+	@Autowired
+	Friend_RequestRepository fRequestRepo;
+	@Autowired 
+	FriendRequestServices fRequestService;
 	
 
 	@PostConstruct
@@ -78,13 +88,14 @@ public class DashboardController {
 	}
 
 	@RequestMapping("/dashboard")
-	public String dashBoard(Model model, @PageableDefault(size = 10) Pageable page, Authentication http) {
+	public String dashBoard(Model model, @PageableDefault(size = 10) Pageable page, Authentication http, HttpSession session) {
 		if (http != null) {
 			model.addAttribute("usuario", userRepository.findByName(http.getName()));
 			//model.addAttribute("usuario", userRepository.findByName(http.getName()).getRegisterDate());
 			
-			System.out.println(model.toString());
 		}
+		
+		User user = (User) session.getAttribute("user");
 		
 		Page<Product> products = prs.getAllProducts(page);
 
@@ -94,9 +105,12 @@ public class DashboardController {
 
 		List<Assessment> assessments = ass.getAllAssessment();
 		List<Offer> offers = oss.getAllOffer();
+		List<Friend_request> fRequests = fRequestService.getUserRequests(user);
 
 		model.addAttribute("assessments", assessments);
 		model.addAttribute("offers", offers);
+		model.addAttribute("friendRequests", fRequests);
+		
 		return "dashboard";
 	}
 
@@ -112,6 +126,29 @@ public class DashboardController {
 		offer.setOfferEnum(OfferEnum.Cancel);
 		product.setSold(false);
 		return "dashboard";
+	}
+	
+	@RequestMapping("/declineFriendRequest/{id}")
+	public String declineFriendRequest(Model model, @PathVariable("id") long id) {
+		Friend_request fr = fRequestRepo.getOne(id);
+		fr.setState("declined");
+		fRequestRepo.saveAndFlush(fr);
+		return "redirect:/dashboard";
+	}
+	
+	@RequestMapping("/acceptFriendRequest/{id}")
+	public String acceptFriendRequest(Model model, @PathVariable("id") long id) {
+		Friend_request fr = fRequestRepo.getOne(id);
+		fr.setState("accepted");
+		fRequestRepo.saveAndFlush(fr);
+		return "redirect:/dashboard";
+	}
+	
+	@RequestMapping(value="getUserFriends", method = RequestMethod.POST)
+	public @ResponseBody List<User> getUserFriends(Model model, HttpSession session){
+		User user = (User) session.getAttribute("user");
+		List<User> friends = fRequestService.getUserFriends(user);		
+		return friends;
 	}
 
 }

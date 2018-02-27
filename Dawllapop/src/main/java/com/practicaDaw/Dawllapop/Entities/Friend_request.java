@@ -1,5 +1,7 @@
 package com.practicaDaw.Dawllapop.Entities;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,18 +15,37 @@ public class Friend_request {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String message, state;
+	private Date creationDate;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne
 	private User from;//User who sends the request
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne
 	private User to;//User who have the request
 	
-	protected Friend_request() {
+	public Friend_request() {
 		
 	}
 	
-	protected Friend_request(String message, User form, User to) {
-		
+	public Friend_request(String message, User from, User to) {
+		this.message = message;
+		this.from = from;
+		this.to = to;
+		this.state = "pending";
+		this.creationDate = new Date();
 	}
+	
+	public Friend_request(String message, User from, User to, String state) {
+		this.message = message;
+		this.from = from;
+		this.to = to;
+		this.state = state;
+		this.creationDate = new Date();
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	
 }

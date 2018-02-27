@@ -1,8 +1,10 @@
 package com.practicaDaw.Dawllapop.controller;
 
+import com.practicaDaw.Dawllapop.Entities.Friend_request;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.Rol;
 import com.practicaDaw.Dawllapop.Entities.User;
+import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,6 +34,8 @@ public class UserProfileController {
 	private UserComponent userComponent;
 	@Autowired
 	private UserServices uss;
+	@Autowired
+	private Friend_RequestRepository friendRequestRepo;
 
 	@RequestMapping("/add_new_user")
 	public String add_new_user(Model model, User user) {
@@ -108,6 +112,16 @@ public class UserProfileController {
 		}
 
 		return "user-profile";
+	}
+	
+	@RequestMapping("/sendFriendRequest/{id}")
+	public String sendFriendRequest(Model model, HttpSession session, @RequestParam("message") String message, @PathVariable("id") long id){
+		User userFrom = (User) session.getAttribute("user");
+		User userTo = uss.findUser(id);
+		Friend_request friendRequest = new Friend_request(message, userFrom, userTo);
+		friendRequestRepo.save(friendRequest);
+		
+		return "/publicDashboard/" + id;
 	}
 
 }

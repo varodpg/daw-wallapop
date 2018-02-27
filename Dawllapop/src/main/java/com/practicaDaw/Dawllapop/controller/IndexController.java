@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.practicaDaw.Dawllapop.Entities.Assessment;
 import com.practicaDaw.Dawllapop.Entities.Category;
+import com.practicaDaw.Dawllapop.Entities.Friend_request;
 import com.practicaDaw.Dawllapop.Entities.Offer;
 import com.practicaDaw.Dawllapop.Entities.OfferEnum;
 import com.practicaDaw.Dawllapop.Entities.Product;
@@ -32,6 +33,7 @@ import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
+import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
@@ -64,6 +66,8 @@ public class IndexController {
 	private OfferRepository offerRepository;
 	@Autowired
 	private AssessmentRepository assessmentRepo;
+	@Autowired 
+	private Friend_RequestRepository fRequestRepo;
 	
 	@PostConstruct
 	public void init() {
@@ -247,6 +251,13 @@ public class IndexController {
 		assessmentRepo.save(assess1);
 		Assessment assess2 = new Assessment("Gran vendedor, mejor persona", 3, u3, user1, new Date());
 		assessmentRepo.save(assess2);
+		
+		//Friend request creation
+		Friend_request fRequest1 = new Friend_request("Hola", u, u2, "accepted");
+		fRequestRepo.save(fRequest1);
+		Friend_request fRequest2 = new Friend_request("Hola", u3, u2);
+		fRequestRepo.save(fRequest2);
+		
 	}
 
 	@RequestMapping("/")
