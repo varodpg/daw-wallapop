@@ -268,40 +268,41 @@
 							
 								</div>
 							</div>
-							{{#usuario.name}}
+							
 							<li class="list-inline-item"><a href="#" class="btn btn-contact" data-toggle="modal" data-target="#myModal2" >Proponer una oferta</a></li>
-							{{/usuario.name}}
-							{{^usuario.name}}
-							<li class="list-inline-item"><a href="#" class="btn btn-contact" data-toggle="modal" onclick="$('#login_modal').modal('toggle')"> Proponer una oferta</a></li>
-							{{/usuario.name}}
+						
 							<!-- Modal -->
 							<div id="myModal2" class="modal fade" role="dialog">
 								<div class="modal-dialog">
 									<!-- Modal content-->
+									<form action="/add-new-offer/{{product.user.id}}/{{product.id}}" method="post" id="formOffer">
 									<div class="modal-content">
 										<div class="modal-header">
 											<h4 class="modal-title">Propón una oferta</h4>
 											<img src="/images/logoNuevo.png" alt="">
 										</div>
 										<div class="modal-body">
+										
 											<div class="widget price text-center">
 												<h4>Precio actual</h4>
-												<p>230 €</p>
+												<p>{{product.price}} €</p>
 											</div>
 											<div class="form-group">
 												<label for="inputsm">Precio que ofreces</label>
-												<input class="form-control input-sm" id="inputsm" type="text">
+												<input class="form-control input-sm" id="inputsm" type="text" name="price">
 											</div>
 											<div class="form-group">
 												<label for="exampleFormControlTextarea1">Breve descripción de la oferta:</label>
-												<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+												<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
 											</div>
 										</div>
+										
 										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal" data-target="#myModal2">Proponer</button>
+											<button type="button" class="btn btn-default" onclick="$('#formOffer').submit()">Proponer</button>
 										</div>
 									</div>
 								</div>
+								</form>
 							</div>
 						</ul>
 					</div>

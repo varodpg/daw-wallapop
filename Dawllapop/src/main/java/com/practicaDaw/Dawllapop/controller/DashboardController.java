@@ -1,5 +1,6 @@
 package com.practicaDaw.Dawllapop.controller;
 
+import java.io.File;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -15,7 +16,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.practicaDaw.Dawllapop.Entities.Assessment;
 import com.practicaDaw.Dawllapop.Entities.Friend_request;
@@ -23,6 +26,7 @@ import com.practicaDaw.Dawllapop.Entities.Offer;
 import com.practicaDaw.Dawllapop.Entities.OfferEnum;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
+import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
 import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
@@ -112,6 +116,18 @@ public class DashboardController {
 		model.addAttribute("friendRequests", fRequests);
 
 		return "dashboard";
+	}
+
+	@RequestMapping(value = "/add-new-offer/{seller_id}/{product_id}", method = RequestMethod.POST)
+	public String add_new_offer(Model model, @RequestParam("price") int price, @RequestParam("message") String message,
+			HttpSession session, @PathVariable("seller_id") long seller_id,
+			@PathVariable("product_id") long product_id) {
+		User user = (User) session.getAttribute("user");
+		User user_seller = userRepository.findOne(seller_id);
+		Product pr = repository.findOne(product_id);
+		Offer of = new Offer(price, message, OfferEnum.Pending, user, user_seller, pr);
+		offerRepository.save(of);
+		return "redirect:/dashboard";
 	}
 
 	@RequestMapping("/pendingOfferAcept/{id}")

@@ -42,7 +42,15 @@ public class Offer {
 		this.product = product;
 
 	}
+	public Offer(int price, String message, OfferEnum offerEnum, User buyer, User seller) {
+		this.price = price;
+		this.message = message;
+		this.offerEnum = offerEnum;
+		this.buyer = buyer;
+		this.seller = seller;
+		
 
+	}
 	public long getId() {
 		return id;
 	}
