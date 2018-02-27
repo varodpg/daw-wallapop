@@ -536,12 +536,11 @@
 																	</div>
 	                                                                <div>Oferta: {{price}}</div>
 	                                                                <div class="btn-group btn-group-sm">
-	                                                                	<form action="pendingOfferAcept" id="formPendingOfferAcept">
-	                                                                <a href="dashboard" class="btn btn-success">Aceptar</a>
-	                                                                </form>
-	                                                                	<form action="pendingOfferCancel" id="formPendingOfferCancel">
-	                                                                <a href="dashboard" class="btn btn-danger">Rechazar</a>
-	                                                                </form>
+	                                                                	
+	                                                                <a  href="/pendingOfferAcept/{{id}}" class="btn btn-success">Aceptar</a>                                                             
+	                                                                	
+	                                                                <a href="/pendingOfferCancel/{{id}}" class="btn btn-danger">Rechazar</a>
+	                                                                
 	                                                                </div>
 																</div>
 	                                                        </div>

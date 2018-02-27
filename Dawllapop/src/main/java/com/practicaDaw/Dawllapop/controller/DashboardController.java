@@ -61,14 +61,12 @@ public class DashboardController {
 	UserServices userService;
 	@Autowired
 	Friend_RequestRepository fRequestRepo;
-	@Autowired 
+	@Autowired
 	FriendRequestServices fRequestService;
-	
 
 	@PostConstruct
 	public void init() {
-	
-	
+
 		// Assessment a = new Assessment("juanma", "juanma@hotmail.com", "increible
 		// vendedor super amable", 5);
 		// assessmentRepository.save(a);
@@ -88,15 +86,17 @@ public class DashboardController {
 	}
 
 	@RequestMapping("/dashboard")
-	public String dashBoard(Model model, @PageableDefault(size = 10) Pageable page, Authentication http, HttpSession session) {
+	public String dashBoard(Model model, @PageableDefault(size = 10) Pageable page, Authentication http,
+			HttpSession session) {
 		if (http != null) {
 			model.addAttribute("usuario", userRepository.findByName(http.getName()));
-			//model.addAttribute("usuario", userRepository.findByName(http.getName()).getRegisterDate());
-			
+			// model.addAttribute("usuario",
+			// userRepository.findByName(http.getName()).getRegisterDate());
+
 		}
-		
+
 		User user = (User) session.getAttribute("user");
-		
+
 		Page<Product> products = prs.getAllProducts(page);
 
 		model.addAttribute("products", products);
@@ -104,30 +104,36 @@ public class DashboardController {
 		model.addAttribute("morePages", prs.getAllProducts(page).isFirst());
 
 		List<Assessment> assessments = ass.getAllAssessment();
-		List<Offer> offers = oss.getAllOffer();
+		List<Offer> offers = oss.getOfferRequests(user);
 		List<Friend_request> fRequests = fRequestService.getUserRequests(user);
 
 		model.addAttribute("assessments", assessments);
 		model.addAttribute("offers", offers);
 		model.addAttribute("friendRequests", fRequests);
-		
+
 		return "dashboard";
 	}
 
-	@RequestMapping("/pendingOfferAcept")
-	public String pendingOfferAcept(Model model, Offer offer, Product product) {
-		offer.setOfferEnum(OfferEnum.Acepted);
-		product.setSold(true);
-		return "dashboard";
+	@RequestMapping("/pendingOfferAcept/{id}")
+	public String pendingOfferAcept(Model model, @PathVariable("id") long id) {
+		Offer of = offerRepository.getOne(id);
+		of.setOfferEnum(OfferEnum.Acepted);
+		Product p = of.getProduct();
+		p.setSold(true);
+		offerRepository.saveAndFlush(of);
+		return "redirect:/dashboard";
 	}
 
-	@RequestMapping("/pendingOfferCancel")
-	public String pendingOfferCancel(Model model, Offer offer, Product product) {
-		offer.setOfferEnum(OfferEnum.Cancel);
-		product.setSold(false);
-		return "dashboard";
+	@RequestMapping("/pendingOfferCancel/{id}")
+	public String pendingOfferCancel(Model model, @PathVariable("id") long id) {
+		Offer of = offerRepository.getOne(id);
+		of.setOfferEnum(OfferEnum.Cancel);
+		Product p = of.getProduct();
+		p.setSold(false);
+		offerRepository.saveAndFlush(of);
+		return "redirect:/dashboard";
 	}
-	
+
 	@RequestMapping("/declineFriendRequest/{id}")
 	public String declineFriendRequest(Model model, @PathVariable("id") long id) {
 		Friend_request fr = fRequestRepo.getOne(id);
@@ -135,7 +141,7 @@ public class DashboardController {
 		fRequestRepo.saveAndFlush(fr);
 		return "redirect:/dashboard";
 	}
-	
+
 	@RequestMapping("/acceptFriendRequest/{id}")
 	public String acceptFriendRequest(Model model, @PathVariable("id") long id) {
 		Friend_request fr = fRequestRepo.getOne(id);
@@ -143,11 +149,11 @@ public class DashboardController {
 		fRequestRepo.saveAndFlush(fr);
 		return "redirect:/dashboard";
 	}
-	
-	@RequestMapping(value="getUserFriends", method = RequestMethod.POST)
-	public @ResponseBody List<User> getUserFriends(Model model, HttpSession session){
+
+	@RequestMapping(value = "getUserFriends", method = RequestMethod.POST)
+	public @ResponseBody List<User> getUserFriends(Model model, HttpSession session) {
 		User user = (User) session.getAttribute("user");
-		List<User> friends = fRequestService.getUserFriends(user);		
+		List<User> friends = fRequestService.getUserFriends(user);
 		return friends;
 	}
 

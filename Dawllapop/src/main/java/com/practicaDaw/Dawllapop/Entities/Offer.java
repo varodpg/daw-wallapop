@@ -21,27 +21,26 @@ public class Offer {
 	@ManyToOne
 	@JsonBackReference
 	private User buyer;
-	
+
 	@ManyToOne
 	@JsonBackReference
 	private User seller;
-	
+
 	@ManyToOne
 	@JsonBackReference
 	private Product product;
-	
 
 	protected Offer() {
 	}
 
-	public Offer(int price, String message,OfferEnum offerEnum,User buyer, User seller,Product product ) {		
+	public Offer(int price, String message, OfferEnum offerEnum, User buyer, User seller, Product product) {
 		this.price = price;
 		this.message = message;
-		this.offerEnum=offerEnum;
-		this.buyer=buyer;
-		this.seller=seller;
-		this.product=product;
-		
+		this.offerEnum = offerEnum;
+		this.buyer = buyer;
+		this.seller = seller;
+		this.product = product;
+
 	}
 
 	public long getId() {
@@ -72,4 +71,7 @@ public class Offer {
 		this.offerEnum = offerEnum;
 	}
 
+	public Product getProduct() {
+		return product;
+	}
 }

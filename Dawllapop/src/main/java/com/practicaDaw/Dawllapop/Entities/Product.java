@@ -41,7 +41,7 @@ public class Product {
 	@JsonManagedReference
 	private User user;
 
-	@OneToMany
+	@OneToMany(mappedBy="product")
 	@JsonManagedReference
 	private List<Offer> offers;
 	
