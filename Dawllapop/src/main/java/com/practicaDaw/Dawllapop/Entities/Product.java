@@ -2,6 +2,7 @@ package com.practicaDaw.Dawllapop.Entities;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -31,7 +32,7 @@ public class Product {
 	private ArrayList<String> images = new ArrayList();
 	private String mainimage;
 	private boolean sold = false;
-	private String date; 
+	private Date date; 
 
 	@ManyToOne
 	@JsonManagedReference
@@ -60,7 +61,7 @@ public class Product {
 	}
 
 	public Product(String name, String description, String state, ArrayList<String[]> especifications,
-			ArrayList<String> tags, double price, boolean sold, String date) {
+			ArrayList<String> tags, double price, boolean sold, Date date2) {
 		this.name = name;
 		this.description = description;
 		this.state = state;
@@ -68,7 +69,7 @@ public class Product {
 		this.tags = tags;
 		this.price = price;
 		this.sold = sold;
-		this.date=date;
+		this.date=date2;
 	}
 
 	public Product(String name, String description, double price) {
@@ -172,11 +173,11 @@ public class Product {
 		this.sold = sold;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 

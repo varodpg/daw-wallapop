@@ -390,138 +390,50 @@
 <section class="popular-deals section bg-custom zero-top"
 	style="padding: 0px">
 	<div class="container page-content" style="margin-top: 0px">
-
+		
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2>Productos más populares</h2>
+					<h2>Últimos productos añadidos</h2>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<!-- offer 01 -->
+				
+		{{#products_bydate}}
 			<div class="col-sm-12 col-lg-3">
 				<!-- product card -->
 				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/products-1.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">Macbook Air</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Informatica
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>26 de Diciembre
-								</a></li>
-							</ul>
-							<p class="card-text">Potento portatil para edicion</p>
-
-						</div>
-					</div>
+									<div class="card">
+										<div class="thumb-content">
+											<a href="p{{id}}">
+												<img class="card-img-top img-fluid" src="/imgs/{{mainimage}}" alt="Card image cap">
+											</a>
+										</div>
+										<div class="card-body">
+											<h4 class="card-title">
+												<a href="p{{id}}">{{name}}</a>
+											</h4>
+											<ul class="list-inline product-meta">
+												<li class="list-inline-item">
+														<i class="fa fa-calendar"></i>{{date}}
+												</li>
+												<li class="list-inline-item">
+														<i class="fa fa-thumbs-up"></i>Estado: {{state}}
+												</li>
+												<li class="list-inline-item">
+														<i class="fa fa-eur"></i>Precio: {{price}}
+												</li>
+											</ul>
+											<p class="card-text">{{description}}</p>
+				
+										</div>
+									</div>
 				</div>
 			</div>
+			{{/products_bydate}}
 
-
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/products-2.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">Escritorio</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Inmobiliaria
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>15 de mayo
-								</a></li>
-							</ul>
-							<p class="card-text">Escritorio de mesa con gran capacidad de
-								espacio</p>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/products-3.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">Escritorio Pequeño</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Inmobiliaria
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>2 de Junio
-								</a></li>
-							</ul>
-							<p class="card-text">Escritorio de mesa para habitaciones
-								pequeñas</p>
-
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="col-sm-12 col-lg-3">
-				<!-- product card -->
-				<div class="product-item bg-light">
-					<div class="card">
-						<div class="thumb-content">
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/nokia.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">Nokia 8998</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Electronica
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>5 de Marzo
-								</a></li>
-							</ul>
-							<p class="card-text">Nunca se Rompe</p>
-							<p></p>
-							<p></p>
-							<p></p>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 </section>
 
@@ -535,11 +447,12 @@
 
 <section class="popular-deals section bg-custom zero-top">
 	<div class="container page-content" style="margin-top: 0px">
-
+		
+		{{#usuario}}
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2>Productos Cerca de ti</h2>
+					<h2>Productos Cerca de ti en {{usuario.location}}</h2>
 				</div>
 			</div>
 		</div>
@@ -547,41 +460,42 @@
 
 			<!-- offer 01 -->
 			<!-- BEGINING PRODUCT -->
-			{{#products}}
+			{{#products_bylocation}}
 			<div class="col-sm-12 col-lg-3">
 				<!-- product card -->
 				<div class="product-item bg-light">
-					<div class="card">
-
-						<div class="thumb-content">
-
-							<!-- <div class="price">$200</div> -->
-							<a href="single"> <img class="card-img-top img-fluid"
-								src="images/products/afeitadora.jpg" alt="Card image cap">
-							</a>
-						</div>
-						<div class="card-body">
-							<h4 class="card-title">
-								<a href="single">{{name}}</a>
-							</h4>
-							<ul class="list-inline product-meta">
-								<li class="list-inline-item"><a href="category.html"> <i
-										class="fa fa-folder-open-o"></i>Electronica
-								</a></li>
-								<li class="list-inline-item"><a href=""> <i
-										class="fa fa-calendar"></i>15 de Diciembre
-								</a></li>
-							</ul>
-							<p class="card-text">{{description}}</p>
-
-						</div>
-					</div>
-				</div>
+									<div class="card">
+										<div class="thumb-content">
+											<a href="p{{id}}">
+												<img class="card-img-top img-fluid" src="/imgs/{{mainimage}}" alt="Card image cap">
+											</a>
+										</div>
+										<div class="card-body">
+											<h4 class="card-title">
+												<a href="p{{id}}">{{name}}</a>
+											</h4>
+											<ul class="list-inline product-meta">
+												<li class="list-inline-item">
+														<i class="fa fa-calendar"></i>{{date}}
+												</li>
+												<li class="list-inline-item">
+														<i class="fa fa-thumbs-up"></i>Estado: {{state}}
+												</li>
+												<li class="list-inline-item">
+														<i class="fa fa-eur"></i>Precio: {{price}}
+												</li>
+											</ul>
+											<p class="card-text">{{description}}</p>
+				
+										</div>
+									</div>
+				</div>	
 			</div>
-			{{/products}}
+			{{/products_bylocation}}
 
 
 		</div>
+		{{/usuario}}
 	</div>
 </section>
 

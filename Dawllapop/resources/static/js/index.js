@@ -1,3 +1,17 @@
+$(document).ready(function(){
+	$(".product-item *").html(function(searchandreplace5, sreplace5) {
+        return sreplace5.replace('new', 'nuevo');
+    });
+	
+    $(".product-item *").html(function(searchreplace6, sreplace6) {
+        return sreplace6.replace('not_nuevo', 'seminuevo');
+    });
+	
+}
+);
+
+
+
 $('.carousel').carousel({
 	interval : 3000
 });

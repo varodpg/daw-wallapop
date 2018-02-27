@@ -64,4 +64,15 @@ public class ProductServices {
 		return productRepository.searchByName(name);
 	}
 	
+
+	public List<Product> getAllProductsByLocation(String location) {
+		return productRepository.findFirst10ByUserLocation(location);
+	}
+
+	public List<Product> getAllProductsByDate() {
+		return productRepository.findFirst8ByOrderByDateDesc();
+	}
+	
+
+	
 }

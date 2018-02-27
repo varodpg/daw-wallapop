@@ -40,6 +40,9 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Query(value = "SELECT * FROM product WHERE UPPER(name) LIKE CONCAT('%', CONCAT(UPPER(:name), '%')) LIMIT 4", nativeQuery = true)
 	List<Product> searchByName(@Param("name") String name);
 	
+	List<Product> findFirst10ByUserLocation(String location);
+	List<Product> findFirst8ByOrderByDateDesc();
+	
 }
 
 

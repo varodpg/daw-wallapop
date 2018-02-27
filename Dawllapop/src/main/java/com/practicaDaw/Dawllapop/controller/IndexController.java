@@ -96,7 +96,7 @@ public class IndexController {
 		// Users Creation
 		User u = new User("Alvaro", "varo@hotmail.com", "Móstoles","", "password",677654565, new Date(), true, "ROLE_ADMIN");
 		userRepository.save(u);
-		User u2 = new User("Juanma", "juanma@hotmail.com", "Alcorcón","", "password",45678900,new Date(), true);
+		User u2 = new User("Juanma", "juanma@hotmail.com", "Alcorcon","", "password",45678900,new Date(), true);
 		userRepository.save(u2);
 		User u3 = new User("David", "david.r.3.a@gmail.com", "Alcorcon", "", "a", 612595959, new Date(), true);
 		userRepository.save(u3);
@@ -117,7 +117,7 @@ public class IndexController {
 		// product Creation
 		Product p1 = new Product("Macbook Pro 2017",
 				"Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.",
-				"new", especificaciones, tags, 1900, false, "21/02/2018");
+				"new", especificaciones, tags, 1900, false, new Date());
 		p1.setCategory(c1);
 		p1.setUser(u);
 		
@@ -127,7 +127,7 @@ public class IndexController {
 
 		Product p2 = new Product("Escritorio",
 				"Escritorio de mesa con gran capacidad de\r\n" + "								espacio", "new",
-				especificaciones, tags, 800, false, "21/02/2018");
+				especificaciones, tags, 800, false, new Date());
 		p2.setCategory(c2);
 		p2.setUser(u);
 		p2.addImage("image-0.jpg");
@@ -136,42 +136,42 @@ public class IndexController {
 
 		Product p3 = new Product("Escritorio Pequeño",
 				"Escritorio de mesa para habitaciones\r\n" + "								pequeñas", "new",
-				especificaciones, tags, 300, false, "21/02/2018");
+				especificaciones, tags, 300, false, new Date());
 		p3.setCategory(c2);
 		p3.setUser(u);
 		p3.addImage("image-0.jpg");
 
 		p_repository.save(p3);
 		Product p4 = new Product("Nokia 8998", "Vendo movil en buen estado, y con bateria nueva", "not_new",
-				especificaciones, tags, 530, false, "21/02/2018");
+				especificaciones, tags, 530, false, new Date());
 		p4.setCategory(c1);
 		p4.setUser(u);
 		p4.addImage("image-0.jpg");
 
 		p_repository.save(p4);
 		Product p5 = new Product("xiaomi mi band 2", "Incluye la pulsera de metal en vez de la de plastico", "not_new",
-				especificaciones, tags, 300, false, "21/02/2018");
+				especificaciones, tags, 300, false, new Date());
 		p5.setCategory(c1);
 		p5.setUser(u);
 		p5.addImage("image-0.jpg");
 
 		p_repository.save(p5);
 		Product p6 = new Product("Samsung galxy s9", "Me toco en un sorteo y no lo quiero", "new", especificaciones,
-				tags, 1100, false, "21/02/2018");
+				tags, 1100, false, new Date());
 		p6.setCategory(c1);
 		p6.setUser(u);
 		p6.addImage("image-0.jpg");
 
 		p_repository.save(p6);
 		Product p7 = new Product("Zapatillas New Balance 365 ", "Sólo me las he puesto 3 veces muy cómodas", "not_new",
-				especificaciones, tags, 120, false, "21/02/2018");
+				especificaciones, tags, 120, false, new Date());
 		p7.setCategory(c5);
 		p7.setUser(u2);
 		p7.addImage("image-0.jpg");
 
 		p_repository.save(p7);
 		Product p8 = new Product("Play Station 4", "Me la regalaron y no la necesito esta completamente nueva", "new",
-				especificaciones, tags, 400, false, "21/02/2018");
+				especificaciones, tags, 400, false, new Date());
 		p8.setCategory(c4);
 		p8.setUser(u2);
 		p8.addImage("image-0.jpg");
@@ -179,7 +179,7 @@ public class IndexController {
 		p_repository.save(p8);
 		Product p9 = new Product("Ratón inalámbrico Razer",
 				"Solo lo he usado un mes, tiene el precinto y sus complementos", "new", especificaciones, tags, 35,
-				 false, "21/02/2018");
+				 false, new Date());
 		p9.setCategory(c1);
 		p9.setUser(u2);
 		p9.addImage("image-0.jpg");
@@ -187,7 +187,7 @@ public class IndexController {
 		p_repository.save(p9);
 		Product p10 = new Product("Camiseta Hollyster",
 				"Nueva sin estrenar muy bonita de\r\n" + "								espacio", "new",
-				especificaciones, tags, 15, false, "21/02/2018");
+				especificaciones, tags, 15, false, new Date());
 		p10.setCategory(c5);
 		p10.setUser(u2);
 		p10.addImage("image-0.jpg");
@@ -195,28 +195,28 @@ public class IndexController {
 		p_repository.save(p10);
 		Product p11 = new Product("Fallout 4",
 				"Funciona a la perfeccion es de play 3\r\n" + "								pequeñas", "not_new",
-				especificaciones, tags, 10, false, "21/02/2018");
+				especificaciones, tags, 10, false, new Date());
 		p11.setCategory(c4);
 		p11.setUser(u2);
 		p11.addImage("image-0.jpg");
 
 		p_repository.save(p11);
 		Product p12 = new Product("Shadow of mordor", "Nuevo es de ordenador", "new", especificaciones, tags, 45,
-				 false, "21/02/2018");
+				 false, new Date());
 		p12.setCategory(c4);
 		p12.setUser(u2);
 		p12.addImage("image-0.jpg");
 
 		p_repository.save(p12);
 		Product p13 = new Product("Iphone 8", "Me cambio a android y no lo quiero", "not_new", especificaciones, tags,
-				850, false, "21/02/2018");
+				850, false, new Date());
 		p13.setCategory(c1);
 		p13.setUser(u2);
 		p13.addImage("image-0.jpg");
 
 		p_repository.save(p13);
 		Product p14 = new Product("xBox 360", "Incluye 3 mandos", "not_new", especificaciones, tags, 264,
-				false, "21/02/2018");
+				false, new Date());
 		p14.setCategory(c5);
 		p14.setUser(u2);
 		p14.addImage("image-0.jpg");
@@ -226,7 +226,7 @@ public class IndexController {
 		for(int i=0; i<10; i++) {
 		Product p = new Product("Macbook Pro 2017",
 				"Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.",
-				"new", especificaciones, tags, 1500, false, "21/02/2018");
+				"new", especificaciones, tags, 1500, false, new Date());
 		p.setCategory(c1);
 		p.setUser(u3);
 		p.addImage("image-0.jpg");
@@ -268,10 +268,21 @@ public class IndexController {
 
 		model.addAttribute("products", products);
 		if (http != null) {
-			model.addAttribute("usuario", userRepository.findByName(http.getName()));
+			User user_logged = userRepository.findByName(http.getName());
+			model.addAttribute("usuario", user_logged);
+			String location = user_logged.getLocation();
+			
+			List<Product> allbyLoc = prs.getAllProductsByLocation(location);
+			
+			
+			
+			model.addAttribute("products_bylocation", allbyLoc);
+			
 		}
-		System.out.println(model.toString());
-
+		
+		List<Product> allbyDate = prs.getAllProductsByDate();
+		model.addAttribute("products_bydate", allbyDate);
+		
 		return "index";
 	}
 
@@ -294,5 +305,7 @@ public class IndexController {
 		System.out.println(p);
 		return "p{id}";
 	}
+	
+	
 
 }
