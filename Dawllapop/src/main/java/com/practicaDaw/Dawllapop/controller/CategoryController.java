@@ -201,6 +201,8 @@ public class CategoryController {
 			model.addAttribute("user_seller", p.getUser().getName());
 			model.addAttribute("seller_location", p.getUser().getLocation());
 			model.addAttribute("id_seller", p.getUser().getId());
+			model.addAttribute("user", p.getUser());
+			model.addAttribute("spec", p.getEspecifications());
 			
 //			if (http != null) {
 //				model.addAttribute("user_seller", userRepository.findByName(http.getName()));
