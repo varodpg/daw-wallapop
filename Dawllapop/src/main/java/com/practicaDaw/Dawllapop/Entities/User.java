@@ -34,6 +34,7 @@ public class User {
 	private long phone;
 	private Date registerDate;
 	private boolean activatedUser;
+	private boolean isAdmin;
 
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<String> roles;
@@ -79,6 +80,12 @@ public class User {
 		this.activatedUser = activatedUser;
 		this.roles = new ArrayList<>(Arrays.asList(roles));
 		this.setRoles("ROLE_USER");
+		
+		if (this.getRoles().contains("ROLE_ADMIN")){
+			this.isAdmin = true;
+		} else {
+			this.isAdmin = false;
+		}
 	}
 
 	public String getName() {

@@ -81,9 +81,17 @@
 								</li>
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
+								{{#usuario}}
+								{{#isAdmin}}
+								<li class="nav-item">
+									<a class="btn nav-link" href="admin/"><i class="fa fa-lock"></i> Página de administrador </a>
+								</li>
+								{{/isAdmin}}
+								{{/usuario}}
 								<li class="nav-item">
 									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a>Cerrar sesión</a> </button>
-								</li>	
+								</li>
+								
 							</ul>
 						</div>
 					</nav>
