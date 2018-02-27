@@ -1,5 +1,9 @@
 package com.practicaDaw.Dawllapop.Entities;
 
+
+
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +19,7 @@ public class Offer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	private Date date;
 	private int price;
 	private String message;
 	private OfferEnum offerEnum;
@@ -40,17 +45,10 @@ public class Offer {
 		this.buyer = buyer;
 		this.seller = seller;
 		this.product = product;
+		this.date=new Date();
 
 	}
-	public Offer(int price, String message, OfferEnum offerEnum, User buyer, User seller) {
-		this.price = price;
-		this.message = message;
-		this.offerEnum = offerEnum;
-		this.buyer = buyer;
-		this.seller = seller;
-		
 
-	}
 	public long getId() {
 		return id;
 	}
