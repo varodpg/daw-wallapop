@@ -283,7 +283,7 @@
 												<img width="200px" height="auto" src="images/products/Macbook Pro 15inch.jpg" alt="image description">
 											</td>
 											<td class="product-details" style="padding-left:20px">
-												<h3 class="title">Macbook Pro 15inch</h3>
+												<h3 class="title">{{</h3>
 												<span class="add-id">
 													<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
 												<span>
@@ -486,22 +486,23 @@
 									
                                         	<table class="table table-responsive product-dashboard-table">
 											<tbody>
+											{{#products}}
 												<tr height="100">
 													<td class="product-thumb" style="vertical-align: top;">
 														<img width="200px" height="auto" src="images/products/Macbook Pro 15inch.jpg" alt="image description">
 													</td>
 													<td class="product-details" style="padding-left:20px; vertical-align: top;">
-														<h3 class="title">Macbook Pro 15inch</h3>
+														<h3 class="title">{{name}}</h3>
 														<span class="add-id">
-															<strong>ID producto:</strong> ng3D5hAMHPajQrM</span>
+															<strong>ID producto:</strong> {{id}}</span>
 														<span>
 															<strong>Subido: </strong>
-															<time>Jun 27, 2017</time>
+															<time>{{date}}</time>
 														</span>
 														<span class="status active">
-															<strong>Estado</strong>Activo</span>
+															<strong>Estado</strong>{{state}}</span>
 														<span class="location">
-															<strong>Localización</strong>Móstoles, Madrid</span>
+															<strong>Localización</strong>{{user.location}}</span>
 													</td>
 	                                                <td> <!--POSIBLES COMPRADORES -->
 	                                                    <div>
@@ -558,6 +559,7 @@
 	                                                  
 	                                                </td>
 	                                            </tr>
+	                                            {{/products}}
 	                                        </tbody>
                                         </table>
 									</div>
