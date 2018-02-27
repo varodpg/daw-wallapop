@@ -16,4 +16,5 @@ public interface OfferRepository extends JpaRepository<Offer,Long>{
 
 	@Query(value = "SELECT * FROM offer WHERE SELLER_ID = :user AND OFFER_ENUM = '0'", nativeQuery = true)
 	List<Offer> getOfferRequests(@Param("user") User user);
+
 }

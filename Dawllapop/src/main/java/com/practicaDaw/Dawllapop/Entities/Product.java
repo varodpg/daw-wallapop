@@ -202,16 +202,17 @@ public class Product {
 		this.mainimage = mainimage;
 	}
 
+
+	public boolean isSold() {
+		return sold;
+	}
+
 	public List<Offer> getOffers() {
 		return offers;
 	}
 
 	public void setOffers(List<Offer> offers) {
 		this.offers = offers;
-	}
-
-	public boolean isSold() {
-		return sold;
 	}
 	
 	// public ArrayList<Image> getImages() {

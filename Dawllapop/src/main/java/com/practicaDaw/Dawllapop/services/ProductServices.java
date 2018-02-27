@@ -72,6 +72,10 @@ public class ProductServices {
 	public List<Product> getAllProductsByDate() {
 		return productRepository.findFirst8ByOrderByDateDesc();
 	}
+
+	public List<Product> getAllProductsByUser(Long id) {
+		return productRepository.findAllByUserId(id);
+	}
 	
 
 	

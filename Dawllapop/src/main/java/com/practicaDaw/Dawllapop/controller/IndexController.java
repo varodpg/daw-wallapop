@@ -123,7 +123,6 @@ public class IndexController {
 		
 		
 		p1.addImage("image-0.jpg");
-		p_repository.save(p1);
 
 		Product p2 = new Product("Escritorio",
 				"Escritorio de mesa con gran capacidad de\r\n" + "								espacio", "new",
@@ -176,7 +175,7 @@ public class IndexController {
 		p8.setUser(u2);
 		p8.addImage("image-0.jpg");
 
-		p_repository.save(p8);
+
 		Product p9 = new Product("Ratón inalámbrico Razer",
 				"Solo lo he usado un mes, tiene el precinto y sus complementos", "new", especificaciones, tags, 35,
 				 false, new Date());
@@ -236,16 +235,29 @@ public class IndexController {
 		// Users search for offers
 		User user1 = userService.findUser(1);
 		User user2 = userService.findUser(2);
+		User user3 = userService.findUser(3);
 		Product p = prs.findOne(1);
 
 		// Offers Creation
+		
+		p_repository.save(p8);
+		p_repository.save(p1);
+		
 		OfferEnum offerEnum = null;
-		Offer o = new Offer(60, "Quiero este precio", offerEnum.Acepted, user1, user2, p);
+		Offer o = new Offer(60, "Quiero este precio", offerEnum.Acepted, user2);
+		Offer o2 = new Offer(700, "Te ofrezco esto Alvaro, soy David", offerEnum.Cancel, user3);
+		Offer o3 = new Offer(850, "toma esto, no subo mas, soy Juanma por cierto", offerEnum.Pending, user2);
+		Offer o4 = new Offer(950, "toma esto, no subo mas, soy Alvaro ", offerEnum.Pending, user1);
+		
+		o.setProduct(p1);
+		o2.setProduct(p1);
+		o3.setProduct(p1);
+		o4.setProduct(p8);
+		
 		offerRepository.save(o);
-		Offer o2 = new Offer(700, "Te ofrezco", offerEnum.Cancel, user1, user2, p);
 		offerRepository.save(o2);
-		Offer o3 = new Offer(650, "toma esto, no subo mas", offerEnum.Pending, user1, user2, p);
 		offerRepository.save(o3);
+		offerRepository.save(o4);
 		
 		//Assessments Creation
 		Assessment assess1 = new Assessment("Gran vendedor", 4, user2, user1, new Date());

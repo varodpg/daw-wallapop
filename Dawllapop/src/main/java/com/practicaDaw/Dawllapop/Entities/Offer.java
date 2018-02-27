@@ -23,13 +23,9 @@ public class Offer {
 	private int price;
 	private String message;
 	private OfferEnum offerEnum;
-	@ManyToOne
-	@JsonBackReference
+	
+	@OneToOne
 	private User buyer;
-
-	@ManyToOne
-	@JsonBackReference
-	private User seller;
 
 	@ManyToOne
 	@JsonBackReference
@@ -38,14 +34,12 @@ public class Offer {
 	protected Offer() {
 	}
 
-	public Offer(int price, String message, OfferEnum offerEnum, User buyer, User seller, Product product) {
+	public Offer(int price, String message, OfferEnum offerEnum, User buyer) {
 		this.price = price;
 		this.message = message;
 		this.offerEnum = offerEnum;
-		this.buyer = buyer;
-		this.seller = seller;
-		this.product = product;
 		this.date=new Date();
+		this.buyer=buyer;
 
 	}
 
@@ -73,11 +67,11 @@ public class Offer {
 		this.message = message;
 	}
 
-	public void setOfferEnum(OfferEnum offerEnum) {
-		this.offerEnum = offerEnum;
-	}
-
 	public Product getProduct() {
 		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 }

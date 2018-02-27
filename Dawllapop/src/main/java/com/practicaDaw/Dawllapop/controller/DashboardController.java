@@ -100,19 +100,19 @@ public class DashboardController {
 		}
 
 		User user = (User) session.getAttribute("user");
+		Long user_id = user.getId();
+		System.out.println(user_id);
 
-		Page<Product> products = prs.getAllProducts(page);
+		List<Product> user_products = prs.getAllProductsByUser(user.getId());
 
-		model.addAttribute("products", products);
+		model.addAttribute("products", user_products);
 
-		model.addAttribute("morePages", prs.getAllProducts(page).isFirst());
-
+		System.out.println(user_products.toString());
+	
 		List<Assessment> assessments = ass.getAllAssessment();
-		List<Offer> offers = oss.getOfferRequests(user);
 		List<Friend_request> fRequests = fRequestService.getUserRequests(user);
 
 		model.addAttribute("assessments", assessments);
-		model.addAttribute("offers", offers);
 		model.addAttribute("friendRequests", fRequests);
 
 		return "dashboard";
@@ -125,15 +125,19 @@ public class DashboardController {
 		User user = (User) session.getAttribute("user");
 		User user_seller = userRepository.findOne(seller_id);
 		Product pr = repository.findOne(product_id);
-		Offer of = new Offer(price, message, OfferEnum.Pending, user, user_seller, pr);
-		offerRepository.save(of);
+		
+		
+		//Offer of = new Offer(price, message, OfferEnum.Pending, user, user_seller, pr);
+		
+		
+		//offerRepository.save(of);
 		return "redirect:/dashboard";
 	}
 
 	@RequestMapping("/pendingOfferAcept/{id}")
 	public String pendingOfferAcept(Model model, @PathVariable("id") long id) {
 		Offer of = offerRepository.getOne(id);
-		of.setOfferEnum(OfferEnum.Acepted);
+		//of.setOfferEnum(OfferEnum.Acepted);
 		Product p = of.getProduct();
 		p.setSold(true);
 		offerRepository.saveAndFlush(of);
@@ -143,7 +147,7 @@ public class DashboardController {
 	@RequestMapping("/pendingOfferCancel/{id}")
 	public String pendingOfferCancel(Model model, @PathVariable("id") long id) {
 		Offer of = offerRepository.getOne(id);
-		of.setOfferEnum(OfferEnum.Cancel);
+		//of.setOfferEnum(OfferEnum.Cancel);
 		Product p = of.getProduct();
 		p.setSold(false);
 		offerRepository.saveAndFlush(of);

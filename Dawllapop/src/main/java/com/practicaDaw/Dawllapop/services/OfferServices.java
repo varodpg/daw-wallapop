@@ -19,8 +19,5 @@ public class OfferServices {
 	public List<Offer> getAllOffer() {
 		return OfferRepository.findAll();
 	}
-	public List<Offer> getOfferRequests(User user) {
-		return OfferRepository.getOfferRequests(user);
-	}
 
 }

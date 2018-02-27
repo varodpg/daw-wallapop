@@ -42,6 +42,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	
 	List<Product> findFirst10ByUserLocation(String location);
 	List<Product> findFirst8ByOrderByDateDesc();
+	List<Product> findAllByUserId(Long id);
 	
 }
 
