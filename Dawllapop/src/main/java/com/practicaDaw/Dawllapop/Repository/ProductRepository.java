@@ -47,11 +47,12 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	//queries for dashboard (user page)
 	List<Product> findAllByUserId(Long id);
 	
-	List<Product> findDistinctByUserIdAndAndOffersStateAndSold(long id, int state, boolean sold);
+	List<Product> findDistinctByUserIdAndOffersStateAndSold(long id, int state, boolean sold);
 //	@Query(value = "SELECT * FROM OFFER WHERE STATE= :state_offer AND PRODUCT_ID IN (SELECT ID FROM PRODUCT WHERE USER_ID= :user_id", nativeQuery = true)
 //	List<Product> findAllProductsByState( @Param("user_id") long user_id, @Param("state_offer") int state_offer);
 //	
 //	
+	List<Product> findAllBySoldAndOffersBuyerId(boolean sold, Long id);
 	
 }
 

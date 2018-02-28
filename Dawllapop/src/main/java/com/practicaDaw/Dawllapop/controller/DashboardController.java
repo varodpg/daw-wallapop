@@ -113,10 +113,13 @@ public class DashboardController {
 		System.out.println(user_products_with_offers);
 		
 		//list all products sold
-		List<Product> user_products_sold = prs.getAllProductsByUserAndState(user.getId(), 0, true);
+		List<Product> user_products_sold = prs.getAllProductsByUserAndState(user.getId(), 1, true);
 		model.addAttribute("products_sold", user_products_sold);
-		System.out.println("VENDIDO:" + user_products_sold);
-	
+
+		//list products buyed
+		List<Product> user_products_buy = prs.getAllProductsByUserBuyer(true, user.getId());
+		model.addAttribute("products_buyed", user_products_buy);
+		
 		List<Assessment> assessments = ass.getAllAssessment();
 		List<Friend_request> fRequests = fRequestService.getUserRequests(user);
 
