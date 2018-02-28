@@ -204,9 +204,9 @@ public class CategoryController {
 			model.addAttribute("user", p.getUser());
 			model.addAttribute("spec", p.getEspecifications());
 			
-//			if (http != null) {
-//				model.addAttribute("user_seller", userRepository.findByName(http.getName()));
-//			}
+			if (http != null) {
+				model.addAttribute("user_seller", userRepository.findByName(http.getName()));
+			}
 			
 			System.out.println(p);
 			return "single";
