@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
@@ -203,6 +204,33 @@ public class CategoryController {
 			model.addAttribute("id_seller", p.getUser().getId());
 			model.addAttribute("user", p.getUser());
 			model.addAttribute("spec", p.getEspecifications());
+			
+			//method to permit send offer if product is not sold or 
+			//you are not the seller or are you logged
+			
+			if (http != null) {
+				
+				User user_logged = userRepository.findByName(http.getName());
+			
+				long id_seller=p.getUser().getId();
+			
+				if((id_seller!=user_logged.getId()) && (!(p.isSold()))){
+					model.addAttribute("product_to_buy", "p");
+				}
+				
+				if((id_seller!=user_logged.getId()) && (p.isSold())) {
+					model.addAttribute("product_sold", "p");
+				}
+				
+				if((id_seller==user_logged.getId()) && (!p.isSold())){
+					
+				}
+				
+			}
+				
+			
+			
+			
 			
 //			if (http != null) {
 //				model.addAttribute("user_seller", userRepository.findByName(http.getName()));

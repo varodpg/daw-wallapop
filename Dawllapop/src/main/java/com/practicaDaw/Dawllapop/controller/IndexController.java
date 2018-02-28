@@ -163,7 +163,7 @@ public class IndexController {
 
 		p_repository.save(p6);
 		Product p7 = new Product("Zapatillas New Balance 365 ", "Sólo me las he puesto 3 veces muy cómodas", "not_new",
-				especificaciones, tags, 120, false, new Date());
+				especificaciones, tags, 120, true, new Date());
 		p7.setCategory(c5);
 		p7.setUser(u2);
 		p7.addImage("image-0.jpg");
