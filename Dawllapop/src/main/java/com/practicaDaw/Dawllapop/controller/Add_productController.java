@@ -63,29 +63,35 @@ public class Add_productController {
 			@RequestParam("category.name") String category,
 			@RequestParam("files") MultipartFile[] files
 			){
+		
 		User loggedUser = null;
 		if (http != null) {
+			Product product = new Product(name, description, price);
 			loggedUser = userRepository.findByName(http.getName());
 			Category cat = null;
 			Date date = new Date();
-			switch(category) {
-		
-				case "informatica":
+			
+			if(category != null) {
+				if(category.equals("informatica"))
 					cat = categoryRepository.findOne((long)1);
-				case "inmobiliaria":
+				if(category.equals("inmobiliaria"))
 					cat = categoryRepository.findOne((long)2);
-				case "deportes":
+				if(category.equals("deportes"))
 					cat = categoryRepository.findOne((long)3);
-				case "videojuegos":
+				if(category.equals("videojuegos"))
 					cat = categoryRepository.findOne((long)4);
-				case "moda":
+				if(category.equals("moda"))
 					cat = categoryRepository.findOne((long)5);
+				
+				product.setCategory(cat);
+
 			}
 			
-			Product product = new Product(name, description, price);
-			product.setCategory(cat);
+			
 			product.setDate(date);
 			product.setUser(loggedUser);
+			
+			//getting an array of images
 				for(MultipartFile file: files) {
 					String fileName = "image-" + imageId.getAndIncrement() + ".jpg";
 					String imageTitle = file.getName(); //the title is the name of the uploaded image
