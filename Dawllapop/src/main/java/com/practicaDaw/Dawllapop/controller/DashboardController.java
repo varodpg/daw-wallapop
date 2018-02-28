@@ -102,12 +102,20 @@ public class DashboardController {
 		User user = (User) session.getAttribute("user");
 		Long user_id = user.getId();
 		System.out.println(user_id);
-
+		
+		//list all products by user
 		List<Product> user_products = prs.getAllProductsByUser(user.getId());
-
-		model.addAttribute("products", user_products);
-
-		System.out.println(user_products.toString());
+		model.addAttribute("products_all", user_products);
+		
+		//list all product with offers (product must be sold FALSE)
+		List<Product> user_products_with_offers = prs.getAllProductsByUserAndState(user.getId(), 0, false);
+		model.addAttribute("products_offers", user_products_with_offers);
+		System.out.println(user_products_with_offers);
+		
+		//list all products sold
+		List<Product> user_products_sold = prs.getAllProductsByUserAndState(user.getId(), 0, true);
+		model.addAttribute("products_sold", user_products_sold);
+		System.out.println("VENDIDO:" + user_products_sold);
 	
 		List<Assessment> assessments = ass.getAllAssessment();
 		List<Friend_request> fRequests = fRequestService.getUserRequests(user);
@@ -118,19 +126,22 @@ public class DashboardController {
 		return "dashboard";
 	}
 
-	@RequestMapping(value = "/add-new-offer/{seller_id}/{product_id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/add-new-offer/{product_id}", method = RequestMethod.POST)
 	public String add_new_offer(Model model, @RequestParam("price") int price, @RequestParam("message") String message,
-			HttpSession session, @PathVariable("seller_id") long seller_id,
+			HttpSession session,
 			@PathVariable("product_id") long product_id) {
+		
+		//user buying is user logged
 		User user = (User) session.getAttribute("user");
-		User user_seller = userRepository.findOne(seller_id);
-		Product pr = repository.findOne(product_id);
 		
+		OfferEnum offerEnum = null;
+		Offer offer = new Offer(price, message, 0, user);
 		
-		//Offer of = new Offer(price, message, OfferEnum.Pending, user, user_seller, pr);
-		
-		
-		//offerRepository.save(of);
+		Product product_buying = prs.findOne(product_id);
+		offer.setProduct(product_buying);
+
+		offerRepository.save(offer);
+
 		return "redirect:/dashboard";
 	}
 
@@ -139,8 +150,11 @@ public class DashboardController {
 		Offer of = offerRepository.getOne(id);
 		//of.setOfferEnum(OfferEnum.Acepted);
 		Product p = of.getProduct();
-		p.setSold(true);
+		of.setState(1);
 		offerRepository.saveAndFlush(of);
+		p.setSold(true);
+		repository.saveAndFlush(p);
+		
 		return "redirect:/dashboard";
 	}
 
@@ -149,7 +163,7 @@ public class DashboardController {
 		Offer of = offerRepository.getOne(id);
 		//of.setOfferEnum(OfferEnum.Cancel);
 		Product p = of.getProduct();
-		p.setSold(false);
+		of.setState(2);
 		offerRepository.saveAndFlush(of);
 		return "redirect:/dashboard";
 	}

@@ -244,20 +244,23 @@ public class IndexController {
 		p_repository.save(p1);
 		
 		OfferEnum offerEnum = null;
-		Offer o = new Offer(60, "Quiero este precio", offerEnum.Acepted, user2);
-		Offer o2 = new Offer(700, "Te ofrezco esto Alvaro, soy David", offerEnum.Cancel, user3);
-		Offer o3 = new Offer(850, "toma esto, no subo mas, soy Juanma por cierto", offerEnum.Pending, user2);
-		Offer o4 = new Offer(950, "toma esto, no subo mas, soy Alvaro ", offerEnum.Pending, user1);
+		Offer o = new Offer(60, "Quiero este precio", 0, user2);
+		Offer o2 = new Offer(700, "Te ofrezco esto Alvaro, soy David", 0, user3);
+		Offer o3 = new Offer(850, "toma esto, no subo mas, soy Juanma por cierto", 0, user2);
+		Offer o4 = new Offer(950, "toma esto, no subo mas, soy Alvaro ", 0, user1);
+		Offer o5 = new Offer(50, "toma esto, soy Alvaro, quiero ese raton ", 1, user1);
 		
 		o.setProduct(p1);
 		o2.setProduct(p1);
 		o3.setProduct(p1);
 		o4.setProduct(p8);
+		o5.setProduct(p9);
 		
 		offerRepository.save(o);
 		offerRepository.save(o2);
 		offerRepository.save(o3);
 		offerRepository.save(o4);
+		offerRepository.save(o5);
 		
 		//Assessments Creation
 		Assessment assess1 = new Assessment("Gran vendedor", 4, user2, user1, new Date());

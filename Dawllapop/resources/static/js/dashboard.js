@@ -1,3 +1,21 @@
+$(document).ready(function(){
+	$(".btn-main-sm *").html(function(searchandreplace6, sreplace6) {
+        return sreplace6.replace('false', 'en venta');
+    }, 5000);
+	$(".btn-main-sm *").html(function(searchandreplace7, sreplace7) {
+        return sreplace7.replace('true', 'vendido');
+    }, 5000);
+	$("#pills-home *").html(function(searchandreplace8, sreplace8) {
+        return sreplace8.replace('new', 'nuevo');
+    }, 5000);
+	$("#pills-home *").html(function(searchandreplace9, sreplace9) {
+        return sreplace9.replace('not_new', 'seminuevo');
+    }, 5000);
+
+});
+
+
+
 $(function(){
 	var rate;
 	$('.ratings').each(function(){
