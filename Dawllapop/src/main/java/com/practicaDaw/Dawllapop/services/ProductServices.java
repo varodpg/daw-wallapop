@@ -77,6 +77,16 @@ public class ProductServices {
 		return productRepository.findAllByUserId(id);
 	}
 	
+	public List<Product> getAllProductsByUserAndState(Long id, int state, boolean sold) {
+		return productRepository.findDistinctByUserIdAndAndOffersStateAndSold(id, state, sold);
+	}
+	
+	
+	
+//	public List<Product> getAllProductsByUserAndState(long id, int state_offer) {
+//		return productRepository.findAllProductsByState(id, state_offer);
+//	}
+	
 
 	
 }

@@ -13,6 +13,6 @@ public interface Friend_RequestRepository extends JpaRepository<Friend_request,L
 	
 	@Query(value = "SELECT * FROM friend_request WHERE TO_ID = :user AND state = 'pending'", nativeQuery = true)
 	List<Friend_request> getUserRequests(@Param("user") User user);
-	@Query(value = "SELECT * FROM user WHERE id IN (SELECT FROM_ID FROM friend_request WHERE TO_ID = :user AND state = 'accepted')", nativeQuery = true)
+	@Query(value = "SELECT * FROM user WHERE id IN (SELECT FROM_ID FROM friend_request WHERE TO_ID = :user AND state = 'accepted') OR id IN (SELECT TO_ID FROM friend_request WHERE FROM_ID = :user AND state = 'accepted')", nativeQuery = true)
 	List<User> getUserFriends(@Param("user") User user);
 }

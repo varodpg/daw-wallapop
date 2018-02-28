@@ -35,6 +35,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  	
 
 </head>
 
@@ -102,26 +103,27 @@
 <!--==================================
 =				Friends				= 
  ==================================-->
- <div class="friendsButton" onclick="showFriendsList()">
- 	<i class="fa fa-user" style="color: #333; font-size: 40px; margin-top: 3px"></i>
+ <div id="friendsDiv" style="position: fixed; bottom: 0px; right: 0px; z-index: 100">
+	 <div class="friendsButton" onclick="showFriendsList()">
+	 	<i class="fa fa-user" style="color: #333; font-size: 40px; margin-top: 3px"></i>
+	 </div>
+	 
+	 <div id="friendsList" style="display:none">
+	 </div>
+	 
+	 <div id="friendChat" style='display: none'>
+	 	<div class='row friendChatHeader'><h3 style='width: 100%; text-align: center'>Amigo</h3></div>
+	 	<div class='row friendChatBody'></div>
+	 	<div class='row friendChatInput'>
+	 		<div class="col-md-9">
+	 			<input type="text" class="form-control" style="color: white; width: 100%; height: 45px; margin-top: 2px; text-align: center;">
+	 		</div>
+	 		<div class="col-md-3" style='padding-left: 0px; padding-right: 0px'>
+	 			<a class="btn btn-main" style="color: white; width: 100%; height: 45px; margin-top: 2px; text-align: center;">Enviar</a>
+	 		</div>
+	 	</div>
+	 </div>
  </div>
- 
- <div id="friendsList" style='display: none'>
- </div>
- 
- <div id="friendChat" style='display: none'>
- 	<div class='row friendChatHeader'><h3 style='width: 100%; text-align: center'>Amigo</h3></div>
- 	<div class='row friendChatBody'></div>
- 	<div class='row friendChatInput'>
- 		<div class="col-md-9">
- 			<input type="text" class="form-control" style="color: white; width: 100%; height: 45px; margin-top: 2px; text-align: center;">
- 		</div>
- 		<div class="col-md-3" style='padding-left: 0px; padding-right: 0px'>
- 			<a class="btn btn-main" style="color: white; width: 100%; height: 45px; margin-top: 2px; text-align: center;">Enviar</a>
- 		</div>
- 	</div>
- </div>
- 
  <!--==================================
 =			End Friends				 = 
  ===================================-->
@@ -145,7 +147,7 @@
                             </a>
 							<!-- User Name -->
 							{{#usuario}}
-							<h5 class="text-center">{{name}}</h5>
+							<h5 class="text-center" id="usernameTitle">{{name}}</h5>
 							<p>{{#registerDate}}{{registerDate}}{{/registerDate}}</p>
 							<a href="edit_profile" class="btn btn-main-sm">Editar Perfil</a>
 							{{/usuario}}
@@ -161,14 +163,15 @@
 							<ul class="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
 								<li class="nav-item">
 									<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
-									 aria-selected="true">Mis productos</a>
+									 aria-selected="true">Mis productos en venta</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" id="pills-buyed-tab" data-toggle="pill" href="#pills-buyed" role="tab" aria-controls="pills-buyed"
 									 aria-selected="false">Mis compras</a>
+								
 								<li class="nav-item">
-									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
-									 aria-selected="false">Mis estadísticas</a>
+									<a class="nav-link" id="pills-sold-tab" data-toggle="pill" href="#pills-sold" role="tab" aria-controls="pills-sold"
+									 aria-selected="false">Mis ventas</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
@@ -197,7 +200,7 @@
 											</tr>
 										</thead>
 										<tbody>
-										{{#products}}											
+										{{#products_all}}											
 							  				<tr>
 												<td class="product-thumb">
 													<img width="200px" height="auto" src="images/products/Macbook Pro 15inch.jpg" alt="image description">
@@ -206,12 +209,12 @@
 													<h3 class="title">{{name}}</h3>
 													<span>
 														<strong>Subido: </strong>
-														<time>Jun 27, 2017</time>
+														<time>{{date}}</time>
 													</span>
 													<span class="status active">
-														<strong>Estado</strong>{{#state}}{{state}}{{/state}}</span>
+														<strong>Estado</strong>{{#state}}{{.}}{{/state}}</span>
 													<span class="location">
-														<strong>Localización</strong>Móstoles, Madrid</span>
+														<strong>Localización</strong>{{user.location}}</span>
 												</td>
 												<td class="product-category">
 													<span class="categories">{{#category}}{{category.name}}{{/category}}</span>
@@ -237,34 +240,14 @@
 														</ul>
 													</div>
                                                     <div>
-														<a class="btn btn-main-sm " style="width:100px; margin-top:2px;">Hay ofertas</a>	
+														<a class="btn btn-main-sm" id="sold" style="width:100px; margin-top:2px;">En venta</a>	
                                                     </div>
 												</td>
 											</tr>
-                            					{{/products}}											
+                            					{{/products_all}}											
 										</tbody>
 									</table>
 
-								</div>
-								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-									<h3 class="tab-title">Mis estadísticas</h3>
-									<table class="table table-bordered product-table">
-										<tbody>
-											<tr>
-												<td>Productos vendidos</td>
-												<td>13</td>
-											</tr>
-											<tr>
-												<td>Productos comprados</td>
-												<td>5</td>
-											</tr>
-											<tr>
-												<td>Balance</td>
-												<td>+127€</td>
-											</tr>
-											<!--Graphics-->
-										</tbody>
-									</table>
 								</div>
 								<!--MIS COMPRAS-->
 								<div class="tab-pane fade" id="pills-buyed" role="tabpanel" aria-labelledby="pills-buyed-tab">
@@ -480,13 +463,68 @@
 										</tbody>
 									</table>
 									</div>
+									
+									<div class="tab-pane fade" id="pills-sold" role="tabpanel" aria-labelledby="pills-sold-tab">
+									<h3 class="tab-title">Mis ventas</h3>
+									<table class="table table-responsive product-dashboard-table">
+									<thead>
+										<tr>
+											<th width="300" class="text-center"> Imágen</th>
+											<th width=" " class="text-center">Producto</th>
+											<th class="text-center">Acción</th>
+										</tr>
+									</thead>
+									<tbody>
+										{{#products_sold}}
+										<tr>
+											<td class="product-thumb">
+												<img width="200px" height="auto" src="images/products/Macbook Pro 15inch.jpg" alt="image description">
+											</td>
+											<td class="product-details" style="padding-left:20px">
+												<h3 class="title">{{name}}</h3>
+													<strong>Subido: </strong>
+													<time>{{date}}</time>
+												</span>
+												<span class="location">
+													<strong>Localización</strong>{{user.location}}</span>
+											</td>
+											<td class="action" data-title="Action" style="padding-left:20px">
+												<div class="">
+														<input type="checkbox" id="spoiler1"></input>
+														<label for="spoiler1">Dejar una valoración al comprador</label>
+														<div class="spoiler">
+																<div class="review-submission">	
+																		
+																		<!-- Rate --> 
+																		<div class="rate">
+																			<div class="starrr" name="value"></div>
+																		</div>
+																		<div class="review-submit">
+																			<form action="add_new_assessment" class="row" id="form_add_assessment">	
+																																					
+																				<div class="col-12">
+																					<textarea id="review" rows="10" class="form-control" placeholder="Mensaje"rows="10" cols="50" style="resize:none" name="text"></textarea><br>
+																				</div>
+																				<div class="col-12">
+																					<button type="submit" class="btn btn-main">Enviar</button>
+																				</div>
+																			</form>
+																		</div>
+																</div>
+														</div>
+											</td>
+										</tr>
+										{{/products_sold}}
+										</tbody>
+										</table>
+									</div>
             
                                     <div class="tab-pane fade" id="pills-offers" role="tabpanel" aria-labelledby="pills-offers-tab">
 										<h3 class="tab-title">Ofertas recibidas</h3>
-										
                                         	<table class="table table-responsive product-dashboard-table">
 											<tbody>
-											{{#products}}
+
+											{{#products_offers}}
 												<tr height="100">
 													<td class="product-thumb" style="vertical-align: top;">
 														<img width="200px" height="auto" src="/imgs/{{mainimage}}" alt="">
@@ -556,7 +594,7 @@
 	                                                  	{{/offers}}
 	                                                </td>
 	                                            </tr>
-	                                            {{/products}}
+	                                            {{/products_offers}}
 	                                        </tbody>
                                         </table>
 									</div>
@@ -734,6 +772,8 @@
 	<script src="/js/offer.js"></script>
 	<script src="/js/scripts.js"></script>
 	<script src="/js/dashboard.js"></script>
+	<script src="/js/sockjs.min.js"></script>
+	<script src="/js/stomp.min.js"></script>
 
 	<!-- MODAL LOGOUT -->
 	<form action="logout"id="formDelete">

@@ -22,7 +22,7 @@ public class Offer {
 	private Date date;
 	private int price;
 	private String message;
-	private OfferEnum offerEnum;
+	private int state;
 	
 	@OneToOne
 	private User buyer;
@@ -34,10 +34,10 @@ public class Offer {
 	protected Offer() {
 	}
 
-	public Offer(int price, String message, OfferEnum offerEnum, User buyer) {
+	public Offer(int price, String message, int state, User buyer) {
 		this.price = price;
 		this.message = message;
-		this.offerEnum = offerEnum;
+		this.state = state;
 		this.date=new Date();
 		this.buyer=buyer;
 
@@ -73,5 +73,29 @@ public class Offer {
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+
+	public User getBuyer() {
+		return buyer;
+	}
+
+	public void setBuyer(User buyer) {
+		this.buyer = buyer;
 	}
 }
