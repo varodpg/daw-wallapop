@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
+import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
@@ -25,6 +26,7 @@ import com.practicaDaw.Dawllapop.services.ProductServices;
 
 public class AdminController {
 	@Autowired UserRepository userRepository;
+	@Autowired ProductRepository productRepository;
 	@Autowired ProductServices prs;
 	
 	@RequestMapping("/admin/index")
@@ -78,19 +80,47 @@ public class AdminController {
 		model.addAttribute("products",products);
 		List<User> u = userRepository.findAll();
 		model.addAttribute("usuarios",u);
+		
+		model.addAttribute("user_search_name", "todos");
 		return "admin/adminProducts";
 	}
 	
-	@RequestMapping("/admin/adminProductsbyUser")
-	public String editProducts(Model model, User user) {
+	@RequestMapping("/admin/adminProductsByUser")
+	public String editProductsByUser(Model model, @RequestParam Long id_user_search) {
+		
 		List<User> u = userRepository.findAll();
 		model.addAttribute("usuarios",u);
-		List<Product> products = prs.getAllProductsByUser(user.getId());
+		List<Product> products = prs.getAllProductsByUser(id_user_search);
+		
+		User user_search = userRepository.findById(id_user_search);
+		String user_search_name = user_search.getName();
+		model.addAttribute("user_search_name", user_search_name);
+		
 		model.addAttribute("products",products);
 		return "admin/adminProducts";
 	}
 
+	@RequestMapping("/admin/editProduct/{id}")
+	public String editSingleProduct (Model model, @PathVariable long id) {
+		Product p = prs.findOne(id);
+		model.addAttribute("product", p);
 		
+		return "admin/editProduct";
+		
+	}
+		
+	@RequestMapping("/admin/editandsaveproduct/{id}")
+	public String editAndSaveProduct(Model model, @PathVariable long id) {
+		
+		
+		System.out.println("HOLA");
+		model.addAttribute("user_search_name", "todos");
+		
+//		product.setId(id);
+//		productRepository.saveAndFlush(product);
+		
+		return "redirect:/admin/adminProducts";
+	}
 	
 	@RequestMapping("/admin")
 	public String admin() {
