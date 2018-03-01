@@ -52,7 +52,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 //	List<Product> findAllProductsByState( @Param("user_id") long user_id, @Param("state_offer") int state_offer);
 //	
 //	
-	List<Product> findAllBySoldAndOffersBuyerId(boolean sold, Long id);
+	List<Product> findAllDistinctBySoldAndOffersBuyerId(boolean sold, Long id);
 	
 }
 

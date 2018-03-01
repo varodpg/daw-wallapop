@@ -82,7 +82,7 @@ public class ProductServices {
 	}
 
 	public List<Product> getAllProductsByUserBuyer(boolean sold, long id) {
-		return productRepository.findAllBySoldAndOffersBuyerId(sold, id);
+		return productRepository.findAllDistinctBySoldAndOffersBuyerId(sold, id);
 	}
 	
 	

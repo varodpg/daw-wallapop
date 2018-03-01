@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
+import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
@@ -198,15 +199,31 @@ public class CategoryController {
 			Product p=prs.findOne(id);
 			model.addAttribute("product",p);
 			
-			model.addAttribute("user_seller", p.getUser().getName());
+			model.addAttribute("user_seller", p.getUser());
 			model.addAttribute("seller_location", p.getUser().getLocation());
 			model.addAttribute("id_seller", p.getUser().getId());
 			model.addAttribute("user", p.getUser());
 			model.addAttribute("spec", p.getEspecifications());
 			
+			
+			//method to permit send offer if product is not sold or you are not the seller
+			//or you are logged
+			
 			if (http != null) {
-				model.addAttribute("user_seller", userRepository.findByName(http.getName()));
+				User user_logged = userRepository.findByName(http.getName());
+				long id_seller = p.getUser().getId();
+				
+				
+				if((id_seller!=user_logged.getId()) && (!(p.isSold()))) {
+					model.addAttribute("product_to_buy", "p");
+				}
+				if((id_seller!=user_logged.getId()) && ((p.isSold()))) {
+					model.addAttribute("product_sold", "p");
+				}
+				
 			}
+			
+			
 			
 			System.out.println(p);
 			return "single";
