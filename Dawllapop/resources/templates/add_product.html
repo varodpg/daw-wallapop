@@ -177,7 +177,7 @@
 									<div class="col-md-4">
 										<div class="form-group">
 											<label for="tf_tag"></label>
-											<input type="text" class="form-control w-bg" id="tf_tag" placeholder="Añadir Tag">
+											<input type="text" class="form-control w-bg" name="tags" id="tf_tag" placeholder="Añadir Tag" multiple>
 										</div>
 									</div>
 									<a class="btn btn-transparent" id="btn_add_tag" onclick="add_product_tag()">+</a>
@@ -191,14 +191,17 @@
 							<div class="col-md-12">
 								<h3 class="widget-header user">Imágenes</h3>
 								<div class="row" id="images_row">
-									<div class="col-md-2 add-img-btn" onclick="open_file_browser()">
+									<div class="col-md-2 add-img-btn">
 										<span class="add-img-icon">+</span>
 										<br>
 										<span>Añadir imagen</span>
 									</div>
 										<p>
-											<input id="file_input" type="file" name="files"style="display:none" onchange="preview_image()">
+											<input id="file_input" type="file" name="files" onchange="preview_image()" multiple="multiple"/>
 										</p>
+								</div>
+								<div class="row col-md-12" id="div_imgs">
+
 								</div>
 							</div>
 						</div>

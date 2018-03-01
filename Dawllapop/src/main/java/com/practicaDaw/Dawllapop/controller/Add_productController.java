@@ -13,6 +13,7 @@ import com.practicaDaw.Dawllapop.services.ProductServices;
 import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -61,6 +62,8 @@ public class Add_productController {
 			@RequestParam("description") String description, 
 			@RequestParam("price") double price,
 			@RequestParam("category.name") String category,
+			@RequestParam("tags") String[] tags,
+//			@RequestParam("specifications") String[] specifications,
 			@RequestParam("files") MultipartFile[] files
 			){
 		
@@ -82,8 +85,12 @@ public class Add_productController {
 					cat = categoryRepository.findOne((long)4);
 				if(category.equals("moda"))
 					cat = categoryRepository.findOne((long)5);
-				
 				product.setCategory(cat);
+				if(tags != null)
+					product.setTags(arrayToList(tags));
+//				if(specifications != null)
+//					product.setEspecifications();
+
 
 			}
 			
@@ -93,7 +100,7 @@ public class Add_productController {
 			
 			//getting an array of images
 				for(MultipartFile file: files) {
-					String fileName = "image-" + imageId.getAndIncrement() + ".jpg";
+					String fileName = "img-" + imageId.getAndIncrement() + ".jpg";
 					String imageTitle = file.getName(); //the title is the name of the uploaded image
 					if (!file.isEmpty()) {
 						try {
@@ -120,7 +127,7 @@ public class Add_productController {
 
 			
 
-				product.setState("nuevo");
+				product.setState("new");
 				repository.save(product);
 				return "add_product";
 			}
@@ -148,5 +155,16 @@ public class Add_productController {
 		repository.delete(product);
 		return "/";
 	}
+
+	private ArrayList<String> arrayToList(String[] array){
+		ArrayList<String> arrayList = new ArrayList<>();
+		for(String string : array) {
+			arrayList.add(string);
+		}
+		return arrayList;
+	}
 	
+
+	
+
 }

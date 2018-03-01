@@ -24,7 +24,7 @@ function add_product_tag(){
 
 function add_table_row(){    
 	var id_espect = $("#specification_table tr").length;
-    var specification_row = '<tr><td><div class="form_group"><input type="text" class="form-control w-bg" placeholder="Titulo" name="especifications[' + id_espect + ']"></div></td><td><div class="form_group"><input type="text" class="form-control w-bg" name="especifications[' + id_espect + ']" placeholder="Especificación"></div></td></tr>';
+    var specification_row = '<tr><td><div class="form_group"><input type="text" class="form-control w-bg" placeholder="Titulo" name="specifications[' + id_espect + ']"></div></td><td><div class="form_group"><input type="text" class="form-control w-bg" name="specifications[' + id_espect + ']" placeholder="Especificación"></div></td></tr>';
     $('#specification_table').append(specification_row);    
 }
 
@@ -44,13 +44,15 @@ function preview_image(){
     var file    = document.querySelector('#file_input').files[0];
     var reader  = new FileReader();
     var src;
-    
+
     reader.onloadend = function () {
+
         src = reader.result;
         $('#images_row').prepend('<div class="col-md-2"><img class="w-100" src="'+ src +'"></div>');
     }
     
     if (file) {
         reader.readAsDataURL(file);
+
     }   
 }

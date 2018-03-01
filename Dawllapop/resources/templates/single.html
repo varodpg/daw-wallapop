@@ -115,15 +115,12 @@
 					</div>
 					<div id="carouselExampleIndicators" class="/product-slider carousel slide" data-ride="false">					
 						<div class="carousel-inner">
+							{{#product.images}}
 							<div class="carousel-item">
-								<img class="d-block w-100" src="/images/products/products-1.jpg" alt="First slide">
+								<img class="d-block w-100" src="/imgs/{{.}}">
 							</div>
-							<div class="carousel-item active">
-								<img class="d-block w-100" src="/images/products/products-2.jpg" alt="Second slide">
-							</div>
-							<div class="carousel-item">
-								<img class="d-block w-100" src="/images/products/products-3.jpg" alt="Third slide">
-							</div>
+							{{/product.images}}
+
 						</div>
 						<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 							<span class="carousel-control-prev-icon" aria-hidden="true"></span>

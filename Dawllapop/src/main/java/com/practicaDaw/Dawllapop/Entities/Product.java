@@ -26,7 +26,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name, description, state;
-	private ArrayList<String[]> especifications;
+	private ArrayList<String[]> specifications;
 	private ArrayList<String> tags;
 	private double price;
 	private ArrayList<String> images = new ArrayList();
@@ -50,12 +50,12 @@ public class Product {
 	protected Product() {
 	}
 
-	public Product(String name, String description, String state, ArrayList<String[]> especifications,
+	public Product(String name, String description, String state, ArrayList<String[]> specifications,
 			ArrayList<String> tags, double price) {
 		this.name = name;
 		this.description = description;
 		this.state = state;
-		this.especifications = especifications;
+		this.specifications = specifications;
 		this.tags = tags;
 		this.price = price;
 	}
@@ -65,7 +65,7 @@ public class Product {
 		this.name = name;
 		this.description = description;
 		this.state = state;
-		this.especifications = especifications;
+		this.specifications = especifications;
 		this.tags = tags;
 		this.price = price;
 		this.sold = sold;
@@ -96,7 +96,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", description=" + description + ", state=" + state
-				+ ", especifications=" + especifications + ", tags=" + tags + ", price=" + price + ", images=" + images
+				+ ", especifications=" + specifications + ", tags=" + tags + ", price=" + price + ", images=" + images
 				+ ", mainimage=" + mainimage + ", sold=" + sold + ", date=" + date + ", category=" + category
 				+ ", user=" + user + ", offers=" + offers + "]";
 	}
@@ -126,11 +126,11 @@ public class Product {
 	}
 
 	public ArrayList<String[]> getEspecifications() {
-		return especifications;
+		return specifications;
 	}
 
 	public void setEspecifications(ArrayList<String[]> especifications) {
-		this.especifications = especifications;
+		this.specifications = especifications;
 	}
 
 	public ArrayList<String> getTags() {
