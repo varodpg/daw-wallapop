@@ -1,6 +1,7 @@
 package com.practicaDaw.Dawllapop.controller;
 
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -71,12 +72,6 @@ public class DashboardController {
 	@PostConstruct
 	public void init() {
 
-	}
-
-	@RequestMapping("/add_new_assessment")
-	public String add_new_user(Model model, Assessment assessment, HttpSession session) {		
-		assessmentRepository.save(assessment);
-		return "dashboard";
 	}
 
 	@RequestMapping("/dashboard")
@@ -183,5 +178,14 @@ public class DashboardController {
 		List<User> friends = fRequestService.getUserFriends(user);
 		return friends;
 	}
-
+	
+	@RequestMapping(value = "/addAssessment/{id}", method = RequestMethod.POST)
+	public String addAssessment(Model model, @PathVariable("id") long id, @RequestParam("message") String message, 
+			@RequestParam("value") int value,HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		User userTo = userRepository.getOne(id);
+		Assessment assessment = new Assessment(message, 2, user, userTo, new Date());
+		assessmentRepository.save(assessment);
+		return "redirect:/dashboard";
+	}
 }

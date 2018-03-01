@@ -274,9 +274,37 @@
 													<strong>Localización</strong>{{user.location}}</span>
 											</td>
 											<td style="padding-left:20px">
-												<div class="">
+												<div class="row">
 														<input type="checkbox" id="spoiler1"></input>
 														<label>Has adquirido este producto. Ponte en contacto con el vendedor <a color="black" href="/publicDashboard/{{user.id}}">{{user}}</a></label>
+												</div>
+												<div class='row'>
+													<form action="/addAssessment/{{user.id}}" method = "POST">
+														<div class='row' style="text-align: center; width: 100%">
+															<p style="width: 100%">Deja una reseña del vendedor</p>
+														</div>
+														<div class="row">
+															<p style="float: right;  margin-top: 7px; margin-left: 5px">Valoracion (1-5): </p><input type="number" name="value" style="width: 100px; height: 35px">
+														</div>
+														<div class="row" style="width: 100%">
+															<textarea class="form-control" name="message" style="resize: none; height: 150px"></textarea>
+														</div>
+														<div class="row" style="text-align: center; width: 100%; margin-top: 5px">
+															<button class="btn btn-main" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
+														</div>
+													</form>
+													<!-- <div class="row">
+														<div class="ratings">
+															<ul class="list-inline ratings">
+																<li class='list-inline-item'><i class='fa fa-star'></i></li>
+																<li class='list-inline-item'><i class='fa fa-star'></i></li>
+																<li class='list-inline-item'><i class='fa fa-star'></i></li>
+																<li class='list-inline-item'><i class='fa fa-star'></i></li>
+																<li class='list-inline-item'><i class='fa fa-star'></i></li>
+															</ul>
+														</div>
+													</div> -->
+												</div>
 											</td>
 										</tr>
 										{{/products_buyed}}
