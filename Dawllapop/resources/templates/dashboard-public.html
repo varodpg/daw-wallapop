@@ -64,14 +64,15 @@
 							<ul class="navbar-nav ml-auto main-nav ">
 								<li class="nav-item"><a class="nav-link" href="/">Inicio</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="dashboard">Perfil</a>
-								</li>
+								{{#userLogged}}
+								<li class="nav-item"><a class="nav-link" href="dashboard">Perfil</a></li>
+							 	{{/userLogged}}
 								<li class="nav-item dropdown dropdown-slide"><a
 									class="nav-link dropdown-toggle" href="category"
 									data-toggle="dropdown" aria-haspopup="true"
 									aria-expanded="false"> Categorias <span><i
 											class="fa fa-angle-down"></i></span>
-								</a> <!-- Dropdown list -->
+									</a> <!-- Dropdown list -->
 									<div class="dropdown-menu dropdown-menu-right">
 										<a class="dropdown-item" href="category/1">Electronica e
 											Informatica</a> <a class="dropdown-item" href="category/2">Inmobiliaria</a>
@@ -79,11 +80,24 @@
 										<a class="dropdown-item" href="category/4">Consolas y
 											Videojuegos</a> <a class="dropdown-item" href="category/5">Moda</a>
 									</div></li>
+								{{#userLogged}}
+								<li class="nav-item"><a class="nav-link"
+									href="/addProduct">Añadir producto <i class="fa fa-plus"></i></a>
+								</li>
+								{{/userLogged}}
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
-								<li class="nav-item"><a class="nav-link login-button"
-									onclick="$('#login_modal').modal('toggle')">Iniciar Sesion</a>
-								</li>
+							{{#userLogged}}
+							<li class="nav-item">							
+								<a class="btn nav-link" href="dashboard"><i class = "fa fa-user"></i> ¡Hola {{userLogged.name}}!</a>							
+							<li class="nav-item">
+								<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a> Cerrar sesión</a> </button>
+							</li>	 
+							{{/userLogged}} 
+							{{^userLogged}}
+							<li class="nav-item"><a class="nav-link login-button"
+								onclick="$('#login_modal').modal('toggle')">Iniciar Sesion</a></li>
+							{{/userLogged}}
 							</ul>
 						</div>
 					</nav>
@@ -194,11 +208,13 @@
 								data-target="#myModal"> Contacto: <i
 								class="fa fa-address-card" aria-hidden="true"></i></a>
 						</p>
+						{{#userLogged}}
 						<p>
 							<a onclick="$('#modalFriendRequest').modal('toggle')" class="btn btn-main-sm" style="color: white; cursor: pointer"
 								data-toggle="model" data-target="#modalFriendRequest"  aria-hidden="true">Solicitud
 								de amistad +</a>
 						</p>
+						{{/userLogged}}
 					</div>
 					{{/user}}
 				</div>

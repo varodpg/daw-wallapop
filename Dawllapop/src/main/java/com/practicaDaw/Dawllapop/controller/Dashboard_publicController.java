@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -50,14 +51,16 @@ public class Dashboard_publicController {
 	
 	
 	@RequestMapping("/publicDashboard/{id}")
-	public String dashBoardPublic(Model model, @PathVariable long id, @PageableDefault(size = 10) Pageable page) {	
+	public String dashBoardPublic(Model model, @PathVariable long id, @PageableDefault(size = 10) Pageable page, HttpSession session) {	
 		User user = userService.findUser(id);
 		Page<Product> products = prs.getAllByUser(page, user);
 		Page<Assessment> assessments = assessmentService.getUserAssessments(user, page);
+		User userLogged = (User) session.getAttribute("user");
 		
 		model.addAttribute("assessments", assessments);
 		model.addAttribute("user", user);		
 		model.addAttribute("products", products);
+		model.addAttribute("userLogged", userLogged);
 		
 		return "dashboard-public";
 	}
