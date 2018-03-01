@@ -71,20 +71,10 @@ public class DashboardController {
 	@PostConstruct
 	public void init() {
 
-		// Assessment a = new Assessment("juanma", "juanma@hotmail.com", "increible
-		// vendedor super amable", 5);
-		// assessmentRepository.save(a);
-		// Assessment a2 = new Assessment("David", "alvaro@hotmail.com", "envio un poco
-		// lento", 4);
-		// assessmentRepository.save(a2);
-
 	}
 
 	@RequestMapping("/add_new_assessment")
-	public String add_new_user(Model model, Assessment assessment, HttpSession session) {
-		System.out.println(session.getAttribute("user").toString());
-		// assessment.setName(session.getAttribute("user").toString());
-		// assessment.setEmail("juanma@hotmail.com");
+	public String add_new_user(Model model, Assessment assessment, HttpSession session) {		
 		assessmentRepository.save(assessment);
 		return "dashboard";
 	}
@@ -110,7 +100,7 @@ public class DashboardController {
 		//list all product with offers (product must be sold FALSE)
 		List<Product> user_products_with_offers = prs.getAllProductsByUserAndState(user.getId(), 0, false);
 		model.addAttribute("products_offers", user_products_with_offers);
-		System.out.println(user_products_with_offers);
+		//System.out.println(user_products_with_offers);
 		
 		//list all products sold
 		List<Product> user_products_sold = prs.getAllProductsByUserAndState(user.getId(), 1, true);
@@ -120,7 +110,7 @@ public class DashboardController {
 		List<Product> user_products_buy = prs.getAllProductsByUserBuyer(true, user.getId());
 		model.addAttribute("products_buyed", user_products_buy);
 		
-		List<Assessment> assessments = ass.getAllAssessment();
+		Page<Assessment> assessments = ass.getUserAssessments(user, page);
 		List<Friend_request> fRequests = fRequestService.getUserRequests(user);
 
 		model.addAttribute("assessments", assessments);
