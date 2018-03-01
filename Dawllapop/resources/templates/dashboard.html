@@ -140,13 +140,13 @@
 						<!-- User Widget -->
 						<div class="widget user-dashboard-profile">
 							<!-- User Image -->
-                            <a href="dashboard-public">
+							{{#usuario}}
+                            <a href="publicDashboard/{{id}}">
 							<div class="profile-thumb">
 								<img src="/images/user/user-thumb.jpg" alt="" class="rounded-circle">
 							</div>
                             </a>
-							<!-- User Name -->
-							{{#usuario}}
+							<!-- User Name -->							
 							<h5 class="text-center" id="usernameTitle">{{name}}</h5>
 							<p>{{#registerDate}}{{registerDate}}{{/registerDate}}</p>
 							<a href="edit_profile" class="btn btn-main-sm">Editar Perfil</a>
