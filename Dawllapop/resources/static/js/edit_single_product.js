@@ -46,13 +46,11 @@ function preview_image(){
     var src;
 
     reader.onloadend = function () {
-
         src = reader.result;
         $('#images_row').prepend('<div class="col-md-2"><img class="w-100" src="'+ src +'"></div>');
     }
     
     if (file) {
         reader.readAsDataURL(file);
-
     }   
 }

@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -63,7 +64,7 @@ public class Add_productController {
 			@RequestParam("price") double price,
 			@RequestParam("category.name") String category,
 			@RequestParam("tags") String[] tags,
-//			@RequestParam("specifications") String[] specifications,
+//			@RequestParam("specifications") ArrayList<String[]> specifications,
 			@RequestParam("files") MultipartFile[] files
 			){
 		
@@ -89,7 +90,7 @@ public class Add_productController {
 				if(tags != null)
 					product.setTags(arrayToList(tags));
 //				if(specifications != null)
-//					product.setEspecifications();
+//					product.setEspecifications(specifications);
 
 
 			}

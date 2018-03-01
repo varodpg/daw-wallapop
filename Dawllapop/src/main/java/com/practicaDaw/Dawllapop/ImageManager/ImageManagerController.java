@@ -28,8 +28,6 @@ public class ImageManagerController {
 
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "ImgFiles");
 
-	private AtomicInteger imageId = new AtomicInteger();
-	private Map<String, Image> images = new ConcurrentHashMap<>();
 
 	@PostConstruct
 	public void init() throws IOException {
