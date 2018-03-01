@@ -220,7 +220,7 @@
 	aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<form action="add_new_user" method="post" id="form_add_user"
-			modelAttribute="user">
+			 enctype="multipart/form-data">
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="row justify-content-md-center login-img">
@@ -269,10 +269,8 @@
 							<span class="add-img-icon">+</span> <br> <span>Imagen
 								de Perfil</span>
 						</div>
-						<input id="profile_img_input" type="file" style="display: none"
+						<input name="file" id="profile_img_input" type="file" style="display: none"
 							onchange="preview_profile_image()">
-							<input hidden id= "signup_rol" name = "roles">
-							<!--  <input hidden id= "signup_date" name = "registerDate">-->
 					</div>
 					<div class="row justify-content-md-center">
 						<div class="col-12 col-md-auto btn-enter-div">
@@ -281,7 +279,7 @@
 									<button class="btn btn-transparent btn-enter">Cancelar</button>
 								</div>
 								<div class="col-md-6">
-									<button class="btn btn-main btn-enter">Enviar</button>
+									<button class="btn btn-main btn-enter" type="submit">Enviar</button>
 								</div>
 							</div>
 		</form>

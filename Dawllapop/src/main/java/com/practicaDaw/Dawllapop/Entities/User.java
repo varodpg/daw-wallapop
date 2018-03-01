@@ -37,7 +37,7 @@ public class User {
 	private boolean isAdmin;
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	private List<String> roles;
+	private List<String> roles = new ArrayList();
 	
 	@OneToMany(mappedBy = "user")
 	@JsonBackReference
@@ -124,7 +124,7 @@ public class User {
 	}
 
 	public void setPasswordHash(String passwordHash) {
-		this.passwordHash = passwordHash;
+		this.passwordHash = new BCryptPasswordEncoder().encode(passwordHash);
 	}
 
 	public List<String> getRoles() {

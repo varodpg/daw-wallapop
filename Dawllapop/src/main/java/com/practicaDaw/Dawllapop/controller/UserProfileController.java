@@ -4,19 +4,27 @@ import com.practicaDaw.Dawllapop.Entities.Friend_request;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.Rol;
 import com.practicaDaw.Dawllapop.Entities.User;
+import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Date;
+import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
@@ -36,15 +44,52 @@ public class UserProfileController {
 	private UserServices uss;
 	@Autowired
 	private Friend_RequestRepository friendRequestRepo;
+	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "ImgFiles");
 
+	private AtomicInteger imageId = new AtomicInteger();
+	private Map<String, Image> images = new ConcurrentHashMap<>();
 	@RequestMapping("/add_new_user")
-	public String add_new_user(Model model, User user) {
+	public String add_new_user(Model model, 
+			@RequestParam("name")String name,
+			@RequestParam("passwordHash")String password,
+			@RequestParam("email")String email,
+			@RequestParam("location")String location,
+			@RequestParam("file") MultipartFile file){
+		User user = new User();
+		Date date = new Date();
+		user.setRegisterDate(date);
+		user.setName(name);
+		
+		user.setPasswordHash(password);
+		
+		user.setLocation(location);
 		user.setRoles("ROLE_USER");
-//		user.setActivatedUser(true);
-//		user.setRegisterDate(new Date());
-		//User u = new User( user.getName(),user.getEmail(),user.getLocation(),user.getImage(),user.getPasswordHash(),user.getPhone(),user.getRegisterDate(),true,"ROLE_USER");
-		User u2 = new User(user.getName(), user.getEmail(), user.getLocation(),"", user.getPasswordHash(),45678900,new Date(), true);
-		userRepository.save(u2);
+		user.setEmail(email);
+		user.setActivatedUser(true);
+		
+		String fileName = "UserImg-" + imageId.getAndIncrement() + ".jpg";
+		String imageTitle = file.getName(); //the title is the name of the uploaded image
+		if (!file.isEmpty()) {
+			try {
+
+				File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
+				file.transferTo(uploadedFile);
+				images.put(fileName, new Image(imageTitle, fileName));
+				user.setImage(fileName);
+
+			} catch (Exception e) {
+
+				model.addAttribute("fileName", fileName);
+				model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
+			}
+		} else {
+
+
+			return "error file " + file.getName() + " is empty";
+		}	
+		
+		
+		userRepository.save(user);
 		return "index";
 	}
 
