@@ -88,8 +88,8 @@ public class DashboardController {
 		Long user_id = user.getId();
 		System.out.println(user_id);
 		
-		//list all products by user
-		List<Product> user_products = prs.getAllProductsByUser(user.getId());
+		//list all products by user (including within or not offers)
+		List<Product> user_products = prs.getAllProductsByUserAndStateNoOffers(user.getId(), false);
 		model.addAttribute("products_all", user_products);
 		
 		//list all product with offers (product must be sold FALSE)

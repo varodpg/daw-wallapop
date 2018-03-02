@@ -28,7 +28,7 @@ import com.practicaDaw.Dawllapop.Entities.OfferEnum;
 import com.practicaDaw.Dawllapop.Entities.Product;
 
 @Controller
-public class Dashboard_publicController {
+public class DashboardPublicController {
 	
 	@Autowired
 	UserServices userService;
@@ -51,15 +51,23 @@ public class Dashboard_publicController {
 	
 	
 	@RequestMapping("/publicDashboard/{id}")
-	public String dashBoardPublic(Model model, @PathVariable long id, @PageableDefault(size = 10) Pageable page, HttpSession session) {	
+	public String dashBoardPublic(Model model, @PathVariable long id, HttpSession session) {	
 		User user = userService.findUser(id);
-		Page<Product> products = prs.getAllByUser(page, user);
-		Page<Assessment> assessments = assessmentService.getUserAssessments(user, page);
+		
+		List<Assessment> assessments = assessmentService.getUserAssessmentsNoPageable(user);
 		User userLogged = (User) session.getAttribute("user");
 		
+		
+		//list all products on sold
+				List<Product> user_products_selling = prs.getAllProductsByUserAndStateNoOffers(user.getId(), false);
+				model.addAttribute("products_selling", user_products_selling);
+				
+		//list all products sold
+				List<Product> user_products_sold = prs.getAllProductsByUserAndState(user.getId(), 1, true);
+				model.addAttribute("products_sold", user_products_sold);
+				
 		model.addAttribute("assessments", assessments);
 		model.addAttribute("user", user);		
-		model.addAttribute("products", products);
 		model.addAttribute("userLogged", userLogged);
 		
 		return "dashboard-public";

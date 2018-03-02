@@ -17,4 +17,9 @@ public interface AssessmentRepository extends JpaRepository<Assessment, Long> {
 			countQuery = "SELECT * FROM assessment WHERE USER_TO_ID = :userTo /*#pageable*/",
 			nativeQuery = true)
 	Page<Assessment> findByUserTo(@Param("userTo") User userTo, Pageable pageable);
+	
+
+	@Query(value = "SELECT * FROM assessment WHERE USER_TO_ID = :userTo",
+			nativeQuery = true)
+	List<Assessment> findByUserToNoPage(@Param("userTo") User userTo);
 }

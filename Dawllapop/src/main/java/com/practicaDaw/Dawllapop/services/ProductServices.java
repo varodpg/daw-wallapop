@@ -84,6 +84,10 @@ public class ProductServices {
 	public List<Product> getAllProductsByUserBuyer(boolean sold, long id) {
 		return productRepository.findAllDistinctBySoldAndOffersBuyerId(sold, id);
 	}
+
+	public List<Product> getAllProductsByUserAndStateNoOffers(long id, boolean sold) {
+		return productRepository.findAllByUserIdAndSold(id, sold);
+	}
 	
 	
 //	public List<Product> getAllProductsByUserAndState(long id, int state_offer) {

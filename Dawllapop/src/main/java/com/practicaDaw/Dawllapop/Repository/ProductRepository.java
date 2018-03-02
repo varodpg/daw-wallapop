@@ -54,6 +54,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 //	
 	List<Product> findAllDistinctBySoldAndOffersBuyerId(boolean sold, Long id);
 	
+	List<Product> findAllByUserIdAndSold(long id, boolean sold);
+	
 }
 
 

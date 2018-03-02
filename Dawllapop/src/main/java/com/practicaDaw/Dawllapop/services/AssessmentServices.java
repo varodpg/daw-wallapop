@@ -26,6 +26,10 @@ public class AssessmentServices {
 	public Page<Assessment> getUserAssessments(User userTo, Pageable pageable){
 		return assessmentRepository.findByUserTo(userTo, pageable);
 	}
+
+	public List<Assessment> getUserAssessmentsNoPageable(User user) {
+		return assessmentRepository.findByUserToNoPage(user);
+	}
 	
 	
 }
