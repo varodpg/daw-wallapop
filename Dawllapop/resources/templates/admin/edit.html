@@ -47,6 +47,12 @@
             <span class="nav-link-text">Usuarios</span>
           </a>
         </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Productos">
+          <a class="nav-link" href="/admin/adminProducts">
+            <i class="fa fa-fw fa-user"></i>
+            <span class="nav-link-text">Productos</span>
+          </a>
+        </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -95,8 +101,6 @@
         <div class="card-body">
           <div class="table-responsive">
             <table id="table" class="table table-bordered table-editable" width="100%" cellspacing="0">
-      		  <span class="table-add "><i class="fa fa-plus table-add"> </i> 
-      		  </span>
               <thead>
                 <tr>
                   <th>Editar</th>
@@ -104,25 +108,26 @@
                   <th>Email</th>
                   <th>Contraseña</th>
                   <th>Ciudad</th>
+                  <th>Teléfono</th>
                   <th>Roles</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                 {{#usuarios}}
-                  <td> <span class="table-remove fa fa-remove btn-transparent"></span></i></a></td>
+                  <td> <a href="/admin/deleteuser/{{id}}"><i class="fa fa-remove"></i></a></td>
                   <td contenteditable="true" name="name">{{name}}</td>
                   <td contenteditable="true" name="email">{{email}}</td>
-                  <td contenteditable="true" name="passwordHash"></td>
+                  <td contenteditable="true" name="passwordHash">{{passwordHash}}</td>
                   <td contenteditable="true" name="location">{{location}}</td>
+                   <td contenteditable="true" name="location">{{phone}}</td>
                   <td contenteditable="true" name="roles">{{roles}}</td>
                   <tr> </tr>
                   
                 </tr>
               </tbody>
             </table>
-            <form action="/admin/editandsave/{{id}}" method="post" id="form_add_user"
-			modelAttribute="user">
+            <form action="/admin/editandsave/{{id}}" method="post" id="form_add_user" modelAttribute="user">
 			<div class="modal-content">
 				<div class="modal-body">
 					<div class="row justify-content-md-center login-img">
@@ -134,14 +139,17 @@
 						<label for="signup_username">Usuario</label> <input
 							id="signup_username" type="text" class="form-control" name="name" value= "{{name}}">
 					</div>
-					<div class="form-group">
-						<label for="signup_password1">Contraseña</label> <input
-							id="signup_password1" class="form-control" name="passwordHash" value= "">
-					</div>
+					
 					<div class="form-group">
 						<label for="signup_email">Correo Electrónico</label> <input
 							id="signup_email" type="text" class="form-control" name="email" value= "{{email}}">
 					</div>
+					
+					<div class="form-group">
+						<label for="signup_password1">Contraseña</label> <input
+							id="signup_password1" class="form-control" name="passwordHash" value= "{{passwordHash}}">
+					</div>
+					
 					<div class="row">
 						<div class="col-md-6">
 							<label for="signup_ciudad">Ciudad</label> <select name="location"
@@ -154,9 +162,17 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label>Correo Electrónico</label> <input
-							id="signup_email" type="text" class="form-control" name="roles" value= "{{roles}}">
+						<label>Teléfono</label> <input
+							id="admin_phone" type="text" class="form-control" name="phone" value= "{{phone}}">
 					</div>
+					<div class="form-group">
+						<label>Roles</label> <input
+							id="admin_roles" type="text" class="form-control" name="roles" value= "{{roles}}">
+					</div>
+					<div class="hidden">
+						<input name="activatedUser" value ="{{activatedUser}}" hidden="true">
+					</div>
+				
 					<div class="row justify-content-md-center">
 						<div class="col-12 col-md-auto btn-enter-div">
 							<div class="row">
@@ -164,12 +180,13 @@
 									<button class="btn btn-main btn-enter">Guardar</button>
 								</div>
 							</div>
-							</div>
-							</div>
-		</form>						
+						</div>
+					</div>
+						
 		{{/usuarios}}      																 
           </div>
         </div>
+        </form>	
       </div>
     </div>
     <!-- /.container-fluid-->
