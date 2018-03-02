@@ -2,7 +2,6 @@ package com.practicaDaw.Dawllapop.controller;
 
 import com.practicaDaw.Dawllapop.Entities.Friend_request;
 import com.practicaDaw.Dawllapop.Entities.Product;
-import com.practicaDaw.Dawllapop.Entities.Rol;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;

@@ -136,7 +136,7 @@ public class AdminController {
 		product.setCategory(p.getCategory());
 		product.setId(id);
 		product.setDate(p.getDate());
-		product.setEspecifications(p.getEspecifications());
+		product.setSpecifications(p.getEspecifications());
 		product.setImages(p.getImages());
 		productRepository.saveAndFlush(product);
 		

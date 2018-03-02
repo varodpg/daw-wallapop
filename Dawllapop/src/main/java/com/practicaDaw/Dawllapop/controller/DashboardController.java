@@ -105,7 +105,8 @@ public class DashboardController {
 		List<Product> user_products_buy = prs.getAllProductsByUserBuyer(true, user.getId());
 		model.addAttribute("products_buyed", user_products_buy);
 		
-		Page<Assessment> assessments = ass.getUserAssessments(user, page);
+		//Page<Assessment> assessments = ass.getUserAssessments(user, page);
+		List<Assessment> assessments = ass.getUserAssessmentsNoPageable(user);
 		List<Friend_request> fRequests = fRequestService.getUserRequests(user);
 
 		model.addAttribute("assessments", assessments);

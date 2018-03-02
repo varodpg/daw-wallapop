@@ -82,14 +82,14 @@
 									</div></li>
 								{{#userLogged}}
 								<li class="nav-item"><a class="nav-link"
-									href="/addProduct">Añadir producto <i class="fa fa-plus"></i></a>
+									href="/add_product">Añadir producto <i class="fa fa-plus"></i></a>
 								</li>
 								{{/userLogged}}
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
 							{{#userLogged}}
 							<li class="nav-item">							
-								<a class="btn nav-link" href="dashboard"><i class = "fa fa-user"></i> ¡Hola {{userLogged.name}}!</a>							
+								<a class="btn nav-link" href="/dashboard"><i class = "fa fa-user"></i> ¡Hola {{userLogged.name}}!</a>							
 							<li class="nav-item">
 								<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a> Cerrar sesión</a> </button>
 							</li>	 
