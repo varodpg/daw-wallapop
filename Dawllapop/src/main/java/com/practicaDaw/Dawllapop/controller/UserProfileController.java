@@ -10,6 +10,7 @@ import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Controller;
@@ -107,7 +108,34 @@ public class UserProfileController {
 		repository.saveAndFlush(user);
 		return "/";
 	}
+	@RequestMapping(value = "/editUserImage",method = RequestMethod.POST)
+	public String editUserImage(Model model, @RequestParam("file") MultipartFile file,
+			HttpSession session) {
+		User user = (User) session.getAttribute("user");
+		
+		String fileName = "UserImg-" + imageId.getAndIncrement() + ".jpg";
+		String imageTitle = file.getName(); //the title is the name of the uploaded image
+		if (!file.isEmpty()) {
+			try {
 
+				File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
+				file.transferTo(uploadedFile);
+				images.put(fileName, new Image(imageTitle, fileName));
+				user.setImage(fileName);
+
+			} catch (Exception e) {
+
+				model.addAttribute("fileName", fileName);
+				model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
+			}
+		} else {
+
+
+			return "error file " + file.getName() + " is empty";
+		}		
+		repository.saveAndFlush(user);
+		return "/";
+	}
 	@RequestMapping("/editDatesProfileBBDD")
 	public String editDatesProfileBBDD(Model model, @RequestParam String name, @RequestParam String location,
 			HttpSession session) {

@@ -129,25 +129,27 @@
 						    <label for="first-name">Nombre y Apellidos</label>
 						    <input type="text" class="form-control" id="first-name" name="name" value="{{user.name}}" placeholder="{{user.name}}">
 						</div>
-						
-						<!-- File chooser -->
-						<div class="form-group choose-file">
-							<i class="fa fa-user text-center"></i>
-						    <input type="file" class="form-control-file d-inline" id="input-file">
-						 </div>
 						<!-- Comunity Name -->
 						<div class="form-group">
 						    <label for="comunity-name">Mi ciudad</label>
 						    <input type="text" class="form-control" id="comunity-name" name="location" value="{{user.location}}" placeholder="{{user.location}}">
 						</div>
 						
-						<!-- Zip Code 
-						<div class="form-group">
-						    <label for="zip-code">Código Postal</label>
-						    <input type="text" class="form-control" id="zip-code">
-						</div>-->
 						<!-- Submit button -->
 						<button class="btn btn-transparent">Guardar cambios</button>
+					</form>
+				</div>
+				<!-- Change Image -->
+				<div class="widget personal-info">
+					<h3 class="widget-header user">Editar foto de perfil</h3>
+					<form action="/editUserImage" id="formEditUserImage" enctype="multipart/form-data" method="POST">
+						<!-- File chooser -->
+						<div class="form-group choose-file">
+							<i class="fa fa-user text-center"></i>
+						    <input type="file" name="file" class="form-control-file d-inline" id="input-file">
+						 </div>
+						<!-- Submit button -->
+						<button class="btn btn-transparent" type="submit">Guardar Imagen</button>
 					</form>
 				</div>
 				<!-- Change Password -->
