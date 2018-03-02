@@ -228,7 +228,7 @@
 				<!-- Left sidebar -->
 				<div class="col-md-12 ">
 					<div class="product-details">
-						<form action="/edit_product_db/{{id}}" method="post" id="form_edit_product">
+						<form action="/edit_product_db/{{id}}" id="form_edit_product">
 							<div class="row">
 								<div class="col-md-12">
 									<div class="row">
@@ -286,28 +286,6 @@
 										<span class="badge badge-pill badge-primary">{{.}}</span>
 										<input name="tags" value="{{.}}" style="display:none">
 										{{/product.tags}}
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-12">
-									<h3 class="widget-header user">Imágenes</h3>
-									<div class="row" id="images_row">
-										<div class="col-md-2">
-											<img class="w-100" src="/images/products/products-1.jpg">
-										</div>
-										<div class="col-md-2">
-											<img class="w-100" src="/images/products/products-2.jpg">
-										</div>
-										<div class="col-md-2">
-											<img class="w-100" src="/images/products/products-3.jpg">
-										</div>
-										<div class="col-md-2 add-img-btn" onclick="open_file_browser()">
-											<span class="add-img-icon">+</span> <br> <span>Añadir
-												imagen</span>
-										</div>
-										<input id="file_input" type="file" style="display: none"
-											onchange="preview_image()">
 									</div>
 								</div>
 							</div>
@@ -371,6 +349,30 @@
 								</div>
 							</div>
 						</form>
+						<form action="/edit_product_images/{{id}}" method="post" id="form_edit_product" enctype="multipart/form-data" >
+							<div class="row">
+									<div class="col-md-12">
+										<h3 class="widget-header user">Añadir Imágenes</h3>
+										<div class="row" id="images_row">
+											{{#product.images}}
+											<div class="col-md-2">
+												<img class="w-100" src="/imgs/{{.}}">
+											</div>
+											{{/product.images}}
+											<div>
+												 <span>Añadir imágenes</span>
+											</div>
+											<input id="file_input" type="file" name="files"
+											multiple="multiple">
+										</div>
+									</div>
+								</div>
+								<div class="row pull-right" style="margin-top: 20px">
+										<div class="col-md-12 ">
+											<button class="btn btn-main" type="submit"> Guardar Imágenes </button>
+										</div>
+								</div>
+						</form>	
 					</div>
 				</div>
 				<!-- Container End -->

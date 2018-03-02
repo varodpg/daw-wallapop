@@ -49,6 +49,9 @@ public class Add_productController {
     private CategoryRepository categoryRepository;
 	
 	@Autowired
+    private ProductRepository productRepository;
+	
+	@Autowired
     private ProductRepository repository;
 	
 	@RequestMapping("/add_product")
@@ -56,6 +59,36 @@ public class Add_productController {
 		return "add_product";
 	}
 
+	public boolean addImages(Model model, Product product, MultipartFile[] files) {
+		boolean result = true;
+		
+		for(MultipartFile file: files) {
+			String fileName = "img-" + imageId.getAndIncrement() + ".jpg";
+			String imageTitle = file.getName(); //the title is the name of the uploaded image
+			if (!file.isEmpty()) {
+				try {
+
+					File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
+					file.transferTo(uploadedFile);
+					images.put(fileName, new Image(imageTitle, fileName));
+					product.addImage(fileName);
+					continue;
+
+				} catch (Exception e) {
+
+					model.addAttribute("fileName", fileName);
+					model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
+					continue;
+				}
+			} else {
+	
+
+				result = false;
+			}
+		}	
+		
+		return result;
+	}
 	@RequestMapping(value = "/add-new-product",method = RequestMethod.POST)
 	public String add_new_product(Model model, 
 			Authentication http,
@@ -98,39 +131,14 @@ public class Add_productController {
 			
 			product.setDate(date);
 			product.setUser(loggedUser);
+			boolean result = addImages(model, product, files);
+			if(result == false) {
+				return "error file is empty"; 
+			}
 			
-			//getting an array of images
-				for(MultipartFile file: files) {
-					String fileName = "img-" + imageId.getAndIncrement() + ".jpg";
-					String imageTitle = file.getName(); //the title is the name of the uploaded image
-					if (!file.isEmpty()) {
-						try {
-
-							File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
-							file.transferTo(uploadedFile);
-							images.put(fileName, new Image(imageTitle, fileName));
-							product.addImage(fileName);
-							continue;
-
-						} catch (Exception e) {
-
-							model.addAttribute("fileName", fileName);
-							model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
-
-							continue;
-						}
-					} else {
-			
-
-						return "error file " + file.getName() + " is empty";
-					}
-		}
-
-			
-
-				product.setState("new");
-				repository.save(product);
-				return "add_product";
+			product.setState("new");
+			repository.save(product);
+			return "add_product";
 			}
 		else return "error: you are not logged in";
 	}
@@ -149,7 +157,20 @@ public class Add_productController {
 		repository.saveAndFlush(product);		
 		return "/";
 	}
-	
+	@RequestMapping(value = "/edit_product_images/{id}", method = RequestMethod.POST)
+	public String editProductImage(Model model, @PathVariable long id, 
+	@RequestParam("file") MultipartFile[] files) {
+		
+		Product product = productRepository.getOne(id);
+		
+		boolean result = addImages(model, product, files);
+		if(result == false) {
+			return "error file is empty"; 
+		}
+		product.setId(id);
+		repository.saveAndFlush(product);		
+		return "/";
+	}
 	@RequestMapping("/deleteProduct/{id}")
 	public String deleteProduct(Model model, @PathVariable long id) {
 		Product product = prs.findOne(id);
