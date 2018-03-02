@@ -155,7 +155,7 @@ public class Add_productController {
 	public String editProductDb(Model model, Product product, @PathVariable long id) {
 		product.setId(id);	
 		repository.saveAndFlush(product);		
-		return "/";
+		return "redirect:/dashboard";
 	}
 	@RequestMapping(value = "/edit_product_images/{id}", method = RequestMethod.POST)
 	public String editProductImage(Model model, @PathVariable long id, 
@@ -169,13 +169,13 @@ public class Add_productController {
 		}
 		product.setId(id);
 		repository.saveAndFlush(product);		
-		return "/";
+		return "redirect:/dashboard";
 	}
 	@RequestMapping("/deleteProduct/{id}")
 	public String deleteProduct(Model model, @PathVariable long id) {
 		Product product = prs.findOne(id);
 		repository.delete(product);
-		return "/";
+		return "redirect:/dashboard";
 	}
 
 	private ArrayList<String> arrayToList(String[] array){
