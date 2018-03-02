@@ -24,7 +24,7 @@ function add_product_tag(){
 
 function add_table_row(){    
 	var id_espect = $("#specification_table tr").length;
-    var specification_row = '<tr><td><div class="form_group"><input type="text" class="form-control w-bg" placeholder="Titulo" name="specifications[' + id_espect + ']"></div></td><td><div class="form_group"><input type="text" class="form-control w-bg" name="specifications[' + id_espect + ']" placeholder="Especificación"></div></td></tr>';
+    var specification_row = '<tr><td><div class="form_group"><input type="text" class="form-control w-bg" placeholder="Titulo" name="specifications"></div></td><td><div class="form_group"><input type="text" class="form-control w-bg" name="specifications" placeholder="Especificación"></div></td></tr>';
     $('#specification_table').append(specification_row);    
 }
 

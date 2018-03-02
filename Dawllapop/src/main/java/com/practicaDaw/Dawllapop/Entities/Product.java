@@ -129,8 +129,8 @@ public class Product {
 		return specifications;
 	}
 
-	public void setEspecifications(ArrayList<String[]> especifications) {
-		this.specifications = especifications;
+	public void setSpecifications(ArrayList<String[]> specifications) {
+		this.specifications = specifications;
 	}
 
 	public ArrayList<String> getTags() {

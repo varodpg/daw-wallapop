@@ -97,11 +97,14 @@ public class Add_productController {
 			@RequestParam("price") double price,
 			@RequestParam("category.name") String category,
 			@RequestParam("tags") String[] tags,
-//			@RequestParam("specifications") ArrayList<String[]> specifications,
+			@RequestParam("specifications") String[] specifications,
 			@RequestParam("files") MultipartFile[] files
 			){
-		
+		ArrayList<String[]> finalSpecifications = new ArrayList<>();
+		String[] stringAux = new String[2];
 		User loggedUser = null;
+		int cont = 0;
+		
 		if (http != null) {
 			Product product = new Product(name, description, price);
 			loggedUser = userRepository.findByName(http.getName());
@@ -122,8 +125,19 @@ public class Add_productController {
 				product.setCategory(cat);
 				if(tags != null)
 					product.setTags(arrayToList(tags));
-//				if(specifications != null)
-//					product.setEspecifications(specifications);
+				if(specifications != null)
+					for(int i = 0 ; i < specifications.length; i++) {
+						if(cont == 0) {
+							stringAux[cont] = specifications[i]; 
+							cont++;
+						}else {
+							stringAux[cont] = specifications[i];
+							cont = 0;
+							finalSpecifications.add(new String[]{stringAux[0],stringAux[1]});
+						}
+							
+					}
+					product.setSpecifications(finalSpecifications);
 
 
 			}
@@ -132,15 +146,16 @@ public class Add_productController {
 			product.setDate(date);
 			product.setUser(loggedUser);
 			boolean result = addImages(model, product, files);
-			if(result == false) {
-				return "error file is empty"; 
-			}
+//			if(result == false) {
+//				return "error file is empty"; 
+//			}
 			
 			product.setState("new");
 			repository.save(product);
-			return "add_product";
-			}
-		else return "error: you are not logged in";
+			return "redirect:/dashboard";
+		}else {
+			return "error: you are not logged in";
+		}
 	}
 		
 	
