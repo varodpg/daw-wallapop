@@ -211,6 +211,7 @@ public class CategoryController {
 			
 			if (http != null) {
 				User user_logged = userRepository.findByName(http.getName());
+				model.addAttribute("user_logged",user_logged);
 				long id_seller = p.getUser().getId();
 				
 				

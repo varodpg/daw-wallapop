@@ -55,11 +55,11 @@
 								<li class="nav-item">
 									<a class="nav-link" href="/">Inicio</a>
 								</li>
-								{{#user_seller.name}}
+								{{#user_logged.name}}
 								<li class="nav-item">
 									<a class="nav-link" href="/dashboard">Perfil</a>
 								</li>
-								{{/user_seller.name}}
+								{{/user_logged.name}}
 								<li class="nav-item dropdown dropdown-slide">
 									<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Categorias <span><i class="fa fa-angle-down"></i></span>
@@ -73,21 +73,21 @@
 										<a class="dropdown-item" href="/category/5">Moda</a>									
 									</div>
 								</li>				
-								{{#user_seller.name}}
+								{{#user_logged.name}}
 								<li class="nav-item"><a class="nav-link"
 									href="add_product">Añadir producto <i class="fa fa-plus"></i></a>
 								</li>
-								{{/user_seller.name}}			
+								{{/user_logged.name}}			
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
-								{{#user_seller.name}}
+								{{#user_logged.name}}
 							<li class="nav-item">
 									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a>Cerrar sesión</a> </button>
 							</li>	 
-							{{/user_seller.name}} 
-							{{^user_seller.name}}
+							{{/user_logged.name}} 
+							{{^user_logged.name}}
 							<li class="nav-item"><a class="nav-link login-button" onclick="$('#login_modal').modal('toggle')">Iniciar Sesion</a></li>
-							{{/user_seller.name}}		
+							{{/user_logged.name}}		
 							</ul>
 						</div>
 					</nav>
