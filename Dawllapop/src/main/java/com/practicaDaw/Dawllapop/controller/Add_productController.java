@@ -140,9 +140,7 @@ public class Add_productController {
 					product.setSpecifications(finalSpecifications);
 
 
-			}
-			
-			
+			}	
 			product.setDate(date);
 			product.setUser(loggedUser);
 			boolean result = addImages(model, product, files);

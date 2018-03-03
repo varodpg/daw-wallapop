@@ -49,24 +49,10 @@ public class UserProfileController {
 	private AtomicInteger imageId = new AtomicInteger();
 	private Map<String, Image> images = new ConcurrentHashMap<>();
 	@RequestMapping("/add_new_user")
-	public String add_new_user(Model model, 
-			@RequestParam("name")String name,
-			@RequestParam("passwordHash")String password,
-			@RequestParam("email")String email,
-			@RequestParam("location")String location,
-			@RequestParam("file") MultipartFile file){
-		User user = new User();
-		Date date = new Date();
-		user.setRegisterDate(date);
-		user.setName(name);
-		
-		user.setPasswordHash(password);
-		
-		user.setLocation(location);
-		user.setRoles("ROLE_USER");
-		user.setEmail(email);
-		user.setActivatedUser(true);
-		
+	
+	
+	private boolean addUserImage(Model model, MultipartFile file, User user) {
+		boolean result = true;
 		String fileName = "UserImg-" + imageId.getAndIncrement() + ".jpg";
 		String imageTitle = file.getName(); //the title is the name of the uploaded image
 		if (!file.isEmpty()) {
@@ -85,10 +71,33 @@ public class UserProfileController {
 		} else {
 
 
-			return "error file " + file.getName() + " is empty";
+			result = false;
 		}	
+		return result;
+	}
+	
+	
+	public String add_new_user(Model model, 
+	@RequestParam("name")String name,
+	@RequestParam("passwordHash")String password,
+	@RequestParam("email")String email,
+	@RequestParam("location")String location,
+	@RequestParam("file") MultipartFile file){
 		
+		User user = new User();
+		Date date = new Date();
+		user.setRegisterDate(date);
+		user.setName(name);		
+		user.setPasswordHash(password);
+		user.setLocation(location);
+		user.setRoles("ROLE_USER");
+		user.setEmail(email);
+		user.setActivatedUser(true);
 		
+		boolean b = addUserImage(model, file, user);
+		if(b == false) {
+			return "error empty file";
+		}
 		userRepository.save(user);
 		return "index";
 	}
@@ -112,26 +121,10 @@ public class UserProfileController {
 			HttpSession session) {
 		User user = (User) session.getAttribute("user");
 		
-		String fileName = "UserImg-" + imageId.getAndIncrement() + ".jpg";
-		String imageTitle = file.getName(); //the title is the name of the uploaded image
-		if (!file.isEmpty()) {
-			try {
-
-				File uploadedFile = new File(FILES_FOLDER.toFile(), fileName);
-				file.transferTo(uploadedFile);
-				images.put(fileName, new Image(imageTitle, fileName));
-				user.setImage(fileName);
-
-			} catch (Exception e) {
-
-				model.addAttribute("fileName", fileName);
-				model.addAttribute("error", e.getClass().getName() + ":" + e.getMessage());
-			}
-		} else {
-
-
-			return "error file " + file.getName() + " is empty";
-		}		
+		boolean b = addUserImage(model, file, user);
+		if(b == false) {
+			return "error empty file";
+		}
 		repository.saveAndFlush(user);
 		return "/";
 	}
