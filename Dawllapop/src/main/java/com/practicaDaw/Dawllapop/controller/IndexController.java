@@ -284,7 +284,7 @@ public class IndexController {
 		model.addAttribute("products", products);
 		if (http != null) {
 			User user_logged = userRepository.findByName(http.getName());
-			model.addAttribute("usuario", user_logged);
+			model.addAttribute("user", user_logged);
 			String location = user_logged.getLocation();
 			
 			List<Product> allbyLoc = prs.getAllProductsByLocation(location);
