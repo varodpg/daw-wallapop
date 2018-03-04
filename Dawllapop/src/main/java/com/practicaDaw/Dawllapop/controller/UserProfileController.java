@@ -48,7 +48,6 @@ public class UserProfileController {
 
 	private AtomicInteger imageId = new AtomicInteger();
 	private Map<String, Image> images = new ConcurrentHashMap<>();
-	@RequestMapping("/add_new_user")
 	
 	
 	private boolean addUserImage(Model model, MultipartFile file, User user) {
@@ -75,8 +74,7 @@ public class UserProfileController {
 		}	
 		return result;
 	}
-	
-	
+	@RequestMapping("/add_new_user")
 	public String add_new_user(Model model, 
 	@RequestParam("name")String name,
 	@RequestParam("passwordHash")String password,
@@ -95,11 +93,11 @@ public class UserProfileController {
 		user.setActivatedUser(true);
 		
 		boolean b = addUserImage(model, file, user);
-		if(b == false) {
-			return "error empty file";
-		}
+//		if(b == false) {
+//			return "error empty file";
+//		}
 		userRepository.save(user);
-		return "index";
+		return "/";
 	}
 
 	@RequestMapping("/edit_profile")
