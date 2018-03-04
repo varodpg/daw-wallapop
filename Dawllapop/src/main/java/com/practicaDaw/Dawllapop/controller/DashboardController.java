@@ -78,15 +78,15 @@ public class DashboardController {
 	public String dashBoard(Model model, @PageableDefault(size = 10) Pageable page, Authentication http,
 			HttpSession session) {
 		if (http != null) {
-			model.addAttribute("usuario", userRepository.findByName(http.getName()));
+			model.addAttribute("userlog", userRepository.findByName(http.getName()));
 			// model.addAttribute("usuario",
 			// userRepository.findByName(http.getName()).getRegisterDate());
 
 		}
 
 		User user = (User) session.getAttribute("user");
-		Long user_id = user.getId();
-		System.out.println(user_id);
+//		Long user_id = user.getId();
+//		System.out.println(user_id);
 		
 		//list all products by user (including within or not offers)
 		List<Product> user_products = prs.getAllProductsByUserAndStateNoOffers(user.getId(), false);

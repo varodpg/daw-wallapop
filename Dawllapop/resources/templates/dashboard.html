@@ -82,13 +82,13 @@
 								</li>
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
-								{{#usuario}}
+								{{#userlog}}
 								{{#isAdmin}}
 								<li class="nav-item">
 									<a class="btn nav-link" href="admin/"><i class="fa fa-lock"></i> Página de administrador </a>
 								</li>
 								{{/isAdmin}}
-								{{/usuario}}
+								{{/userlog}}
 								<li class="nav-item">
 									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a>Cerrar sesión</a> </button>
 								</li>
@@ -140,7 +140,7 @@
 						<!-- User Widget -->
 						<div class="widget user-dashboard-profile">
 							<!-- User Image -->
-							{{#usuario}}
+							{{#userlog}}
                             <a href="publicDashboard/{{id}}">
 							<div class="profile-thumb">
 								<img src="/imgs/{{image}}" alt="" class="rounded-circle">
@@ -150,7 +150,7 @@
 							<h5 class="text-center" id="usernameTitle">{{name}}</h5>
 							<p>{{#registerDate}}{{registerDate}}{{/registerDate}}</p>
 							<a href="edit_profile" class="btn btn-main-sm">Editar Perfil</a>
-							{{/usuario}}
+							{{/userlog}}
 						</div>
 					</div>
 				</div>

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
+import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.AssessmentServices;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 import com.practicaDaw.Dawllapop.services.UserServices;
@@ -36,6 +38,9 @@ public class DashboardPublicController {
 	private ProductServices prs;
 	@Autowired
 	private AssessmentServices assessmentService;
+	
+	@Autowired
+	private UserRepository userRepository;
 
 	@Autowired
 	ProductServices productServices;
@@ -51,8 +56,12 @@ public class DashboardPublicController {
 	
 	
 	@RequestMapping("/publicDashboard/{id}")
-	public String dashBoardPublic(Model model, @PathVariable long id, HttpSession session) {	
+	public String dashBoardPublic(Model model, @PathVariable long id, HttpSession session, Authentication http) {	
 		User user = userService.findUser(id);
+		if (http != null) {
+			model.addAttribute("userlog", userRepository.findByName(http.getName()));
+		
+		}
 		
 		List<Assessment> assessments = assessmentService.getUserAssessmentsNoPageable(user);
 		User userLogged = (User) session.getAttribute("user");

@@ -50,52 +50,73 @@
 =            Header Section           =
 ====================================-->
 	<section>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<nav
-						class="navbar navbar-expand-lg navbar-light navigation fixed-top">
-						<a class="navbar-brand" href="/"> <img
-							src="images/logoNuevo.png" alt="">
-						</a>
-						<button class="navbar-toggler" type="button"
-							data-toggle="collapse" data-target="#navbarSupportedContent"
-							aria-controls="navbarSupportedContent" aria-expanded="false"
-							aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<ul class="navbar-nav ml-auto main-nav ">
-								<li class="nav-item"><a class="nav-link" href="/">Inicio</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="dashboard">Perfil</a>
-								</li>
-								<li class="nav-item dropdown dropdown-slide"><a
-									class="nav-link dropdown-toggle" href="../static/category.html"
-									data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false"> Categorias <span> <i
-											class="fa fa-angle-down"></i>
-									</span>
-								</a> <!-- Dropdown list -->
-									<div class="dropdown-menu dropdown-menu-right">
-										<a class="dropdown-item" href="category/1">Electronica e
-											Informatica</a> <a class="dropdown-item" href="category/2">Inmobiliaria</a>
-										<a class="dropdown-item" href="category/3">Deportes y Ocio</a> <a
-											class="dropdown-item" href="category/4">Consolas y
-											Videojuegos</a> <a class="dropdown-item" href="category/5">Moda</a>
-									</div></li>
-							</ul>
-							<ul class="navbar-nav ml-auto mt-10">
-								<li class="nav-item"><a class="nav-link login-button"
-									onclick="$('#login_modal').modal('toggle')">Iniciar Sesion</a>
-								</li>
-							</ul>
-						</div>
-					</nav>
-				</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav
+					class="navbar navbar-expand-lg navbar-light navigation fixed-top">
+					<a class="navbar-brand" href="/"> <img
+						src="images/logoNuevo.png" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse"
+						data-target="#navbarSupportedContent"
+						aria-controls="navbarSupportedContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto main-nav ">
+							<li class="nav-item active"><a class="nav-link" href="/">Inicio</a>
+							</li> 
+							
+							{{#userlog.name}}
+							<li class="nav-item"><a class="nav-link" href="dashboard">Perfil</a>
+							</li>
+							 {{/userlog.name}}
+							 
+							<li class="nav-item dropdown dropdown-slide"><a
+								class="nav-link dropdown-toggle" href="category"
+								data-toggle="dropdown" aria-haspopup="true"
+								aria-expanded="false"> Categorias <span> <i
+										class="fa fa-angle-down"></i>
+								</span>
+							</a> <!-- Dropdown list -->
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" href="/category/1">Electronica e
+										Informatica</a> <a class="dropdown-item" href="/category/2">Inmobiliaria</a>
+									<a class="dropdown-item" href="/category/3">Deportes y Ocio</a>
+									<a class="dropdown-item" href="/category/4">Consolas y
+										Videojuegos</a> <a class="dropdown-item" href="/category/5">Moda</a>
+								</div>
+							</li> 
+								
+								{{#userlog.name}}
+							<li class="nav-item"><a class="nav-link"
+								href="add_product">Añadir producto <i class="fa fa-plus"></i></a>
+							</li>
+							{{/userlog.name}}
+						</ul>
+						<ul class="navbar-nav ml-auto mt-10">
+							{{#userlog.name}}
+							<li class="nav-item">
+							
+								<a class="btn nav-link" href="dashboard"><i class = "fa fa-user"></i> ¡Hola {{userlog.name}}!</a>
+							
+							<li class="nav-item">
+									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a> Cerrar sesión</a> </button>
+							</li>	 
+							{{/userlog.name}} 
+							{{^userlog.name}}
+							<li class="nav-item"><a class="nav-link login-button"
+								onclick="$('#login_modal').modal('toggle')">Iniciar Sesion</a></li>
+							{{/userlog.name}}
+						</ul>
+					</div>
+				</nav>
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 	<!--===================================
 =            Login Modal Section      =
 ====================================-->

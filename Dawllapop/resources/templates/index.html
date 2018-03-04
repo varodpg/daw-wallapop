@@ -68,10 +68,10 @@
 							<li class="nav-item active"><a class="nav-link" href="/">Inicio</a>
 							</li> 
 							
-							{{#usuario.name}}
+							{{#userlog.name}}
 							<li class="nav-item"><a class="nav-link" href="dashboard">Perfil</a>
 							</li>
-							 {{/usuario.name}}
+							 {{/userlog.name}}
 							 
 							<li class="nav-item dropdown dropdown-slide"><a
 								class="nav-link dropdown-toggle" href="category"
@@ -89,26 +89,26 @@
 								</div>
 							</li> 
 								
-								{{#usuario.name}}
+								{{#userlog.name}}
 							<li class="nav-item"><a class="nav-link"
 								href="add_product">Añadir producto <i class="fa fa-plus"></i></a>
 							</li>
-							{{/usuario.name}}
+							{{/userlog.name}}
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
-							{{#usuario.name}}
+							{{#userlog.name}}
 							<li class="nav-item">
 							
-								<a class="btn nav-link" href="dashboard"><i class = "fa fa-user"></i> ¡Hola {{usuario.name}}!</a>
+								<a class="btn nav-link" href="dashboard"><i class = "fa fa-user"></i> ¡Hola {{userlog.name}}!</a>
 							
 							<li class="nav-item">
 									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a> Cerrar sesión</a> </button>
 							</li>	 
-							{{/usuario.name}} 
-							{{^usuario.name}}
+							{{/userlog.name}} 
+							{{^userlog.name}}
 							<li class="nav-item"><a class="nav-link login-button"
 								onclick="$('#login_modal').modal('toggle')">Iniciar Sesion</a></li>
-							{{/usuario.name}}
+							{{/userlog.name}}
 						</ul>
 					</div>
 				</nav>

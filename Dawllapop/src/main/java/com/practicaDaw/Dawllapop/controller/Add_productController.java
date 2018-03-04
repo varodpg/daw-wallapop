@@ -158,7 +158,10 @@ public class Add_productController {
 		
 	
 	@RequestMapping("/edit_single_product/{id}")
-	public String editSingleProduct(Model model, @PathVariable long id) {	
+	public String editSingleProduct(Model model, @PathVariable long id, Authentication http) {
+		if (http != null) {
+			model.addAttribute("userlog", userRepository.findByName(http.getName()));
+		}
 		Product product = prs.findOne(id);
 		model.addAttribute(product);		
 		return "edit_single_product";
