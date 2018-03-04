@@ -37,27 +37,29 @@ To facilitate the contact of the users we will introduce a chat so they can talk
 #### Screenshots
 Screenshots of the pages
 
-1. Inicio: Main page from the Dawllapop web. Include some sections like "more selling" and "trending" products.
+1. Inicio: Main page from the Dawllapop web. Include some sections like "Products Near you", "Latest products added","products of interest" and search bar.
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index.jpeg "Index1")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index.png"Index1")
 
 2. Categorias: Advanced web search for products ordered by categories.
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/categorias.jpeg "Categories")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/categorias.png "Categories")
 
-3. Perfil:  A simple view for an user profile. There are two profile pages: public and private. You can access to your products, what are you looking for and statistics from private page.
+3. Perfil:  A simple view for an user profile. There are two profile pages: public and private. You can access to your products, my products for sale,my shopping, my sales,reviews, offers received and friend requests.
 You can see the public information of an user from public profile.
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/perfil_privado.jpeg "Private Profile")
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/perfil_publico.jpeg "Public Profile")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/perfil-misCompras.png "Private Profile- myshopping")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/oferta.png "Private Profile-offers")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/amistad.png "Private Profile-friend requests")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/PerfilPublico.png"Public Profile")
 
 4. Editar Perfil: Personal data edition page.
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/editar_perfil.jpeg "Edit Profile")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/editarPerfil.png "Edit Profile")
 
 5. Producto: The main information about a product and how to buy it.
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/producto.jpeg "Product")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/producto.png"Product")
 
 6. Editar Producto: A complete form to create or edit the information about a product for sale.
 
@@ -65,7 +67,16 @@ You can see the public information of an user from public profile.
 
 7. Registro: You must login on the "Iniciar sesion" button on the rigth corner where. If you have not an account, you can register on the web through the form. 
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/registro.jpeg "Register form")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/login.png "Login")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/registro.png "Register form")
+
+8. Chat: You can talk to your friends and sellers that you have added to your friends list
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/chat.png "Chat")
+
+9. Admin: Site where the administrator can edit the products and users of the page
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/admin.png "Chat")
+
+
 
 ### NAVIGATION DIAGRAM
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/diagrams/Diagrama%20de%20navegaci%C3%B3n.png "Navigation diagram")
