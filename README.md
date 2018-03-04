@@ -39,7 +39,7 @@ Screenshots of the pages
 
 1. Inicio: Main page from the Dawllapop web. Include some sections like "Products Near you", "Latest products added","products of interest" and search bar.
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index.png"Index1")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/index.png "Index1")
 
 2. Categorias: Advanced web search for products ordered by categories.
 
@@ -51,7 +51,7 @@ You can see the public information of an user from public profile.
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/perfil-misCompras.png "Private Profile- myshopping")
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/oferta.png "Private Profile-offers")
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/amistad.png "Private Profile-friend requests")
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/PerfilPublico.png"Public Profile")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/PerfilPublico.png" Public Profile")
 
 4. Editar Perfil: Personal data edition page.
 
@@ -59,7 +59,7 @@ You can see the public information of an user from public profile.
 
 5. Producto: The main information about a product and how to buy it.
 
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/producto.png"Product")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/producto.png "Product")
 
 6. Editar Producto: A complete form to create or edit the information about a product for sale.
 
