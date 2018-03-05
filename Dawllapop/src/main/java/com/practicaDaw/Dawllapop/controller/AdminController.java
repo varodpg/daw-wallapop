@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.practicaDaw.Dawllapop.Entities.Assessment;
 import com.practicaDaw.Dawllapop.Entities.Offer;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
+import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
+import com.practicaDaw.Dawllapop.security.UserComponent;
+import com.practicaDaw.Dawllapop.services.AssessmentServices;
 import com.practicaDaw.Dawllapop.services.OfferServices;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
@@ -34,62 +38,26 @@ public class AdminController {
 	@Autowired ProductServices prs;
 	@Autowired OfferRepository offerRepository;
 	@Autowired OfferServices oss;
+	@Autowired
+	private AssessmentServices assessmentService;
+	@Autowired AssessmentRepository assessmentRepository;
 	
 	@RequestMapping("/admin/index")
 	public String admin_index () {
 		return "admin/index";
 	}
 	
-	@RequestMapping("/admin/charts")
-	public String charts() {
-		return "admin/charts";
-	}
-	
 	@RequestMapping("/admin/tables") 
 	public String tables(Model model) {
-		List<User> usuarios = userRepository.findAll();
-		model.addAttribute("usuario", usuarios);
+		List<Assessment> assessments = assessmentService.getAllAssessment();
+		model.addAttribute("assessments", assessments);
 		System.out.println(model);
 		return "admin/tables";
 	}
 	
-	@RequestMapping("/admin/edit")
-	public String editDatesProfileBBDD(Model model
-			//@RequestParam ("name")String name
-			//@RequestParam String email, @RequestParam String passwordHash, @RequestParam String location, @RequestParam String roles
-			) {
-		List<User> usuarios = userRepository.findAll();
-		model.addAttribute("usuario", usuarios);
-		return "admin/edit";
-	}
-	
-	@RequestMapping("/admin/edit/{id}")
-	public String editSingleUser (Model model, @PathVariable long id) {
-		User u = userRepository.findById(id);
-		model.addAttribute("usuarios",u);
-		
-		return "admin/edit";
-	}
-	
-	@RequestMapping("/admin/deleteuser/{id}")
+	@RequestMapping("/admin/deleteAssessment/{id}")
 	public String deleteUser(Model model, @PathVariable long id) {
-		User u = userRepository.findById(id);
-//		List<Product> products = prs.getAllProductsByUser(id);
-//		productRepository.delete(products);
-//		List<Offer> offers = oss.getAllOfferByUser(id);
-//		offerRepository.delete(offers);
-		userRepository.delete(u);
-		return "redirect:/admin/tables";
-	}
-	
-	@RequestMapping("/admin/editandsave/{id}")
-	public String editAndSave (Model model, User user, @PathVariable long id, @RequestParam String passwordHash) {
-		
-		user.setId(id);
-		//User u = userRepository.findById(id);
-		user.setPasswordHash(passwordHash);
-		userRepository.saveAndFlush(user);
-		
+		assessmentRepository.delete(assessmentRepository.getOne(id));
 		return "redirect:/admin/tables";
 	}
 	
