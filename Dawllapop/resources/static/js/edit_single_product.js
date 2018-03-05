@@ -27,27 +27,7 @@ function edit_product(){
 function open_file_browser(){
     $('#file_input').click();
 }
-function checkform() {
-    if(document.addProduct.name.value == "") {
-        alert("Introduce un nombre al producto");
-        return false;
-    } 
-    if(document.addProduct.description.value == "") {
-        alert("Introduce una descripcion al producto");
-        return false;
-    }
-    if(document.addProduct.price.value == "") {
-        alert("Introduce un precio al producto");
-        return false;
-    }
-    if(document.addProduct.category.value == "") {
-        alert("Introduce una categoria al producto");
-        return false;
-    }
 
-        document.addProduct.submit();
-    
-}
 function preview_image(){    
     var file    = document.querySelector('#file_input').files[0];
     var reader  = new FileReader();
