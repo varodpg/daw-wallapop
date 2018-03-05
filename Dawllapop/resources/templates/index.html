@@ -292,7 +292,7 @@
 <!--===================================
 =            Client Slider            =
 ====================================-->
-<section class="bg-custom">
+<!--  <section class="bg-custom">
 
 	<div class="popular-deals section container page-content">
 		<div class="row">
@@ -379,7 +379,7 @@
 		</div>
 	</div>
 
-</section>
+</section> -->
 
 <!--===========================================
 =            Popular deals section            =
@@ -446,11 +446,11 @@
 <section class="popular-deals section bg-custom zero-top">
 	<div class="container page-content" style="margin-top: 0px">
 		
-		{{#usuario}}
+		{{#userlog}}
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2>Productos Cerca de ti en {{usuario.location}}</h2>
+					<h2>Productos Cerca de ti en {{userlog.location}}</h2>
 				</div>
 			</div>
 		</div>
@@ -493,7 +493,7 @@
 
 
 		</div>
-		{{/usuario}}
+		{{/userlog}}
 	</div>
 </section>
 

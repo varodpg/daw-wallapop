@@ -278,7 +278,7 @@ public class IndexController {
 	}
 
 	@RequestMapping("/")
-	public String Categorias(Model model, Authentication http) {
+	public String Categorias(Model model, Authentication http, HttpSession session) {
 
 		List<Product> products = prs.getAllProducts();
 
@@ -286,11 +286,10 @@ public class IndexController {
 		if (http != null) {
 			User user_logged = userRepository.findByName(http.getName());
 			model.addAttribute("userlog", user_logged);
+			
 			String location = user_logged.getLocation();
 			
 			List<Product> allbyLoc = prs.getAllProductsByLocation(location);
-			
-			
 			
 			model.addAttribute("products_bylocation", allbyLoc);
 			

@@ -129,11 +129,11 @@
 				<!-- Edit Personal Info -->
 				<div class="widget personal-info">
 					<h3 class="widget-header user">Editar información personal</h3>
-					<form action="editDatesProfileBBDD" id="formEditDatesUser">
+					<form action="editDatesProfileBBDD" id="formEditDatesUser" method="post">
 						<!-- First Name -->
 						<div class="form-group">
 						    <label for="first-name">Nombre y Apellidos</label>
-						    <input type="text" class="form-control" id="first-name" name="name" value="{{user.name}}" placeholder="{{user.name}}">
+						    <input type="text" class="form-control" id="first-name" readonly="readonly" name="name" value="{{user.name}}" placeholder="{{user.name}}">
 						</div>
 						<!-- Comunity Name -->
 						<div class="form-group">
@@ -161,7 +161,7 @@
 				<!-- Change Password -->
 				<div class="widget change-password">
 					<h3 class="widget-header user">Cambiar contraseña</h3>
-					<form action="editPasswordProfileBBDD" id="formEditPasswordUser">
+					<form action="editPasswordProfileBBDD" id="formEditPasswordUser" method="post">
 						<!-- Current Password -->
 						<div class="form-group">
 						    <label for="current-password">Contraseña actual</label>
@@ -184,7 +184,7 @@
 				<!-- Change Email Address -->
 				<div class="widget change-email mb-0">
 					<h3 class="widget-header user">Cambiar correo electrónico</h3>
-					<form action="editEmailProfileBBDD" id="formEditEMailUser">
+					<form action="editEmailProfileBBDD" id="formEditEMailUser" method="post">
 						<!-- Current Password -->
 						<div class="form-group">
 						    <label for="current-email">Correo electrónico actual</label>
