@@ -80,12 +80,12 @@ public class Add_productController {
 			Category cat = null;
 			Date date = new Date();
 			
-			if(category != null && addToCategory(category, product)) {
-				if(tags != null)
-					product.setTags(arrayToList(tags));
-				if(specifications!= null)
-					addSpecifications(specifications, product);
-			}	
+			if(category != null )
+				addToCategory(category, product);
+			if(tags != null)
+				product.setTags(arrayToList(tags));
+			if(specifications!= null)
+				addSpecifications(specifications, product);		
 			product.setDate(date);
 			product.setUser(loggedUser);
 			boolean result = addImages(model, product, files);

@@ -188,7 +188,7 @@
 										<h3 class="tab-title">Descripcion de Producto</h3>
 										<div class="row">
 											<div class="form-group col-md-12">
-												<input name="description" value="{{product.description}}" placeholder="{{product.description}}">
+												<textarea name="description" class="form-control tl_desc" placeholder="{{#product.description}}{{product.description}}{{/product.description}}">{{#product.description}}{{product.description}}{{/product.description}}</textarea>
 											</div>
 										</div>
 									</div>
