@@ -231,16 +231,14 @@
 						<p>{{product.price}}</p>
 					</div>
 					<!-- User Profile widget -->
+							{{#user}}
 					<div class="widget user">
-							<img class="rounded" src="/images/user/user-thumb.jpg" alt="{{user_seller}}" width="100%" >
+							<img class="rounded" src="/imgs/{{image}}" alt="{{user_seller}}" width="100%" >
 						<br><h4 align="center"><a href="/publicDashboard/{{id_seller}}">{{user_seller}}</a></h4>
 						<ul class="list-inline mt-20">
-							{{#usuario.name}}
+							
 							<li class="list-inline-item"><a href="#" class="btn btn-contact" data-toggle="modal" data-target="#myModal" >Contacto</a></li>
-							{{/usuario.name}}
-							{{^usuario.name}}
-							<li class="list-inline-item"><a href="#" class="btn btn-contact" data-toggle="modal" onclick="$('#myModal').modal('toggle')">Contacto</a></li>
-							{{/usuario.name}}
+							{{/user}}
 							<!-- Modal -->
 							<div id="myModal" class="modal fade" role="dialog">
 								<div class="modal-dialog">
