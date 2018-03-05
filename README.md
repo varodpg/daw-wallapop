@@ -80,3 +80,8 @@ You can see the public information of an user from public profile.
 
 ### NAVIGATION DIAGRAM
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/diagrams/Diagrama%20de%20navegaci%C3%B3n.png "Navigation diagram")
+
+### DEVELOPMENT EVIROMENT
+
+To configure the development environment and to develop a Spring Boot application, we will need a program that provides us with the structure of the
+packages to make the application as well as to manage the dependencies of Maven. To start we will download the program, we have used STS, which can be downloaded from the following link (https://spring.io/tools), once installed to create a project we will have to go to File -> New -> Sring Starter Project and we would have our project ready to start developing and working.
