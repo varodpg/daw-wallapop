@@ -32,7 +32,7 @@ import org.springframework.ui.Model;
 
 
 @Controller
-public class Add_productController {
+public class AddproductController {
 
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "ImgFiles");
 
