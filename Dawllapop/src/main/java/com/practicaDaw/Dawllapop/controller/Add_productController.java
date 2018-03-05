@@ -59,7 +59,162 @@ public class Add_productController {
 		return "add_product";
 	}
 
-	public boolean addImages(Model model, Product product, MultipartFile[] files) {
+
+	@RequestMapping(value = "/add-new-product",method = RequestMethod.POST)
+	public String add_new_product(Model model, 
+			Authentication http,
+			@RequestParam("name") String name,
+			@RequestParam("description") String description, 
+			@RequestParam("price") double price,
+			@RequestParam("category.name") String category,
+			@RequestParam("tags") String[] tags,
+			@RequestParam("specifications") String[] specifications,
+			@RequestParam("files") MultipartFile[] files
+			){
+
+		User loggedUser = null;
+		
+		if (http != null) {
+			Product product = new Product(name, description, price);
+			loggedUser = userRepository.findByName(http.getName());
+			Category cat = null;
+			Date date = new Date();
+			
+			if(category != null && addToCategory(category, product)) {
+				if(tags != null)
+					product.setTags(arrayToList(tags));
+				if(specifications!= null)
+					addSpecifications(specifications, product);
+			}	
+			product.setDate(date);
+			product.setUser(loggedUser);
+			boolean result = addImages(model, product, files);
+			if(result == false) {
+				return "error file is empty"; 
+			}
+			
+			product.setState("new");
+			repository.save(product);
+			return "redirect:/dashboard";
+		}else {
+			return "error: you are not logged in";
+		}
+	}
+		
+	
+	@RequestMapping("/edit_single_product/{id}")
+	public String editSingleProduct(Model model, @PathVariable long id, Authentication http) {
+		if (http != null) {
+			model.addAttribute("userlog", userRepository.findByName(http.getName()));
+		}
+		Product product = prs.findOne(id);
+		model.addAttribute(product);		
+		return "edit_single_product";
+	}
+	
+	@RequestMapping(value = "/edit_product_db/{id}", method = RequestMethod.POST)
+	public String editProductDb(Model model, @PathVariable long id,
+			@RequestParam("name") String name,
+			@RequestParam("category") String category,
+			@RequestParam("description") String description,
+			@RequestParam("price") double price,
+			@RequestParam("tags") String[] tags,
+//			@RequestParam("specifications") String[] specifications,
+			@RequestParam("files") MultipartFile[] files
+			) {
+		
+		Product product = productRepository.getOne(id);
+		if(name != null)
+			product.setName(name);
+		if(description!= null)
+			product.setDescription(description);
+		if(category!= null)
+			addToCategory(category, product);
+		product.setPrice(price);
+		if(tags!=null)
+			product.setTags(arrayToList(tags));
+//		if(specifications!=null)
+//			addSpecifications(specifications, product);
+		addImages(model, product, files);
+		
+		repository.saveAndFlush(product);		
+		return "redirect:/dashboard";
+	}
+	
+	
+	@RequestMapping(value = "/edit_product_images/{id}", method = RequestMethod.POST)
+	public String editProductImage(Model model, @PathVariable long id, 
+	@RequestParam("file") MultipartFile[] files) {
+		
+		Product product = productRepository.getOne(id);
+		
+		boolean result = addImages(model, product, files);
+		if(result == false) {
+			return "error file is empty"; 
+		}
+		product.setId(id);
+		repository.saveAndFlush(product);		
+		return "redirect:/dashboard";
+	}
+	
+	
+	@RequestMapping("/deleteProduct/{id}")
+	public String deleteProduct(Model model, @PathVariable long id) {
+		Product product = prs.findOne(id);
+		repository.delete(product);
+		return "redirect:/dashboard";
+	}
+	
+	//transform an array to a list
+	private ArrayList<String> arrayToList(String[] array){
+		ArrayList<String> arrayList = new ArrayList<>();
+		for(String string : array) {
+			arrayList.add(string);
+		}
+		return arrayList;
+	}
+	
+	//adds the specifications stored in an array to the products specifications
+	private void addSpecifications(String[] specifications, Product product) {
+		
+		ArrayList<String[]> finalSpecifications = new ArrayList<>();
+		String[] stringAux = new String[2];		
+		int cont = 0;
+		if(specifications != null)
+			for(int i = 0 ; i < specifications.length; i++) {
+				if(cont == 0) {
+					stringAux[cont] = specifications[i]; 
+					cont++;
+				}else {
+					stringAux[cont] = specifications[i];
+					cont = 0;
+					finalSpecifications.add(new String[]{stringAux[0],stringAux[1]});
+				}
+					
+			}
+			product.setSpecifications(finalSpecifications);
+			
+	}
+	
+	//adds the product to a category
+	private boolean addToCategory(String category, Product product) {
+		Category cat = null;
+		if(category.equalsIgnoreCase("electronica"))
+			cat = categoryRepository.findOne((long)1);
+		if(category.equalsIgnoreCase("inmobiliaria"))
+			cat = categoryRepository.findOne((long)2);
+		if(category.equalsIgnoreCase("deportes"))
+			cat = categoryRepository.findOne((long)3);
+		if(category.equalsIgnoreCase("videojuegos"))
+			cat = categoryRepository.findOne((long)4);
+		if(category.equalsIgnoreCase("moda"))
+			cat = categoryRepository.findOne((long)5);
+		product.setCategory(cat);		
+		return true;
+	}
+	
+	//adds the images stored in an array to the product images
+	private boolean addImages(Model model, Product product, MultipartFile[] files) {
 		boolean result = true;
 		
 		for(MultipartFile file: files) {
@@ -89,119 +244,6 @@ public class Add_productController {
 		
 		return result;
 	}
-	@RequestMapping(value = "/add-new-product",method = RequestMethod.POST)
-	public String add_new_product(Model model, 
-			Authentication http,
-			@RequestParam("name") String name,
-			@RequestParam("description") String description, 
-			@RequestParam("price") double price,
-			@RequestParam("category.name") String category,
-			@RequestParam("tags") String[] tags,
-			@RequestParam("specifications") String[] specifications,
-			@RequestParam("files") MultipartFile[] files
-			){
-		ArrayList<String[]> finalSpecifications = new ArrayList<>();
-		String[] stringAux = new String[2];
-		User loggedUser = null;
-		int cont = 0;
-		
-		if (http != null) {
-			Product product = new Product(name, description, price);
-			loggedUser = userRepository.findByName(http.getName());
-			Category cat = null;
-			Date date = new Date();
-			
-			if(category != null) {
-				if(category.equals("informatica"))
-					cat = categoryRepository.findOne((long)1);
-				if(category.equals("inmobiliaria"))
-					cat = categoryRepository.findOne((long)2);
-				if(category.equals("deportes"))
-					cat = categoryRepository.findOne((long)3);
-				if(category.equals("videojuegos"))
-					cat = categoryRepository.findOne((long)4);
-				if(category.equals("moda"))
-					cat = categoryRepository.findOne((long)5);
-				product.setCategory(cat);
-				if(tags != null)
-					product.setTags(arrayToList(tags));
-				if(specifications != null)
-					for(int i = 0 ; i < specifications.length; i++) {
-						if(cont == 0) {
-							stringAux[cont] = specifications[i]; 
-							cont++;
-						}else {
-							stringAux[cont] = specifications[i];
-							cont = 0;
-							finalSpecifications.add(new String[]{stringAux[0],stringAux[1]});
-						}
-							
-					}
-					product.setSpecifications(finalSpecifications);
-
-
-			}	
-			product.setDate(date);
-			product.setUser(loggedUser);
-			boolean result = addImages(model, product, files);
-//			if(result == false) {
-//				return "error file is empty"; 
-//			}
-			
-			product.setState("new");
-			repository.save(product);
-			return "redirect:/dashboard";
-		}else {
-			return "error: you are not logged in";
-		}
-	}
-		
-	
-	@RequestMapping("/edit_single_product/{id}")
-	public String editSingleProduct(Model model, @PathVariable long id, Authentication http) {
-		if (http != null) {
-			model.addAttribute("userlog", userRepository.findByName(http.getName()));
-		}
-		Product product = prs.findOne(id);
-		model.addAttribute(product);		
-		return "edit_single_product";
-	}
-	
-	@RequestMapping("/edit_product_db/{id}")
-	public String editProductDb(Model model, Product product, @PathVariable long id) {
-		product.setId(id);	
-		repository.saveAndFlush(product);		
-		return "redirect:/dashboard";
-	}
-	@RequestMapping(value = "/edit_product_images/{id}", method = RequestMethod.POST)
-	public String editProductImage(Model model, @PathVariable long id, 
-	@RequestParam("file") MultipartFile[] files) {
-		
-		Product product = productRepository.getOne(id);
-		
-		boolean result = addImages(model, product, files);
-		if(result == false) {
-			return "error file is empty"; 
-		}
-		product.setId(id);
-		repository.saveAndFlush(product);		
-		return "redirect:/dashboard";
-	}
-	@RequestMapping("/deleteProduct/{id}")
-	public String deleteProduct(Model model, @PathVariable long id) {
-		Product product = prs.findOne(id);
-		repository.delete(product);
-		return "redirect:/dashboard";
-	}
-
-	private ArrayList<String> arrayToList(String[] array){
-		ArrayList<String> arrayList = new ArrayList<>();
-		for(String string : array) {
-			arrayList.add(string);
-		}
-		return arrayList;
-	}
-	
 
 	
 

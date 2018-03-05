@@ -94,3 +94,5 @@ Dawllapop/target/classes/META-INF/maven/com.practicaDaw/Dawllapop/pom.xml
 
 Dawllapop/target/classes/META-INF/maven/com.practicaDaw/Dawllapop/pom.xml
 Dawllapop/ImgFiles/img-0.jpg
+*.jpg
+*.properties
