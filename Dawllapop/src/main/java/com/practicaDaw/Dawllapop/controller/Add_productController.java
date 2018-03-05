@@ -119,7 +119,7 @@ public class Add_productController {
 			@RequestParam("description") String description,
 			@RequestParam("price") double price,
 			@RequestParam("tags") String[] tags,
-//			@RequestParam("specifications") String[] specifications,
+			@RequestParam("specifications") String[] specifications,
 			@RequestParam("files") MultipartFile[] files
 			) {
 		
@@ -133,8 +133,8 @@ public class Add_productController {
 		product.setPrice(price);
 		if(tags!=null)
 			product.setTags(arrayToList(tags));
-//		if(specifications!=null)
-//			addSpecifications(specifications, product);
+		if(specifications!=null)
+			addSpecifications(specifications, product);
 		addImages(model, product, files);
 		
 		repository.saveAndFlush(product);		

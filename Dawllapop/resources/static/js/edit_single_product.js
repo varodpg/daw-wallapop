@@ -1,15 +1,3 @@
-$(function(){
-	if($("#ft_product_name").val()){
-		var cont = 0;
-		$('#specification_table tr').each(function(){
-			$(this).find("input").each(function(){				
-				$(this).attr("name", "especifications[" + cont + "]");
-			});
-			cont++;
-		});		
-	}
-});
-
 function add_product(){
     console.log("Entro en js add_product");
     $('#form_add_product').submit();

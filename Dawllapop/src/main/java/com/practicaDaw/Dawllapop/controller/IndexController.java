@@ -78,14 +78,18 @@ public class IndexController {
 
 		ArrayList<String> tags = new ArrayList<>();
 		User user = userRepository.findOne((long) 3);
-		String[] a = new String[6];
+		String[] a = new String[2];
+		String[] b = new String[2];
+		String[] c = new String[2];
 		a[0] = "CPU";
 		a[1] = "4,1GHZ";
-		a[2] = "COMODAS";
-		a[3] = "TRANSPIRABLES";
-		a[4] = "MADERA";
-		a[5] = "RESISTENTE";
+		b[0] = "Grafica";
+		b[1] = "GTX 1080";
+		c[0] = "RAM";
+		c[1] = "6GB";
 		especificaciones.add(a);
+		especificaciones.add(b);
+		especificaciones.add(c);
 		tags.add("mac");
 		tags.add("escritorio");
 		tags.add("ordenador");
