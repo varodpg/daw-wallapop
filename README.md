@@ -85,3 +85,13 @@ You can see the public information of an user from public profile.
 
 To configure the development environment and to develop a Spring Boot application, we will need a program that provides us with the structure of the
 packages to make the application as well as to manage the dependencies of Maven. To start we will download the program, we have used STS, which can be downloaded from the following link (https://spring.io/tools), once installed to create a project we will have to go to File -> New -> Sring Starter Project and we would have our project ready to start developing and working.
+
+###STARTING THE APPLICATION:.
+
+We need to have XAMPP installed, to run the MYSQL process
+We need to have Workbench installed to manage the tables.
+
+The first thing we will do will be to give you start in the xampp part to start the MYSQL process, then we start the workbench and give you run to connect the database.
+Finally we will give the run bootstrap application in our sts and we could already access our application.
+
+Translated with www.DeepL.com/Translator
