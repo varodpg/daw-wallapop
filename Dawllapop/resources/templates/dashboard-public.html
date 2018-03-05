@@ -181,8 +181,12 @@
 					<div class="widget user-dashboard-profile">
 						<!-- User Image -->
 						<div class="profile-thumb">
-							<img src="/imgs/{{image}}" alt=""
-								class="rounded-circle">
+							{{#image}}
+								<img src="/imgs/{{image}}" alt="" class="rounded-circle">
+							{{/image}}
+							{{^image}}
+								<i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i>
+							{{/image}}
 						</div>
 						<!-- User Name -->
 						<h5 class="text-center">{{name}}</h5>

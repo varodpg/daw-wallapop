@@ -75,7 +75,7 @@
 							</ul>
 							<ul class="navbar-nav ml-auto mt-10">
 								<li class="nav-item">
-									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a href="/">Cerrar sesión</a>n</button>
+									<button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a href="/">Cerrar sesión</a></button>
 								</li>	
 							</ul>
 						</div>
@@ -106,14 +106,20 @@
 				<div class="sidebar">
 					<!-- User Widget -->
 					<div class="widget user-dashboard-profile">
+						{{#user}}
 						<!-- User Image -->
 						<div class="profile-thumb">
-							<img src="imgs/{{user.image}}" alt="" class="rounded-circle">
+						{{#image}}
+							<img src="imgs/{{image}}" alt="" class="rounded-circle">
+						{{/image}}
+						{{^image}}
+							<i class="fa fa-user" style="color: #007bff; font-size: 175px; margin-top: 3px"></i>
+						{{/image}}
 						</div>
 						<!-- User Name -->
-						<h5 class="text-center">{{user.name}}</h5>
+						<h5 class="text-center">{{name}}</h5>
 						<!-- <p>Se unió: 06 de Febrero de 2017</p> -->
-						
+						{{/user}}
 					</div>
 				</div>
 			</div>

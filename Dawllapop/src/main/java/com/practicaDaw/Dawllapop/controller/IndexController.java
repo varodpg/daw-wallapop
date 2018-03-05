@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -302,12 +303,14 @@ public class IndexController {
 	}
 
 	@RequestMapping("/indexSearch")
-	public String indexSearch(Model model, @RequestParam("searchText") String searchText) {
+	public String indexSearch(Model model, @RequestParam("searchText") String searchText, HttpSession session) {
+		User userlog =(User) session.getAttribute("user");
 		List<User> searchUsers = userServices.searchUsers(searchText);
 		List<Product> searchProducts = prs.searchProductsByName(searchText);
 
 		model.addAttribute("users", searchUsers);
 		model.addAttribute("products", searchProducts);
+		model.addAttribute("userlog", userlog);
 		return "indexSearch";
 	}
 

@@ -143,7 +143,12 @@
 							{{#userlog}}
                             <a href="publicDashboard/{{id}}">
 							<div class="profile-thumb">
+							{{#image}}
 								<img src="/imgs/{{image}}" alt="" class="rounded-circle">
+							{{/image}}
+							{{^image}}
+								<i class="fa fa-user" style="color: #007bff; font-size: 175px; margin-top: 3px"></i>
+							{{/image}}
 							</div>
                             </a>
 							<!-- User Name -->							
