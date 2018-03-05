@@ -32,7 +32,7 @@ import org.springframework.ui.Model;
 
 
 @Controller
-public class AddProductController {
+public class AddproductController {
 
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "ImgFiles");
 
@@ -63,13 +63,13 @@ public class AddProductController {
 	@RequestMapping(value = "/add-new-product",method = RequestMethod.POST)
 	public String add_new_product(Model model, 
 			Authentication http,
-			@RequestParam(value = "name",required = true) String name,
-			@RequestParam(value = "description",required = true) String description, 
-			@RequestParam(value="price",required = true) double price,
-			@RequestParam(value = "category",required = true) String category,
-			@RequestParam(value = "tags", required = false) String[] tags,
-			@RequestParam(value ="specifications", required = false) String[] specifications,
-			@RequestParam(value = "files", required = false) MultipartFile[] files
+			@RequestParam("name") String name,
+			@RequestParam("description") String description, 
+			@RequestParam("price") double price,
+			@RequestParam("category.name") String category,
+			@RequestParam("tags") String[] tags,
+			@RequestParam("specifications") String[] specifications,
+			@RequestParam("files") MultipartFile[] files
 			){
 
 		User loggedUser = null;
