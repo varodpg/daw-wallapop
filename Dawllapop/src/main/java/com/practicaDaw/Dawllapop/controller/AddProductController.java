@@ -32,7 +32,7 @@ import org.springframework.ui.Model;
 
 
 @Controller
-public class Add_productController {
+public class AddProductController {
 
 	private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "ImgFiles");
 
@@ -63,13 +63,13 @@ public class Add_productController {
 	@RequestMapping(value = "/add-new-product",method = RequestMethod.POST)
 	public String add_new_product(Model model, 
 			Authentication http,
-			@RequestParam("name") String name,
-			@RequestParam("description") String description, 
-			@RequestParam("price") double price,
-			@RequestParam("category.name") String category,
-			@RequestParam("tags") String[] tags,
-			@RequestParam("specifications") String[] specifications,
-			@RequestParam("files") MultipartFile[] files
+			@RequestParam(value = "name",required = true) String name,
+			@RequestParam(value = "description",required = true) String description, 
+			@RequestParam(value="price",required = true) double price,
+			@RequestParam(value = "category",required = true) String category,
+			@RequestParam(value = "tags", required = false) String[] tags,
+			@RequestParam(value ="specifications", required = false) String[] specifications,
+			@RequestParam(value = "files", required = false) MultipartFile[] files
 			){
 
 		User loggedUser = null;
@@ -80,19 +80,21 @@ public class Add_productController {
 			Category cat = null;
 			Date date = new Date();
 			
-			if(category != null )
+			if(category != null)
 				addToCategory(category, product);
+			else
+				return "redirect:/add_product";
 			if(tags != null)
 				product.setTags(arrayToList(tags));
 			if(specifications!= null)
 				addSpecifications(specifications, product);		
 			product.setDate(date);
 			product.setUser(loggedUser);
-			boolean result = addImages(model, product, files);
-			if(result == false) {
-				return "error file is empty"; 
+			if(files!= null) {
+				if(addImages(model, product, files) == false) {
+					return "error file is empty"; 
+				}
 			}
-			
 			product.setState("new");
 			repository.save(product);
 			return "redirect:/dashboard";
