@@ -14,25 +14,52 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.ManyToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.ImageManager.Image;
 
 @Entity
 public class Product {
-
+	public interface BasicInformation {}
+	
+	@Autowired
+	@JsonView(BasicInformation.class)
+	private String url = "/product/";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@JsonView(BasicInformation.class)
 	private String name, description, state;
+	
+	@JsonView(BasicInformation.class)
 	private ArrayList<String[]> specifications;
+	
+	@JsonView(BasicInformation.class)
 	private ArrayList<String> tags;
+	
+	@JsonView(BasicInformation.class)
 	private double price;
+	
+	@JsonView(BasicInformation.class)
 	private ArrayList<String> images = new ArrayList();
+	
+	@JsonView(BasicInformation.class)
 	private String mainimage;
+	
+	@JsonView(BasicInformation.class)
 	private boolean sold = false;
+	
+	@JsonView(BasicInformation.class)
 	private Date date; 
+	
+	
+	
+	
 
 	@ManyToOne
 	@JsonManagedReference

@@ -12,16 +12,27 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.practicaDaw.Dawllapop.Entities.Product.BasicInformation;
 
 @Entity
 public class Offer {
+	public interface BasicInformation {}
+	
+	@JsonView(BasicInformation.class)
+	private String url = "/offer/";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@JsonView(BasicInformation.class)
 	private Date date;
+	@JsonView(BasicInformation.class)
 	private int price;
+	@JsonView(BasicInformation.class)
 	private String message;
+	@JsonView(BasicInformation.class)
 	private int state;
 	
 	@OneToOne

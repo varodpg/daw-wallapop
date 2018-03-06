@@ -9,16 +9,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.practicaDaw.Dawllapop.Entities.Product.BasicInformation;
 
 @Entity
 public class Assessment {
+	public interface BasicInformation {}
+	
+	@Autowired
+	@JsonView(BasicInformation.class)
+	private String url = "/assessment/";
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String text;	
+	
+	@JsonView(BasicInformation.class)
+	private String text;
+	@JsonView(BasicInformation.class)
 	private int value;
+	@JsonView(BasicInformation.class)
 	private Date date;
 	
 	@OneToOne

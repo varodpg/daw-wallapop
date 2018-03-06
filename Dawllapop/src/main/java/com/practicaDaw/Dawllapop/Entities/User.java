@@ -17,23 +17,38 @@ import javax.persistence.OneToMany;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonView;
+import com.practicaDaw.Dawllapop.Entities.Product.BasicInformation;
 
 
 @Entity
 public class User {
-
+	public interface BasicInformation {}
+	
+	@JsonView(BasicInformation.class)
+	private String url = "/user/";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
+	@JsonView(BasicInformation.class)
 	private String name;
+	@JsonView(BasicInformation.class)
 	private String passwordHash;
+	@JsonView(BasicInformation.class)
 	private String email;
+	@JsonView(BasicInformation.class)
 	private String location;
+	@JsonView(BasicInformation.class)
 	private String image;
+	@JsonView(BasicInformation.class)
 	private long phone;
+	@JsonView(BasicInformation.class)
 	private Date registerDate;
+	@JsonView(BasicInformation.class)
 	private boolean activatedUser;
+	@JsonView(BasicInformation.class)
 	private boolean isAdmin;
 
 	@ElementCollection(fetch = FetchType.EAGER)

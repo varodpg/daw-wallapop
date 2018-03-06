@@ -9,12 +9,27 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fasterxml.jackson.annotation.JsonView;
+import com.practicaDaw.Dawllapop.Entities.Product.BasicInformation;
+
 @Entity
 public class Friend_request {
+	public interface BasicInformation {}
+	
+	@Autowired
+	@JsonView(BasicInformation.class)
+	private String url = "/friend_request/";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	
+	@JsonView(BasicInformation.class)
 	private long id;
+	@JsonView(BasicInformation.class)
 	private String message, state;
+	@JsonView(BasicInformation.class)
 	private Date creationDate;
 	
 	@OneToOne
