@@ -69,4 +69,50 @@ public class Assessment {
 		this.value = value;
 	}
 
+	public String getText() {
+		return text;
+	}
+
+	public User getUserFrom() {
+		return userFrom;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	public User getUserTo() {
+		return userTo;
+	}
+
+	@Override
+	public String toString() {
+		return "Assessment [url=" + url + ", id=" + id + ", text=" + text + ", value=" + value + ", date=" + date
+				+ ", userFrom=" + userFrom + ", userTo=" + userTo + "]";
+	}
+
 }
