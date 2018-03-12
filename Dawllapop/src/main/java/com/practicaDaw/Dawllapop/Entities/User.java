@@ -17,6 +17,7 @@ import javax.persistence.OneToMany;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.Entities.Product.BasicInformation;
 
@@ -34,7 +35,7 @@ public class User {
 	
 	@JsonView(BasicInformation.class)
 	private String name;
-	@JsonView(BasicInformation.class)
+	@JsonIgnore
 	private String passwordHash;
 	@JsonView(BasicInformation.class)
 	private String email;

@@ -17,10 +17,10 @@ public class RestCategory {
 	@Autowired
 	private ProductRepository p_repository;
 
-	@RequestMapping(value = "/api/category/{id}", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/api/category/{id}", method = RequestMethod.GET)
 	@JsonView(Product.BasicInformation.class)
 	public Page<Product> getProductsByCategory(Pageable page, Category category) {
 		return p_repository.findByCategory(page, category);
-	}
+	}*/
 
 }
