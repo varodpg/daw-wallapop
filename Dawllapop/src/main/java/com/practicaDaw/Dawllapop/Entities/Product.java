@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.ImageManager.Image;
@@ -62,15 +63,20 @@ public class Product {
 	
 
 	@ManyToOne
-	
+	@JsonManagedReference(value = "reference-to-category")
+	@JsonIgnore
+	@JsonView(BasicInformation.class)
 	private Category category;
 
 	@ManyToOne
-	
+	@JsonManagedReference(value = "reference-to-user")
+	@JsonIgnore
+	@JsonView(BasicInformation.class)
 	private User user;
 
 	@OneToMany(mappedBy="product")
-	
+	@JsonManagedReference(value = "reference-to-offers")
+	@JsonIgnore
 	private List<Offer> offers;
 	
 	

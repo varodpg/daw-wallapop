@@ -56,11 +56,11 @@ public class User {
 	private List<String> roles = new ArrayList();
 	
 	@OneToMany(mappedBy = "user")
-	
+	@JsonBackReference(value = "reference-to-user")
 	private List<Product> productos; 
 	
 	@OneToMany
-	
+	@JsonBackReference(value = "reference-to-offers")
 	private List<Offer> offers; 
 	
 	

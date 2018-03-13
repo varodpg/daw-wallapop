@@ -32,7 +32,8 @@ public class Category {
 	private String name;
 	
 	@OneToMany(mappedBy="category")
-
+	@JsonBackReference(value = "reference-to-category")
+	
 	private List<Product> productos; 
 	
 	public Category() {

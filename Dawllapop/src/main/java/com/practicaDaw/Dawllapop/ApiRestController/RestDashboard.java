@@ -42,6 +42,7 @@ public class RestDashboard {
 		//list all products selling
 				List<Product> user_products_selling = pServices.getAllProductsByUserAndStateNoOffers(user.getId(), false);
 				return new ResponseEntity<>(user_products_selling, HttpStatus.OK);	
+				
 	}
 	
 	@RequestMapping(value = "/sold", method = RequestMethod.GET)
@@ -62,5 +63,19 @@ public class RestDashboard {
 		//list all assessment of an user
 				List<Assessment> assessments = aServices.getUserAssessmentsNoPageable(user);
 				return new ResponseEntity<>(assessments, HttpStatus.OK);		
+	}
+	
+	
+	//PRIVATE DASHBOARD
+	
+	@RequestMapping(value = "/withoffers", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductsWithOffers(@PathVariable long id){
+		
+		User user = userService.findUser(id);
+		
+		//list all products selling
+				List<Product> user_products_with_offers = pServices.getAllProductsByUserAndState(user.getId(), 0, false);
+				return new ResponseEntity<>(user_products_with_offers, HttpStatus.OK);	
+				
 	}
 }

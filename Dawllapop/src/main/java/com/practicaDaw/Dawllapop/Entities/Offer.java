@@ -39,7 +39,7 @@ public class Offer {
 	private User buyer;
 
 	@ManyToOne
-	
+	@JsonBackReference(value = "reference-from-product-to-offer")
 	private Product product;
 
 	protected Offer() {

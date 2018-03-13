@@ -48,7 +48,7 @@ public class RestProduct {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
+	
 	@JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Product> getProduct(@PathVariable long id) {
