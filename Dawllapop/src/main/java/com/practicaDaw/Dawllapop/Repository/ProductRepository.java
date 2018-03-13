@@ -14,9 +14,11 @@ import com.practicaDaw.Dawllapop.Entities.User;
 
 
 
+
 public interface ProductRepository extends JpaRepository<Product, Long> {
 	Page<Product> findAll(Pageable pageable);
 	Page<Product> findByCategory(Pageable pageable, Category categoria);
+	Product findByNameIgnoreCase(String name);
 	Long countByCategory(Category categoria);
 	
 	@Query(value = "SELECT * FROM PRODUCT WHERE CATEGORY_ID= :category AND price > :p_low AND price < :p_top AND state = :state /*#pageable*/", 

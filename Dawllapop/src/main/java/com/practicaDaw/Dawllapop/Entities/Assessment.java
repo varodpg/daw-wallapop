@@ -35,11 +35,11 @@ public class Assessment {
 	private Date date;
 	
 	@OneToOne
-	@JsonBackReference
+	
 	private User userFrom;
 	
 	@OneToOne
-	@JsonBackReference
+	
 	private User userTo;
 	
 	public Assessment() {

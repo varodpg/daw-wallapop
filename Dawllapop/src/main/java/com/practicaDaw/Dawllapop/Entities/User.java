@@ -56,11 +56,11 @@ public class User {
 	private List<String> roles = new ArrayList();
 	
 	@OneToMany(mappedBy = "user")
-	@JsonBackReference
+	
 	private List<Product> productos; 
 	
 	@OneToMany
-	@JsonBackReference
+	
 	private List<Offer> offers; 
 	
 	
@@ -147,9 +147,12 @@ public class User {
 		return roles;
 	}
 
+	@JsonIgnore
 	public void setRoles(List<String> roles) {
 		this.roles = roles;
 	}
+	
+	@JsonIgnore
 	public void setRoles(String roles) {
 		this.roles.add(roles);
 	}

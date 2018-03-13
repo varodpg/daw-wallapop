@@ -37,7 +37,7 @@ public class Product {
 	private String name, description, state;
 	
 	@JsonView(BasicInformation.class)
-	private ArrayList<String[]> specifications;
+	private ArrayList<String[]> specifications=new ArrayList<>();
 	
 	@JsonView(BasicInformation.class)
 	private ArrayList<String> tags;
@@ -62,15 +62,15 @@ public class Product {
 	
 
 	@ManyToOne
-	@JsonManagedReference
+	
 	private Category category;
 
 	@ManyToOne
-	@JsonManagedReference
+	
 	private User user;
 
 	@OneToMany(mappedBy="product")
-	@JsonManagedReference
+	
 	private List<Offer> offers;
 	
 	
@@ -114,10 +114,6 @@ public class Product {
 
 	public String getName() {
 		return name;
-	}
-
-	public void setName(int id) {
-		this.name = name;
 	}
 
 	@Override
