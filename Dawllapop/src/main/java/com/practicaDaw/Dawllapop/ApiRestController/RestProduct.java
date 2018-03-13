@@ -38,7 +38,7 @@ public class RestProduct {
 	@Autowired
 	private UserRepository userRepo;
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Product> deletedProduct(@PathVariable long id) {
 		Product p = pRepository.findOne(id);
 		if (p != null) {
@@ -61,7 +61,7 @@ public class RestProduct {
 	}
 
 	@JsonView(Product.BasicInformation.class)
-	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/products/user/{id}", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> getUserProducts(@PathVariable("id") long id) {
 		User user = uRepository.getOne(id);
 		if (user != null) {

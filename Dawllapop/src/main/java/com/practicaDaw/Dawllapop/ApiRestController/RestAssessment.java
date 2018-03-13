@@ -40,15 +40,11 @@ public class RestAssessment {
 	@JsonView(Assessment.BasicInformation.class)
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public ResponseEntity<Assessment> addAssessment(@RequestBody Map<String, Object> rBody){
-		if(userComponent.isLoggedUser()) {
-			User userLogged = userComponent.getLoggedUser();
-			User userTo = userRepo.findById((int) rBody.get("idUser"));
-			Assessment assessment = new Assessment((String) rBody.get("message"), (int) rBody.get("value"), userLogged, userTo, new Date());
-			assessmentRepo.save(assessment);
-			return new ResponseEntity<>(assessment, HttpStatus.OK);
-		} else{
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		}
+		User userLogged = userComponent.getLoggedUser();
+		User userTo = userRepo.findById((int) rBody.get("idUser"));
+		Assessment assessment = new Assessment((String) rBody.get("message"), (int) rBody.get("value"), userLogged, userTo, new Date());
+		assessmentRepo.save(assessment);
+		return new ResponseEntity<>(assessment, HttpStatus.OK);		
 	}
 	
 	
