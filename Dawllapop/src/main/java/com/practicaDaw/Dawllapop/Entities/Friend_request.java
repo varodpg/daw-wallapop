@@ -62,5 +62,16 @@ public class Friend_request {
 		this.state = state;
 	}
 	
+	public String getState() {
+		return state;
+	}
+
+	public User getFrom() {
+		return from;
+	}
+
+	public User getTo() {
+		return to;
+	}
 	
 }
