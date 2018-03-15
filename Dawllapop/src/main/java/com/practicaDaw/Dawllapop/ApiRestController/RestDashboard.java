@@ -160,7 +160,7 @@ public class RestDashboard {
 		}				
 	}
 
-	@RequestMapping(value = "/declineFriendRequest/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/declineFriendRequest/{friend_id}", method = RequestMethod.PUT)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Friend_request> declineFriend(@PathVariable long id, @PathVariable long friend_id){
@@ -174,7 +174,7 @@ public class RestDashboard {
 		}		
 	}
 	
-	@RequestMapping(value = "/acceptFriendRequest/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/acceptFriendRequest/{friend_id}", method = RequestMethod.PUT)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Friend_request> acceptFriend(@PathVariable long id, @PathVariable long friend_id){
