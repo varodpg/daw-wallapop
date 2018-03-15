@@ -244,6 +244,9 @@ public class Product {
 		this.offers = offers;
 	}
 	
+	public void addOffer(Offer offer) {
+		this.offers.add(offer);
+	}
 	// public ArrayList<Image> getImages() {
 	// return this.images;
 	// }
