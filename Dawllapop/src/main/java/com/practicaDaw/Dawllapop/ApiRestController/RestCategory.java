@@ -32,28 +32,28 @@ public class RestCategory {
 	public Page<Product> getProductsByCategory(Pageable page, Category category) {
 		return p_repository.findByCategory(page, category);
 	}*/
-	@RequestMapping(value = "/api/category/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Category> getCategoryById(@PathVariable long id) {
-		Category category = categoryRepo.getOne(id);
-		if(category != null)
-			return new ResponseEntity<>(category, HttpStatus.OK);
-		else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-		}
+//	@RequestMapping(value = "/api/category/{id}", method = RequestMethod.GET)
+//	public ResponseEntity<Category> getCategoryById(@PathVariable long id) {
+//		Category category = categoryRepo.getOne(id);
+//		if(category != null)
+//			return new ResponseEntity<>(category, HttpStatus.OK);
+//		else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//
+//		}
+//	
 	
 	
-	
-	@RequestMapping(value = "/api/category/{id}", method = RequestMethod.GET)
-	public ResponseEntity<List<Page>> getAllProductsByCategory(@PageableDefault(size = 10) Pageable page
-			,@PathVariable long id) {
-		List<Page> pageList = new ArrayList<Page>();
-		Category category = categoryRepo.getOne(id);
-		if(category != null){
-			pageList.add(productServices.getAllbyCat(page, category));
-			return new ResponseEntity<>(pageList, HttpStatus.OK);
-		}
-		else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		
-	}	
+//	@RequestMapping(value = "/api/category/{id}", method = RequestMethod.GET)
+//	public ResponseEntity<List<Page>> getAllProductsByCategory(@PageableDefault(size = 10) Pageable page
+//			,@PathVariable long id) {
+//		List<Page> pageList = new ArrayList<Page>();
+//		Category category = categoryRepo.getOne(id);
+//		if(category != null){
+//			pageList.add(productServices.getAllbyCat(page, category));
+//			return new ResponseEntity<>(pageList, HttpStatus.OK);
+//		}
+//		else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//		
+//	}	
 
 }

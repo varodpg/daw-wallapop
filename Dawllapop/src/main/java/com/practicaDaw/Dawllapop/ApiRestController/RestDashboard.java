@@ -1,6 +1,9 @@
 package com.practicaDaw.Dawllapop.ApiRestController;
 
+import java.util.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +25,8 @@ import com.practicaDaw.Dawllapop.Entities.Offer;
 import com.practicaDaw.Dawllapop.Entities.OfferEnum;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
+import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
+import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
@@ -42,10 +49,13 @@ public class RestDashboard {
 	@Autowired
 	private AssessmentServices aServices;
 	@Autowired
+	private AssessmentRepository aRepository;
+	@Autowired
 	private FriendRequestServices fRequestService;
 	@Autowired
 	private OfferRepository offerRepository;
-	
+	@Autowired
+	Friend_RequestRepository fRequestRepo;
 	
 	@RequestMapping(value = "/selling", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> getProductsSelling(@PathVariable long id){
@@ -147,12 +157,52 @@ public class RestDashboard {
 			of.setState(2);
 			offerRepository.saveAndFlush(of);
 			return new ResponseEntity<>(of, HttpStatus.OK);
-		}
-		
-		
+		}				
 	}
 
+	@RequestMapping(value = "/declineFriendRequest/{id}", method = RequestMethod.PUT)
+	@JsonView(Product.BasicInformation.class)
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<Friend_request> declineFriend(@PathVariable long id, @PathVariable long friend_id){
+		Friend_request fr = fRequestRepo.getOne(friend_id);
+		if (fRequestRepo.getOne(friend_id) == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);			
+		} else {
+			fr.setState("declined");
+			fRequestRepo.saveAndFlush(fr);
+			return new ResponseEntity<>(fr, HttpStatus.OK);
+		}		
+	}
 	
+	@RequestMapping(value = "/acceptFriendRequest/{id}", method = RequestMethod.PUT)
+	@JsonView(Product.BasicInformation.class)
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<Friend_request> acceptFriend(@PathVariable long id, @PathVariable long friend_id){
+		Friend_request fr = fRequestRepo.getOne(friend_id);
+		if (fRequestRepo.getOne(friend_id) == null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);			
+		} else {
+			fr.setState("accepted");
+			fRequestRepo.saveAndFlush(fr);
+			return new ResponseEntity<>(fr, HttpStatus.OK);
+		}		
+	}
 	
+	@RequestMapping(value = "/getFriends/", method = RequestMethod.GET)
+	@JsonView(Product.BasicInformation.class)
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<List<User>> getFriends(@PathVariable long id){
+		User user = userService.findUser(id);
+		List<User> friends = fRequestService.getUserFriends(user);
+		return new ResponseEntity<>(friends, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/addAssessment/{id_to}", method = RequestMethod.POST)
+	@JsonView(Product.BasicInformation.class)
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<Assessment> addAssessment(@RequestBody Assessment ass){
+		aRepository.save(ass);
+		return new ResponseEntity<>(ass, HttpStatus.OK);
+	}
 	
 }
