@@ -76,7 +76,7 @@ You can see the public information of an user from public profile.
 9. Admin: Site where the administrator can edit the products and users of the page
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/admin.png "Admin")
 
-#### FASE 3
+# FASE 3
 
 ### NAVIGATION DIAGRAM
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/diagrams/Diagrama%20de%20navegaci%C3%B3n.png "Navigation diagram")
@@ -86,12 +86,12 @@ You can see the public information of an user from public profile.
 To configure the development environment and to develop a Spring Boot application, we will need a program that provides us with the structure of the
 packages to make the application as well as to manage the dependencies of Maven. To start we will download the program, we have used STS, which can be downloaded from the following link (https://spring.io/tools), once installed to create a project we will have to go to File -> New -> Sring Starter Project and we would have our project ready to start developing and working.
 
-##DATABASE DIAGRAM
+## DATABASE DIAGRAM
 
 The following image show a diagram of the Entities database:
-![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/bddiagram.jpg "BDdiagram")
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/bddiagram.png "BDdiagram")
 
-##CLASSES DIAGRAM
+## CLASSES DIAGRAM
 
 The following image show a diagram of the classes into the app: Controllers, services, repositories and HTML documents:
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/clasesdiagram.png "Classesdiagram")
