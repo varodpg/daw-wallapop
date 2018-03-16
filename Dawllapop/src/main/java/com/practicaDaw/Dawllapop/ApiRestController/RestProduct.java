@@ -20,13 +20,14 @@ import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
+import com.practicaDaw.Dawllapop.security.UserComponent;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
 @RestController
 public class RestProduct {
 	@Autowired
 	private ProductRepository pRepository;
-	@Autowired 
+	@Autowired
 	private ProductServices productServices;
 	@Autowired
 	private ProductRepository productRepo;
@@ -36,6 +37,8 @@ public class RestProduct {
 	private UserRepository uRepository;
 	@Autowired
 	private CategoryRepository categoryRepo;
+	@Autowired
+	private UserComponent userComponent;
 
 	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Product> deletedProduct(@PathVariable long id) {
@@ -83,75 +86,70 @@ public class RestProduct {
 
 	}
 
-	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/api/products/{idUser}/{idProduct}", method = RequestMethod.PUT)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Product> editProduct(@PathVariable long id, HttpSession session,@RequestBody Product productUpdate) {
-		
-		Product product = pRepository.findOne(id);
-		User userlog =(User) session.getAttribute("user");
-		
-		if(userlog.getId()==id) {
-			
-		
-		if (product != null) {	
+	public ResponseEntity<Product> editProduct(@PathVariable long idUser, @PathVariable long idProduct,
+			HttpSession session, @RequestBody Product productUpdate) {
 
-			product.setId(id);
-			
-		
-			if ((productUpdate.getName())!= null) {
-				product.setName(productUpdate.getName());
-			} else {
-				product.setName(product.getName());
-			}
-			if ((productUpdate.getDescription())!= null) {
-				product.setDescription(productUpdate.getDescription());
-			} else {
-				product.setDescription(product.getDescription());
-			}
-			if ((productUpdate.getState())!= null) {
-				product.setState(productUpdate.getState());
-			} else {
-				product.setState(product.getState());
-			}
-			if ((productUpdate.getEspecifications())!= null) {
-				product.setSpecifications(productUpdate.getEspecifications());
-			} else {
-				product.setSpecifications(product.getEspecifications());
-			}
-			if ((productUpdate.getTags())!= null) {
-				product.setTags(productUpdate.getTags());
-			} else {
-				product.setTags(product.getTags());
-			}
-			
-			
-			product.setSold(false);
-			product.setPrice(productUpdate.getPrice());
-			product.setDate(product.getDate());
-		
-			
-			
-			pRepository.saveAndFlush(product);
+		Product product = pRepository.findOne(idUser);
+		User userlog = userComponent.getLoggedUser();
+		User newuser = uRepository.findByName(userlog.getName());
+		if (newuser.getId() == idUser) {
 
-			return new ResponseEntity<>(product, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		} else return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			if (product != null) {
+
+				product.setId(idUser);
+
+				if ((productUpdate.getName()) != null) {
+					product.setName(productUpdate.getName());
+				} else {
+					product.setName(product.getName());
+				}
+				if ((productUpdate.getDescription()) != null) {
+					product.setDescription(productUpdate.getDescription());
+				} else {
+					product.setDescription(product.getDescription());
+				}
+				if ((productUpdate.getState()) != null) {
+					product.setState(productUpdate.getState());
+				} else {
+					product.setState(product.getState());
+				}
+				if ((productUpdate.getEspecifications()) != null) {
+					product.setSpecifications(productUpdate.getEspecifications());
+				} else {
+					product.setSpecifications(product.getEspecifications());
+				}
+				if ((productUpdate.getTags()) != null) {
+					product.setTags(productUpdate.getTags());
+				} else {
+					product.setTags(product.getTags());
+				}
+
+				product.setSold(false);
+				product.setPrice(productUpdate.getPrice());
+				product.setDate(product.getDate());
+
+				pRepository.saveAndFlush(product);
+
+				return new ResponseEntity<>(product, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+		} else
+			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
-	
-	
 
 	@JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/category/{id}", method = RequestMethod.GET)
-	public ResponseEntity<List<Product>> getProductsByCategory(Pageable pageable,@PathVariable long id ){
+	public ResponseEntity<List<Product>> getProductsByCategory(Pageable pageable, @PathVariable long id) {
 		Category category = categoryRepo.getOne(id);
-		if(category != null) {
+		if (category != null) {
 			List<Product> page = category.getProducts();
 			return new ResponseEntity<>(page, HttpStatus.OK);
-		}
-		else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 }

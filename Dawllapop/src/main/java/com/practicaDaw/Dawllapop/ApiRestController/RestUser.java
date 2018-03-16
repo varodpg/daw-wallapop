@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
+import com.practicaDaw.Dawllapop.security.UserComponent;
 
 @RestController
 public class RestUser {
 	@Autowired UserRepository userRepository;
+	@Autowired UserComponent userComponent;
 
 	
 	@RequestMapping (value="/api/users", method = RequestMethod.POST)
@@ -33,8 +35,9 @@ public class RestUser {
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User updatedUser, HttpSession session) {
 
 		User user = userRepository.findById(id);
-		User userlog =(User) session.getAttribute("user");
-		if(userlog.getId()==id) {
+		User userlog = userComponent.getLoggedUser();
+		User newuser = userRepository.findByName(userlog.getName());
+		if(newuser.getId()==id) {
 
 		if (user != null) {
 			
