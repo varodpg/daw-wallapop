@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +25,6 @@ import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.security.UserComponent;
 import com.practicaDaw.Dawllapop.services.ProductServices;
-
 
 @RestController
 public class RestProduct {
@@ -48,7 +49,7 @@ public class RestProduct {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-	
+
 	@JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Product> getProduct(@PathVariable long id) {
@@ -83,26 +84,63 @@ public class RestProduct {
 		}
 
 	}
-	
-	@RequestMapping(value = "/api/products/", method = RequestMethod.PUT)
+
+	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.PUT)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Product> editProduct(@RequestBody Product product) {
-		if (pRepository.findByNameIgnoreCase(product.getName()) == null) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		} else {
-			Product editedProduct = pRepository.findByNameIgnoreCase(product.getName());
-			editedProduct.setName(product.getName());
-			editedProduct.setDescription(product.getDescription());
-			editedProduct.setState(product.getState());
-			editedProduct.setSpecifications(product.getEspecifications());
-			editedProduct.setTags(product.getTags());
-			editedProduct.setPrice(product.getPrice());
-			editedProduct.setState(product.getState());
+	public ResponseEntity<Product> editProduct(@PathVariable long id, HttpSession session,@RequestBody Product productUpdate) {
+		
+		Product product = pRepository.findOne(id);
+		User userlog =(User) session.getAttribute("user");
+		
+		if(userlog.getId()==id) {
+			
+		
+		if (product != null) {	
 
-			pRepository.save(editedProduct);
-			return new ResponseEntity<>(editedProduct, HttpStatus.OK);
+			product.setId(id);
+			
+		
+			if ((productUpdate.getName())!= null) {
+				product.setName(productUpdate.getName());
+			} else {
+				product.setName(product.getName());
+			}
+			if ((productUpdate.getDescription())!= null) {
+				product.setDescription(productUpdate.getDescription());
+			} else {
+				product.setDescription(product.getDescription());
+			}
+			if ((productUpdate.getState())!= null) {
+				product.setState(productUpdate.getState());
+			} else {
+				product.setState(product.getState());
+			}
+			if ((productUpdate.getEspecifications())!= null) {
+				product.setSpecifications(productUpdate.getEspecifications());
+			} else {
+				product.setSpecifications(product.getEspecifications());
+			}
+			if ((productUpdate.getTags())!= null) {
+				product.setTags(productUpdate.getTags());
+			} else {
+				product.setTags(product.getTags());
+			}
+			
+			
+			product.setSold(false);
+			product.setPrice(productUpdate.getPrice());
+			product.setDate(product.getDate());
+		
+			
+			
+			pRepository.saveAndFlush(product);
+
+			return new ResponseEntity<>(product, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+		} else return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
 
 }
