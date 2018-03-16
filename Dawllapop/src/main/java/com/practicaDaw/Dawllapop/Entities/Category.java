@@ -6,13 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.practicaDaw.Dawllapop.Entities.Product.BasicInformation;
 
 import java.util.List;
 
@@ -34,7 +30,7 @@ public class Category {
 	@OneToMany(mappedBy="category")
 	@JsonBackReference(value = "reference-to-category")
 	
-	private List<Product> productos; 
+	private List<Product> products; 
 	
 	public Category() {
 	}
@@ -47,12 +43,12 @@ public class Category {
 		this.name = name;
 	}
 
-	public List<Product> getProductos() {
-		return productos;
+	public List<Product> getProducts() {
+		return products;
 	}
 
-	public void setProductos(List<Product> productos) {
-		this.productos = productos;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
 	public long getId() {

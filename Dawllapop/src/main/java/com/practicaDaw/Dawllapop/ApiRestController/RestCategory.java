@@ -23,7 +23,7 @@ public class RestCategory {
 	private CategoryRepository categoryRepo;
 	
 	@JsonView(Category.BasicInformation.class)
-	@RequestMapping(value = "/api/cat/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/category/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Category> getCategoryById(@PathVariable long id) {
 		Category category = categoryRepo.findOne(id);
 		if (category != null) {

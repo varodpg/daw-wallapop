@@ -15,7 +15,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -77,7 +76,6 @@ public class Add_productController {
 		if (http != null) {
 			Product product = new Product(name, description, price);
 			loggedUser = userRepository.findByName(http.getName());
-			Category cat = null;
 			Date date = new Date();
 			
 			if(category != null )

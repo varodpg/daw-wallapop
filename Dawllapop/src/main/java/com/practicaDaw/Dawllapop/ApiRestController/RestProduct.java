@@ -1,13 +1,10 @@
 package com.practicaDaw.Dawllapop.ApiRestController;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,28 +13,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.fasterxml.jackson.annotation.JsonView;
-import com.practicaDaw.Dawllapop.Entities.Assessment;
+import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
+import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
-import com.practicaDaw.Dawllapop.security.UserComponent;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
 @RestController
 public class RestProduct {
 	@Autowired
 	private ProductRepository pRepository;
+	@Autowired 
+	private ProductServices productServices;
+	@Autowired
+	private ProductRepository productRepo;
 	@Autowired
 	private ProductServices pServices;
 	@Autowired
 	private UserRepository uRepository;
 	@Autowired
-	private UserComponent userComponent;
-	@Autowired
-	private UserRepository userRepo;
+	private CategoryRepository categoryRepo;
 
 	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Product> deletedProduct(@PathVariable long id) {
@@ -141,6 +139,19 @@ public class RestProduct {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		} else return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+	}
+	
+	
+
+	@JsonView(Product.BasicInformation.class)
+	@RequestMapping(value = "/api/products/category/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> getProductsByCategory(Pageable pageable,@PathVariable long id ){
+		Category category = categoryRepo.getOne(id);
+		if(category != null) {
+			List<Product> page = category.getProducts();
+			return new ResponseEntity<>(page, HttpStatus.OK);
+		}
+		else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 }

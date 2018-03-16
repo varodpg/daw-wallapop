@@ -12,16 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
-import com.practicaDaw.Dawllapop.security.UserComponent;
 
 @RestController
 public class RestUser {
 	@Autowired UserRepository userRepository;
-	@Autowired
-	private UserComponent userComponent;
 
 	
 	@RequestMapping (value="/api/users", method = RequestMethod.POST)

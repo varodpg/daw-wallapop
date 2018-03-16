@@ -14,13 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
-import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 
@@ -33,11 +30,8 @@ public class CategoryController {
 		@Autowired
 		private CategoryRepository repository;
 		@Autowired
-		private ProductRepository repository2;
-
-		@Autowired
 		private ProductServices prs;
-		
+	
 		@Autowired
 		private UserRepository userRepository;
 		
