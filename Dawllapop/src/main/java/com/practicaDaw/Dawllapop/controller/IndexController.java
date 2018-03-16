@@ -8,37 +8,24 @@ import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.SearchStrategy;
-import org.springframework.boot.autoconfigure.web.DefaultErrorAttributes;
-import org.springframework.boot.autoconfigure.web.ErrorAttributes;
-import org.springframework.boot.autoconfigure.web.ErrorController;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.practicaDaw.Dawllapop.Entities.Assessment;
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Friend_request;
 import com.practicaDaw.Dawllapop.Entities.Offer;
-import com.practicaDaw.Dawllapop.Entities.OfferEnum;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
-import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.AssessmentRepository;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
-import com.practicaDaw.Dawllapop.services.OfferServices;
 import com.practicaDaw.Dawllapop.services.ProductServices;
 import com.practicaDaw.Dawllapop.services.UserServices;
 
@@ -62,8 +49,6 @@ public class IndexController {
 	@Autowired
 	UserServices userService;
 	@Autowired
-	private OfferServices oss;
-	@Autowired
 	private OfferRepository offerRepository;
 	@Autowired
 	private AssessmentRepository assessmentRepo;
@@ -77,7 +62,6 @@ public class IndexController {
 		ArrayList<String[]> especificaciones = new ArrayList<>();
 
 		ArrayList<String> tags = new ArrayList<>();
-		User user = userRepository.findOne((long) 3);
 		String[] a = new String[2];
 		String[] b = new String[2];
 		String[] c = new String[2];
@@ -95,8 +79,6 @@ public class IndexController {
 		tags.add("ordenador");
 		tags.add("grande");
 		tags.add("fino");
-		String img1 = "image-0.jpg";
-		String img2 = "image-1.jpg";
 		
 		// Users Creation
 		User u = new User("Alvaro", "varo@hotmail.com", "Móstoles","", "password",677654565, new Date(), true, "ROLE_ADMIN");
@@ -241,14 +223,12 @@ public class IndexController {
 		User user1 = userService.findUser(1);
 		User user2 = userService.findUser(2);
 		User user3 = userService.findUser(3);
-		Product p = prs.findOne(1);
 
 		// Offers Creation
 		
 		p_repository.save(p8);
 		p_repository.save(p1);
 		
-		OfferEnum offerEnum = null;
 		Offer o = new Offer(60, "Quiero este precio", 0, user2);
 		Offer o2 = new Offer(700, "Te ofrezco esto Alvaro, soy David", 0, user3);
 		Offer o3 = new Offer(850, "toma esto, no subo mas, soy Juanma por cierto", 0, user2);

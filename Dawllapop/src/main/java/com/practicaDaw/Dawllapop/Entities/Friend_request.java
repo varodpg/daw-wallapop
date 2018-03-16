@@ -2,17 +2,13 @@ package com.practicaDaw.Dawllapop.Entities;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-
 import org.springframework.beans.factory.annotation.Autowired;
-
 import com.fasterxml.jackson.annotation.JsonView;
-import com.practicaDaw.Dawllapop.Entities.Product.BasicInformation;
 
 @Entity
 public class Friend_request {

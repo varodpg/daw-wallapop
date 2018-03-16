@@ -1,7 +1,6 @@
 package com.practicaDaw.Dawllapop.controller;
 
 import com.practicaDaw.Dawllapop.Entities.Friend_request;
-import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
@@ -14,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
@@ -25,11 +21,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import javax.annotation.PostConstruct;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import com.practicaDaw.Dawllapop.security.*;
 import com.practicaDaw.Dawllapop.services.UserServices;
 
