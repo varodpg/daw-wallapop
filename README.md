@@ -148,12 +148,12 @@ To make easy the process to launch the app dockerized, its included a shell scri
 
 ### SOME EXTRA COMMAND LINE COMMANDS
 
-docker images: shows images downloaded into the computer.
-docker ps: shows containers running.
-docker rmi --force: delete an image from the computer.
-docker build -t name_of_image . : build an image based on a DockerFile (dot indicate this)
-docker tag my_image $DOCKER_ID_USER/my_image : tag an image (needed to push an image into DockerHub)
-docker push $DOCKER_ID_USER/my_image: push the tagged image to DockerHub
-docker-compose up: launch a docker-compose.
-docker-compose down: stop a docker-compose.
-docker-compose rm: remove a docker-compose executed. Sometimes its needed to rebuild a docker-compose
+docker images: shows images downloaded into the computer. <br>
+docker ps: shows containers running. <br>
+docker rmi --force: delete an image from the computer. <br>
+docker build -t name_of_image . : build an image based on a DockerFile (dot indicate this) <br>
+docker tag my_image $DOCKER_ID_USER/my_image : tag an image (needed to push an image into DockerHub) <br>
+docker push $DOCKER_ID_USER/my_image: push the tagged image to DockerHub <br>
+docker-compose up: launch a docker-compose. <br>
+docker-compose down: stop a docker-compose. <br>
+docker-compose rm: remove a docker-compose executed. Sometimes its needed to rebuild a docker-compose <br>
