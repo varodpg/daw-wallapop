@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -141,12 +142,11 @@ public class RestProduct {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
 
-	@JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/category/{id}", method = RequestMethod.GET)
-	public ResponseEntity<List<Product>> getProductsByCategory(Pageable pageable, @PathVariable long id) {
+	public ResponseEntity<Page<Product>> getProductsByCategory(Pageable pageable, @PathVariable long id) {
 		Category category = categoryRepo.getOne(id);
 		if (category != null) {
-			List<Product> page = category.getProducts();
+			Page<Product> page = productServices.getAllbyCat(pageable, category);
 			return new ResponseEntity<>(page, HttpStatus.OK);
 		} else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
