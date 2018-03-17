@@ -76,7 +76,7 @@ You can see the public information of an user from public profile.
 9. Admin: Site where the administrator can edit the products and users of the page
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/admin.png "Admin")
 
-# FASE 3
+# FASE 3 - SPRING APPLICATION - 
 
 ### NAVIGATION DIAGRAM
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/diagrams/Diagrama%20de%20navegaci%C3%B3n.png "Navigation diagram")
@@ -86,12 +86,12 @@ You can see the public information of an user from public profile.
 To configure the development environment and to develop a Spring Boot application, we will need a program that provides us with the structure of the
 packages to make the application as well as to manage the dependencies of Maven. To start we will download the program, we have used STS, which can be downloaded from the following link (https://spring.io/tools), once installed to create a project we will have to go to File -> New -> Sring Starter Project and we would have our project ready to start developing and working.
 
-## DATABASE DIAGRAM
+### DATABASE DIAGRAM
 
 The following image show a diagram of the Entities database:
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/bddiagram.png "BDdiagram")
 
-## CLASSES DIAGRAM
+### CLASSES DIAGRAM
 
 The following image show a diagram of the classes into the app: Controllers, services, repositories and HTML documents:
 ![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/clasesdiagram.png "Classesdiagram")
@@ -122,4 +122,38 @@ spring.jpa.hibernate.ddl-auto=create-drop
 
 Note: MacOs maybe will not add to the $PATH the mysql Server process. We need to run server into settings page and include it to the path into ~/.bash_profile 
 
+# FASE 4 - API REST AND DOCKER -
 
+### FIRST STEPS TO PREPARE THE ENVIRONMENT TO DOCKERIZE THE APP 
+
+First of all, we need to download Docker from https://www.docker.com/community-edition 
+Docker will be a process on your computer. Use it through computer console.
+The image of the java project will be allocated on DockerHub. You can create an account from https://hub.docker.com
+Into DockerHub we need to create a repository to allocate the java app.
+
+### INSTRUCTIONS TO DEVELOP
+
+To Dockerize the java application we need to compile the app, build the image, publish the image into the DockerHub repository and launch the application through a Docker-compose into command line console.
+
+To compile the project we need maven. In our case, we will use a maven container.  
+
+To build the image we need a DockerFile file that contains the files and settings to build a image. In this case this file will contain the route for sdk java version 8, the java app and configurations like the web port to launch the app.
+
+Docker-compose command instruction need a file called docker-compose.yml. We need to execute the command into the directory that contains the docker-compose.yml. This file contains the route to the image, the route to a mysql image and the rest of settings to prepare the app to be launched (for example, the configuration to connect java application to mysql database). 
+
+### INSTRUCTIONS TO EXECUTE THE DOCKERIZED APP.
+
+To make easy the process to launch the app dockerized, its included a shell script (execute_scripts.sh) into Docker Directory for linux and macOs machines that will launch some scripts to compile and build the app image (create_image.sh) and publish the image into DockerHub* (publish_image.sh).
+*Its needed to have docker process launched and be logged into DockerHub.
+
+### SOME EXTRA COMMAND LINE COMMANDS
+
+docker images: shows images downloaded into the computer.
+docker ps: shows containers running.
+docker rmi --force: delete an image from the computer.
+docker build -t name_of_image . : build an image based on a DockerFile (dot indicate this)
+docker tag my_image $DOCKER_ID_USER/my_image : tag an image (needed to push an image into DockerHub)
+docker push $DOCKER_ID_USER/my_image: push the tagged image to DockerHub
+docker-compose up: launch a docker-compose.
+docker-compose down: stop a docker-compose.
+docker-compose rm: remove a docker-compose executed. Sometimes its needed to rebuild a docker-compose
