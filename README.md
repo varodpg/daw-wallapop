@@ -124,6 +124,11 @@ Note: MacOs maybe will not add to the $PATH the mysql Server process. We need to
 
 # FASE 4 - API REST AND DOCKER -
 
+### API REST DOCUMENTATION
+
+https://github.com/varodpg/daw-wallapop/blob/master/API.md
+
+
 ### FIRST STEPS TO PREPARE THE ENVIRONMENT TO DOCKERIZE THE APP 
 
 First of all, we need to download Docker from https://www.docker.com/community-edition 
