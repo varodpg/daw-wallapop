@@ -128,6 +128,11 @@ Note: MacOs maybe will not add to the $PATH the mysql Server process. We need to
 
 https://github.com/varodpg/daw-wallapop/blob/master/API.md
 
+### CLASSES DIAGRAM
+
+The following image show a diagram of the classes into the app: Controllers, services, repositories, apiRest and HTML documents:
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/clasesdiagramUpdated.png "Classesdiagram")
 
 ### FIRST STEPS TO PREPARE THE ENVIRONMENT TO DOCKERIZE THE APP 
 
