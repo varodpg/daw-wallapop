@@ -44,7 +44,10 @@ public class SecurityApiRest extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/dashboard/{id}/withoffers/");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/dashboard/{id}/buyed/");
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/dashboard/{id}/friendsRequests/");
-		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/dashboard/{id}/acceptoffer/{offer_id}/");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/dashboard/{id}");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/dashboard/{id}");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/dashboard/{id}");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/dashboard/{id}/acceptoffer/{offer_id}");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/dashboard/{id}/canceltoffer/{offer_id}/");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/dashboard/{id}/declineFriendRequest/{friend_id}/");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/dashboard/{id}/acceptFriendRequest/{friend_id}/");
