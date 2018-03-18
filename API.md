@@ -266,3 +266,368 @@ Success response:
 
 
 
+Friend Request
+
+Add friend request
+
+Add a friend request to a user
+
+URL:
+	/friendRequest/
+
+Method:
+``````
+POST
+```````
+
+URL Params:
+	None
+
+Data Params:
+	````
+	{
+		"idUser": 3,
+		"message": "hi"
+	}
+	````
+
+Success response:
+	{
+		"url": "/friend_request/",
+		"id": 4,
+		"message": "hi",
+		"state": "pending",
+		"creationDate": 1521392397432,
+		"from": {
+			"url": "/user/",
+			"id": 1,
+			"name": "Alvaro",
+			"email": "varo@hotmail.com",
+			"location": "Móstoles",
+			"image": "",
+			"phone": 677654565,
+			"registerDate": 1521392353000,
+			"activatedUser": true,
+			"isAdmin": true
+		},
+		"to": {
+			"url": "/user/",
+			"id": 3,
+			"name": "David",
+			"email": "david.r.3.a@gmail.com",
+			"location": "Alcorcon",
+			"image": "",
+			"phone": 612595959,
+			"registerDate": 1521392354000,
+			"activatedUser": true,
+			"isAdmin": false
+		}
+	}
+
+Accept friend request
+
+An user accepts one friend request
+
+URL:
+	/friendRequest/accept/id
+
+Method:
+`````
+	PUT
+`````
+
+URL params:
+	Required
+ 	id = [long]	
+
+Data Params:
+``````
+	None
+``````
+
+Success response:
+
+{
+    "url": "/friend_request/",
+    "id": 3,
+    "message": "hi",
+    "state": "accepted",
+    "creationDate": 1521393837000,
+    "from": {
+        "url": "/user/",
+        "id": 1,
+        "name": "Alvaro",
+        "email": "varo@hotmail.com",
+        "location": "Móstoles",
+        "image": "",
+        "phone": 677654565,
+        "registerDate": 1521393686000,
+        "activatedUser": true,
+        "isAdmin": true
+    },
+    "to": {
+        "url": "/user/",
+        "id": 2,
+        "name": "Juanma",
+        "email": "juanma@hotmail.com",
+        "location": "Alcorcon",
+        "image": "",
+        "phone": 45678900,
+        "registerDate": 1521393686000,
+        "activatedUser": true,
+        "isAdmin": false
+    }
+}
+
+Refuse friend request
+
+An user refuses one friend request
+
+URL:
+	/friendRequest/refuse/id
+
+Method:
+`````
+	PUT
+`````
+
+URL params:
+	Required
+ 	id = [long]	
+
+Data Params:
+``````
+	None
+``````
+
+Success response
+
+{
+    "url": "/friend_request/",
+    "id": 3,
+    "message": "hi",
+    "state": "refused",
+    "creationDate": 1521393837000,
+    "from": {
+        "url": "/user/",
+        "id": 1,
+        "name": "Alvaro",
+        "email": "varo@hotmail.com",
+        "location": "Móstoles",
+        "image": "",
+        "phone": 677654565,
+        "registerDate": 1521393686000,
+        "activatedUser": true,
+        "isAdmin": true
+    },
+    "to": {
+        "url": "/user/",
+        "id": 2,
+        "name": "Juanma",
+        "email": "juanma@hotmail.com",
+        "location": "Alcorcon",
+        "image": "",
+        "phone": 45678900,
+        "registerDate": 1521393686000,
+        "activatedUser": true,
+        "isAdmin": false
+    }
+}
+
+Get friend requests
+
+Get all the user´s friend requests
+
+URL:
+	/friendRequest/
+
+URL Params:
+``````
+	None
+``````
+
+Data Params:
+```````
+	None
+```````
+
+Success Response:
+	[
+		{
+			"url": "/friend_request/",
+			"id": 2,
+			"message": "Hola",
+			"state": "pending",
+			"creationDate": 1521394169000,
+			"from": {
+				"url": "/user/",
+				"id": 3,
+				"name": "David",
+				"email": "david.r.3.a@gmail.com",
+				"location": "Alcorcon",
+				"image": "",
+				"phone": 612595959,
+				"registerDate": 1521394169000,
+				"activatedUser": true,
+				"isAdmin": false
+			},
+			"to": {
+				"url": "/user/",
+				"id": 2,
+				"name": "Juanma",
+				"email": "juanma@hotmail.com",
+				"location": "Alcorcon",
+				"image": "",
+				"phone": 45678900,
+				"registerDate": 1521394169000,
+				"activatedUser": true,
+				"isAdmin": false
+			}
+		}
+	]
+
+Get friends
+
+Get all the user´s friends
+
+URL: 
+	/friends
+
+URL Params:
+``````
+	None
+``````
+
+Data Params:
+``````
+	None
+``````
+
+Success Response:
+
+[
+    [
+        1,
+        true,
+        "varo@hotmail.com",
+        "",
+        true,
+        "Móstoles",
+        "Alvaro",
+        "$2a$10$ydkng0aMARBLUaTjh2nHs.5n0BZg8OXUyOThCqfqxuU3LSilYSSyO",
+        677654565,
+        1521394169000,
+        "/user/"
+    ]
+]
+
+Assessments
+
+Add an assessment
+
+An user logged can add an assessment
+
+URL:
+	/assessments/
+
+URL Params:
+``````
+	None
+``````
+
+Data Params:
+{
+	"idUser": 2,
+	"message": "hola esta es un assessment hecho desde rest",
+	"value": 2
+}
+
+Success Response:
+{
+    "url": "/assessment/",
+    "text": "hola esta es un assessment hecho desde rest",
+    "value": 2,
+    "date": 1521394833519
+}
+
+Get user assessments
+
+Return all the user´s assessments
+
+URL:
+	/assessments/user/{id}
+
+URL Params:
+	Required
+ 		id = [long]	
+
+Data Params:
+``````
+	None
+``````
+
+Success Response:
+[
+    {
+        "url": "/assessment/",
+        "id": 1,
+        "text": "Gran vendedor",
+        "value": 4,
+        "date": 1521394169000,
+        "userFrom": {
+            "url": "/user/",
+            "id": 2,
+            "name": "Juanma",
+            "email": "juanma@hotmail.com",
+            "location": "Alcorcon",
+            "image": "",
+            "phone": 45678900,
+            "registerDate": 1521394169000,
+            "activatedUser": true,
+            "isAdmin": false
+        },
+        "userTo": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521394169000,
+            "activatedUser": true,
+            "isAdmin": true
+        }
+    },
+    {
+        "url": "/assessment/",
+        "id": 2,
+        "text": "Gran vendedor, mejor persona",
+        "value": 3,
+        "date": 1521394169000,
+        "userFrom": {
+            "url": "/user/",
+            "id": 3,
+            "name": "David",
+            "email": "david.r.3.a@gmail.com",
+            "location": "Alcorcon",
+            "image": "",
+            "phone": 612595959,
+            "registerDate": 1521394169000,
+            "activatedUser": true,
+            "isAdmin": false
+        },
+        "userTo": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521394169000,
+            "activatedUser": true,
+            "isAdmin": true
+        }
+    }
+]
