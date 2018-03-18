@@ -24,6 +24,7 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonView(BasicInformation.class)
 	private long id;
 	
 	@JsonView(BasicInformation.class)

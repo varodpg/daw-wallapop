@@ -65,7 +65,7 @@ public class Add_productController {
 			@RequestParam("name") String name,
 			@RequestParam("description") String description, 
 			@RequestParam("price") double price,
-			@RequestParam("category.name") String category,
+			@RequestParam("category") String category,
 			@RequestParam("tags") String[] tags,
 			@RequestParam("specifications") String[] specifications,
 			@RequestParam("files") MultipartFile[] files

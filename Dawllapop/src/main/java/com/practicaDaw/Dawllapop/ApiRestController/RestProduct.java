@@ -93,7 +93,7 @@ public class RestProduct {
 	public ResponseEntity<Product> editProduct(@PathVariable long idUser, @PathVariable long idProduct,
 			HttpSession session, @RequestBody Product productUpdate) {
 
-		Product product = pRepository.findOne(idUser);
+		Product product = pRepository.findOne(idProduct);
 		User userlog = userComponent.getLoggedUser();
 		User newuser = uRepository.findByName(userlog.getName());
 		if (newuser.getId() == idUser) {
