@@ -1751,3 +1751,190 @@ Success Response: 200 OK
 
 
 
+
+
+
+Get Offer by ID: 
+
+URL:
+	/api/offer/{id}
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 
+
+{
+    "url": "/offer/",
+    "date": 1521414688000,
+    "price": 700,
+    "message": "Te ofrezco esto Alvaro, soy David",
+    "state": 0
+}
+
+
+
+
+
+
+
+
+Get Category by ID: 
+
+URL:
+	/api/category/{id}
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 
+
+{
+    "url": "/category/",
+    "name": "Electronica"
+}
+
+
+
+
+
+
+
+
+Get Category by product: 
+
+URL:
+	/api/category/product/{id}
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 
+
+{
+    "url": "/category/",
+    "name": "Inmobiliaria"
+}
+
+
+
+
+
+
+
+
+
+Get products by category:  
+
+URL:
+	/api/products/category/{id}
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 
+
+    {
+        "url": "/product/",
+        "id": 1,
+        "name": "Escritorio",
+        "description": "Escritorio de mesa con gran capacidad de\r\n\t\t\t\t\t\t\t\tespacio",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 800,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521414687000
+    },
+    {
+        "url": "/product/",
+        "id": 2,
+        "name": "Escritorio Pequeño",
+        "description": "Escritorio de mesa para habitaciones\r\n\t\t\t\t\t\t\t\tpequeñas",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 300,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521414687000
+    }
+
+
+
+
+
+
+
+
+
+
