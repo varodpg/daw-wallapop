@@ -222,6 +222,7 @@ public class RestDashboard {
 	public ResponseEntity<Assessment> addAssessment(@PathVariable long id, @PathVariable long id_to,@RequestBody Assessment ass, HttpSession session){
 		User user_from = uRepository.findById(id);
 		User user_to = uRepository.findById(id_to);
+		Assessment assessment = new Assessment(ass.getText(), ass.getValue(), user_from, user_to, new Date());
 		aRepository.save(assessment);
 		return new ResponseEntity<>(assessment, HttpStatus.OK);
 	}
