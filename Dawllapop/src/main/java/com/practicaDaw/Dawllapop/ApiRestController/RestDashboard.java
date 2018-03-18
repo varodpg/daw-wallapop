@@ -159,13 +159,13 @@ public class RestDashboard {
 		if ((offerRepository.findOne(offer_id)) == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);			
 		} else {
-			if(userlog.getId()==of.getProduct().getUser().getId()) {
+			//if(userlog.getId()==of.getProduct().getUser().getId()) {
 				Product p = of.getProduct();
 				of.setState(2);
 				offerRepository.saveAndFlush(of);
 				return new ResponseEntity<>(of, HttpStatus.OK);
-			}  else
-				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			//}  else
+			//	return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}				
 	}
 
@@ -219,9 +219,11 @@ public class RestDashboard {
 	@RequestMapping(value = "/addAssessment/{id_to}", method = RequestMethod.POST)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Assessment> addAssessment(@RequestBody Assessment ass){
-		aRepository.save(ass);
-		return new ResponseEntity<>(ass, HttpStatus.OK);
+	public ResponseEntity<Assessment> addAssessment(@PathVariable long id, @PathVariable long id_to,@RequestBody Assessment ass, HttpSession session){
+		User user_from = uRepository.findById(id);
+		User user_to = uRepository.findById(id_to);
+		aRepository.save(assessment);
+		return new ResponseEntity<>(assessment, HttpStatus.OK);
 	}
 	
 }
