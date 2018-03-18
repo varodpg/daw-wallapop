@@ -141,7 +141,7 @@ public class RestProduct {
 		} else
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
-
+	@JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/category/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Page<Product>> getProductsByCategory(Pageable pageable, @PathVariable long id) {
 		Category category = categoryRepo.getOne(id);
