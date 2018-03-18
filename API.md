@@ -631,3 +631,623 @@ Success Response:
         }
     }
 ]
+
+
+
+
+
+DASHBOARD
+
+Get Products Selling
+
+URL:
+	/api/dashboard/{id}/selling
+
+URL Params:
+``````
+	Required
+ 		id = [long]
+``````
+
+Data Params:
+	None
+
+
+Success Response:
+[
+    {
+        "url": "/product/",
+        "id": 1,
+        "name": "Escritorio",
+        "description": "Escritorio de mesa con gran capacidad de\r\n\t\t\t\t\t\t\t\tespacio",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 800,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521400609000,
+        "category": {
+            "url": "/category/",
+            "id": 2,
+            "name": "Inmobiliaria"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521400609000,
+            "activatedUser": true,
+            "isAdmin": true
+        },
+        "offers": [],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    },
+    {
+        "url": "/product/",
+        "id": 2,
+        "name": "Escritorio Pequeño",
+        "description": "Escritorio de mesa para habitaciones\r\n\t\t\t\t\t\t\t\tpequeñas",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 300,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521400609000,
+        "category": {
+            "url": "/category/",
+            "id": 2,
+            "name": "Inmobiliaria"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521400609000,
+            "activatedUser": true,
+            "isAdmin": true
+        },
+        "offers": [],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    },
+    {
+        "url": "/product/",
+        "id": 3,
+        "name": "Nokia 8998",
+        "description": "Vendo movil en buen estado, y con bateria nueva",
+        "state": "not_new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 530,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521400609000,
+        "category": {
+            "url": "/category/",
+            "id": 1,
+            "name": "Electronica"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521400609000,
+            "activatedUser": true,
+            "isAdmin": true
+        },
+        "offers": [],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    },
+    {
+        "url": "/product/",
+        "id": 4,
+        "name": "xiaomi mi band 2",
+        "description": "Incluye la pulsera de metal en vez de la de plastico",
+        "state": "not_new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 300,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521400609000,
+        "category": {
+            "url": "/category/",
+            "id": 1,
+            "name": "Electronica"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521400609000,
+            "activatedUser": true,
+            "isAdmin": true
+        },
+        "offers": [],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    },
+    {
+        "url": "/product/",
+        "id": 5,
+        "name": "Samsung galxy s9",
+        "description": "Me toco en un sorteo y no lo quiero",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 1100,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521400609000,
+        "category": {
+            "url": "/category/",
+            "id": 1,
+            "name": "Electronica"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521400609000,
+            "activatedUser": true,
+            "isAdmin": true
+        },
+        "offers": [],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    },
+    {
+        "url": "/product/",
+        "id": 24,
+        "name": "Macbook Pro 2017",
+        "description": "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 1900,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521400609000,
+        "category": {
+            "url": "/category/",
+            "id": 1,
+            "name": "Electronica"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521400609000,
+            "activatedUser": true,
+            "isAdmin": true
+        },
+        "offers": [
+            {
+                "url": "/offer/",
+                "id": 1,
+                "date": 1521400609000,
+                "price": 60,
+                "message": "Quiero este precio",
+                "state": 0,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 2,
+                    "name": "Juanma",
+                    "email": "juanma@hotmail.com",
+                    "location": "Alcorcon",
+                    "image": "",
+                    "phone": 45678900,
+                    "registerDate": 1521400609000,
+                    "activatedUser": true,
+                    "isAdmin": false
+                }
+            },
+            {
+                "url": "/offer/",
+                "id": 2,
+                "date": 1521400609000,
+                "price": 700,
+                "message": "Te ofrezco esto Alvaro, soy David",
+                "state": 0,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 3,
+                    "name": "David",
+                    "email": "david.r.3.a@gmail.com",
+                    "location": "Alcorcon",
+                    "image": "",
+                    "phone": 612595959,
+                    "registerDate": 1521400609000,
+                    "activatedUser": true,
+                    "isAdmin": false
+                }
+            },
+            {
+                "url": "/offer/",
+                "id": 3,
+                "date": 1521400609000,
+                "price": 850,
+                "message": "toma esto, no subo mas, soy Juanma por cierto",
+                "state": 0,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 2,
+                    "name": "Juanma",
+                    "email": "juanma@hotmail.com",
+                    "location": "Alcorcon",
+                    "image": "",
+                    "phone": 45678900,
+                    "registerDate": 1521400609000,
+                    "activatedUser": true,
+                    "isAdmin": false
+                }
+            }
+        ],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    }
+]
+
+
+Get Products Sold
+
+URL:
+	/api/dashboard/{id}/sold
+
+URL Params:
+``````
+	Required
+ 		id = [long]
+``````
+
+Data Params:
+	None
+
+
+Success Response:
+[
+    {
+        "url": "/product/",
+        "id": 7,
+        "name": "Ratón inalámbrico Razer",
+        "description": "Solo lo he usado un mes, tiene el precinto y sus complementos",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 35,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": true,
+        "date": 1521400609000,
+        "category": {
+            "url": "/category/",
+            "id": 1,
+            "name": "Electronica"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 2,
+            "name": "Juanma",
+            "email": "juanma@hotmail.com",
+            "location": "Alcorcon",
+            "image": "",
+            "phone": 45678900,
+            "registerDate": 1521400609000,
+            "activatedUser": true,
+            "isAdmin": false
+        },
+        "offers": [
+            {
+                "url": "/offer/",
+                "id": 5,
+                "date": 1521400609000,
+                "price": 50,
+                "message": "toma esto, soy Alvaro, quiero ese raton ",
+                "state": 1,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 1,
+                    "name": "Alvaro",
+                    "email": "varo@hotmail.com",
+                    "location": "Móstoles",
+                    "image": "",
+                    "phone": 677654565,
+                    "registerDate": 1521400609000,
+                    "activatedUser": true,
+                    "isAdmin": true
+                }
+            },
+            {
+                "url": "/offer/",
+                "id": 6,
+                "date": 1521401786000,
+                "price": 40,
+                "message": "",
+                "state": 1,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 1,
+                    "name": "Alvaro",
+                    "email": "varo@hotmail.com",
+                    "location": "Móstoles",
+                    "image": "",
+                    "phone": 677654565,
+                    "registerDate": 1521400609000,
+                    "activatedUser": true,
+                    "isAdmin": true
+                }
+            }
+        ],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    }
+]
+
+
+
+
