@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -141,15 +142,31 @@ public class RestProduct {
 		} else
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
-	@JsonView(Product.BasicInformation.class)
+	
+    @JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/category/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Page<Product>> getProductsByCategory(Pageable pageable, @PathVariable long id) {
+	public ResponseEntity<List<Product>> getIndexProductsByCategory(@PageableDefault(size = 10) Pageable page , @PathVariable long id) {
 		Category category = categoryRepo.getOne(id);
 		if (category != null) {
-			Page<Product> page = productServices.getAllbyCat(pageable, category);
-			return new ResponseEntity<>(page, HttpStatus.OK);
-		} else
+			
+			Page<Product> productsPage = productServices.getAllbyCat(page, category);
+			List<Product> products = productsPage.getContent();
+			
+			int productPages = productsPage.getTotalPages();
+
+			return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+		
+
+
+			
+		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/api/products/", method = RequestMethod.GET)
+	public ResponseEntity< Page<Product> > getIndexItems(Pageable page) {
+		return new ResponseEntity<>(productServices.getAllProducts(page),HttpStatus.OK);
 	}
 
 }
