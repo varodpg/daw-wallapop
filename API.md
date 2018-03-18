@@ -1248,6 +1248,506 @@ Success Response:
     }
 ]
 
+Get Assessments
+
+URL:
+	/api/dashboard/{id}/assessment
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+
+Success Response:
+[
+    {
+        "url": "/assessment/",
+        "id": 1,
+        "text": "Gran vendedor",
+        "value": 4,
+        "date": 1521410631000,
+        "userFrom": {
+            "url": "/user/",
+            "id": 2,
+            "name": "Juanma",
+            "email": "juanma@hotmail.com",
+            "location": "Alcorcon",
+            "image": "",
+            "phone": 45678900,
+            "registerDate": 1521410630000,
+            "activatedUser": true,
+            "isAdmin": false
+        },
+        "userTo": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521410630000,
+            "activatedUser": true,
+            "isAdmin": true
+        }
+    },
+    {
+        "url": "/assessment/",
+        "id": 2,
+        "text": "Gran vendedor, mejor persona",
+        "value": 3,
+        "date": 1521410631000,
+        "userFrom": {
+            "url": "/user/",
+            "id": 3,
+            "name": "David",
+            "email": "david.r.3.a@gmail.com",
+            "location": "Alcorcon",
+            "image": "",
+            "phone": 612595959,
+            "registerDate": 1521410631000,
+            "activatedUser": true,
+            "isAdmin": false
+        },
+        "userTo": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521410630000,
+            "activatedUser": true,
+            "isAdmin": true
+        }
+    }
+]
+
+Get Products With Offers
+
+URL:
+	/api/dashboard/{id}/withoffers
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+
+Success Response:
+[
+    {
+        "url": "/product/",
+        "id": 24,
+        "name": "Macbook Pro 2017",
+        "description": "Es mas rapido y potente que antes, pero mas fino y ligero que nunca. Tiene la pantalla con mas color y brillo jamas vista en un portatil Mac. Y viene con la Touch Bar.",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 1900,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": false,
+        "date": 1521410631000,
+        "category": {
+            "url": "/category/",
+            "id": 1,
+            "name": "Electronica"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 1,
+            "name": "Alvaro",
+            "email": "varo@hotmail.com",
+            "location": "Móstoles",
+            "image": "",
+            "phone": 677654565,
+            "registerDate": 1521410630000,
+            "activatedUser": true,
+            "isAdmin": true
+        },
+        "offers": [
+            {
+                "url": "/offer/",
+                "id": 1,
+                "date": 1521410631000,
+                "price": 60,
+                "message": "Quiero este precio",
+                "state": 0,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 2,
+                    "name": "Juanma",
+                    "email": "juanma@hotmail.com",
+                    "location": "Alcorcon",
+                    "image": "",
+                    "phone": 45678900,
+                    "registerDate": 1521410630000,
+                    "activatedUser": true,
+                    "isAdmin": false
+                }
+            },
+            {
+                "url": "/offer/",
+                "id": 2,
+                "date": 1521410631000,
+                "price": 700,
+                "message": "Te ofrezco esto Alvaro, soy David",
+                "state": 0,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 3,
+                    "name": "David",
+                    "email": "david.r.3.a@gmail.com",
+                    "location": "Alcorcon",
+                    "image": "",
+                    "phone": 612595959,
+                    "registerDate": 1521410631000,
+                    "activatedUser": true,
+                    "isAdmin": false
+                }
+            },
+            {
+                "url": "/offer/",
+                "id": 3,
+                "date": 1521410631000,
+                "price": 850,
+                "message": "toma esto, no subo mas, soy Juanma por cierto",
+                "state": 0,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 2,
+                    "name": "Juanma",
+                    "email": "juanma@hotmail.com",
+                    "location": "Alcorcon",
+                    "image": "",
+                    "phone": 45678900,
+                    "registerDate": 1521410630000,
+                    "activatedUser": true,
+                    "isAdmin": false
+                }
+            }
+        ],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    }
+]
+
+Get Products Buyed By User
+
+URL:
+	/api/dashboard/{id}/buyed
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+
+Success Response:
+
+[
+    {
+        "url": "/product/",
+        "id": 23,
+        "name": "Play Station 4",
+        "description": "Me la regalaron y no la necesito esta completamente nueva",
+        "state": "new",
+        "specifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ],
+        "tags": [
+            "mac",
+            "escritorio",
+            "ordenador",
+            "grande",
+            "fino"
+        ],
+        "price": 400,
+        "images": [
+            "image-0.jpg"
+        ],
+        "mainimage": "image-0.jpg",
+        "sold": true,
+        "date": 1521410631000,
+        "category": {
+            "url": "/category/",
+            "id": 4,
+            "name": "Videojuegos"
+        },
+        "user": {
+            "url": "/user/",
+            "id": 2,
+            "name": "Juanma",
+            "email": "juanma@hotmail.com",
+            "location": "Alcorcon",
+            "image": "",
+            "phone": 45678900,
+            "registerDate": 1521410630000,
+            "activatedUser": true,
+            "isAdmin": false
+        },
+        "offers": [
+            {
+                "url": "/offer/",
+                "id": 4,
+                "date": 1521410631000,
+                "price": 950,
+                "message": "toma esto, no subo mas, soy Alvaro ",
+                "state": 1,
+                "buyer": {
+                    "url": "/user/",
+                    "id": 1,
+                    "name": "Alvaro",
+                    "email": "varo@hotmail.com",
+                    "location": "Móstoles",
+                    "image": "",
+                    "phone": 677654565,
+                    "registerDate": 1521410630000,
+                    "activatedUser": true,
+                    "isAdmin": true
+                }
+            }
+        ],
+        "especifications": [
+            [
+                "CPU",
+                "4,1GHZ"
+            ],
+            [
+                "Grafica",
+                "GTX 1080"
+            ],
+            [
+                "RAM",
+                "6GB"
+            ]
+        ]
+    }
+]
+Get friends Requests
+
+URL:
+	/api/dashboard/{id}/friendsRequests
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+
+Success Response:
+[
+    {
+        "url": "/friend_request/",
+        "id": 2,
+        "message": "Hola",
+        "state": "pending",
+        "creationDate": 1521410631000,
+        "from": {
+            "url": "/user/",
+            "id": 3,
+            "name": "David",
+            "email": "david.r.3.a@gmail.com",
+            "location": "Alcorcon",
+            "image": "",
+            "phone": 612595959,
+            "registerDate": 1521410631000,
+            "activatedUser": true,
+            "isAdmin": false
+        },
+        "to": {
+            "url": "/user/",
+            "id": 2,
+            "name": "Juanma",
+            "email": "juanma@hotmail.com",
+            "location": "Alcorcon",
+            "image": "",
+            "phone": 45678900,
+            "registerDate": 1521410630000,
+            "activatedUser": true,
+            "isAdmin": false
+        }
+    }
+]
+
+Accept Offer
+
+URL:
+	/api/dashboard/{id}/acceptoffer/{offer_id}
+
+URL Params:
+```
+	Required
+ 		id = [long]
+		offer_id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 200 OK
+
+Decline Offer
+
+URL:
+	/api/dashboard/{id}/canceltoffer/{offer_id}
+
+URL Params:
+```
+	Required
+ 		id = [long]
+		offer_id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 200 OK
+
+
+Decline Friend
+
+URL:
+	/api/dashboard/{id}/declineFriendRequest/{friend_id}
+
+URL Params:
+```
+	Required
+ 		id = [long]
+		friend_id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 200 OK
+
+
+Accept Friend Request
+
+URL:
+	/api/dashboard/{id}/acceptFriendRequest/{friend_id}
+
+URL Params:
+```
+	Required
+ 		id = [long]
+		friend_id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 200 OK
+
+
+Get Friends
+
+URL:
+	/api/dashboard/{id}/getFriends/
+
+URL Params:
+```
+	Required
+ 		id = [long]
+```
+
+Data Params:
+	None
+
+Success Response: 
+
+
+
+Add Assessment
+
+URL:
+	/api/dashboard/{id}/addAssessment/{id_to}
+	
+Method:
+ ```
+ POST
+ ```
+
+URL Params:
+```
+	Required
+ 		id = [long]
+		id_tio = [long]
+```
+
+Data Params:
+{
+	"text" : "Muy buen vendedor. Todo perfecto",
+	"value" : "5"
+}
+
+Success Response: 200 OK
+
+
 
 
 
