@@ -14,6 +14,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
+import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 
 @RestController
 public class RestCategory {
@@ -21,6 +22,9 @@ public class RestCategory {
 	
 	@Autowired
 	private CategoryRepository categoryRepo;
+	
+	@Autowired
+	private ProductRepository productRepo;
 	
 	@JsonView(Category.BasicInformation.class)
 	@RequestMapping(value = "/api/category/{id}", method = RequestMethod.GET)
@@ -31,6 +35,17 @@ public class RestCategory {
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-	}	
+	}
+	
+	@JsonView(Category.BasicInformation.class)
+	@RequestMapping(value = "/api/category/product/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Category> getCategoryByProduct(@PathVariable long id) {
+		Product product = productRepo.findOne(id);
+		if (product != null) {
+			return new ResponseEntity<>(product.getCategory(), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 
 }

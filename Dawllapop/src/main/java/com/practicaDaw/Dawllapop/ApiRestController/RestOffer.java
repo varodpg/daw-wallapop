@@ -36,7 +36,8 @@ public class RestOffer {
 
 	@Autowired
 	private UserComponent userComponent;
-
+	
+	@JsonView(Offer.BasicInformation.class)
 	@RequestMapping(value = "/api/offers/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Offer> getOfferById(@PathVariable long id) {
 		Offer offer = offerRepo.getOne(id);
@@ -47,43 +48,43 @@ public class RestOffer {
 
 	}
 
-	@JsonView(User.BasicInformation.class)
-	@RequestMapping(value = "/api/offers/user/{id}", method = RequestMethod.GET)
-	public ResponseEntity<List<Offer>> getOffersByUser(@PathVariable long id) {
-		User user = userRepo.getOne(id);
-		if (user != null) {
-			List<Offer> offers = user.getOffers();
-			return new ResponseEntity<>(offers, HttpStatus.OK);
-		} else
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-	}
-
-	@JsonView(Product.BasicInformation.class)
-	@RequestMapping(value = "/api/offers/product/{id}", method = RequestMethod.GET)
-	public ResponseEntity<List<Offer>> getOffersByProduct(@PathVariable long id) {
-		Product product = productRepo.getOne(id);
-		if (product != null) {
-			List<Offer> offers = product.getOffers();
-			return new ResponseEntity<>(offers, HttpStatus.OK);
-		} else
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-	}
-
-	@RequestMapping(value = "/api/offers/", method = RequestMethod.POST)
-	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer, Product product) {
-
-		User userlog = userComponent.getLoggedUser();
-		User newuser = userRepo.findByName(userlog.getName());
-		if (newuser.getId() != product.getUser().getId()) { // You can only post offers if your id is different to the
-			product.addOffer(offer);
-			return new ResponseEntity<>(offer, HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-		
-	}
-
-}
+//	@JsonView(Offer.BasicInformation.class)
+//	@RequestMapping(value = "/api/offers/user/{id}", method = RequestMethod.GET)
+//	public ResponseEntity<List<Offer>> getOffersByUser(@PathVariable long id) {
+//		User user = userRepo.getOne(id);
+//		if (user != null) {
+//			List<Offer> offers = user.getOffers();
+//			return new ResponseEntity<>(offers, HttpStatus.OK);
+//		} else
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//
+//	}
+//
+//	@JsonView(Offer.BasicInformation.class)
+//	@RequestMapping(value = "/api/offers/product/{id}", method = RequestMethod.GET)
+//	public ResponseEntity<List<Offer>> getOffersByProduct(@PathVariable long id) {
+//		Product product = productRepo.getOne(id);
+//		if (product != null) {
+//			List<Offer> offers = product.getOffers();
+//			return new ResponseEntity<>(offers, HttpStatus.OK);
+//		} else
+//			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//
+//	}
+//	
+//	@RequestMapping(value = "/api/offers/", method = RequestMethod.POST)
+//	@ResponseStatus(HttpStatus.CREATED)
+//	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer, Product product) {
+//
+//		User userlog = userComponent.getLoggedUser();
+//		User newuser = userRepo.findByName(userlog.getName());
+//		if (newuser.getId() != product.getUser().getId()) { // You can only post offers if your id is different to the
+//			product.addOffer(offer);
+//			return new ResponseEntity<>(offer, HttpStatus.OK);
+//		} else {
+//			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//		
+//	}
+//
+//}
 }
