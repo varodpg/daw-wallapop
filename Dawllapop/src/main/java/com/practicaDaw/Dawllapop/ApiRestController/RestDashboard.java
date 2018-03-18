@@ -128,63 +128,82 @@ public class RestDashboard {
 	@RequestMapping(value = "/acceptoffer/{offer_id}", method = RequestMethod.PUT)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Offer> acceptOffer(@PathVariable long id, @PathVariable long offer_id){
+	public ResponseEntity<Offer> acceptOffer(@PathVariable long id, @PathVariable long offer_id, HttpSession session){
 		
+		User userlog =(User) session.getAttribute("user");
 		Offer of = offerRepository.getOne(offer_id);
 		if ((offerRepository.findOne(offer_id)) == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			
 		} else {
-			Product p = of.getProduct();
-			of.setState(1);
-			offerRepository.saveAndFlush(of);
-			p.setSold(true);
-			pRepository.saveAndFlush(p);
-			return new ResponseEntity<>(of, HttpStatus.OK);
+			
+			if(userlog.getId()==of.getProduct().getUser().getId()) {
+				Product p = of.getProduct();
+				of.setState(1);
+				offerRepository.saveAndFlush(of);
+				p.setSold(true);
+				pRepository.saveAndFlush(p);
+				return new ResponseEntity<>(of, HttpStatus.OK);
+			} else
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 	}
 
 	@RequestMapping(value = "/canceltoffer/{offer_id}", method = RequestMethod.PUT)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Offer> cancelOffer(@PathVariable long id, @PathVariable long offer_id){
+	public ResponseEntity<Offer> cancelOffer(@PathVariable long id, @PathVariable long offer_id, HttpSession session){
 		
+		User userlog =(User) session.getAttribute("user");
 		Offer of = offerRepository.getOne(offer_id);
 		if ((offerRepository.findOne(offer_id)) == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);			
 		} else {
-			Product p = of.getProduct();
-			of.setState(2);
-			offerRepository.saveAndFlush(of);
-			return new ResponseEntity<>(of, HttpStatus.OK);
+			if(userlog.getId()==of.getProduct().getUser().getId()) {
+				Product p = of.getProduct();
+				of.setState(2);
+				offerRepository.saveAndFlush(of);
+				return new ResponseEntity<>(of, HttpStatus.OK);
+			}  else
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}				
 	}
 
 	@RequestMapping(value = "/declineFriendRequest/{friend_id}", method = RequestMethod.PUT)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Friend_request> declineFriend(@PathVariable long id, @PathVariable long friend_id){
+	public ResponseEntity<Friend_request> declineFriend(@PathVariable long id, @PathVariable long friend_id, HttpSession session){
+		
+		User userlog =(User) session.getAttribute("user");
 		Friend_request fr = fRequestRepo.getOne(friend_id);
 		if (fRequestRepo.getOne(friend_id) == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);			
 		} else {
-			fr.setState("declined");
-			fRequestRepo.saveAndFlush(fr);
-			return new ResponseEntity<>(fr, HttpStatus.OK);
+			if(userlog.getId() == fr.getTo().getId()) {
+				fr.setState("declined");
+				fRequestRepo.saveAndFlush(fr);
+				return new ResponseEntity<>(fr, HttpStatus.OK);
+			} else
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}		
 	}
 	
 	@RequestMapping(value = "/acceptFriendRequest/{friend_id}", method = RequestMethod.PUT)
 	@JsonView(Product.BasicInformation.class)
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Friend_request> acceptFriend(@PathVariable long id, @PathVariable long friend_id){
+	public ResponseEntity<Friend_request> acceptFriend(@PathVariable long id, @PathVariable long friend_id, HttpSession session){
+		
+		User userlog =(User) session.getAttribute("user");
 		Friend_request fr = fRequestRepo.getOne(friend_id);
 		if (fRequestRepo.getOne(friend_id) == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);			
 		} else {
-			fr.setState("accepted");
-			fRequestRepo.saveAndFlush(fr);
-			return new ResponseEntity<>(fr, HttpStatus.OK);
+			if(userlog.getId() == fr.getTo().getId()) {
+				fr.setState("accepted");
+				fRequestRepo.saveAndFlush(fr);
+				return new ResponseEntity<>(fr, HttpStatus.OK);
+			} else
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}		
 	}
 	
