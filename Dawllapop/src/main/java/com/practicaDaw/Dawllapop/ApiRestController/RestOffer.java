@@ -78,13 +78,8 @@ public class RestOffer {
 		User userlog = userComponent.getLoggedUser();
 		User newuser = userRepo.findByName(userlog.getName());
 		if (newuser.getId() != product.getUser().getId()) { // You can only post offers if your id is different to the
-															// id of the product user.
-			if (product != null) {
-				product.addOffer(offer);
-				return new ResponseEntity<>(offer, HttpStatus.OK);
-			} else {
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
+			product.addOffer(offer);
+			return new ResponseEntity<>(offer, HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		
