@@ -9,6 +9,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,7 +64,8 @@ public class RestProduct {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/user/{id}", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> getUserProducts(@PathVariable("id") long id) {
