@@ -38,7 +38,7 @@
             </div>
             <div class="card-body">
               <h4 class="card-title">
-                <a href="">{{product.name}}</a>
+                <a [routerLink]="['/singleProduct', product.id]">{{product.name}}</a>
               </h4>
               <ul class="list-inline product-meta">
                 <li class="list-inline-item">

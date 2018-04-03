@@ -53,7 +53,8 @@ public class RestProduct {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Product> getProduct(@PathVariable long id) {

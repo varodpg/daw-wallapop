@@ -11,13 +11,15 @@ import { routing } from './app.routing';
 import { IndexComponent } from './index/index.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductService } from './service/product.service';
+import { SingleProductComponent } from './single-product/single-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     IndexComponent,
-    FooterComponent
+    FooterComponent,
+    SingleProductComponent
   ],
   imports: [
     BrowserModule,

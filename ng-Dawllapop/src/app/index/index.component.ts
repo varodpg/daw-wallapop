@@ -19,8 +19,7 @@ export class IndexComponent implements OnInit {
       this.products = data;
       data.forEach(element => {        
         this.products.push(element);
-      });
-      console.log(this.products);
+      });    
     });        
   }
 
