@@ -168,7 +168,7 @@ public class RestProduct {
 	}
 	
 	@RequestMapping(value = "/api/products/", method = RequestMethod.GET)
-	public ResponseEntity< Page<Product> > getIndexItems(Pageable page) {
+	public ResponseEntity< Page<Product> > getIndexItems(@PageableDefault(size = 10) Pageable page) {
 		return new ResponseEntity<>(productServices.getAllProducts(page),HttpStatus.OK);
 	}
 
