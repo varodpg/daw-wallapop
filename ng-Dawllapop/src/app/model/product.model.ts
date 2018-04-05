@@ -6,3 +6,17 @@ export class Product {
     tags: string[];
     price: number;	
 }
+
+export class User {
+    id?: number;
+    name: string;
+    email: string;
+    location: string;
+    image: string;
+    passwordHash: string;
+    phone: number;
+    registerDate: Date;
+    activedUser: boolean;
+    roles: string[];
+    isAdmin: boolean;
+}
