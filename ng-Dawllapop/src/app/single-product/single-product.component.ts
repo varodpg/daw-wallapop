@@ -16,8 +16,9 @@ export class SingleProductComponent implements OnInit {
     let id = activatedRoute.snapshot.params['id'];
     this.productService.getSingleProduct(id).subscribe(data => {
       this.product = data;
-    });
-   }
+      console.log(this.product);
+    });    
+  }
 
   ngOnInit() {
   }

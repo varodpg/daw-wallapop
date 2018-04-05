@@ -27,7 +27,7 @@ import { AddProductComponent } from './add-product/add-product.component';
   ],
   imports: [
     BrowserModule,
-    NgbModule,
+    NgbModule.forRoot(),
     routing,
     HttpClientModule
   ],
