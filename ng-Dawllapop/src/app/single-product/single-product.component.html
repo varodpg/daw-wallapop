@@ -19,19 +19,23 @@
 						</div>													
 					</div>
 					<div class="content">						
-						<ngb-tabset class="tab-content" id="pills-tabContent">
+						<ngb-tabset >
 							<ngb-tab class="tab-pane fade show active" title="Información General">
 								<ng-template ngbTabContent>
 									<h3 class="tab-title">Descripcion de Producto</h3>
 									<p>{{product.description}}</p>								
 								</ng-template>								
 							</ngb-tab>
-							<ngb-tabset class="tab-pane fade" title="Especificaciones">
+							<ngb-tab class="tab-pane fade" title="Especificaciones">
 								<ng-template ngbTabContent>
 									<h3 class="tab-title">Especificaciones del producto</h3>
-									<table class="table table-bordered product-table"></table>
+									<table class="table table-bordered product-table">
+										<tr *ngFor="let specification of product.specifications">
+											<td *ngFor="let elem of specification">{{elem}}</td>
+										</tr>
+									</table>
 								</ng-template>
-							</ngb-tabset>							
+							</ngb-tab>							
 						</ngb-tabset>
 					</div>
 				</div>
