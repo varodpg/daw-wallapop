@@ -4,6 +4,8 @@ import { HttpClient } from "@angular/common/http";
 
 const LAST_PRODUCTS_URL = "https://localhost:8443/api/products/user/2"
 const GET_SINGLE_PRODUCT_URL = "https://localhost:8443/api/products/"
+const ADD_PRODUCT_URL = "https://localhost:8443/api/products/"
+
 
 @Injectable()
 export class ProductService {
@@ -16,4 +18,7 @@ export class ProductService {
     getSingleProduct(id: number | string){
         return this.http.get<Product>(GET_SINGLE_PRODUCT_URL + id);
     }
+    addProduct(product: Product) {
+		return this.http.post(ADD_PRODUCT_URL, product);		
+	}
 }
