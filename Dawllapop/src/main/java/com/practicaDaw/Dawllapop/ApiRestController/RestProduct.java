@@ -167,6 +167,7 @@ public class RestProduct {
 		}
 	}
 	
+    @CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/products/", method = RequestMethod.GET)
 	public ResponseEntity< Page<Product> > getIndexItems(@PageableDefault(size = 10) Pageable page) {
 		return new ResponseEntity<>(productServices.getAllProducts(page),HttpStatus.OK);
