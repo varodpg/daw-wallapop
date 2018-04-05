@@ -16,10 +16,12 @@ export class IndexComponent implements OnInit {
 
   ngOnInit() {   
     this.productService.getLastProducts().subscribe(data => {      
-      this.products = data;
-      data.forEach(element => {        
+      this.products = [];
+      data['content'].forEach(element => {        
         this.products.push(element);
-      });    
+        console.log(element);    
+      });
+      
     });        
   }
 

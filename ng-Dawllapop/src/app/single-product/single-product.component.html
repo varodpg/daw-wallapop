@@ -6,8 +6,8 @@
 					<h1 class="product-title">{{product.name}}</h1>
 					<div class="product-meta">
 						<ul class="list-inline">
-							<li class="list-inline-item"><i class="fa fa-user-o"></i> Vendedor: </li>
-							<li class="list-inline-item"><i class="fa fa-location-arrow"></i> Localizacion: </li>
+							<!--<li class="list-inline-item"><i class="fa fa-user-o"></i> Vendedor: </li>-->
+							<!--<li class="list-inline-item"><i class="fa fa-location-arrow"></i> Localizacion: </li>-->
 						</ul>
 					</div>
 					<div id="images">												
@@ -18,28 +18,21 @@
 							<img style="width:100%; margin-top: 20px">
 						</div>													
 					</div>
-					<div class="content">
-						<ul class="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
-							<li class="nav-item">
-								<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Informacion General</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Especificaciones</a>
-							</li>							
-						</ul>
-						<div class="tab-content" id="pills-tabContent">
-							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-								<h3 class="tab-title">Descripcion de Producto</h3>
-								<p>Descripcion</p>								
-							</div>
-							<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-								<h3 class="tab-title">Especificaciones del producto</h3>
-								<table class="table table-bordered product-table">
-									<tbody>									
-									</tbody>
-								</table>
-							</div>							
-						</div>
+					<div class="content">						
+						<ngb-tabset class="tab-content" id="pills-tabContent">
+							<ngb-tab class="tab-pane fade show active" title="Información General">
+								<ng-template ngbTabContent>
+									<h3 class="tab-title">Descripcion de Producto</h3>
+									<p>{{product.description}}</p>								
+								</ng-template>								
+							</ngb-tab>
+							<ngb-tabset class="tab-pane fade" title="Especificaciones">
+								<ng-template ngbTabContent>
+									<h3 class="tab-title">Especificaciones del producto</h3>
+									<table class="table table-bordered product-table"></table>
+								</ng-template>
+							</ngb-tabset>							
+						</ngb-tabset>
 					</div>
 				</div>
 			</div>
