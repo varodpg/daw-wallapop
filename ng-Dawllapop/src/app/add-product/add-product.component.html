@@ -1,0 +1,128 @@
+<section class="section bg-custom">
+	<!-- Container Start -->
+	<div class="container page-content">
+		<div class="row">
+			<!-- Left sidebar -->
+			<div class="col-md-12 ">
+				<div class="product-details">
+					<form action="add-new-product" method="post" enctype="multipart/form-data" id="form_add_product">
+						<div class="row">
+							<div class="col-md-12">
+								<h1 class="widget-header user">Añadir producto</h1>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12">
+										<h3 class="widget-header user">Informacion Principal</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-md-8">
+										<label for="ft_product_name">Nombre producto</label>
+										<input type="text" class="form-control w-bg" id="ft_product_name" placeholder="Nombre" name="name">
+									</div>
+									<div class="form-group col-md-4">
+										<div class="row col-md-12">
+												<label for="fs_product_category">Categoría producto</label>
+										</div>
+										<div class="row col-md-12">
+											<select class="selectpicker" id="fs_product_category" name="category">
+												<option selected disabled>Categoria</option>
+												<option value="informatica">Informática y Electrónica</option>
+												<option value="inmobiliaria">Inmobiliaria</option>
+												<option value="deportes">Deportes y Ocio</option>
+												<option value="videojuegos">Videojuegos</option>
+												<option value="moda">Moda</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4 form-group">
+										<label for="tl_product_prize">Precio</label>
+										<input type="text" class="form-control w-bg" id="tl_product_prize" placeholder="Precio" name="price">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12">
+										<h3 class="widget-header user">Tags</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="tf_tag"></label>
+											<input type="text" class="form-control w-bg" name="tags" id="tf_tag" placeholder="Añadir Tag" multiple>
+										</div>
+									</div>
+									<a class="btn btn-transparent" id="btn_add_tag" onclick="add_product_tag()">+</a>
+								</div>
+								<div class="row col-md-12" id="div_tags">
+
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<h3 class="widget-header user">Añadir imágenes</h3>
+								<div class="row" id="images_row" style="align-content: center">
+									<p>
+										<input id="file_input" style="margin: 2cm" type="file" name="files" multiple="multiple"/>
+									</p>
+								</div>
+								<div class="row col-md-12" id="div_imgs">
+
+								</div>
+							</div>
+						</div>
+						<div class="content">
+							<ul class="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
+								<li class="nav-item">
+									<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Informacion General</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Especificaciones</a>
+								</li>
+							</ul>
+							<div class="tab-content" id="pills-tabContent">
+								<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+									<h3 class="tab-title">Descripcion de Producto</h3>
+									<div class="row">
+										<div class="form-group col-md-12">
+											<textarea class="form-control tl_desc" name="description"></textarea>
+										</div>
+									</div>
+								</div>
+								<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+									<h3 class="tab-title">Especificaciones del producto</h3>
+									<div class="row">
+										<div class="col-md-2">
+											<a class="btn btn-transparent table-btn" onclick="delete_table_row()">-</a>
+											<a class="btn btn-transparent table-btn" onclick="add_table_row()">+</a>
+										</div>
+									</div>
+									<table class="table table-bordered product-table">
+									  <tbody id="specification_table">
+									  </tbody>
+									</table>
+								</div>								
+							</div>
+						</div>
+						<div class="row pull-right" style="margin-top:20px">
+							<div class="col-md-12 ">
+									<button class="btn btn-main" onclick="add_product()">Añadir</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>					
+		</div>
+	</div>
+	<!-- Container End -->
+</section>
