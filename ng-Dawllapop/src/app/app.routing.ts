@@ -10,12 +10,8 @@ const appRoutes = [
     { path: 'singleProduct/:id', component: SingleProductComponent },
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'category', component: CategoryComponent },
-<<<<<<< HEAD
     { path: 'category/:id', component: CategoryComponent },
-    { path: 'addProduct', component: AddProductComponent}
-=======
     { path: 'addProduct', component: AddProductComponent},
     { path: 'dashboard', component: DashboardComponent}
->>>>>>> origin/master
 ]
 export const routing = RouterModule.forRoot(appRoutes);
