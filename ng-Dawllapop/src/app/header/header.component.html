@@ -14,11 +14,11 @@
                   <li class="nav-item dropdown dropdown-slide">
                     <a [routerLink]="['/category']" class="nav-link dropdown-toggle"> Categorias <span> <i class="fa fa-angle-down"></i></span></a>             
                     <div class="dropdown-menu dropdown-menu-right">
-                      <a class="dropdown-item">Electronica e Informatica</a> 
-                      <a class="dropdown-item">Inmobiliaria</a>
-                      <a class="dropdown-item">Deportes y Ocio</a>
-                      <a class="dropdown-item">Consolas y Videojuegos</a> 
-                      <a class="dropdown-item">Moda</a>
+                      <a [routerLink]="['/category/', 1]" class="dropdown-item">Electronica e Informatica</a> 
+                      <a [routerLink]="['/category/', 2]" class="dropdown-item">Inmobiliaria</a>
+                      <a [routerLink]="['/category/', 3]" class="dropdown-item">Deportes y Ocio</a>
+                      <a [routerLink]="['/category/', 4]" class="dropdown-item">Consolas y Videojuegos</a> 
+                      <a [routerLink]="['/category/', 5]" class="dropdown-item">Moda</a>
                     </div>
                   </li> 
                 </ul>  

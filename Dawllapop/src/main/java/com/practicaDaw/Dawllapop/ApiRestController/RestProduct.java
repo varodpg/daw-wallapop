@@ -146,6 +146,7 @@ public class RestProduct {
 			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
     @JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/category/{id}", method = RequestMethod.GET)
 	public ResponseEntity<List<Product>> getIndexProductsByCategory(@PageableDefault(size = 10) Pageable page , @PathVariable long id) {
