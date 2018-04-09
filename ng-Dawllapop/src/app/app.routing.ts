@@ -10,7 +10,7 @@ const appRoutes = [
     { path: 'singleProduct/:id', component: SingleProductComponent },
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'category', component: CategoryComponent },
-    { path: 'category/:id', component: CategoryComponent },
+    { path: 'category/:id', component: CategoryComponent},
     { path: 'addProduct', component: AddProductComponent},
     { path: 'dashboard', component: DashboardComponent}
 ]

@@ -15,27 +15,27 @@
 							<ul class="category-list">
 								<li>
 									<a [routerLink]="['/category/', 1]">Electrónica e Informática
-										<span>{{num1}}</span>
+										<span>{{number_of_1}}</span>
 									</a>
 								</li>
 								<li>
 									<a [routerLink]="['/category/', 2]">Inmobiliaria
-										<span>{{num2}}</span>
+										<span>{{number_of_2}}</span>
 									</a>
 								</li>
 								<li>
 									<a [routerLink]="['/category/', 3]">Deportes y Ocio
-										<span>{{num3}}</span>
+										<span>{{number_of_3}}</span>
 									</a>
 								</li>
 								<li>
 									<a [routerLink]="['/category/', 4]">Consolas y Videojuegos
-										<span>{{num4}}</span>
+										<span>{{number_of_4}}</span>
 									</a>
 								</li>
 								<li>
 									<a [routerLink]="['/category/', 5]">Moda
-										<span>{{num5}}</span>
+										<span>{{number_of_5}}</span>
 									</a>
 								</li>
 							</ul>
@@ -73,7 +73,7 @@
 									<div class="card">
 										<div class="thumb-content">
 											<a href="p{{id}}">
-												<img class="card-img-top img-fluid" src="/imgs/{{mainimage}}" alt="Card image cap">
+												<img class="card-img-top img-fluid" src="{{URLimages}}{{product.mainimage}}" alt="Card image cap">
 											</a>
 										</div>
 										<div class="card-body">
@@ -109,7 +109,7 @@
 							<ul class="pagination">
 									
 										<!--{{#morePages}}-->
-										<a class="page-link" id="showMore">Mostrar más</a>
+										<a (click)="loadMoreItems()" class="page-link" id="showMore">Mostrar más</a>
 										<!--{{/morePages}}-->
 
 										

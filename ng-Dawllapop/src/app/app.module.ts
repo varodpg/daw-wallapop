@@ -2,11 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
-
-
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
+import { HttpModule } from '@angular/http';
+import { JsonpModule } from '@angular/http';
 
 import { routing } from './app.routing';
 import { IndexComponent } from './index/index.component';
@@ -32,6 +32,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BrowserModule,
     NgbModule.forRoot(),
     routing,
+    HttpModule,
+    JsonpModule,
     HttpClientModule,
     FormsModule
   ],
