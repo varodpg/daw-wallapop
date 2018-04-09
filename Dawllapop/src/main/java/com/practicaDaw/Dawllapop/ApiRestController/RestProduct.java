@@ -55,10 +55,10 @@ public class RestProduct {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@JsonView(Product.BasicInformation.class)
+	//@JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Product> getProduct(@PathVariable long id) {
-		Product product = pRepository.getOne(id);
+		Product product = pRepository.findOne(id);
 		if (product != null) {
 			return new ResponseEntity<>(product, HttpStatus.OK);
 		} else {

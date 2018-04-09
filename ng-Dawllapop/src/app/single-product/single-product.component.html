@@ -12,10 +12,10 @@
 					</div>
 					<div id="images">												
 						<div>
-							<button style="margin: 10px">Ver todas las imágenes</button>
+							<button style="margin: 10px" (click)="openModalLg(images)">Ver todas las imágenes</button>
 						</div>												
 						<div>
-							<img style="width:100%; margin-top: 20px">
+							<img style="width:100%; margin-top: 20px" src="{{images_url}}/{{product.mainimage}}">
 						</div>													
 					</div>
 					<div class="content">						
@@ -42,16 +42,19 @@
 			</div>
 			<div class="col-md-4">
 				<div class="sidebar">
-					<div class="widget price text-center">
+					<div class="widget price text-center" *ngIf="product">
 						<h4>Precio</h4>
+						<p>{{product.price}}</p>
 					</div>
-					<div class="widget user">
-						<img class="rounded" src="" alt="" width="100%" >
+					<div class="widget user" *ngIf="user">
+						<img class="rounded" src="" alt="" width="100%">
 						<br>
-						<h4 align="center"></h4>
+						<h4 align="center">
+							<a style="cursor: pointer">{{user.name}}</a>
+						</h4>
 						<ul class="list-inline mt-20">
 							<li class="list-inline-item">
-								<a class="btn btn-contact">Contacto</a>
+								<a class="btn btn-contact" (click)="openModal(contact)">Contacto</a>
 							</li>
 						</ul>
 					</div>
@@ -60,3 +63,36 @@
 		</div>
 	</div>	
 </section>
+
+<ng-template #contact let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">Informacion de contacto</h4>
+		<button type="button" class="close" aria-label="Close">
+			<span aria-hidden="true" (click)="c()">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<p>Correo: {{user.email}}</p>
+		<p>Teléfono: {{user.phone}}</p>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+	</div>
+</ng-template>
+
+<ng-template #images let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">Informacion de contacto</h4>
+		<button type="button" class="close" aria-label="Close">
+			<span aria-hidden="true" (click)="c()">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body" *ngIf="product">
+		<div class="row" *ngFor="let image of product.images">
+			<img style="width:100%" src="{{images_url}}/{{image}}">
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+	</div>
+</ng-template>
