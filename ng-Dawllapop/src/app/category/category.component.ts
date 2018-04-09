@@ -76,27 +76,26 @@ export class CategoryComponent implements OnInit {
 
  ngOnInit() {
   
-    console.log("HOLA");
-        this.productService.getCategoryProducts(1).subscribe(response => {      
-          this.number_of_1=response.length;
+        this.productService.getCategoryNumberProducts(1).subscribe(response => {      
+          this.number_of_1=response;
          }); 
          
-         this.productService.getCategoryProducts(2).subscribe(response => {      
-          this.number_of_2=response.length;
+         this.productService.getCategoryNumberProducts(2).subscribe(response => {      
+          this.number_of_2=response;
          }); 
 
-         this.productService.getCategoryProducts(3).subscribe(response => {      
-          this.number_of_3=response.length;
-
-         }); 
-
-         this.productService.getCategoryProducts(4).subscribe(response => {      
-          this.number_of_4=response.length;
+         this.productService.getCategoryNumberProducts(3).subscribe(response => {      
+          this.number_of_3=response;
 
          }); 
 
-         this.productService.getCategoryProducts(5).subscribe(response => {      
-          this.number_of_5=response.length;
+         this.productService.getCategoryNumberProducts(4).subscribe(response => {      
+          this.number_of_4=response;
+
+         }); 
+
+         this.productService.getCategoryNumberProducts(5).subscribe(response => {      
+          this.number_of_5=response;
          }); 
   }
 

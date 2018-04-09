@@ -168,6 +168,22 @@ public class RestProduct {
 		}
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
+    @JsonView(Product.BasicInformation.class)
+	@RequestMapping(value = "/api/products/category/{id}/total", method = RequestMethod.GET)
+	public long getNumberOfIndexProductsByCategory(@PathVariable long id) {
+		Category category = categoryRepo.getOne(id);
+		if (category != null) {
+			
+			long numberOfProducts = productServices.getNumberOfProductsByCat(category);
+
+			return numberOfProducts;
+		
+		} else {
+			return 0;
+		}
+	}
+	
     @CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/products/", method = RequestMethod.GET)
 	public ResponseEntity< Page<Product> > getIndexItems(@PageableDefault(size = 10) Pageable page) {
