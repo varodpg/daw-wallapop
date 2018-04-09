@@ -10,9 +10,12 @@ import { ProductService } from '../service/product.service';
 export class AddProductComponent implements OnInit {
 
 	private product: Product;
+	private added = false;
 
 	addProduct(){
-		this.productService.addProduct(this.product);
+		this.productService.addProduct(this.product).subscribe(
+			result => this.added = true
+		);
 		
 	}
 
