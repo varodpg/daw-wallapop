@@ -4,8 +4,8 @@
 		<div class="row">
 			<!-- Left sidebar -->
 			<div class="col-md-12 ">
-				<div class="product-details">
-					<form action="add-new-product" method="post" enctype="multipart/form-data" id="form_add_product">
+				<div class="product-details" >
+					
 						<div class="row">
 							<div class="col-md-12">
 								<h1 class="widget-header user">Añadir producto</h1>
@@ -20,15 +20,15 @@
 								</div>
 								<div class="row">
 									<div class="form-group col-md-8">
-										<label for="ft_product_name">Nombre producto</label>
-										<input type="text" class="form-control w-bg" id="ft_product_name" placeholder="Nombre" name="name">
+										<label>Nombre producto</label>
+										<input [(ngModel)]="product.name" type="text" class="form-control w-bg" placeholder="Nombre">
 									</div>
 									<div class="form-group col-md-4">
 										<div class="row col-md-12">
 												<label for="fs_product_category">Categoría producto</label>
 										</div>
 										<div class="row col-md-12">
-											<select class="selectpicker" id="fs_product_category" name="category">
+											<select [(ngModel)]="product.category" class="selectpicker" id="fs_product_category" >
 												<option selected disabled>Categoria</option>
 												<option value="informatica">Informática y Electrónica</option>
 												<option value="inmobiliaria">Inmobiliaria</option>
@@ -42,7 +42,7 @@
 								<div class="row">
 									<div class="col-md-4 form-group">
 										<label for="tl_product_prize">Precio</label>
-										<input type="text" class="form-control w-bg" id="tl_product_prize" placeholder="Precio" name="price">
+										<input  [(ngModel)]="product.price" type="text" class="form-control w-bg" placeholder="Precio">
 									</div>
 								</div>
 							</div>
@@ -57,7 +57,7 @@
 								<h3 class="widget-header user">Añadir imágenes</h3>
 								<div class="row" id="images_row" style="align-content: center">
 									<p>
-										<input id="file_input" style="margin: 2cm" type="file" name="files" multiple="multiple"/>
+										<input [(ngModel)]="product.files"  style="margin: 2cm" type="file" multiple="multiple"/>
 									</p>
 								</div>
 								<div class="row col-md-12" id="div_imgs">
@@ -79,7 +79,7 @@
 									<h3 class="tab-title">Descripcion de Producto</h3>
 									<div class="row">
 										<div class="form-group col-md-12">
-											<textarea class="form-control tl_desc" name="description"></textarea>
+											<textarea [(ngModel)]="product.description" class="form-control tl_desc"></textarea>
 										</div>
 									</div>
 								</div>
@@ -100,10 +100,10 @@
 						</div>
 						<div class="row pull-right" style="margin-top:20px">
 							<div class="col-md-12 ">
-									<button class="btn btn-main" onclick="add_product()">Añadir</button>
+								<button [routerLink]="['/index']" (click)="addProduct()">Añadir</button>								
 							</div>
 						</div>
-					</form>
+
 				</div>
 			</div>					
 		</div>

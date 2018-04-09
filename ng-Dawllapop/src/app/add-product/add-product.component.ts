@@ -9,14 +9,20 @@ import { ProductService } from '../service/product.service';
 })
 export class AddProductComponent implements OnInit {
 
-  addProduct(product: Product){
-    this.productService.addProduct(product);
-  }
+	private product: Product;
 
-  constructor(private productService: ProductService) { }
+	addProduct(){
+		this.productService.addProduct(this.product);
+		
+	}
 
-  ngOnInit() {
-  }
+	constructor(private productService: ProductService) { }
+
+	ngOnInit() {
+		this.product=new Product();
+
+	}
+
+
 
 }
-
