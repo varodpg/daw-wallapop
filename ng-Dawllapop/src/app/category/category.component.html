@@ -1,128 +1,123 @@
 <section class="section-sm" style="padding: 70px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="search-result bg-gray">
-						<h2>Estos son los Resultados para la categoria seleccionada</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-3">
-					<div class="category-sidebar">
-						<div class="widget category-list">
-							<h4 class="widget-header">Todas las categorias</h4>
-							<ul class="category-list">
-								<li>
-									<a [routerLink]="['/category/', 1]">Electrónica e Informática
-										<span>{{number_of_1}}</span>
-									</a>
-								</li>
-								<li>
-									<a [routerLink]="['/category/', 2]">Inmobiliaria
-										<span>{{number_of_2}}</span>
-									</a>
-								</li>
-								<li>
-									<a [routerLink]="['/category/', 3]">Deportes y Ocio
-										<span>{{number_of_3}}</span>
-									</a>
-								</li>
-								<li>
-									<a [routerLink]="['/category/', 4]">Consolas y Videojuegos
-										<span>{{number_of_4}}</span>
-									</a>
-								</li>
-								<li>
-									<a [routerLink]="['/category/', 5]">Moda
-										<span>{{number_of_5}}</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<form action="/category/filter/{{cat_id}}" method="POST">
-						<div class="widget filter">
-							<div class="widget product-shorting">
-								<h4 class="widget-header">Estado</h4>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" id="product_new" name="product_new" value="new"> Nuevo
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" id="product_not_new" name="product_not_new" value="not_new"> Seminuevo
-									</label>
-								</div>
-							</div>
-								<div class="form-check" style="align-content: center;">
-									<label class="form-check-label">
-										<button type="submit" class="btn btn-primary">Filtrar</button>
-									</label>
-								</div>			
-					    </div>
-					    </form>
-					</div>
-				</div>
-				<div class="col-md-9">
-					<div class="product-grid-list">
-						<div id="productsList" class="row mt-30" >
-                            <!-- BEGINING PRODUCT -->
-							<div class="col-sm-12 col-lg-4 col-md-6" *ngFor="let product of products">
-								<div class="product-item bg-light">
-									<div class="card">
-										<div class="thumb-content">
-											<a href="p{{id}}">
-												<img class="card-img-top img-fluid" src="{{URLimages}}{{product.mainimage}}" alt="Card image cap">
-											</a>
-										</div>
-										<div class="card-body">
-											<h4 class="card-title">
-												<a href="p{{id}}">{{product.name}}</a>
-											</h4>
-											<ul class="list-inline product-meta">
-												<li class="list-inline-item">
-														<i class="fa fa-calendar"></i>
-												</li>
-												<li class="list-inline-item">
-														<i class="fa fa-thumbs-up"></i>Estado: {{product.state}}
-												</li>
-												<li class="list-inline-item">
-														<i class="fa fa-eur"></i>Precio: {{product.price}}
-												</li>
-											</ul>
-											<p class="card-text">{{product.description}}</p>
-				
-										</div>
-									</div>
-								</div>
-							  </div>
-                            <!-- {{/products}}-->
-                            
-                            <!-- END OF THE PRODUCT-->
-				        </div>
-					</div>
-				</div>
-				<div class="col-md-12">
-					<div class="pagination justify-content-center">
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-									
-										<!--{{#morePages}}-->
-										<a (click)="loadMoreItems()" class="page-link" id="showMore">Mostrar más</a>
-										<!--{{/morePages}}-->
-
-										
-										
-
-
-									<div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;">
-									<img src='/images/demo_wait.gif' width="64" height="64" />
-									<br>Cargando productos..</div>
-							</ul>
-						</nav>
-					</div><br><br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="search-result bg-gray">
+					<h2>Estos son los Resultados para la categoria seleccionada</h2>
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="category-sidebar">
+					<div class="widget category-list">
+						<h4 class="widget-header">Todas las categorias</h4>
+						<ul class="category-list">
+							<li>
+								<a [routerLink]="['/category/', 1]">Electrónica e Informática
+									<span>{{number_of_1}}</span>
+								</a>
+							</li>
+							<li>
+								<a [routerLink]="['/category/', 2]">Inmobiliaria
+									<span>{{number_of_2}}</span>
+								</a>
+							</li>
+							<li>
+								<a [routerLink]="['/category/', 3]">Deportes y Ocio
+									<span>{{number_of_3}}</span>
+								</a>
+							</li>
+							<li>
+								<a [routerLink]="['/category/', 4]">Consolas y Videojuegos
+									<span>{{number_of_4}}</span>
+								</a>
+							</li>
+							<li>
+								<a [routerLink]="['/category/', 5]">Moda
+									<span>{{number_of_5}}</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<form>
+					<div class="widget filter">
+						<div class="widget product-shorting">
+							<h4 class="widget-header">Estado</h4>
+							<div class="form-check">
+								<label class="form-check-label">
+											<input [(ngModel)]="checkboxNew" (change)="filt()" type="checkbox" name="new"> Nuevo
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input [(ngModel)]="checkboxNotNew" (change)="filt()" type="checkbox" name="notnew"> Seminuevo
+								</label>
+							</div>
+						</div>		
+					</div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="product-grid-list">
+					<div id="productsList" class="row mt-30" >
+						<!-- BEGINING PRODUCT -->
+						<div class="col-sm-12 col-lg-4 col-md-6" *ngFor="let product of products">
+							<div class="product-item bg-light">
+								<div class="card">
+									<div class="thumb-content">
+										<a [routerLink]="['/singleProduct', product.id]">
+											<img class="card-img-top img-fluid" src="{{URLimages}}{{product.mainimage}}" alt="Card image cap">
+										</a>
+									</div>
+									<div class="card-body">
+										<h4 class="card-title">
+												<a [routerLink]="['/singleProduct', product.id]">{{product.name}}</a>
+										</h4>
+										<ul class="list-inline product-meta">
+											<li class="list-inline-item">
+													<i class="fa fa-calendar"></i> Fecha: {{product.date | date }}
+											</li>
+											<li class="list-inline-item">
+													<i class="fa fa-thumbs-up"></i>Estado: {{product.state}}
+											</li>
+											<li class="list-inline-item">
+													<i class="fa fa-eur"></i>Precio: {{product.price}}
+											</li>
+										</ul>
+										<p class="card-text">{{product.description}}</p>
+			
+									</div>
+								</div>
+							</div>
+						  </div>
+						<!-- {{/products}}-->
+						
+						<!-- END OF THE PRODUCT-->
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="pagination justify-content-center">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+								
+									<!--{{#morePages}}-->
+									<a *ngIf="morePages" (click)="loadMoreItems()" class="page-link" id="showMore">Mostrar más</a>
+									<!--{{/morePages}}-->
+
+									
+									
+
+
+								<div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;">
+								<img src='/images/demo_wait.gif' width="64" height="64" />
+								<br>Cargando productos..</div>
+						</ul>
+					</nav>
+				</div><br><br>
+			</div>
+		</div>
+	</div>
 </section>
