@@ -6,6 +6,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { PublicDashboardComponent } from './public-dashboard/public-dashboard.component';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes = [
     { path: 'index', component: IndexComponent},
@@ -16,6 +17,7 @@ const appRoutes = [
     { path: 'addProduct', component: AddProductComponent},
     { path: 'dashboard', component: DashboardComponent},
     { path: 'login', component: LoginComponent},
-    { path: 'publicDashboard/:id', component: PublicDashboardComponent }
+    { path: 'publicDashboard/:id', component: PublicDashboardComponent },
+    { path: 'search/:string', component: SearchComponent}
 ]
 export const routing = RouterModule.forRoot(appRoutes);
