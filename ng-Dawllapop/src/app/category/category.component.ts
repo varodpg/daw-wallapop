@@ -33,8 +33,13 @@ export class CategoryComponent implements OnInit {
   morePages: boolean;
   count: number;
 
-  constructor(@Inject(DOCUMENT) private document: any, private http: Http, private router: Router, private productService: ProductService, activatedRoute: ActivatedRoute) { 
-    this.id = activatedRoute.snapshot.params['id'];
+  constructor(@Inject(DOCUMENT) private document: any, private http: Http, private router: Router, private productService: ProductService, private activatedRoute: ActivatedRoute) {     
+    this.loadVariables();
+    this.showProductsAndReload();
+  }
+
+  public loadVariables(){
+    this.id = this.activatedRoute.snapshot.params['id'];
     this.domain=this.document.location.hostname;
     this.URLimages="https://"+this.domain+":8443/imgs/";
     this.page=1;
@@ -46,8 +51,6 @@ export class CategoryComponent implements OnInit {
 
     console.log(this.URLimages);
     console.log(this.id);
-    
-    this.showProductsAndReload();
   }
 
   public showProductsAndReload(){
@@ -110,12 +113,25 @@ export class CategoryComponent implements OnInit {
       error => console.error(error)
     );
     this.page=this.page+1;
+    //reset counter to another 10 elements more or not
+    this.count=0;
 
   }
 
 
 
  ngOnInit() {
+
+  this.activatedRoute.params.subscribe(params => {
+    
+    //The page will not refresh clicking on subcategories, cause that's how the Router works.. without refreshing the page!
+    //solution: subscribe to the parameters and call some functions
+
+    this.id = params['id']; // (+) converts string 'id' to a number
+    this.loadVariables();
+    this.showProductsAndReload();
+    console.log(this.id);
+  });
 
         this.productService.getCategoryNumberProducts(1).subscribe(response => {      
           this.number_of_1=response;
