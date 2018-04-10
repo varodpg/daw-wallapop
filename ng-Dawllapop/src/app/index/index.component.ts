@@ -11,6 +11,7 @@ import { Product } from '../model/product.model';
 export class IndexComponent implements OnInit {
   
   products: Product[];
+  private search: string;
 
   constructor(private router: Router, private productService: ProductService) { }
 
@@ -19,7 +20,6 @@ export class IndexComponent implements OnInit {
       this.products = [];
       data['content'].forEach(element => {        
         this.products.push(element);
-        console.log(element);    
       });
       
     });        

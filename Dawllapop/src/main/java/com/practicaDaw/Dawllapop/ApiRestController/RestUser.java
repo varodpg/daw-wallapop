@@ -1,6 +1,8 @@
 package com.practicaDaw.Dawllapop.ApiRestController;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +20,13 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.Entities.User;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
 import com.practicaDaw.Dawllapop.security.UserComponent;
+import com.practicaDaw.Dawllapop.services.UserServices;
 
 @RestController
 public class RestUser {
 	@Autowired UserRepository userRepository;
 	@Autowired UserComponent userComponent;
+	@Autowired UserServices userService;
 
 	
 	@RequestMapping (value="/api/users", method = RequestMethod.POST)
@@ -121,6 +125,18 @@ public class RestUser {
 		User user = userRepository.findById(id);
 		if(user != null) {
 			return new ResponseEntity<>(user, HttpStatus.OK);
+		} else{
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@JsonView(User.BasicInformation.class)
+	@RequestMapping(value = "/api/users/search/{search}", method = RequestMethod.GET)
+	public ResponseEntity<List<User>> searchUsers(@PathVariable String search){
+		List<User> users = userService.searchUsers(search);
+		if(!users.isEmpty()) {
+			return new ResponseEntity<>(users, HttpStatus.OK);
 		} else{
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}

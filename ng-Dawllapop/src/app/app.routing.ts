@@ -18,6 +18,6 @@ const appRoutes = [
     { path: 'dashboard', component: DashboardComponent},
     { path: 'login', component: LoginComponent},
     { path: 'publicDashboard/:id', component: PublicDashboardComponent },
-    { path: 'search/:string', component: SearchComponent}
+    { path: 'search/:search', component: SearchComponent}
 ]
 export const routing = RouterModule.forRoot(appRoutes);
