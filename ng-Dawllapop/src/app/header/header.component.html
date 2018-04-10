@@ -23,7 +23,7 @@
                   </li> 
                 </ul>  
                 <ul class="navbar-nav ml-auto mt-10">
-                  <li class="nav-item"><a class="nav-link login-button" (click)="open(loginModal)">Iniciar Sesion</a></li>
+                  <li class="nav-item"><a class="btn btn-lg btn-outline-primary" (click)="open(content)">Iniciar Sesion</a></li>
                 </ul>
               </div>              
           </nav>        
@@ -31,56 +31,3 @@
     </div>  
   </div>
 </section>
-<ng-template #loginModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-      <h4 class="modal-title">Informacion de usuario</h4>
-      <button type="button" class="close" aria-label="Close">
-          <span aria-hidden="true" (click)="c()">&times;</span>
-      </button>
-  </div>
-  <div class="modal-body">
-    <div class="row justify-content-md-center login-img">
-      <div class="col-12 col-md-auto">
-        <img src="images/logoNuevo.png">
-      </div>
-    </div>
-      <div class="form-group-login">
-        <div class="row justify-content-md-center">
-          <div class="col-12 col-md-auto input-group input-group-login">
-            <span class="input-group-addon" id="sizing-addon2"><i
-              class="fa fa-user"></i></span> <input type="text"
-              class="form-control tf-login" placeholder="Usuario"
-              aria-describedby="sizing-addon2" name="username">
-          </div>
-        </div>
-        <div class="row justify-content-md-center"
-          style="margin-top: 20px">
-          <div class="col-12 col-md-auto input-group input-group-login">
-            <span class="input-group-addon" id="sizing-addon2"><i
-              class="fa fa-lock"></i></span> <input type="password"
-              class="form-control tf-login" placeholder="Contraseña"
-              aria-describedby="sizing-addon2" name="password">
-          </div>
-        </div>
-        <div class="row justify-content-md-center">
-          <div class="col-12 col-md-auto btn-enter-div">
-            <input type="submit" value="Entrar"
-              class="btn btn-main btn-enter" /><br /> <input type="hidden"
-              name="_csrf" />
-          </div>
-        </div>
-        <div class="row justify-content-md-center login-footer"
-          style="margin-top: 50px">
-          <div class="col-12 col-md-auto btn-enter-div">
-            <p>
-              ¿Todavía no tienes una cuenta? <span class="join_text"
-                onclick="open_signup()">Regístrate</span>
-            </p>
-          </div>
-        </div>
-      </div>
-  </div>
-  <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
-  </div>
-</ng-template>
