@@ -170,6 +170,26 @@ public class RestProduct {
 	
 	@CrossOrigin(origins = "http://localhost:4200")
     @JsonView(Product.BasicInformation.class)
+	@RequestMapping(value = "/api/products/category/filter/{id}/{state1}/{state2}", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> getIndexProductsByCategoryNewNotNew(@PageableDefault(size = 10) Pageable page , @PathVariable long id, @PathVariable String state1, @PathVariable String state2) {
+		Category category = categoryRepo.getOne(id);
+		
+		if (category != null) {
+
+			Page<Product> productsPage = productServices.getAllbyCatAndFilter2("0", "1000000", state1, state2, category, page);
+			List<Product> products = productsPage.getContent();
+
+			System.out.println(products);
+			
+			return new ResponseEntity<List<Product>>(products, HttpStatus.OK);
+			
+		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+    @JsonView(Product.BasicInformation.class)
 	@RequestMapping(value = "/api/products/category/{id}/total", method = RequestMethod.GET)
 	public long getNumberOfIndexProductsByCategory(@PathVariable long id) {
 		Category category = categoryRepo.getOne(id);

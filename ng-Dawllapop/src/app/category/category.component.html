@@ -40,24 +40,24 @@
 								</li>
 							</ul>
 						</div>
-						<form action="/category/filter/{{cat_id}}" method="POST">
+						<form>
 						<div class="widget filter">
 							<div class="widget product-shorting">
 								<h4 class="widget-header">Estado</h4>
 								<div class="form-check">
 									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" id="product_new" name="product_new" value="new"> Nuevo
+												<input [(ngModel)]="checkboxNew" (change)="filt()" type="checkbox" name="new"> Nuevo
 									</label>
 								</div>
 								<div class="form-check">
 									<label class="form-check-label">
-										<input class="form-check-input" type="checkbox" id="product_not_new" name="product_not_new" value="not_new"> Seminuevo
+										<input [(ngModel)]="checkboxNotNew" (change)="filt()" type="checkbox" name="notnew"> Seminuevo
 									</label>
 								</div>
 							</div>
 								<div class="form-check" style="align-content: center;">
 									<label class="form-check-label">
-										<button type="submit" class="btn btn-primary">Filtrar</button>
+										<button (click)="filt()" class="btn btn-primary">Filtrar</button>
 									</label>
 								</div>			
 					    </div>
@@ -72,17 +72,17 @@
 								<div class="product-item bg-light">
 									<div class="card">
 										<div class="thumb-content">
-											<a href="p{{id}}">
+											<a [routerLink]="['/singleProduct', product.id]">
 												<img class="card-img-top img-fluid" src="{{URLimages}}{{product.mainimage}}" alt="Card image cap">
 											</a>
 										</div>
 										<div class="card-body">
 											<h4 class="card-title">
-												<a href="p{{id}}">{{product.name}}</a>
+													<a [routerLink]="['/singleProduct', product.id]">{{product.name}}</a>
 											</h4>
 											<ul class="list-inline product-meta">
 												<li class="list-inline-item">
-														<i class="fa fa-calendar"></i>
+														<i class="fa fa-calendar"></i> Fecha: {{product.date | date }}
 												</li>
 												<li class="list-inline-item">
 														<i class="fa fa-thumbs-up"></i>Estado: {{product.state}}
