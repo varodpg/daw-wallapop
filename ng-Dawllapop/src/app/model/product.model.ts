@@ -4,7 +4,8 @@ export class Product {
     description: string;
     specifications: string[][];
     tags: string[];
-    price: number;	
+    price: number;
+    category: string;	
 }
 
 export class User {
