@@ -104,7 +104,7 @@ public class RestProduct {
 
 			if (product != null) {
 
-				product.setId(idUser);
+				product.setId(idProduct);
 
 				if ((productUpdate.getName()) != null) {
 					product.setName(productUpdate.getName());

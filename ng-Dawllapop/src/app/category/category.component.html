@@ -109,7 +109,7 @@
 							<ul class="pagination">
 									
 										<!--{{#morePages}}-->
-										<a (click)="loadMoreItems()" class="page-link" id="showMore">Mostrar más</a>
+										<a *ngIf="morePages" (click)="loadMoreItems()" class="page-link" id="showMore">Mostrar más</a>
 										<!--{{/morePages}}-->
 
 										

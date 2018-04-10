@@ -30,12 +30,16 @@ export class CategoryComponent implements OnInit {
   checkboxNotNew:boolean;
   new: string;
   not_new: string;
+  morePages: boolean;
+  count: number;
 
   constructor(@Inject(DOCUMENT) private document: any, private http: Http, private router: Router, private productService: ProductService, activatedRoute: ActivatedRoute) { 
     this.id = activatedRoute.snapshot.params['id'];
     this.domain=this.document.location.hostname;
     this.URLimages="https://"+this.domain+":8443/imgs/";
     this.page=1;
+    this.morePages=true;
+    this.count=0;
 
     this.new="new";
     this.not_new="not_new";
@@ -92,20 +96,27 @@ export class CategoryComponent implements OnInit {
 
         data.forEach(element => {
           this.products.push(element);
+          this.count=this.count+1;
         });
-
+        
+        //If after clicking more pages (load page 1) there are more than 10 elementes: another page exists -> show MorePages
+        if(this.count>10){
+          this.morePages=true;
+        }else{
+          this.morePages=false;
+        }
+        
       },
       error => console.error(error)
     );
     this.page=this.page+1;
-    console.log("asdasda");
 
   }
 
 
 
  ngOnInit() {
-  
+
         this.productService.getCategoryNumberProducts(1).subscribe(response => {      
           this.number_of_1=response;
          }); 
