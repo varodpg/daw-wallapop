@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { Product } from "../model/product.model";
+import { User } from "../model/product.model";
 import { HttpClient } from "@angular/common/http";
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 const LAST_PRODUCTS_URL = "https://localhost:8443/api/products/"
 const GET_SINGLE_PRODUCT_URL = "https://localhost:8443/api/products/"
 const ADD_PRODUCT_URL = "https://localhost:8443/api/products/"
 const GET_CATEGORY_PRODUCTS = "https://localhost:8443/api/products/category/"
-const GET_CATEGORY_PRODUCTS_TOTAL = "https://localhost:8443/api/products/category/"
-
+const EDIT_PRODUCT = "https://localhost:8443/api/products/"
 
 @Injectable()
 export class ProductService {
@@ -28,7 +29,12 @@ export class ProductService {
         return this.http.get<Product[]>(GET_CATEGORY_PRODUCTS + id);		
     }
 
-    getCategoryNumberProducts(id: number | string){
-        return this.http.get<number>(GET_CATEGORY_PRODUCTS + id + "/total");		
+    saveProduct(user: User, product: Product){
+        const body = JSON.stringify(product);
+
+        if(product.id && user.id){
+            return this.http.put(EDIT_PRODUCT + user.id + "/" + product.id, body);
+        }
+
     }
 }
