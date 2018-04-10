@@ -18,6 +18,10 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { UserService } from './service/user.service';
+import { DashboardService } from './service/dashboard.service';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { PublicDashboardComponent } from './public-dashboard/public-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,8 @@ import { LoginService } from './login/login.service';
     CategoryComponent,
     AddProductComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    PublicDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +43,15 @@ import { LoginService } from './login/login.service';
     HttpModule,
     JsonpModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule
   ],
-  providers: [ProductService, LoginService],
+  providers: [
+    ProductService, 
+    LoginService,
+    UserService,
+    DashboardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
