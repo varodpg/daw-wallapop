@@ -4,6 +4,7 @@ import { SingleProductComponent } from './single-product/single-product.componen
 import { CategoryComponent } from './category/category.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes = [
     { path: 'index', component: IndexComponent},
@@ -12,6 +13,7 @@ const appRoutes = [
     { path: 'category', component: CategoryComponent },
     { path: 'category/:id', component: CategoryComponent},
     { path: 'addProduct', component: AddProductComponent},
-    { path: 'dashboard', component: DashboardComponent}
+    { path: 'dashboard', component: DashboardComponent},
+    { path: 'login', component: LoginComponent}
 ]
 export const routing = RouterModule.forRoot(appRoutes);
