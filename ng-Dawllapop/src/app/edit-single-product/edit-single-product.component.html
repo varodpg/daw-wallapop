@@ -1,3 +1,106 @@
-<p>
-  edit-single-product works!
-</p>
+<section class="section bg-custom">
+	<!-- Container Start -->
+	<div class="container page-content">
+		<div class="row">
+			<!-- Left sidebar -->
+			<div class="col-md-12 ">
+				<div class="product-details" >
+					
+						<div class="row">
+							<div class="col-md-12">
+								<h1 class="widget-header user">Editar Producto</h1>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12">
+										<h3 class="widget-header user">Informacion Principal</h3>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-md-8">
+										<label>Nombre producto</label>
+										<input [(ngModel)]="product.name" type="text" class="form-control w-bg" placeholder="{{product.name}}">
+									</div>
+									<div class="form-group col-md-4">
+										<div class="row col-md-12">
+												<label for="fs_product_category">Categoría producto</label>
+										</div>
+										<div class="row col-md-12">
+											<select [(ngModel)]="product.category" class="selectpicker">
+												<option selected disabled>{{product.category.name}}</option>
+												<option value="informatica">Informática y Electrónica</option>
+												<option value="inmobiliaria">Inmobiliaria</option>
+												<option value="deportes">Deportes y Ocio</option>
+												<option value="videojuegos">Videojuegos</option>
+												<option value="moda">Moda</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4 form-group">
+										<label for="tl_product_prize">Precio</label>
+										<input  [(ngModel)]="product.price" type="text" class="form-control w-bg" placeholder="{{product.price}}">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+							
+							</div>
+						</div>
+						<div class="row">
+
+							<div class="col-md-12">
+                  <div id="images">												
+                      <div>
+                        <button style="margin: 10px" (click)="openModalLg(images)">Ver todas las imágenes</button>
+                      </div>												
+                      <div>
+                        <img style="width:100%; margin-top: 20px" src="{{url_imgs}}/{{product.mainimage}}">
+                      </div>													
+                  </div>
+								<h3 class="widget-header user">Añadir imágenes</h3>
+								<div class="row" id="images_row" style="align-content: center">
+									<p>
+										<input [(ngModel)]="product.files"  style="margin: 2cm" type="file" multiple="multiple"/>
+									</p>
+								</div>
+								<div class="row col-md-12" id="div_imgs">
+                  
+								</div>
+							</div>
+						</div>
+						<div class="content">						
+							<ngb-tabset >
+								<ngb-tab class="tab-pane fade show active" title="Información General">
+									<ng-template ngbTabContent>
+										<h3 class="tab-title">Descripcion de Producto</h3>
+										<textarea [(ngModel)]="product.description" class="form-control tl_desc"></textarea>							
+									</ng-template>								
+								</ngb-tab>
+								<ngb-tab class="tab-pane fade" title="Especificaciones">
+									<ng-template ngbTabContent>
+										<h3 class="tab-title">Especificaciones del producto</h3>
+										
+									</ng-template>
+								</ngb-tab>							
+							</ngb-tabset>
+						</div>
+						<div class="row pull-right" style="margin-top:20px">
+							<div class="col-md-12 ">
+								<button (click)="addProduct()">Aceptar</button>	
+															
+							</div>
+							<ngb-alert *ngIf="added" type="success" (close)="closeAlert(alert)">producto editado correctamente </ngb-alert>
+						</div>
+
+				</div>
+			</div>					
+		</div>
+	</div>
+	<!-- Container End -->
+</section>
