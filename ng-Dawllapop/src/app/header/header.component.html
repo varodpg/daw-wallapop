@@ -23,7 +23,7 @@
                   </li> 
                 </ul>  
                 <ul class="navbar-nav ml-auto mt-10">
-                  <li class="nav-item"><a class="btn btn-lg btn-outline-primary" (click)="open(content)">Iniciar Sesion</a></li>
+                  <li class="nav-item"><a class="nav-link login-button" (click)="open(loginModal)">Iniciar Sesion</a></li>
                 </ul>
               </div>              
           </nav>        
@@ -31,3 +31,136 @@
     </div>  
   </div>
 </section>
+
+<section>
+<ng-template #loginModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+      <h4 class="modal-title">Informacion de usuario</h4>
+      <button type="button" class="close" aria-label="Close">
+          <span aria-hidden="true" (click)="c()">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+    <div class="row justify-content-md-center login-img">
+      <div class="col-12 col-md-auto">
+        <img src="images/logoNuevo.png">
+      </div>
+    </div>
+      <div class="form-group-login">
+        <div class="row justify-content-md-center">
+          <div class="col-12 col-md-auto input-group input-group-login">
+            <span class="input-group-addon" id="sizing-addon2"><i
+              class="fa fa-user"></i></span> <input type="text"
+             class="form-control tf-login" placeholder="Usuario"
+              aria-describedby="sizing-addon2" name="username">
+          </div>
+        </div>
+        <div class="row justify-content-md-center"
+          style="margin-top: 20px">
+          <div class="col-12 col-md-auto input-group input-group-login">
+            <span class="input-group-addon" id="sizing-addon2"><i
+              class="fa fa-lock"></i></span> <input type="password"
+              class="form-control tf-login" placeholder="Contraseña"
+              aria-describedby="sizing-addon2" name="password">
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col-12 col-md-auto btn-enter-div">
+            <input type="submit" value="Entrar"
+              class="btn btn-main btn-enter" /><br /> <input type="hidden"
+              name="_csrf" />
+          </div>
+        </div>
+        <div class="row justify-content-md-center login-footer"
+          style="margin-top: 50px">
+          <div class="col-12 col-md-auto btn-enter-div">
+            <p>
+             ¿Todavía no tienes una cuenta? <span class="join_text"
+             (click)="d();open(registerModal)">Regístrate</span>
+            </p>
+         </div>
+        </div>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+  </div>
+</ng-template> 
+</section>
+
+<section>
+  <ng-template #registerModal let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Registro de Usuario</h4>
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true" (click)="c()">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <div class="row justify-content-md-center login-img">
+        <div class="col-12 col-md-auto">
+          <img src="images/logoNuevo.png">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="signup_username">Usuario</label> <input
+          id="signup_username" type="text" class="form-control" name="name">
+      </div>
+      <div class="form-group">
+        <label for="signup_password1">Contraseña</label> <input
+          id="signup_password1" type="password" class="form-control" name="passwordHash">
+      </div>
+      <div class="form-group">
+        <label for="signup_password2">Repita la contraseña</label> <input
+          id="signup_password2" type="password" class="form-control"
+          name="passwordHash">
+      </div>
+      <div class="form-group">
+        <label for="signup_email">Correo Electrónico</label> <input
+          id="signup_email" type="text" class="form-control" name="email">
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <label for="signup_provincia">Provincia</label> <select
+            class="form-control w-bg" id="signup_provincia">
+            <option selected>Provincia</option>
+            <option>Madrid</option>
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="signup_ciudad">Ciudad</label> <select name="location"
+            class="form-control w-bg" id="signup_ciudad">
+            <option selected>Ciudad</option>
+            <option value="Madrid">Madrid</option>
+            <option value="Alcorcon">Alcorcón</option>
+            <option value="Mostoles">Mostoles</option>
+          </select>
+        </div>
+      </div>
+      <div class="row justify-content-md-center login-img">
+        <div class="col-12 col-md-auto add-img-btn"
+          onclick="open_file_browser_profile()" id="signup_img">
+          <span class="add-img-icon">+</span> <br> <span>Imagen
+            de Perfil</span>
+        </div>
+        <input name="file" id="profile_img_input" type="file" style="display: none"
+          onchange="preview_profile_image()">
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-auto btn-enter-div">
+          <div class="row">
+            <div class="col-md-6">
+              <button class="btn btn-transparent btn-enter">Cancelar</button>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-main btn-enter" type="submit">Enviar</button>
+            </div>
+          </div>
+          </div>
+      </div>
+      </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+    </div>
+  </ng-template> 
+  </section>
