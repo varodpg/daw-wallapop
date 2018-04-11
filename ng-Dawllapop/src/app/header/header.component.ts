@@ -1,8 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from '../service/user.service';
 import { User } from '../model/product.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoginService} from '../login/login.service'
+import { LoginComponent} from '../login/login.component'
+
+
 
 @Component({
   selector: 'app-header',

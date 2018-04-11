@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 
@@ -7,16 +7,17 @@ import { LoginService } from './login.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-
+  
+ 
   constructor(private loginService: LoginService) { }
-
   logIn(event: any, user: string, pass: string) {
-
+    
     event.preventDefault();
 
     this.loginService.logIn(user, pass).subscribe(
       u => console.log(u),
       error => alert('Invalid user or password')
+      
     );
   }
 

@@ -1,16 +1,51 @@
-<form *ngIf="!loginService.isLogged" class="navbar-form navbar-right form-inline" role="search">
-
-	<div class="form-group">
-		<input #user type="text" class="form-control" name="username" placeholder="Username">
+<div class="modal-header">
+		<h4 class="modal-title">Informacion de usuario</h4>
+		<button type="button" class="close" aria-label="Close">
+			<span aria-hidden="true" (click)="c()">&times;</span>
+		</button>
 	</div>
-
-	<div class="form-group">
-		<input #pass type="password" class="form-control" name="password" placeholder="Password">
+	<div class="modal-body">
+	  <div class="row justify-content-md-center login-img">
+		<div class="col-12 col-md-auto">
+		  <img src="images/logoNuevo.png">
+		</div>
+	  </div>
+		<div class="form-group-login">
+		  <div class="row justify-content-md-center">
+			<div class="col-12 col-md-auto input-group input-group-login">
+			  <span class="input-group-addon" id="sizing-addon2"><i
+				class="fa fa-user"></i></span> <input #user type="text"
+			   class="form-control tf-login" placeholder="Usuario"
+				aria-describedby="sizing-addon2" name="username">
+			</div>
+		  </div>
+		  <div class="row justify-content-md-center"
+			style="margin-top: 20px">
+			<div class="col-12 col-md-auto input-group input-group-login">
+			  <span class="input-group-addon" id="sizing-addon2"><i
+				class="fa fa-lock"></i></span> <input #pass type="password"
+				class="form-control tf-login" placeholder="Contraseña"
+				aria-describedby="sizing-addon2" name="password">
+			</div>
+		  </div>
+		  <div class="row justify-content-md-center">
+			<div class="col-12 col-md-auto btn-enter-div">
+			  <input type="submit" (click)="logIn($event, user.value, pass.value)"value="Entrar"
+				class="btn btn-main btn-enter" /><br /> <input type="hidden"
+				name="_csrf" (ngSubmit)="loginModal.hide()"/>
+			</div>
+		  </div>
+		  <div class="row justify-content-md-center login-footer"
+			style="margin-top: 50px">
+			<div class="col-12 col-md-auto btn-enter-div">
+			  <p>
+			   ¿Todavía no tienes una cuenta? <span class="join_text"
+			   (click)="d();open(registerModal)">Regístrate</span>
+			  </p>
+		   </div>
+		  </div>
+		</div>
 	</div>
-
-	<button type="submit" (click)="logIn($event, user.value, pass.value)" class="btn btn-default">Sign In</button>
-
-</form>
 
 <div *ngIf="loginService.isLogged" class="nav navbar-nav navbar-right">
 
