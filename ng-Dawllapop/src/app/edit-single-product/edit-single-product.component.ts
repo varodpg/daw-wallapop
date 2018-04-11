@@ -28,7 +28,7 @@ export class EditSingleProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  editProduct(){
+    editProduct(){
     this.router.navigate(['/editProduct',this.user.id,this.product.id]);
   }
 
