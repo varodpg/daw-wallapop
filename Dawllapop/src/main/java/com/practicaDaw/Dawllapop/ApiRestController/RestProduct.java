@@ -209,5 +209,16 @@ public class RestProduct {
 	public ResponseEntity< Page<Product> > getIndexItems(@PageableDefault(size = 10) Pageable page) {
 		return new ResponseEntity<>(productServices.getAllProducts(page),HttpStatus.OK);
 	}
-
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = "/api/products/search/{search}", method = RequestMethod.GET)
+	public ResponseEntity<List<Product>> searchProducts(@PathVariable String search) {
+		List<Product> searchProducts = productServices.searchProductsByName(search);
+		if(!searchProducts.isEmpty()) {
+			return new ResponseEntity<>(searchProducts, HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+    
 }
