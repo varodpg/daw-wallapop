@@ -1,0 +1,313 @@
+<section class="dashboard section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="sidebar">                    
+                    <div class="widget user-dashboard-profile">
+                        <a>
+                            <div class="profile-thumb">                        
+                                <!--<img src="/imgs/{{image}}" alt="" class="rounded-circle">-->
+                                <i class="fa fa-user" style="color: #007bff; font-size: 175px; margin-top: 3px"></i>
+                            </div>
+                        </a>
+                        <h5 class="text-center" id="usernameTitle">Nombre</h5>
+                        <p>Fecha registro</p>
+                        <a class="btn btn-main-sm">Editar Perfil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 ">
+                    <div class="content">
+                        <ngb-tabset type="pills">
+                            <ngb-tab class="tab-pane fade show active" title="Mis productos en venta">
+                                <ng-template ngbTabContent>
+                                    <table class="table table-responsive product-dashboard-table">
+                                        <thead>
+                                            <tr>
+                                                <th width="300" class="text-center"> Imágen</th>
+                                                <th width=" " class="text-center">Producto</th>
+                                                <th class="text-center">Categoría</th>
+                                                <th class="text-center">Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="product-thumb">
+                                                    <img width="200px" height="auto">
+                                                </td>
+                                                <td class="product-details" style="padding-left:20px">
+                                                    <h3 class="title">Nombre</h3>
+                                                    <span>
+                                                        <strong>Subido: </strong>
+                                                        <time>fecha</time>
+                                                    </span>
+                                                    <span class="status active">
+                                                        <strong>Estado</strong>estado</span>
+                                                    <span class="location">
+                                                        <strong>Localización: </strong>location</span>
+                                                </td>
+                                                <td class="product-category">
+                                                    <span class="categories">Category</span>
+                                                </td>
+                                                <td class="action" data-title="Action" style="padding-left:20px">
+                                                    <div class="">
+                                                        <ul class="list-inline justify-content-center">
+                                                            <li class="list-inline-item">
+                                                                <a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="edit">
+                                                                    <i class="fa fa-pencil"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li class="list-inline-item">
+                                                                <a class="delete">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div>
+                                                        <a class="btn btn-main-sm" id="sold" style="width:100px; margin-top:2px;">En venta</a>	
+                                                    </div>
+                                                </td>
+                                            </tr>							
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab class="tab-pane fade" title="Mis compras">
+                                <ng-template ngbTabContent>
+                                    <table class="table table-responsive product-dashboard-table">
+                                        <thead>
+                                            <tr>
+                                                <th width="300" class="text-center"> Imágen</th>
+                                                <th width=" " class="text-center">Producto</th>
+                                                <th class="text-center">Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                                        
+                                            <tr>
+                                                <td class="product-thumb">
+                                                    <img width="200px" height="auto" alt="image description">
+                                                </td>
+                                                <td class="product-details" style="padding-left:20px">
+                                                    <h3 class="title">Nombre</h3>
+                                                    <strong>Subido: </strong>
+                                                    <time>Fecha</time>
+                                                    <span class="location">
+                                                        <strong>Localización: </strong>location
+                                                    </span>
+                                                </td>
+                                                <td style="padding-left:20px">
+                                                    <div class="row">
+                                                        <input type="checkbox" id="spoiler1">
+                                                        <label>
+                                                            Has adquirido este producto. Ponte en contacto con el vendedor 
+                                                            <a color="black">Usuario</a>
+                                                        </label>
+                                                    </div>
+                                                    <div class='row'>                                                        
+                                                        <div class='row' style="text-align: center; width: 100%">
+                                                            <p style="width: 100%">Deja una reseña del vendedor</p>
+                                                        </div>
+                                                        <div class="row">
+                                                            <p style="float: right;  margin-top: 7px; margin-left: 5px">
+                                                                Valoracion (1-5): 
+                                                            </p>
+                                                            <input type="number" style="width: 100px; height: 35px">
+                                                        </div>
+                                                        <div class="row" style="width: 100%">
+                                                            <textarea class="form-control" style="resize: none; height: 150px"></textarea>
+                                                        </div>
+                                                        <div class="row" style="text-align: center; width: 100%; margin-top: 5px">
+                                                            <button class="btn btn-main" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
+                                                        </div>                                                        
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab class="tab-pane fade" title="Mis ventas">
+                                <ng-template ngbTabContent>
+                                    <table class="table table-responsive product-dashboard-table">
+                                        <thead>
+                                            <tr>
+                                                <th width="300" class="text-center"> Imágen</th>
+                                                <th width=" " class="text-center">Producto</th>
+                                                <th class="text-center">Acción</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>                                            
+                                            <tr>
+                                                <td class="product-thumb">
+                                                    <img width="200px" height="auto" alt="image description">
+                                                </td>
+                                                <td class="product-details" style="padding-left:20px">
+                                                    <h3 class="title">Nombre</h3>
+                                                    <strong>Subido: </strong>
+                                                    <time>fecha</time>
+                                                    <span class="location">
+                                                        <strong>Localización</strong>location
+                                                    </span>
+                                                </td>
+                                                <td style="padding-left:20px">
+                                                    <div class="row">
+                                                        <input type="checkbox" id="spoiler1">
+                                                        <label>Has adquirido este producto. Ponte en contacto con el vendedor 
+                                                            <a color="black">User</a>
+                                                        </label>
+                                                    </div>
+                                                    <div class='row'>                                                      
+                                                        <div class='row' style="text-align: center; width: 100%">
+                                                            <p style="width: 100%">Deja una reseña del vendedor</p>
+                                                        </div>
+                                                        <div class="row">
+                                                            <p style="float: right; margin-top: 7px; margin-left: 5px">Valoracion (1-5): </p>
+                                                            <input type="number" style="width: 100px; height: 35px">
+                                                        </div>
+                                                        <div class="row" style="width: 100%">
+                                                            <textarea class="form-control" style="resize: none; height: 150px"></textarea>
+                                                        </div>
+                                                        <div class="row" style="text-align: center; width: 100%; margin-top: 5px">
+                                                            <button class="btn btn-main" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
+                                                        </div>                                                            
+                                                    </div>
+                                                </td>
+                                            </tr>                                                
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab class="tab-pane fade" title="Reseñas">
+                                <ng-template ngbTabContent>
+                                    <h3 class="tab-title">Comentarios</h3>
+                                    <table class="table table-responsive">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="product-review">                                                    
+                                                        <div class="product-review">
+                                                            <div class="media">
+                                                                <img alt="avater">
+                                                                <div class="media-body">                                                                    
+                                                                    <div class="name">
+                                                                        <h5>userfrom name</h5>
+                                                                    </div>
+                                                                    <div class="date">
+                                                                        <p>date</p>
+                                                                    </div>
+                                                                    <div class="review-comment">
+                                                                        <p>text</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                                        
+                                                    </div>
+                                                </td>
+                                            </tr>                                            
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab class="tab-pane fade" title="Ofertas recibidas">
+                                <ng-template ngbTabContent>
+                                    <h3 class="tab-title">Ofertas recibidas</h3>
+                                    <table class="table table-responsive product-dashboard-table">
+                                        <tbody>
+                                            <tr height="100">
+                                                <td class="product-thumb" style="vertical-align: top;">
+                                                    <img width="200px" height="auto" alt="">
+                                                </td>
+                                                <td class="product-details" style="padding-left:20px; vertical-align: top;">
+                                                    <h3 class="title">nombre</h3>
+                                                    <span>
+                                                        <strong>Subido: </strong>
+                                                        <time>fecha</time>
+                                                    </span>
+                                                    <span class="status active">
+                                                        <strong>Estado</strong>estate</span>
+                                                    <span class="location">
+                                                        <strong>Localización</strong>location
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <div> 
+                                                        <div class="product-review">
+                                                            <div class="media">
+                                                                <img  alt="avater">
+                                                                <div class="media-body">                                                                    
+                                                                    <div class="name">
+                                                                        <a><h5>nombre</h5></a>
+                                                                    </div>
+                                                                    <div class="date">
+                                                                        <p>fecha</p>
+                                                                    </div>
+                                                                    <div class="review-comment">
+                                                                        <p>mensaje</p>
+                                                                    </div>
+                                                                    <div>Oferta: precio</div>
+                                                                    <div class="btn-group btn-group-sm">                                                                        
+                                                                        <a class="btn btn-success">Aceptar</a>                                                                                                                                     
+                                                                        <a class="btn btn-danger">Rechazar</a>                                                                    
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab class="tab-pane fade" title="Solicitudes de amistad">
+                                <ng-template ngbTabContent>
+                                    <h3 class="tab-title">Solicitudes de amistad recibidas</h3>
+                                    <table class="table table-responsive product-dashboard-table">
+                                        <tbody>                                            
+                                            <tr>
+                                                <td>
+                                                    <div class="product-review">
+                                                        <div class="media">
+                                                            <img alt="avater">
+                                                            <div class="media-body">																	
+                                                                <div class="name">
+                                                                    <h5>from name</h5>
+                                                                </div>
+                                                                <div class="date">
+                                                                    <p>fecha</p>
+                                                                </div>
+                                                                <div class="review-comment">
+                                                                    <p>mensaje</p>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <a class="btn btn-trasparent" style="cursor: pointer">Ignorar</a>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <a class="btn btn-main" style="color:white; cursor: pointer">Aceptar</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </ng-template>
+                            </ngb-tab>        
+                        </ngb-tabset>                        
+                    </div>
+                </div>                
+            </div>
+        </div>
+</section>
