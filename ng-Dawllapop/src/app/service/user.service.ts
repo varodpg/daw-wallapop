@@ -16,4 +16,7 @@ export class UserService {
     searchUsers(search: string){
         return this.http.get<User[]>(SEARCH_USERS_URL + "/" + search);
     }
+    addUser(user: User) {
+		return this.http.post(GET_USER_URL, user);		
+    }
 }

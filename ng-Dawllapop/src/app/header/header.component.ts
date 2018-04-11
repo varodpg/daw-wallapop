@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { UserService } from '../service/user.service';
+import { User } from '../model/product.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +11,14 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class HeaderComponent implements OnInit {
   closeResult: string;
-  constructor(private modalService: NgbModal) { }
+  private registerUser: User;
+  private added = false;
+  private url = "https://localhost:8443/imgs";
+
+  constructor(private modalService: NgbModal, private userService: UserService,private router: Router) { }
 
   ngOnInit() {
+    this.registerUser=new User();
   }
 
   open(content) {
@@ -20,6 +28,14 @@ export class HeaderComponent implements OnInit {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
+
+  addUser(){
+		this.userService.addUser(this.registerUser).subscribe(
+      result => this.added = true
+      
+		);
+		
+	}
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
