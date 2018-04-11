@@ -14,7 +14,7 @@ export class EditSingleProductComponent implements OnInit {
   private user: User;
   private images_url = "https://localhost:8443/imgs";
 
-  constructor(private router: Router, private productService: ProductService, activatedRoute: ActivatedRoute,private modalService: NgbModal) { 
+  constructor(private router: Router, private productService: ProductService, activatedRoute: ActivatedRoute) { 
     let id = activatedRoute.snapshot.params['id'];
     this.productService.getSingleProduct(id).subscribe(data => {
       this.product = data;
