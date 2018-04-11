@@ -23,6 +23,7 @@ import { DashboardService } from './service/dashboard.service';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PublicDashboardComponent } from './public-dashboard/public-dashboard.component';
 import { SearchComponent } from './search/search.component';
+import { EditSingleProductComponent } from './edit-single-product/edit-single-product.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SearchComponent } from './search/search.component';
     DashboardComponent,
     LoginComponent,
     PublicDashboardComponent,
-    SearchComponent
+    SearchComponent,
+    EditSingleProductComponent
   ],
   imports: [
     BrowserModule,
