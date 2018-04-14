@@ -10,8 +10,8 @@
                                 <i class="fa fa-user" style="color: #007bff; font-size: 175px; margin-top: 3px"></i>
                             </div>
                         </a>
-                        <h5 class="text-center" id="usernameTitle">Nombre</h5>
-                        <p>Fecha registro</p>
+                        <h5 class="text-center" id="usernameTitle">{{loginService.user.name}}</h5>
+                        <p>{{loginService.user.registerDate | date}}</p>
                         <a class="btn btn-main-sm">Editar Perfil</a>
                     </div>
                 </div>
@@ -34,29 +34,28 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
+                                            <tr *ngFor="let sellingProduct of sellingProducts">
                                                 <td class="product-thumb">
-                                                    <img width="200px" height="auto">
+                                                    <img width="200px" height="auto" src="https://localhost:8443/imgs/{{sellingProduct.mainimage}}">
                                                 </td>
                                                 <td class="product-details" style="padding-left:20px">
-                                                    <h3 class="title">Nombre</h3>
+                                                    <h3 class="title">{{sellingProduct.name}}</h3>
                                                     <span>
                                                         <strong>Subido: </strong>
-                                                        <time>fecha</time>
+                                                        <time>{{sellingProduct.date | date}}</time>
                                                     </span>
                                                     <span class="status active">
-                                                        <strong>Estado</strong>estado</span>
-                                                    <span class="location">
-                                                        <strong>Localización: </strong>location</span>
+                                                        <strong>Estado: </strong>{{sellingProduct.state}}
+                                                    </span>                                                    
                                                 </td>
                                                 <td class="product-category">
-                                                    <span class="categories">Category</span>
+                                                    <span class="categories">{{sellingProduct.category.name}}</span>
                                                 </td>
                                                 <td class="action" data-title="Action" style="padding-left:20px">
                                                     <div class="">
                                                         <ul class="list-inline justify-content-center">
                                                             <li class="list-inline-item">
-                                                                <a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view">
+                                                                <a data-toggle="tooltip" [routerLink]="['/singleProduct', sellingProduct.id]" data-placement="top" title="Tooltip on top" class="view">
                                                                     <i class="fa fa-eye"></i>
                                                                 </a>
                                                             </li>
@@ -73,7 +72,7 @@
                                                         </ul>
                                                     </div>
                                                     <div>
-                                                        <a class="btn btn-main-sm" id="sold" style="width:100px; margin-top:2px;">En venta</a>	
+                                                        <a class="btn btn-main-sm" style="width:100px; margin-top:2px;">En venta</a>	
                                                     </div>
                                                 </td>
                                             </tr>							
@@ -91,88 +90,27 @@
                                                 <th class="text-center">Acción</th>
                                             </tr>
                                         </thead>
-                                        <tbody>                                        
-                                            <tr>
-                                                <td class="product-thumb">
-                                                    <img width="200px" height="auto" alt="image description">
-                                                </td>
-                                                <td class="product-details" style="padding-left:20px">
-                                                    <h3 class="title">Nombre</h3>
-                                                    <strong>Subido: </strong>
-                                                    <time>Fecha</time>
-                                                    <span class="location">
-                                                        <strong>Localización: </strong>location
-                                                    </span>
-                                                </td>
-                                                <td style="padding-left:20px">
-                                                    <div class="row">
-                                                        <input type="checkbox" id="spoiler1">
-                                                        <label>
-                                                            Has adquirido este producto. Ponte en contacto con el vendedor 
-                                                            <a color="black">Usuario</a>
-                                                        </label>
-                                                    </div>
-                                                    <div class='row'>                                                        
-                                                        <div class='row' style="text-align: center; width: 100%">
-                                                            <p style="width: 100%">Deja una reseña del vendedor</p>
-                                                        </div>
-                                                        <div class="row">
-                                                            <p style="float: right;  margin-top: 7px; margin-left: 5px">
-                                                                Valoracion (1-5): 
-                                                            </p>
-                                                            <input type="number" style="width: 100px; height: 35px">
-                                                        </div>
-                                                        <div class="row" style="width: 100%">
-                                                            <textarea class="form-control" style="resize: none; height: 150px"></textarea>
-                                                        </div>
-                                                        <div class="row" style="text-align: center; width: 100%; margin-top: 5px">
-                                                            <button class="btn btn-main" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
-                                                        </div>                                                        
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </ng-template>
-                            </ngb-tab>
-                            <ngb-tab class="tab-pane fade" title="Mis ventas">
-                                <ng-template ngbTabContent>
-                                    <table class="table table-responsive product-dashboard-table">
-                                        <thead>
-                                            <tr>
-                                                <th width="300" class="text-center"> Imágen</th>
-                                                <th width=" " class="text-center">Producto</th>
-                                                <th class="text-center">Acción</th>
-                                            </tr>
-                                        </thead>
                                         <tbody>                                            
-                                            <tr>
+                                            <tr *ngFor="let buyedProduct of buyedProducts">
                                                 <td class="product-thumb">
                                                     <img width="200px" height="auto" alt="image description">
                                                 </td>
                                                 <td class="product-details" style="padding-left:20px">
-                                                    <h3 class="title">Nombre</h3>
+                                                    <h3 class="title">{{buyedProduct.name}}</h3>
                                                     <strong>Subido: </strong>
-                                                    <time>fecha</time>
-                                                    <span class="location">
-                                                        <strong>Localización</strong>location
-                                                    </span>
+                                                    <time>{{buyedProduct.date | date}}</time>                                                            
                                                 </td>
                                                 <td style="padding-left:20px">
                                                     <div class="row">
                                                         <input type="checkbox" id="spoiler1">
                                                         <label>Has adquirido este producto. Ponte en contacto con el vendedor 
-                                                            <a color="black">User</a>
+                                                            <a color="black">{{buyedProduct.user.name}}</a>
                                                         </label>
                                                     </div>
                                                     <div class='row'>                                                      
                                                         <div class='row' style="text-align: center; width: 100%">
                                                             <p style="width: 100%">Deja una reseña del vendedor</p>
-                                                        </div>
-                                                        <div class="row">
-                                                            <p style="float: right; margin-top: 7px; margin-left: 5px">Valoracion (1-5): </p>
-                                                            <input type="number" style="width: 100px; height: 35px">
-                                                        </div>
+                                                        </div>                                                                
                                                         <div class="row" style="width: 100%">
                                                             <textarea class="form-control" style="resize: none; height: 150px"></textarea>
                                                         </div>
@@ -186,26 +124,73 @@
                                     </table>
                                 </ng-template>
                             </ngb-tab>
+                            <ngb-tab class="tab-pane fade" title="Mis ventas">                                
+                                <ng-template ngbTabContent>
+                                        <table class="table table-responsive product-dashboard-table">
+                                            <thead>
+                                                <tr>
+                                                    <th width="300" class="text-center"> Imágen</th>
+                                                    <th width=" " class="text-center">Producto</th>
+                                                    <th class="text-center">Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>                                        
+                                                <tr *ngFor="let soldProduct of soldProducts">
+                                                    <td class="product-thumb">
+                                                        <img width="200px" height="auto" alt="image description">
+                                                    </td>
+                                                    <td class="product-details" style="padding-left:20px">
+                                                        <h3 class="title">{{soldProduct.name}}</h3>
+                                                        <strong>Subido: </strong>
+                                                        <time>{{soldProduct.date | date}}</time>                                                    
+                                                    </td>
+                                                    <td style="padding-left:20px">
+                                                        <div class="row">
+                                                            <input type="checkbox" id="spoiler1">
+                                                            <label>
+                                                                Has adquirido este producto. Ponte en contacto con el vendedor 
+                                                                <a color="black">{{soldProduct.user.name}}</a>
+                                                            </label>
+                                                        </div>
+                                                        <div class='row'>                                                        
+                                                            <div class='row' style="text-align: center; width: 100%">
+                                                                <p style="width: 100%">Deja una reseña del vendedor</p>
+                                                            </div>
+                                                            <div class="row" style="width: 100%">
+                                                                <textarea class="form-control" style="resize: none; height: 150px"></textarea>
+                                                            </div>
+                                                            <div class="row" style="text-align: center; width: 100%; margin-top: 5px">
+                                                                <button class="btn btn-main" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
+                                                            </div>                                                        
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </ng-template>
+                            </ngb-tab>
                             <ngb-tab class="tab-pane fade" title="Reseñas">
                                 <ng-template ngbTabContent>
                                     <h3 class="tab-title">Comentarios</h3>
                                     <table class="table table-responsive">
                                         <tbody>
-                                            <tr>
+                                            <tr *ngFor="let userAssessment of userAssessments">
                                                 <td>
                                                     <div class="product-review">                                                    
                                                         <div class="product-review">
                                                             <div class="media">
-                                                                <img alt="avater">
+                                                                <div *ngIf="userAssessment.userFrom.image !== '';then hasImage else noImage"></div>
+                                                                <ng-template #hasImage><img src="https://localhost:8443/imgs/{{userAssessment.userFrom.image}}" class="rounded-circle"></ng-template>
+                                                                <ng-template #noImage><i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i></ng-template>
                                                                 <div class="media-body">                                                                    
                                                                     <div class="name">
-                                                                        <h5>userfrom name</h5>
+                                                                        <h5>{{userAssessment.userFrom.name}}</h5>
                                                                     </div>
                                                                     <div class="date">
-                                                                        <p>date</p>
+                                                                        <p>{{userAssessment.date | date}}</p>
                                                                     </div>
                                                                     <div class="review-comment">
-                                                                        <p>text</p>
+                                                                        <p>{{userAssessment.text}}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -222,38 +207,37 @@
                                     <h3 class="tab-title">Ofertas recibidas</h3>
                                     <table class="table table-responsive product-dashboard-table">
                                         <tbody>
-                                            <tr height="100">
-                                                <td class="product-thumb" style="vertical-align: top;">
-                                                    <img width="200px" height="auto" alt="">
+                                            <tr height="100" *ngFor="let offer of userOffers">
+                                                <td class="product-thumb" style="vertical-align: top;">                                                    
+                                                    <img src="https://localhost:8443/imgs/{{offer.product.mainimage}}" class="rounded-circle">                                                
                                                 </td>
                                                 <td class="product-details" style="padding-left:20px; vertical-align: top;">
-                                                    <h3 class="title">nombre</h3>
+                                                    <h3 class="title">{{offer.product.name}}</h3>
                                                     <span>
                                                         <strong>Subido: </strong>
-                                                        <time>fecha</time>
+                                                        <time>{{offer.product.date | date}}</time>
                                                     </span>
                                                     <span class="status active">
-                                                        <strong>Estado</strong>estate</span>
-                                                    <span class="location">
-                                                        <strong>Localización</strong>location
-                                                    </span>
+                                                        <strong>Estado: </strong>{{offer.product.state}}</span>                                                    
                                                 </td>
                                                 <td>
                                                     <div> 
                                                         <div class="product-review">
                                                             <div class="media">
-                                                                <img  alt="avater">
+                                                                    <div *ngIf="offer.buyer.image !== '';then hasImageOffer else noImageOffer"></div>
+                                                                    <ng-template #hasImageOffer><img src="https://localhost:8443/imgs/{{offer.buyer.image}}" class="rounded-circle"></ng-template>
+                                                                    <ng-template #noImageOffer><i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i></ng-template>
                                                                 <div class="media-body">                                                                    
                                                                     <div class="name">
-                                                                        <a><h5>nombre</h5></a>
+                                                                        <a><h5>{{offer.buyer.name}}</h5></a>
                                                                     </div>
                                                                     <div class="date">
-                                                                        <p>fecha</p>
+                                                                        <p>{{offer.date | date}}</p>
                                                                     </div>
                                                                     <div class="review-comment">
-                                                                        <p>mensaje</p>
+                                                                        <p>{{offer.message}}</p>
                                                                     </div>
-                                                                    <div>Oferta: precio</div>
+                                                                    <div>Oferta: {{offer.price}}</div>
                                                                     <div class="btn-group btn-group-sm">                                                                        
                                                                         <a class="btn btn-success">Aceptar</a>                                                                                                                                     
                                                                         <a class="btn btn-danger">Rechazar</a>                                                                    
@@ -273,20 +257,22 @@
                                     <h3 class="tab-title">Solicitudes de amistad recibidas</h3>
                                     <table class="table table-responsive product-dashboard-table">
                                         <tbody>                                            
-                                            <tr>
+                                            <tr *ngFor="let request of friendRequests">
                                                 <td>
                                                     <div class="product-review">
                                                         <div class="media">
-                                                            <img alt="avater">
+                                                            <div *ngIf="request.userFrom.image !== '';then hasImageRequest else noImageRequest"></div>
+                                                            <ng-template #hasImageRequest><img src="https://localhost:8443/imgs/{{request.from.image}}" class="rounded-circle"></ng-template>
+                                                            <ng-template #noImageRequest><i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i></ng-template>
                                                             <div class="media-body">																	
                                                                 <div class="name">
-                                                                    <h5>from name</h5>
+                                                                    <h5>{{request.from.name}}</h5>
                                                                 </div>
                                                                 <div class="date">
-                                                                    <p>fecha</p>
+                                                                    <p>{{request.date | date}}</p>
                                                                 </div>
                                                                 <div class="review-comment">
-                                                                    <p>mensaje</p>
+                                                                    <p>{{request.message}}</p>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-md-6">

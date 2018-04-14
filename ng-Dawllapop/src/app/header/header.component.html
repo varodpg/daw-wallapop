@@ -21,9 +21,22 @@
                       <a [routerLink]="['/category/', 5]" class="dropdown-item">Moda</a>
                     </div>
                   </li> 
+                  <li class="nav-item" *ngIf="loginService.user">
+                    <a class="nav-link" [routerLink]="['/addProduct']">Añadir producto <i class="fa fa-plus"></i></a>
+                  </li>
                 </ul>  
                 <ul class="navbar-nav ml-auto mt-10">
-                  <li class="nav-item"><a class="nav-link login-button" (click)="open(loginModal)">Iniciar Sesion</a></li>
+                  <div *ngIf="loginService.user;then viewIsLogged else viewNoLogged"></div>
+                  <ng-template #viewIsLogged>
+                    <li class="nav-item">
+                      <a class="btn nav-link" [routerLink]="['/dashboard']"><i class = "fa fa-user"></i> ¡Hola {{loginService.user.name}}!</a>                      
+                      <li class="nav-item">
+                        <button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a> Cerrar sesión</a> </button>
+                    </li>
+                  </ng-template>
+                  <ng-template #viewNoLogged>
+                    <li class="nav-item"><a class="nav-link login-button" (click)="open(loginModal)">Iniciar Sesion</a></li>
+                  </ng-template>
                 </ul>
               </div>              
           </nav>        

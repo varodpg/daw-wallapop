@@ -1,14 +1,9 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import 'rxjs/Rx';
+import { User } from '../model/product.model';
 
 const URL = 'https://localhost:8443/api';
-
-export interface User {
-    id?: number;
-    name: string;
-    roles: string[];
-}
 
 @Injectable()
 export class LoginService {
@@ -43,7 +38,7 @@ export class LoginService {
     private processLogInResponse(response) {
         this.isLogged = true;
         this.user = response.json();
-        this.isAdmin = this.user.roles.indexOf('ROLE_ADMIN') !== -1;
+        //this.isAdmin = this.user.roles.indexOf('ROLE_ADMIN') !== -1;
     }
 
     logIn(user: string, pass: string) {

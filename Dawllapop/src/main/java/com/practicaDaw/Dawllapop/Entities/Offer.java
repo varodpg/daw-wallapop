@@ -38,6 +38,7 @@ public class Offer {
 
 	@ManyToOne
 	@JsonBackReference(value = "reference-from-product-to-offer")
+	@JsonView(BasicInformation.class)
 	private Product product;
 
 	protected Offer() {

@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit {
   private added = false;
   private url = "https://localhost:8443/imgs";
 
-  constructor(private modalService: NgbModal, private userService: UserService,private router: Router) { }
+  constructor(private modalService: NgbModal, private userService: UserService,private router: Router, 
+    private loginService: LoginService) { }
 
   ngOnInit() {
     this.registerUser=new User();
@@ -49,6 +50,5 @@ export class HeaderComponent implements OnInit {
       return  `with: ${reason}`;
     }
   }
-
   
 }
