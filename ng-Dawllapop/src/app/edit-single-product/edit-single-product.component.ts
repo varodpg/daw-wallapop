@@ -13,6 +13,7 @@ export class EditSingleProductComponent implements OnInit {
   private product: Product;
   private user: User;
   private url_imgs = "https://localhost:8443/imgs";
+  private added: boolean;
 
   constructor(private router: Router, private productService: ProductService, activatedRoute: ActivatedRoute) { 
     let id = activatedRoute.snapshot.params['id'];
@@ -29,8 +30,10 @@ export class EditSingleProductComponent implements OnInit {
   }
 
     editProduct(){
-    this.router.navigate(['/editProduct',this.user.id,this.product.id]);
-  }
+      this.productService.addProduct(this.product).subscribe(
+        result => this.added = true
+      );  
+    }
 
   save(){
     this.productService.saveProduct(this.user,this.product);
