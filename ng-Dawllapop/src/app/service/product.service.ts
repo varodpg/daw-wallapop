@@ -37,11 +37,7 @@ export class ProductService {
         return this.http.get<Product[]>(SEARCH_PRODUCTS_URL + "/" + search);
     }
 
-    saveProduct(user: User, product: Product){
-        const body = JSON.stringify(product);
-
-        if(product.id && user.id){
-            return this.http.put(EDIT_PRODUCT + user.id + "/" + product.id, body);
-        }
+    saveProduct(product: Product){
+        return this.http.post(ADD_PRODUCT_URL, product);
     }
 }
