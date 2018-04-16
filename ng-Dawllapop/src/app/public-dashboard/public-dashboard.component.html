@@ -1,4 +1,5 @@
 <section>
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="sidebar">
@@ -9,7 +10,9 @@
                         <ng-template #noImage><i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i></ng-template>
                     </div>
                     <h5 class="text-center">{{user.name}}</h5>
-                    <p>Se unio el: {{user.registerDate | date}}</p>                    
+                    <p>Se unio el: {{user.registerDate | date}}
+                    <br> <i class="fa fa-map-marker" aria-hidden="true"></i> {{user.location}} 
+                    </p>                  
                     <p>
                         <a class="btn btn-main-sm" style="color: white" (click)="openModal(userModal)"> Contacto: <i class="fa fa-address-card" aria-hidden="true"></i></a>
                     </p>  
@@ -110,6 +113,7 @@
             </ngb-tab>
         </ngb-tabset>
     </div>
+</div>
 </section>
 
 <ng-template #userModal let-c="close" let-d="dismiss">
