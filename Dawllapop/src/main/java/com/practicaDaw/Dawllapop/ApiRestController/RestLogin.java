@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +24,7 @@ public class RestLogin {
 	@Autowired
 	private UserComponent userComponent;
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("/api/login")
 	@JsonView(User.BasicInformation.class)
 	public ResponseEntity<User> logIn() {
@@ -37,6 +39,7 @@ public class RestLogin {
 		}
 	}
 
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("/api/logout")
 	public ResponseEntity<Boolean> logOut(HttpSession session) {
 		if (!userComponent.isLoggedUser()) {
