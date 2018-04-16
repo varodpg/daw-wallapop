@@ -22,6 +22,9 @@ export class UserService {
     addUser(user: User) {
 		return this.http.post(GET_USER_URL, user);		
     }
+    editUser(user: User) {
+		return this.http.put(GET_USER_URL, user);		
+    }
     
     getUserOffers(id: number){
         return this.http.get<any[]>(USER_OFFERS_URL + "/" + id);

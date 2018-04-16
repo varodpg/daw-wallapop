@@ -6,12 +6,12 @@
       <!-- First Name -->
       <div class="form-group">
           <label for="first-name">Nombre y Apellidos</label>
-          <input type="text" class="form-control" id="first-name" readonly="readonly" name="name" value="{{user.name}}" placeholder="{{user.name}}">
+          <input type="text" class="form-control"  [(ngModel)]="user.name" readonly="readonly"  placeholder="{{user.name}}">
       </div>
       <!-- Comunity Name -->
       <div class="form-group">
           <label for="comunity-name">Mi ciudad</label>
-          <input type="text" class="form-control" id="comunity-name" name="location" value="{{user.location}}" placeholder="{{user.location}}">
+          <input type="text" class="form-control" [(ngModel)]="user.location"  placeholder="{{user.location}}">
       </div>
       
       <!-- Submit button -->

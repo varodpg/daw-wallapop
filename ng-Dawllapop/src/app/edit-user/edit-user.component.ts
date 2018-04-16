@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../model/product.model';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditUserComponent implements OnInit {
 
-  constructor() { }
+  private user: User;
+	private edited = false;
 
-  ngOnInit() {
-  }
+	edituser(){
+		this.userService.editUser(this.user).subscribe(
+			result => this.edited = true
+		);
+		
+	}
 
+	constructor(private userService: UserService) { }
+
+	ngOnInit() {
+		this.user=new User();
+
+	}
 }

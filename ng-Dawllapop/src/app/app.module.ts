@@ -26,6 +26,7 @@ import { SearchComponent } from './search/search.component';
 import { EditSingleProductComponent } from './edit-single-product/edit-single-product.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
