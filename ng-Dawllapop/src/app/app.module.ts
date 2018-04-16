@@ -24,6 +24,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PublicDashboardComponent } from './public-dashboard/public-dashboard.component';
 import { SearchComponent } from './search/search.component';
 import { EditSingleProductComponent } from './edit-single-product/edit-single-product.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EditSingleProductComponent } from './edit-single-product/edit-single-pr
     LoginComponent,
     PublicDashboardComponent,
     SearchComponent,
-    EditSingleProductComponent
+    EditSingleProductComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

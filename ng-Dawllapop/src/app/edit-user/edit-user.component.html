@@ -1,3 +1,98 @@
-<p>
-  edit-user works!
-</p>
+<div class="col-md-12">
+  <!-- Edit Personal Info -->
+  <div class="widget personal-info">
+    <h3 class="widget-header user">Editar información personal</h3>
+    <form action="editDatesProfileBBDD" id="formEditDatesUser" method="post">
+      <!-- First Name -->
+      <div class="form-group">
+          <label for="first-name">Nombre y Apellidos</label>
+          <input type="text" class="form-control" id="first-name" readonly="readonly" name="name" value="{{user.name}}" placeholder="{{user.name}}">
+      </div>
+      <!-- Comunity Name -->
+      <div class="form-group">
+          <label for="comunity-name">Mi ciudad</label>
+          <input type="text" class="form-control" id="comunity-name" name="location" value="{{user.location}}" placeholder="{{user.location}}">
+      </div>
+      
+      <!-- Submit button -->
+      <button class="btn btn-transparent">Guardar cambios</button>
+    </form>
+  </div>
+  <!-- Change Image -->
+  <div class="widget personal-info">
+    <h3 class="widget-header user">Editar foto de perfil</h3>
+    <form action="/editUserImage" id="formEditUserImage" enctype="multipart/form-data" method="POST">
+      <!-- File chooser -->
+      <div class="form-group choose-file">
+        <i class="fa fa-user text-center"></i>
+          <input type="file" name="file" class="form-control-file d-inline" id="input-file">
+       </div>
+      <!-- Submit button -->
+      <button class="btn btn-transparent" type="submit">Guardar Imagen</button>
+    </form>
+  </div>
+  <!-- Change Password -->
+  <div class="widget change-password">
+    <h3 class="widget-header user">Cambiar contraseña</h3>
+    <form action="editPasswordProfileBBDD" id="formEditPasswordUser" method="post">
+      <!-- Current Password -->
+      <div class="form-group">
+          <label for="current-password">Contraseña actual</label>
+          <input type="password" class="form-control" id="current-password">
+      </div>
+      <!-- New Password -->
+      <div class="form-group">
+          <label for="new-password">Nueva contraseña</label>
+          <input type="password" class="form-control" id="new-password" name="passwordHash">
+      </div>
+      <!-- Confirm New Password -->
+      <div class="form-group">
+          <label for="confirm-password">Confirmar nueva contraseña</label>
+          <input type="password" class="form-control" id="confirm-password">
+      </div>
+      <!-- Submit Button -->
+      <button class="btn btn-transparent">Guardar contraseña</button>
+    </form>
+  </div>
+  <!-- Change Email Address -->
+  <div class="widget change-email mb-0">
+    <h3 class="widget-header user">Cambiar correo electrónico</h3>
+    <form action="editEmailProfileBBDD" id="formEditEMailUser" method="post">
+      <!-- Current Password -->
+      <div class="form-group">
+          <label for="current-email">Correo electrónico actual</label>
+          <input type="email" class="form-control" id="current-email" value="{{user.email}}" placeholder="{{user.email}}">
+      </div>
+      <!-- New email -->
+      <div class="form-group">
+          <label for="new-email">Nuevo correo electrónico</label>
+          <input type="email" class="form-control" id="new-email" name="email">
+      </div>
+      <!-- Submit Button -->
+      <button class="btn btn-transparent">Guardar nuevo correo electrónico</button>
+      <div  class="modal bs-delete" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body"> ¿Estás seguro de que quieres eliminar tu cuenta?</div>
+        <div class="modal-footer"><button class="delete_account btn-transparent" link="/">Eliminar cuenta</button></div>
+      </div>
+    </div>
+  </div>
+    </form>
+  </div>
+  <form action="deleteProfileBBDD" id="formDeleteUser">
+  <!-- Delete account-->
+  <div class="widget delete-account mb-0">
+    <button class="delete_account btn-transparent" data-target=".bs-delete" data-toggle="modal"> Eliminar cuenta <i class="fa fa-trash"></i></button>
+  </div>
+    
+  <div  class="modal bs-delete" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-body"> ¿Estás seguro de que quieres eliminar tu cuenta?</div>
+        <div class="modal-footer"><button class="delete_account btn-transparent" >Eliminar cuenta</button></div>
+      </div>
+    </div>
+  </div>
+  </form>
+</div>

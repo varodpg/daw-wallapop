@@ -1,0 +1,147 @@
+
+/* Ocultar botÃ³n radio */
+input[id^="spoiler"]{
+    display: none;
+    }
+    /* Estilo botÃ³n clicable */
+    input[id^="spoiler"] + label {
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    padding: 5px 20px;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+    }
+    /* Estilo botÃ³n cuando su INPUT estÃ¡ seleccionado */
+    input[id^="spoiler"]:checked + label {
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    }
+    /* Estilo caja SPOILER (inicialmente oculto) */
+    input[id^="spoiler"] ~ .spoiler {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 10px auto 0; 
+    }
+    /* Estilo caja SPOILER cuando su INPUT estÃ¡ seleccionado */
+    input[id^="spoiler"]:checked + label + .spoiler{
+    height: auto;
+    opacity: 1;
+    }
+  .review-submit textarea{
+      height: 100px;
+  }
+  
+  .button_ofertas{
+      width: 100px;
+  }
+  
+  .delete_account{
+      color: rgb(255, 0, 0);
+      background-color: transparent;
+      width: 200px;
+      height: 50px;
+      border-color: red;
+      font: bold;
+      font-size: 16px;
+  }
+  .delete_account:hover{
+      background: red;
+  }
+  
+  .friendsButton{
+      height: 50px;
+      width: 50px;
+      background-color: white;
+      text-align: center;
+      border-radius: 3px 3px 0px 0px;
+      border: solid 1px;
+      border-color: #aaa;
+      box-shadow: 2px 2px 2px 2px #ccc;
+      cursor: pointer;
+      float: right;
+  }
+  
+  #friendsList{
+      position: fixed;
+      bottom: 52px;
+      right: 20px;
+      background-color: #5672f9;
+      text-align: center;
+      border-radius: 3px 3px 0px 0px;
+      border: solid 1px;
+      border-color: #aaa;
+      box-shadow: 2px 2px 2px 2px #ccc;
+      height: 400px;
+      width: 350px;
+      z-index: 10000;
+      padding: 5px 2px;
+  }
+  
+  .friendChat{
+      position: fixed;
+      bottom: 52px;
+      right: 20px;
+      background-color: #5672f9;
+      text-align: center;
+      border-radius: 3px 3px 0px 0px;
+      border: solid 1px;
+      border-color: #aaa;
+      box-shadow: 2px 2px 2px 2px #ccc;
+      height: 400px;
+      width: 350px;
+      z-index: 100;
+      padding: 5px 2px;
+  }
+  
+  .friendChatHeader{
+      margin: 0px 10px;
+      text-align: center;
+      background-color: white;
+      border-radius: 3px;
+      height: 25px;
+  }
+  .friendChatBody{
+      margin: 5px 10px 0px 10px;
+      text-align: center;
+      background-color: white;
+      border-radius: 3px;
+      height: 300px;
+  }
+  .friendChatInput{
+      margin: 5px 10px 0px 10px;
+      text-align: center;
+      background-color: white;
+      border-radius: 3px;
+      height: 50px;
+  }
+  
+  .contactCard{
+      border: 1px solid #aaa; 
+      border-radius: 2px;
+      margin: 0px 0px 10px 0px; 
+      padding: 2px 0px; 
+      background-color: white; 
+      cursor: pointer;
+  }
+  
+  .friendMessage{
+      color: #333;
+      display: block;
+      margin-bottom: 0px;
+      text-align: left;
+  }
+  
+  .myMessage{
+      color: #5672f9;
+      display: block;
+      margin-bottom: 0px;
+      text-align: left;
+  }
+  
+  .messageAlert{
+      color: white;
+      background-color: #5672f9;
+  }
