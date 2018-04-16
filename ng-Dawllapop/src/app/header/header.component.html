@@ -31,7 +31,11 @@
                     <li class="nav-item">
                       <a class="btn nav-link" [routerLink]="['/dashboard']"><i class = "fa fa-user"></i> ¡Hola {{loginService.user.name}}!</a>                      
                       <li class="nav-item">
-                        <button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal"><a> Cerrar sesión</a> </button>
+                        
+                    <div *ngIf="loginService.isLogged" class="nav navbar-nav navbar-right">
+
+                    </div>
+                        <button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal" (click)="open(logOut)"><a> Cerrar sesión</a> </button>
                     </li>
                   </ng-template>
                   <ng-template #viewNoLogged>
@@ -51,6 +55,12 @@
   <login></login>  
 </ng-template> 
 
+</section>
+
+<section>
+  <ng-template #logOut let-c="close" let-d="dismiss">
+    <login></login>
+  </ng-template>
 </section>
 
 <section>
