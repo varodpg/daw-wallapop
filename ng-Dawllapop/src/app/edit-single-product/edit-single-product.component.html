@@ -29,7 +29,7 @@
 										</div>
 										<div class="row col-md-12">
 											<select [(ngModel)]="product.category" class="selectpicker">
-												<option selected disabled>{{product.category.name}}</option>
+												<option selected disabled>{{category}}</option>
 												<option value="informatica">Informática y Electrónica</option>
 												<option value="inmobiliaria">Inmobiliaria</option>
 												<option value="deportes">Deportes y Ocio</option>
@@ -92,7 +92,7 @@
 						</div>
 						<div class="row pull-right" style="margin-top:20px">
 							<div class="col-md-12 ">
-								<button (click)="editProduct()">Aceptar</button>	
+								<button (click)="save()">Aceptar</button>	
 														
 							</div>
 							<ngb-alert *ngIf="added" type="success" (close)="closeAlert(alert)">producto editado correctamente </ngb-alert>

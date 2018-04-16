@@ -14,6 +14,7 @@ export class EditSingleProductComponent implements OnInit {
   private user: User;
   private url_imgs = "https://localhost:8443/imgs";
   private added: boolean;
+  private category: string;
 
   constructor(private router: Router, private productService: ProductService, activatedRoute: ActivatedRoute) { 
     let id = activatedRoute.snapshot.params['id'];
@@ -21,6 +22,26 @@ export class EditSingleProductComponent implements OnInit {
       this.product = data;
       this.user = data['user'];
     });    
+
+    switch(this.product.category) {
+      case '1':
+          this.category = "Electrónica e Informática";
+          break;
+      case '2':
+          this.category = "Inmobiliaria";
+          break;
+      case '3':
+          this.category = "Deportes y Ocio";
+          break;
+      case '4':
+          this.category = "Consolas y Videojuegos";
+          break;
+      case '5':
+          this.category = "Moda";
+          break;
+      default:
+          break;
+    }
   }
 
 
@@ -30,7 +51,7 @@ export class EditSingleProductComponent implements OnInit {
   }
 
     editProduct(){
-      this.productService.addProduct(this.product).subscribe(
+      this.productService.saveProduct(this.user,this.product).subscribe(
         result => this.added = true
       );  
     }
