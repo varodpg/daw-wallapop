@@ -207,21 +207,21 @@
                                     <h3 class="tab-title">Ofertas recibidas</h3>
                                     <table class="table table-responsive product-dashboard-table">
                                         <tbody>
-                                            <tr height="100" *ngFor="let offer of userOffers">
+                                            <tr *ngFor="let product of productOffers">
                                                 <td class="product-thumb" style="vertical-align: top;">                                                    
-                                                    <img src="https://localhost:8443/imgs/{{offer.product.mainimage}}" class="rounded-circle">                                                
+                                                    <img style="width: 100px; height: 100px" src="https://localhost:8443/imgs/{{product.mainimage}}" class="rounded-circle">                                                
                                                 </td>
                                                 <td class="product-details" style="padding-left:20px; vertical-align: top;">
-                                                    <h3 class="title">{{offer.product.name}}</h3>
+                                                    <h3 class="title">{{product.name}}</h3>
                                                     <span>
                                                         <strong>Subido: </strong>
-                                                        <time>{{offer.product.date | date}}</time>
+                                                        <time>{{product.date | date}}</time>
                                                     </span>
                                                     <span class="status active">
-                                                        <strong>Estado: </strong>{{offer.product.state}}</span>                                                    
+                                                        <strong>Estado: </strong>{{product.state}}</span>                                                    
                                                 </td>
                                                 <td>
-                                                    <div> 
+                                                    <div *ngFor="let offer of product.offers"> 
                                                         <div class="product-review">
                                                             <div class="media">
                                                                     <div *ngIf="offer.buyer.image !== '';then hasImageOffer else noImageOffer"></div>
@@ -239,8 +239,8 @@
                                                                     </div>
                                                                     <div>Oferta: {{offer.price}}</div>
                                                                     <div class="btn-group btn-group-sm">                                                                        
-                                                                        <a class="btn btn-success">Aceptar</a>                                                                                                                                     
-                                                                        <a class="btn btn-danger">Rechazar</a>                                                                    
+                                                                        <a class="btn btn-success" (click)="acceptOffer(offer.id)">Aceptar</a>                                                                                                                                     
+                                                                        <a class="btn btn-danger" (click)="declineOffer(offer.id)">Rechazar</a>                                                                    
                                                                     </div>
                                                                 </div>
                                                             </div>

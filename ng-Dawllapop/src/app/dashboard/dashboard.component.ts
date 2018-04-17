@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   private soldProducts: Product[];
   private userAssessments: any[];
   private buyedProducts: Product[];
-  private userOffers: any[];
+  private productOffers: any[];
   private friendRequests: any[];
 
   constructor( private loginService: LoginService, private userService: UserService, private router: Router,
@@ -28,7 +28,6 @@ export class DashboardComponent implements OnInit {
     this.soldProducts = [];
     this.userAssessments = [];
     this.buyedProducts = [];
-    this.userOffers = [];
     this.friendRequests = [];
 
     this.userService.getUser(this.loginService.user.id).subscribe(data => {      
@@ -36,6 +35,7 @@ export class DashboardComponent implements OnInit {
     });    
 
     this.loadSellingProducts();
+    this.loadProductOffers();
 
     this.dashboardService.getUserAssessments(this.loginService.user.id).subscribe(data => {
       data.forEach(element => {        
@@ -47,15 +47,7 @@ export class DashboardComponent implements OnInit {
       data.forEach(element => {
         this.buyedProducts.push(element);
       })
-    });
-
-    this.userService.getUserOffers(this.loginService.user.id).subscribe(data => {
-      data.forEach(
-        element => {
-          this.userOffers.push(element);
-        }
-      );
-    });
+    });    
 
     this.userService.getUserFriendRequests().subscribe(data => {
       data.forEach(element => {
@@ -78,5 +70,26 @@ export class DashboardComponent implements OnInit {
         this.sellingProducts.push(element);
       });
     });
+  }
+
+  loadProductOffers(){
+    this.productOffers = [];
+    this.dashboardService.getUserOffers(this.loginService.user.id).subscribe(data => {
+      data.forEach(
+        element => {
+          this.productOffers.push(element);
+        }
+      );
+    });
+  }
+
+  acceptOffer(offerId){
+    return this.dashboardService.acceptOffer(this.loginService.user.id, offerId).subscribe(
+      response => this.loadProductOffers()
+    );    
+  }
+
+  declineOffer(offerId){
+
   }
 }

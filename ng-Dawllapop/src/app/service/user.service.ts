@@ -4,7 +4,6 @@ import { User } from "../model/product.model";
 
 const GET_USER_URL = "https://localhost:8443/api/users"
 const SEARCH_USERS_URL = "https://localhost:8443/api/users/search"
-const USER_OFFERS_URL = "https://localhost:8443/api/offers/user"
 const USER_FRIEND_REQUESTS_URL = "https://localhost:8443/api/friendRequest/"
 
 @Injectable()
@@ -24,11 +23,7 @@ export class UserService {
     }
     editUser(user: User) {
 		return this.http.put(GET_USER_URL, user);		
-    }
-    
-    getUserOffers(id: number){
-        return this.http.get<any[]>(USER_OFFERS_URL + "/" + id);
-    }
+    }    
 
     getUserFriendRequests(){
         return this.http.get<any[]>(USER_FRIEND_REQUESTS_URL);

@@ -31,6 +31,7 @@ import com.practicaDaw.Dawllapop.Repository.Friend_RequestRepository;
 import com.practicaDaw.Dawllapop.Repository.OfferRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
+import com.practicaDaw.Dawllapop.security.UserComponent;
 import com.practicaDaw.Dawllapop.services.AssessmentServices;
 import com.practicaDaw.Dawllapop.services.FriendRequestServices;
 import com.practicaDaw.Dawllapop.services.ProductServices;
@@ -42,6 +43,8 @@ import com.practicaDaw.Dawllapop.services.UserServices;
 public class RestDashboard {
 	@Autowired
 	private ProductRepository pRepository;
+	@Autowired
+	private UserComponent userComponent;
 	@Autowired
 	private ProductServices pServices;
 	@Autowired
@@ -132,22 +135,22 @@ public class RestDashboard {
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResponseEntity<Offer> acceptOffer(@PathVariable long id, @PathVariable long offer_id, HttpSession session){
 		
-		User userlog =(User) session.getAttribute("user");
+		User userlog = userComponent.getLoggedUser();
 		Offer of = offerRepository.getOne(offer_id);
 		if ((offerRepository.findOne(offer_id)) == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			
 		} else {
 			
-			if(userlog.getId()==of.getProduct().getUser().getId()) {
+//			if(userlog.getId()==of.getProduct().getUser().getId()) {
 				Product p = of.getProduct();
 				of.setState(1);
 				offerRepository.saveAndFlush(of);
 				p.setSold(true);
 				pRepository.saveAndFlush(p);
 				return new ResponseEntity<>(of, HttpStatus.OK);
-			} else
-				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//			} else
+//				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 		}
 	}
 
