@@ -21,3 +21,10 @@ export class User {
     roles: string[];
     isAdmin: boolean;
 }
+
+export class Offer {
+    userId: number;
+    price: number;
+    message: string;
+    productId: number;
+}

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './header/header.component';
 import { HttpModule } from '@angular/http';
 import { JsonpModule } from '@angular/http';
@@ -25,6 +25,7 @@ import { PublicDashboardComponent } from './public-dashboard/public-dashboard.co
 import { SearchComponent } from './search/search.component';
 import { EditSingleProductComponent } from './edit-single-product/edit-single-product.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { OfferService } from './service/offer.service';
 
 
 @NgModule({
@@ -57,7 +58,9 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     ProductService, 
     LoginService,
     UserService,
-    DashboardService
+    DashboardService,
+    OfferService,
+    NgbActiveModal
   ],
   bootstrap: [AppComponent]
 })

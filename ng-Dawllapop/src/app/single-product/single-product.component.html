@@ -56,6 +56,9 @@
 							<li class="list-inline-item">
 								<a class="btn btn-contact" (click)="openModal(contact)">Contacto</a>
 							</li>
+							<li class="list-inline-item" *ngIf="loginService.user">
+								<a *ngIf="loginService.user.id != user.id" class="btn btn-contact" (click)="openOffer(offerModal)">Proponer una oferta</a>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -94,5 +97,30 @@
 	</div>
 	<div class="modal-footer">
 		<button type="button" class="btn btn-outline-dark" (click)="c()">Close</button>
+	</div>
+</ng-template>
+
+<ng-template #offerModal let-c="close" let-d="dismiss">
+	<div class="modal-header">
+		<h4 class="modal-title">Propón una oferta</h4>
+		<img src="https://localhost:8443/images/logoNuevo.png">
+	</div>
+	<div class="modal-body" *ngIf="product">
+		<div class="widget price text-center">
+			<h4>Precio actual</h4>
+			<p>{{product.price}} €</p>
+		</div>
+		<div class="form-group">
+			<label>Precio que ofreces</label>
+			<input class="form-control input-sm" type="text" [(ngModel)]="offer.price">
+		</div>
+		<div class="form-group">
+			<label>Breve descripción de la oferta:</label>
+			<textarea class="form-control" rows="3" [(ngModel)]="offer.message"></textarea>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" (click)="addOffer(); c()">Proponer</button>
+		<button type="button" class="btn btn-outline-dark" (click)="c()">Cerrar</button>
 	</div>
 </ng-template>

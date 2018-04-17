@@ -2,6 +2,7 @@ package com.practicaDaw.Dawllapop.ApiRestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -39,6 +40,7 @@ public class RestOffer {
 	@Autowired
 	private UserComponent userComponent;
 	
+	
 	@JsonView(Offer.BasicInformation.class)
 	@RequestMapping(value = "/api/offers/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Offer> getOfferById(@PathVariable long id) {
@@ -74,19 +76,15 @@ public class RestOffer {
 //
 //	}
 //	
-//	@RequestMapping(value = "/api/offers/", method = RequestMethod.POST)
-//	@ResponseStatus(HttpStatus.CREATED)
-//	public ResponseEntity<Offer> addOffer(@RequestBody Offer offer, Product product) {
-//
-//		User userlog = userComponent.getLoggedUser();
-//		User newuser = userRepo.findByName(userlog.getName());
-//		if (newuser.getId() != product.getUser().getId()) { // You can only post offers if your id is different to the
-//			product.addOffer(offer);
-//			return new ResponseEntity<>(offer, HttpStatus.OK);
-//		} else {
-//			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-//		
-//	}
-//
-//}
+	@RequestMapping(value = "/api/offers/", method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.CREATED)
+	public ResponseEntity<Offer> addOffer(@RequestBody Map<String, Object> rBody) {
+		User u = userRepo.findById((int) rBody.get("userId"));
+		Offer o = new Offer(Integer.parseInt((String) rBody.get("price")), (String) rBody.get("message"), 0, u);
+		Product p = productRepo.getOne(Long.parseLong(new Integer((int) rBody.get("productId")).toString()));
+		o.setProduct(p);		
+		offerRepo.save(o);
+		return new ResponseEntity<>(o, HttpStatus.OK);		
+
+	}
 }
