@@ -60,12 +60,12 @@
                                                                 </a>
                                                             </li>
                                                             <li class="list-inline-item">
-                                                                <a class="edit">
+                                                                <a class="edit" [routerLink]="['/edit', sellingProduct.id]">
                                                                     <i class="fa fa-pencil"></i>
                                                                 </a>
                                                             </li>
                                                             <li class="list-inline-item">
-                                                                <a class="delete">
+                                                                <a class="delete" style="cursor: pointer" (click)="deleteProduct(sellingProduct.id)">
                                                                     <i class="fa fa-trash"></i>
                                                                 </a>
                                                             </li>
@@ -184,7 +184,7 @@
                                                                 <ng-template #noImage><i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i></ng-template>
                                                                 <div class="media-body">                                                                    
                                                                     <div class="name">
-                                                                        <h5>{{userAssessment.userFrom.name}}</h5>
+                                                                        <h5><a [routerLink]="['/publicDashboard', userAssessment.userFrom.id]">{{userAssessment.userFrom.name}}</a></h5>
                                                                     </div>
                                                                     <div class="date">
                                                                         <p>{{userAssessment.date | date}}</p>

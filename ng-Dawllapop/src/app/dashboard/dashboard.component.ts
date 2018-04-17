@@ -5,6 +5,7 @@ import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 import { DashboardService } from '../service/dashboard.service';
 import { element } from 'protractor';
+import { ProductService } from '../service/product.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,10 +22,9 @@ export class DashboardComponent implements OnInit {
   private friendRequests: any[];
 
   constructor( private loginService: LoginService, private userService: UserService, private router: Router,
-    private dashboardService: DashboardService) { }
+    private dashboardService: DashboardService, private productService: ProductService) { }
 
-  ngOnInit() {        
-    this.sellingProducts = [];
+  ngOnInit() {            
     this.soldProducts = [];
     this.userAssessments = [];
     this.buyedProducts = [];
@@ -35,11 +35,7 @@ export class DashboardComponent implements OnInit {
       this.user = data;      
     });    
 
-    this.dashboardService.getSellignProducts(this.loginService.user.id).subscribe(data => {
-      data.forEach(element => {        
-        this.sellingProducts.push(element);
-      });
-    });
+    this.loadSellingProducts();
 
     this.dashboardService.getUserAssessments(this.loginService.user.id).subscribe(data => {
       data.forEach(element => {        
@@ -68,4 +64,19 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  deleteProduct(id: number){        
+    this.productService.deleteProduct(id).subscribe(
+      result => this.loadSellingProducts()
+    );
+    
+  }
+
+  loadSellingProducts(){
+    this.sellingProducts = [];
+    this.dashboardService.getSellignProducts(this.loginService.user.id).subscribe(data => {
+      data.forEach(element => {        
+        this.sellingProducts.push(element);
+      });
+    });
+  }
 }
