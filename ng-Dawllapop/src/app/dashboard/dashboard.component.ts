@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
   private buyedProducts: Product[];
   private productOffers: any[];
   private friendRequests: any[];
+  private assessmentText: string;
 
   constructor( private loginService: LoginService, private userService: UserService, private router: Router,
     private dashboardService: DashboardService, private productService: ProductService) { }
@@ -36,6 +37,7 @@ export class DashboardComponent implements OnInit {
 
     this.loadSellingProducts();
     this.loadProductOffers();
+    this.loadSoldProducts();
 
     this.dashboardService.getUserAssessments(this.loginService.user.id).subscribe(data => {
       data.forEach(element => {        
@@ -83,6 +85,17 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  loadSoldProducts(){
+    this.soldProducts = [];
+    this.dashboardService.getSoldProducts(this.loginService.user.id).subscribe(data => {
+      data.forEach(
+        element => {
+          this.soldProducts.push(element);
+        }
+      );
+    });
+  }
+
   acceptOffer(offerId){
     return this.dashboardService.acceptOffer(this.loginService.user.id, offerId).subscribe(
       response => this.loadProductOffers()
@@ -91,5 +104,11 @@ export class DashboardComponent implements OnInit {
 
   declineOffer(offerId){
 
+  }
+
+  sendAssessment(userId){
+    return this.dashboardService.sendAssessment(userId, this.assessmentText).subscribe(response => {
+    this.assessmentText = "";
+    });
   }
 }

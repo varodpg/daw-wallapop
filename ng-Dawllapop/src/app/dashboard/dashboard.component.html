@@ -93,7 +93,7 @@
                                         <tbody>                                            
                                             <tr *ngFor="let buyedProduct of buyedProducts">
                                                 <td class="product-thumb">
-                                                    <img width="200px" height="auto" alt="image description">
+                                                    <img width="200px" height="auto" alt="image description" src="https://localhost:8443/imgs/{{buyedProduct.mainimage}}">
                                                 </td>
                                                 <td class="product-details" style="padding-left:20px">
                                                     <h3 class="title">{{buyedProduct.name}}</h3>
@@ -102,7 +102,6 @@
                                                 </td>
                                                 <td style="padding-left:20px">
                                                     <div class="row">
-                                                        <input type="checkbox" id="spoiler1">
                                                         <label>Has adquirido este producto. Ponte en contacto con el vendedor 
                                                             <a color="black">{{buyedProduct.user.name}}</a>
                                                         </label>
@@ -112,10 +111,10 @@
                                                             <p style="width: 100%">Deja una reseña del vendedor</p>
                                                         </div>                                                                
                                                         <div class="row" style="width: 100%">
-                                                            <textarea class="form-control" style="resize: none; height: 150px"></textarea>
+                                                            <textarea class="form-control" style="resize: none; height: 150px" [(ngModel)]="assessmentText"></textarea>
                                                         </div>
                                                         <div class="row" style="text-align: center; width: 100%; margin-top: 5px">
-                                                            <button class="btn btn-main" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
+                                                            <button class="btn btn-main" (click)="sendAssessment(buyedProduct.user.id)" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
                                                         </div>                                                            
                                                     </div>
                                                 </td>
@@ -137,16 +136,15 @@
                                             <tbody>                                        
                                                 <tr *ngFor="let soldProduct of soldProducts">
                                                     <td class="product-thumb">
-                                                        <img width="200px" height="auto" alt="image description">
+                                                        <img width="200px" height="auto" src="https://localhost:8443/imgs/{{soldProduct.mainimage}}">
                                                     </td>
                                                     <td class="product-details" style="padding-left:20px">
                                                         <h3 class="title">{{soldProduct.name}}</h3>
                                                         <strong>Subido: </strong>
                                                         <time>{{soldProduct.date | date}}</time>                                                    
                                                     </td>
-                                                    <td style="padding-left:20px">
-                                                        <div class="row">
-                                                            <input type="checkbox" id="spoiler1">
+                                                    <!--<td style="padding-left:20px">
+                                                        <div class="row">                                                            
                                                             <label>
                                                                 Has adquirido este producto. Ponte en contacto con el vendedor 
                                                                 <a color="black">{{soldProduct.user.name}}</a>
@@ -157,13 +155,13 @@
                                                                 <p style="width: 100%">Deja una reseña del vendedor</p>
                                                             </div>
                                                             <div class="row" style="width: 100%">
-                                                                <textarea class="form-control" style="resize: none; height: 150px"></textarea>
+                                                                <textarea class="form-control" style="resize: none; height: 150px" [(ngModel)]="assessmentText"></textarea>
                                                             </div>
                                                             <div class="row" style="text-align: center; width: 100%; margin-top: 5px">
-                                                                <button class="btn btn-main" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
+                                                                <button class="btn btn-main" (click)="sendAssessment(soldProduct.user.id)" style="margin-right: auto; margin-left: auto; height: 45px; padding-top: 10px">Enviar</button>
                                                             </div>                                                        
                                                         </div>
-                                                    </td>
+                                                    </td>-->
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -252,7 +250,7 @@
                                     </table>
                                 </ng-template>
                             </ngb-tab>
-                            <ngb-tab class="tab-pane fade" title="Solicitudes de amistad">
+                            <!--<ngb-tab class="tab-pane fade" title="Solicitudes de amistad">
                                 <ng-template ngbTabContent>
                                     <h3 class="tab-title">Solicitudes de amistad recibidas</h3>
                                     <table class="table table-responsive product-dashboard-table">
@@ -290,7 +288,7 @@
                                         </tbody>
                                     </table>
                                 </ng-template>
-                            </ngb-tab>        
+                            </ngb-tab>        -->
                         </ngb-tabset>                        
                     </div>
                 </div>                
