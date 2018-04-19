@@ -1,3 +1,27 @@
-<p>
-  admin-assessments works!
-</p>
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered" width="100%" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Borrar</th>
+            <th>Texto</th>
+            <th>De (Usuario)</th>
+            <th>A (Usuario)</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let assessment of assessments">
+            <td><a (click)="deleteAssessment(assessment.id)" style="cursor: pointer"><i class="fa fa-remove"></i></a></td>
+            <td contenteditable="true">{{assessment.text}}</td>
+            <td contenteditable="true">{{assessment.userFrom.name}}</td>
+            <td contenteditable="true">{{assessment.userTo.name}}</td>
+            <td contenteditable="true">{{assessment.date | date}}</td>          
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

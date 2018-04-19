@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardService } from '../service/dashboard.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-admin-assessments',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminAssessmentsComponent implements OnInit {
 
-  constructor() { }
+  private assessments: any[];
 
-  ngOnInit() {
+  constructor(private dashboardService: DashboardService) { }
+
+  ngOnInit() {    
+    this.loadAssessments();
   }
 
+  loadAssessments(){
+    this.assessments = [];
+    this.dashboardService.getAllAssessments().subscribe(data => {
+      data.forEach(
+        element => this.assessments.push(element)
+      );
+    });
+  }
+
+  deleteAssessment(id: number){
+    this.dashboardService.deleteAssessment(id).subscribe(
+      response => this.loadAssessments()
+    );
+  }
 }

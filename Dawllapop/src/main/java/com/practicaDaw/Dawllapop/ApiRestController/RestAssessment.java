@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import com.practicaDaw.Dawllapop.security.UserComponent;
 import com.practicaDaw.Dawllapop.services.AssessmentServices;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/assessments")
 public class RestAssessment {
 	@Autowired
@@ -54,5 +56,26 @@ public class RestAssessment {
 		User user = userRepo.findById(id);
 		List<Assessment> assessments = assessmentServices.getUserAssessmentsNoPageable(user);
 		return new ResponseEntity<>(assessments, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	public ResponseEntity<List<Assessment>> getAllAssessment(){
+		List<Assessment> assessments = assessmentServices.getAllAssessment();
+		if(!assessments.isEmpty()) {
+			return new ResponseEntity(assessments, HttpStatus.OK);
+		} else{
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<HttpStatus> deleteAssessment(@PathVariable long id){
+		Assessment assessment = assessmentRepo.findOne(id);
+		if(assessment != null) {
+			assessmentRepo.delete(assessment);
+			return new ResponseEntity(HttpStatus.OK);
+		} else{
+			return new ResponseEntity(HttpStatus.NOT_FOUND);
+		}
 	}
 }

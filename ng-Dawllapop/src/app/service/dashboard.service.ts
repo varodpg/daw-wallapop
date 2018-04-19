@@ -11,6 +11,8 @@ const GET_OFFERS_URL = "withoffers"
 const ACCEPT_OFFER_URL = "acceptoffer"
 const REFUSE_OFFER_URL = "canceltoffer"
 const ADD_ASSESSMENT_URL = "https://localhost:8443/api/assessments/"
+const ALL_ASSESSMENT_URL = "https://localhost:8443/api/assessments/all"
+const DELETE_ASSESSMENT_URL = "https://localhost:8443/api/assessments/"
 
 @Injectable()
 export class DashboardService {
@@ -46,5 +48,13 @@ export class DashboardService {
 
     sendAssessment(idUser: number, assessmentMessage: string){
         return this.http.post(ADD_ASSESSMENT_URL, {idUser: idUser, message: assessmentMessage, value: 5});
+    }
+
+    getAllAssessments(){
+        return this.http.get<any[]>(ALL_ASSESSMENT_URL);
+    }
+
+    deleteAssessment(id: number){
+        return this.http.delete(DELETE_ASSESSMENT_URL + "/" + id);
     }
 }
