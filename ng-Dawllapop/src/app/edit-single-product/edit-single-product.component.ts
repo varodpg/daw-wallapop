@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../service/product.service';
 import { Product, User } from '../model/product.model';
 
+
 @Component({
   selector: 'app-edit-single-product',
   templateUrl: './edit-single-product.component.html',
@@ -11,7 +12,7 @@ import { Product, User } from '../model/product.model';
 export class EditSingleProductComponent implements OnInit {
 
   private product: Product;
-  private user: User;
+  private userId: number;
   private url_imgs = "https://localhost:8443/imgs";
   private added: boolean;
   private categoryId: string;
@@ -22,13 +23,9 @@ export class EditSingleProductComponent implements OnInit {
     this.productService.getSingleProduct(id).subscribe(data => {
       this.product = data;
       this.categoryId = data.category;
-      this.user = data['user'];
-      switch(this.categoryId){
-        case "1":
-          this.category = "Electrónica e Informática"; 
-          break;
-      }
-    });    
+      this.userId = data['user'];
+    }); 
+
   }
 
 
@@ -37,7 +34,7 @@ export class EditSingleProductComponent implements OnInit {
 
 
   save(){
-    this.productService.saveProduct(this.product);
+    this.productService.saveProduct(this.userId,this.product);
   }
 
 }

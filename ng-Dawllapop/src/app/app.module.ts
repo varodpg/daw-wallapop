@@ -26,6 +26,7 @@ import { SearchComponent } from './search/search.component';
 import { EditSingleProductComponent } from './edit-single-product/edit-single-product.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { OfferService } from './service/offer.service';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { OfferService } from './service/offer.service';
     PublicDashboardComponent,
     SearchComponent,
     EditSingleProductComponent,
-    EditUserComponent
+    EditUserComponent,
+    AdminProductsComponent
   ],
   imports: [
     BrowserModule,
