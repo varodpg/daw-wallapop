@@ -22,7 +22,7 @@ export class UserService {
 		return this.http.post(GET_USER_URL, user);		
     }
     editUser(user: User) {
-		return this.http.put(GET_USER_URL, user);		
+		return this.http.put(GET_USER_URL + "/" + user.id, user);		
     }    
 
     getUserFriendRequests(){

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/product.model';
 import { UserService } from '../service/user.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductService } from '../service/product.service';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-edit-user',
@@ -12,17 +15,19 @@ export class EditUserComponent implements OnInit {
   private user: User;
 	private edited = false;
 
-	edituser(){
-		this.userService.editUser(this.user).subscribe(
-			result => this.edited = true
-		);
-		
+	constructor(private userService: UserService,private router: Router,activatedRoute: ActivatedRoute,private loginService: LoginService) { 
+
 	}
 
-	constructor(private userService: UserService) { }
+	
+  save(){
+    this.userService.editUser(this.user).subscribe(
+      	result => this.edited = true
+    );
+  }
+
 
 	ngOnInit() {
-		this.user=new User();
-
-	}
+		this.user=this.loginService.user;
+		}
 }

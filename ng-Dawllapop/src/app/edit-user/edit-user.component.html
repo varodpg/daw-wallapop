@@ -1,12 +1,11 @@
 <div class="col-md-12">
   <!-- Edit Personal Info -->
   <div class="widget personal-info">
-    <h3 class="widget-header user">Editar información personal</h3>
-    <form action="editDatesProfileBBDD" id="formEditDatesUser" method="post">
+    <h3 class="widget-header user">Editar información personal</h3>  
       <!-- First Name -->
       <div class="form-group">
           <label for="first-name">Nombre y Apellidos</label>
-          <input type="text" class="form-control"  [(ngModel)]="user.name" readonly="readonly"  placeholder="{{user.name}}">
+          <input type="text" class="form-control"  [(ngModel)]="user.name" placeholder="{{user.name}}">
       </div>
       <!-- Comunity Name -->
       <div class="form-group">
@@ -15,13 +14,13 @@
       </div>
       
       <!-- Submit button -->
-      <button class="btn btn-transparent">Guardar cambios</button>
-    </form>
+      <button (click)="save()">Guardar Cambios</button>	
+    
   </div>
   <!-- Change Image -->
   <div class="widget personal-info">
     <h3 class="widget-header user">Editar foto de perfil</h3>
-    <form action="/editUserImage" id="formEditUserImage" enctype="multipart/form-data" method="POST">
+   
       <!-- File chooser -->
       <div class="form-group choose-file">
         <i class="fa fa-user text-center"></i>
@@ -29,12 +28,12 @@
        </div>
       <!-- Submit button -->
       <button class="btn btn-transparent" type="submit">Guardar Imagen</button>
-    </form>
+    
   </div>
   <!-- Change Password -->
   <div class="widget change-password">
     <h3 class="widget-header user">Cambiar contraseña</h3>
-    <form action="editPasswordProfileBBDD" id="formEditPasswordUser" method="post">
+    
       <!-- Current Password -->
       <div class="form-group">
           <label for="current-password">Contraseña actual</label>
@@ -43,25 +42,25 @@
       <!-- New Password -->
       <div class="form-group">
           <label for="new-password">Nueva contraseña</label>
-          <input type="password" class="form-control" id="new-password" name="passwordHash">
+          <input type="password" class="form-control" id="new-password" [(ngModel)]="user.passwordHash">
       </div>
       <!-- Confirm New Password -->
       <div class="form-group">
           <label for="confirm-password">Confirmar nueva contraseña</label>
-          <input type="password" class="form-control" id="confirm-password">
+          <input type="password" class="form-control" id="confirm-password" [(ngModel)]="user.passwordHash">
       </div>
       <!-- Submit Button -->
       <button class="btn btn-transparent">Guardar contraseña</button>
-    </form>
+   
   </div>
   <!-- Change Email Address -->
   <div class="widget change-email mb-0">
     <h3 class="widget-header user">Cambiar correo electrónico</h3>
-    <form action="editEmailProfileBBDD" id="formEditEMailUser" method="post">
+   
       <!-- Current Password -->
       <div class="form-group">
           <label for="current-email">Correo electrónico actual</label>
-          <input type="email" class="form-control" id="current-email" value="{{user.email}}" placeholder="{{user.email}}">
+          <input type="email" class="form-control"  [(ngModel)]="user.email" placeholder="{{user.email}}">
       </div>
       <!-- New email -->
       <div class="form-group">
@@ -78,7 +77,7 @@
       </div>
     </div>
   </div>
-    </form>
+    
   </div>
   <form action="deleteProfileBBDD" id="formDeleteUser">
   <!-- Delete account-->
