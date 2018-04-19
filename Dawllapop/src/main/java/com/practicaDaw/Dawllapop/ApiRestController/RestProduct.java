@@ -221,4 +221,14 @@ public class RestProduct {
 		}
 	}
     
+    @CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = "/api/products/all", method = RequestMethod.GET)
+    public ResponseEntity<List<Product>> getAllProducts(){
+    		List<Product> products = productServices.getAllProducts();
+    		if(!products.isEmpty()) {
+    			return new ResponseEntity(products, HttpStatus.OK);
+    		}else {
+    			return new ResponseEntity(HttpStatus.NOT_FOUND);
+    		}    		
+    }
 }

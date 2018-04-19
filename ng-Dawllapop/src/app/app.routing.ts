@@ -9,6 +9,7 @@ import { PublicDashboardComponent } from './public-dashboard/public-dashboard.co
 import { SearchComponent } from './search/search.component';
 import { EditSingleProductComponent } from './edit-single-product/edit-single-product.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { AdminProductsComponent } from './admin-products/admin-products.component';
 
 const appRoutes = [
     { path: 'index', component: IndexComponent},
@@ -22,7 +23,7 @@ const appRoutes = [
     { path: 'publicDashboard/:id', component: PublicDashboardComponent },
     { path: 'search/:search', component: SearchComponent},
     { path: 'edit/:id', component: EditSingleProductComponent},
-    { path: 'editUser/:id', component: EditUserComponent}
-    
+    { path: 'editUser/:id', component: EditUserComponent},
+    { path: "adminProducts", component: AdminProductsComponent}
 ]
 export const routing = RouterModule.forRoot(appRoutes);
