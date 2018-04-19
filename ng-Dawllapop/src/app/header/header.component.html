@@ -52,6 +52,12 @@
 <section>
     
 <ng-template #loginModal let-c="close" let-d="dismiss"  >
+  <div class="modal-header">
+  	<h4 class="modal-title">Informacion de usuario</h4>
+    <button type="button" class="close" aria-label="Close">
+			<span aria-hidden="true" (click)="c()">&times;</span>
+  </button>
+</div>
   <login></login>  
 </ng-template> 
 
@@ -63,77 +69,3 @@
   </ng-template>
 </section>
 
-<section>
-  <ng-template #registerModal let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <h4 class="modal-title">Registro de Usuario</h4>
-        <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true" (click)="c()">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-      <div class="row justify-content-md-center login-img">
-        <div class="col-12 col-md-auto">
-          <img src="images/logoNuevo.png">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="signup_username">Usuario</label> <input
-          type="text" class="form-control" [(ngModel)]="registerUser.name">
-      </div>
-      <div class="form-group">
-        <label for="signup_password1">Contraseña</label> <input
-           type="password" class="form-control" [(ngModel)]="registerUser.passwordHash">
-      </div>
-      <div class="form-group">
-        <label for="signup_password2">Repita la contraseña</label> <input
-          type="password" class="form-control"
-          [(ngModel)]="registerUser.passwordHash">
-      </div>
-      <div class="form-group">
-        <label for="signup_email">Correo Electrónico</label> <input
-           type="text" class="form-control" [(ngModel)]="registerUser.email">
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <label for="signup_provincia">Provincia</label> <select
-            class="form-control w-bg">
-            <option selected>Provincia</option>
-            <option>Madrid</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="signup_ciudad">Ciudad</label> <select [(ngModel)]="registerUser.location"
-            class="form-control w-bg">
-            <option selected>Ciudad</option>
-            <option value="Madrid">Madrid</option>
-            <option value="Alcorcon">Alcorcón</option>
-            <option value="Mostoles">Mostoles</option>
-          </select>
-        </div>
-      </div>
-      <div class="row justify-content-md-center login-img">
-        <div class="col-12 col-md-auto add-img-btn"
-          onclick="open_file_browser_profile()">
-          <span class="add-img-icon">+</span> <br> <span>Imagen
-            de Perfil</span>
-        </div>
-        <input [(ngModel)]="registerUser.file" id="profile_img_input" type="file" style="display: none"
-          onchange="preview_profile_image()">
-      </div>
-      <div class="row justify-content-md-center">
-        <div class="col-12 col-md-auto btn-enter-div">
-          <div class="row">
-            <div class="col-md-6">
-              <button class="btn btn-transparent btn-enter" (click)="c()">Cancelar</button>
-            </div>
-            <div class="col-md-6">
-              <button class="btn btn-main btn-enter" (click)="c();addUser()">Enviar</button>
-            </div>
-           
-          </div>
-          </div>
-      </div>
-      </div>   
-  </ng-template> 
-  </section>

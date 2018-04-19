@@ -5,7 +5,7 @@ import { User } from '../model/product.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService} from '../login/login.service'
 import { LoginComponent} from '../login/login.component'
-
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -18,9 +18,12 @@ export class HeaderComponent implements OnInit {
   private registerUser: User;
   private added = false;
   private url = "https://localhost:8443/imgs";
+  private userLogin : string;
+  private event : any;
+  private pass : string;
 
-  constructor(private modalService: NgbModal, private userService: UserService,private router: Router, 
-    private loginService: LoginService) { }
+  constructor(public activeModal: NgbActiveModal, private modalService: NgbModal, private userService: UserService,private router: Router, 
+    private loginService: LoginService ) { }
 
   ngOnInit() {
     this.registerUser=new User();
@@ -49,6 +52,15 @@ export class HeaderComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+  closeModal(){
+    this.activeModal.dismiss();
+  }
+
+  logIn(){
+    this.loginService.logIn(this.userLogin, this.pass);
+    console.log("eeeeeeeeeeeeeeeeeey"+ this.userLogin)
+    this.activeModal.dismiss();
   }
   
 }

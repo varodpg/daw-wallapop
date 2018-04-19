@@ -42,13 +42,14 @@ export class LoginService {
     }
 
     logIn(user: string, pass: string) {
-
+        this.isLogged=true;
         const userPass = user + ':' + pass;
 
         const headers = new Headers({
             'Authorization': 'Basic ' + utf8_to_b64(userPass),
             'X-Requested-With': 'XMLHttpRequest'
         });
+        console.log("Dentro de")
 
         const options = new RequestOptions({ withCredentials: true, headers });
 
@@ -58,6 +59,7 @@ export class LoginService {
                 return this.user;
             }
         );
+        
     }
 
     logOut() {
@@ -66,6 +68,7 @@ export class LoginService {
             response => {
                 this.isLogged = false;
                 this.isAdmin = false;
+                this.user = null;
                 return response;
             }
         );
