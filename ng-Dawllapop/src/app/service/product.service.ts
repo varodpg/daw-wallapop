@@ -38,8 +38,8 @@ export class ProductService {
         return this.http.get<Product[]>(SEARCH_PRODUCTS_URL + "/" + search);
     }
 
-    saveProduct(user: User, product: Product){
-        return this.http.put(EDIT_PRODUCT + "/" + user.id + "/" + product.id, product);
+    saveProduct(user: Number, product: Product){
+        return this.http.put(EDIT_PRODUCT + "/" + user + "/" + product.id, product);
     }
 
     deleteProduct(id: number){
