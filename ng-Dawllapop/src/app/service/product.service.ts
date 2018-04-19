@@ -8,7 +8,7 @@ const ADD_PRODUCT_URL = "https://localhost:8443/api/products/"
 const GET_CATEGORY_PRODUCTS = "https://localhost:8443/api/products/category/"
 const GET_CATEGORY_PRODUCTS_TOTAL = "https://localhost:8443/api/products/category/"
 const SEARCH_PRODUCTS_URL = "https://localhost:8443/api/products/search"
-const EDIT_PRODUCT = "https://localhost:8443/api/products/"
+const EDIT_PRODUCT = "https://localhost:8443/api/products"
 const DELETE_PRODUCT_URL = "https://localhost:8443/api/products"
 
 @Injectable()
@@ -38,8 +38,8 @@ export class ProductService {
         return this.http.get<Product[]>(SEARCH_PRODUCTS_URL + "/" + search);
     }
 
-    saveProduct(product: Product){
-        return this.http.post(ADD_PRODUCT_URL, product);
+    saveProduct(user: User, product: Product){
+        return this.http.put(EDIT_PRODUCT + "/" + user.id + "/" + product.id, product);
     }
 
     deleteProduct(id: number){
