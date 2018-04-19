@@ -1,3 +1,36 @@
-<p>
-  admin-products works!
-</p>
+<div class="container-fluid">
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i> Tabla de Usuarios
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%"
+          cellspacing="0">
+          <thead>
+            <tr>
+              <th>Editar</th>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Estado</th>
+              <th>Tags</th>
+              <th>Precio</th>
+              <th>Vendido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td><a class="btn" [routerLink]="['/edit', product.id]"><i class="fa fa-pencil"></i></a></td>
+              <td>{{product.name}}</td>
+              <td>{{product.description}}</td>
+              <td>{{product.state}}</td>
+              <td>{{product.tags}}</td>
+              <th>{{product.price}}</th>
+              <td>{{product.sold}}</td>          
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>  
+</div>

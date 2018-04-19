@@ -10,6 +10,7 @@ const GET_CATEGORY_PRODUCTS_TOTAL = "https://localhost:8443/api/products/categor
 const SEARCH_PRODUCTS_URL = "https://localhost:8443/api/products/search"
 const EDIT_PRODUCT = "https://localhost:8443/api/products"
 const DELETE_PRODUCT_URL = "https://localhost:8443/api/products"
+const GET_ALL_PRODUCTS_URL = "https://localhost:8443/api/products/all"
 
 @Injectable()
 export class ProductService {
@@ -44,5 +45,9 @@ export class ProductService {
 
     deleteProduct(id: number){
         return this.http.delete(DELETE_PRODUCT_URL + "/" + id);
+    }
+
+    getAllproducts(){
+        return this.http.get<Product[]>(GET_ALL_PRODUCTS_URL);
     }
 }

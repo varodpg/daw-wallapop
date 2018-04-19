@@ -9,7 +9,7 @@ const ASSESSMENT_BASE_URL = "assessment"
 const BUYED_BASE_URL = "buyed"
 const GET_OFFERS_URL = "withoffers"
 const ACCEPT_OFFER_URL = "acceptoffer"
-const DECLINE_OFFER_URL = "canceltoffer"
+const REFUSE_OFFER_URL = "canceltoffer"
 const ADD_ASSESSMENT_URL = "https://localhost:8443/api/assessments/"
 
 @Injectable()
@@ -38,6 +38,10 @@ export class DashboardService {
 
     acceptOffer(idUser: number, idOffer: number){
         return this.http.put(DASHBOARD_BASE_URL + "/" + idUser + "/" + ACCEPT_OFFER_URL + "/" + idOffer,null);
+    }
+
+    refuseOffer(idUser: number, idOffer: number){
+        return this.http.put(DASHBOARD_BASE_URL + "/" + idUser + "/" + REFUSE_OFFER_URL + "/" + idOffer,null);
     }
 
     sendAssessment(idUser: number, assessmentMessage: string){

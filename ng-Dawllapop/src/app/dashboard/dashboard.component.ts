@@ -102,8 +102,10 @@ export class DashboardComponent implements OnInit {
     );    
   }
 
-  declineOffer(offerId){
-
+  refuseOffer(offerId){
+    return this.dashboardService.refuseOffer(this.loginService.user.id, offerId).subscribe(
+      response => this.loadProductOffers()
+    );
   }
 
   sendAssessment(userId){
