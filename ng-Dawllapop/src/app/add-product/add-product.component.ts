@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../model/product.model';
+import { Product, Category } from '../model/product.model';
 import { ProductService } from '../service/product.service';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-add-product',
@@ -11,12 +12,22 @@ export class AddProductComponent implements OnInit {
 
 	private product: Product;
 	private added = false;
+	private categories : Category[];
+	private categoryName: string;
 
 	addProduct(){
+		
+		this.categories.forEach(category => {
+			console.log(category.name);
+			if(category.name == this.categoryName){
+				
+				this.product.category = category;
+			}
+		});
+		console.log(this.product);
 		this.productService.addProduct(this.product).subscribe(
 			result => this.added = true
-		);
-		
+		);		
 	}
 
 	constructor(private productService: ProductService) { }
@@ -25,6 +36,12 @@ export class AddProductComponent implements OnInit {
 		this.product=new Product();
 		this.product.specifications = [];
 		this.addSpecificationRow();
+		this.categories = [];
+		this.productService.getCategories().subscribe(data => {
+			data.forEach(
+				element => this.categories.push(element) 
+			);
+		});
 	}
 
 	addSpecificationRow() {
@@ -37,7 +54,4 @@ export class AddProductComponent implements OnInit {
 		this.product.specifications.splice(this.product.specifications.length - 1, 1);
 	}
 
-	seeSpecs(){
-		console.log(this.product.specifications);
-	}
 }

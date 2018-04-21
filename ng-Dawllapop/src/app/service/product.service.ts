@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Product, User } from '../model/product.model';
+import { Product, User, Category } from '../model/product.model';
 import { HttpClient } from "@angular/common/http";
 
 const LAST_PRODUCTS_URL = "https://localhost:8443/api/products/"
@@ -11,6 +11,7 @@ const SEARCH_PRODUCTS_URL = "https://localhost:8443/api/products/search"
 const EDIT_PRODUCT = "https://localhost:8443/api/products"
 const DELETE_PRODUCT_URL = "https://localhost:8443/api/products"
 const GET_ALL_PRODUCTS_URL = "https://localhost:8443/api/products/all"
+const GET_CATEGORIES_URL = "https://localhost:8443/api/category"
 
 @Injectable()
 export class ProductService {
@@ -49,5 +50,9 @@ export class ProductService {
 
     getAllproducts(){
         return this.http.get<Product[]>(GET_ALL_PRODUCTS_URL);
+    }
+
+    getCategories(){
+        return this.http.get<Category[]>(GET_CATEGORIES_URL);
     }
 }

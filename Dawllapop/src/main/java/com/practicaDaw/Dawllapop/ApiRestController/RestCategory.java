@@ -2,6 +2,8 @@ package com.practicaDaw.Dawllapop.ApiRestController;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +46,17 @@ public class RestCategory {
 		if (product != null) {
 			return new ResponseEntity<>(product.getCategory(), HttpStatus.OK);
 		} else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@JsonView(Category.BasicInformation.class)
+	@RequestMapping(value = "/api/category", method = RequestMethod.GET)
+	public ResponseEntity<List<Category>> getCategories(){
+		List<Category> categories = categoryRepo.findAll();
+		if(!categories.isEmpty()) {
+			return new ResponseEntity<>(categories, HttpStatus.OK);
+		}else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}

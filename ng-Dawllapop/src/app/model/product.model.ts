@@ -5,7 +5,7 @@ export class Product {
     specifications: string[][];
     tags: string[];
     price: number;
-    category: string;	
+    category: Category;	
 }
 
 export class User {
@@ -27,4 +27,9 @@ export class Offer {
     price: number;
     message: string;
     productId: number;
+}
+
+export class Category{
+    id?: number;
+    name: string;
 }
