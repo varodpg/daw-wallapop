@@ -23,9 +23,21 @@ export class AddProductComponent implements OnInit {
 
 	ngOnInit() {
 		this.product=new Product();
-
+		this.product.specifications = [];
+		this.addSpecificationRow();
 	}
 
+	addSpecificationRow() {
+		let empty_elem : string[];
+		empty_elem = [];		
+		this.product.specifications.push(empty_elem);
+	}
+	
+	deleteSpecificationRow() {
+		this.product.specifications.splice(this.product.specifications.length - 1, 1);
+	}
 
-
+	seeSpecs(){
+		console.log(this.product.specifications);
+	}
 }

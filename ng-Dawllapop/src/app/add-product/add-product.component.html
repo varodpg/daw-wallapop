@@ -76,15 +76,35 @@
 								<ngb-tab class="tab-pane fade" title="Especificaciones">
 									<ng-template ngbTabContent>
 										<h3 class="tab-title">Especificaciones del producto</h3>
-										
+										<div class="row">
+											<div class="col-md-2">
+												<a class="btn btn-transparent table-btn" (click)="deleteSpecificationRow()">-</a>
+												<a class="btn btn-transparent table-btn" (click)="addSpecificationRow()">+</a>
+											</div>
+										</div>
+										<table class="table table-bordered">
+											<tbody>
+												<tr *ngFor="let specification of product.specifications; let i = index">
+													<td>
+														<div class="form_group">
+															<input type="text" class="form-control w-bg" placeholder="Titulo" [(ngModel)]="product.specifications[i][0]">
+														</div>
+													</td>
+													<td>
+														<div class="form_group">
+															<input type="text" class="form-control w-bg" placeholder="Especificación" [(ngModel)]="product.specifications[i][1]">
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</ng-template>
 								</ngb-tab>							
 							</ngb-tabset>
 						</div>
 						<div class="row pull-right" style="margin-top:20px">
 							<div class="col-md-12 ">
-								<button (click)="addProduct()">Añadir</button>	
-															
+								<button (click)="addProduct()">Añadir</button>								
 							</div>
 							<ngb-alert *ngIf="added" type="success" (close)="closeAlert(alert)">producto añadido correctamente </ngb-alert>
 						</div>
