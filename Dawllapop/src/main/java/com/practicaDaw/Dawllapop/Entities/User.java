@@ -31,7 +31,7 @@ public class User {
 	
 	@JsonView(BasicInformation.class)
 	private String name;
-	@JsonIgnore
+	
 	private String passwordHash;
 	@JsonView(BasicInformation.class)
 	private String email;
