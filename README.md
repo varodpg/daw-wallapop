@@ -11,6 +11,8 @@ This is a practice for the subject of web application development simulating the
 |David Rial Vega          |d.rial@alumnos.urjc.es       |davidrialvega      |
 |Alberto Alvarez Gomez    |a.alvarezgom@alumnos.urjc.es |alberalgo          |
 
+#### VideoTutorial: https://www.youtube.com/watch?v=VD3XvWlLaqE&feature=youtu.be
+
 #### Trello: https://trello.com/b/hSJ9ryp5/practica-daw
 
 #### Data base entity diagram:
