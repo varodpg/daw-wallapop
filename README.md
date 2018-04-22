@@ -83,8 +83,7 @@ You can see the public information of an user from public profile.
 
 ### DEVELOPMENT ENVIROMENT
 
-To configure the development environment and to develop a Spring Boot application, we will need a program that provides us with the structure of the
-packages to make the application as well as to manage the dependencies of Maven. To start we will download the program, we have used STS, which can be downloaded from the following link (https://spring.io/tools), once installed to create a project we will have to go to File -> New -> Sring Starter Project and we would have our project ready to start developing and working.
+To configure the development environment and to develop a Spring Boot application, we will need a program that provides us with the structure of the packages to make the application as well as to manage the dependencies of Maven. To start we will download the program, we have used STS, which can be downloaded from the following link (https://spring.io/tools), once installed to create a project we will have to go to File -> New -> Sring Starter Project and we would have our project ready to start developing and working.
 
 ### DATABASE DIAGRAM
 
@@ -109,9 +108,9 @@ MacOs:
 We need to have XAMPP installed to run the MYSQL process or MysqlCommunityServer.
 We need to have Workbench installed to manage the tables.
 
-First of all, we need intall MysqlCommunityServer and MysqlWorkbench, an IDE to manage the database. We also may manage the databse through the console terminal.
+First of all, we need intall MysqlCommunityServer and MysqlWorkbench, an IDE to manage the database. We also may manage the database through the console terminal.
 After that, we create a database with the name "daw" into MysqlWorkbench.
-Finally we include the followinf lines into the application.properties file to indicate how to connect to the datase:
+Finally we include the following lines into the application.properties file to indicate how to connect to the datase:
 
 spring.datasource.url=jdbc:mysql://localhost/daw
 spring.datasource.username=root
@@ -167,3 +166,15 @@ docker push $DOCKER_ID_USER/my_image: push the tagged image to DockerHub <br>
 docker-compose up: launch a docker-compose. <br>
 docker-compose down: stop a docker-compose. <br>
 docker-compose rm: remove a docker-compose executed. Sometimes its needed to rebuild a docker-compose <br>
+
+# FASE 5 - ANGULAR PROJECT -
+
+### STEPS TO PREPARE THE ENVIRONMENT FOR AN ANGULAR APP
+
+First of all, we need to download node.js (https://nodejs.org/en/) and npm (https://www.npmjs.com/package/npm) to build an Angular-cli project.
+Now, we start a new project with the command "ng new dawllapop" into line command tool. The command "ng build" launchs the app into a local server to develop the project easily. Access to the angular-app through localhost:4200 by default. 
+The angular project use the API Rest calls to interact with backend.
+
+After develop the project, we include it into the java app (fase 3) on src folder and configure some lines in MyWebMvcConfig.java class that permits access through the same url localhost:8443/new (new for angular app, with not new for java app access)
+
+Finally, docker shell script now include some lines to build the angular project, insert it into backend java app and launch global project with java and angular app.
