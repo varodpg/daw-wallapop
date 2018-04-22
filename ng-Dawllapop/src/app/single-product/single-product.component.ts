@@ -15,7 +15,7 @@ export class SingleProductComponent implements OnInit {
 
   private product: Product;
   private user: User;
-  private images_url = "https://localhost:8443/imgs";
+  private images_url = "../../assets/images";
   private offer: Offer;
 
   constructor(private router: Router, private productService: ProductService, activatedRoute: ActivatedRoute,

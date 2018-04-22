@@ -117,10 +117,10 @@ public class RestProduct {
 
 		Product product = pRepository.findOne(idProduct);
 		User userlog = userComponent.getLoggedUser();
-		User newuser = uRepository.findByName(userlog.getName());
-		if (newuser.getId() == idUser) {
-
-			if (product != null) {
+		//User newuser = uRepository.findByName(userlog.getName());
+//		if (newuser.getId() == idUser) {
+//
+//			if (product != null) {
 
 				product.setId(idProduct);
 
@@ -157,11 +157,11 @@ public class RestProduct {
 				pRepository.saveAndFlush(product);
 
 				return new ResponseEntity<>(product, HttpStatus.OK);
-			} else {
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-			}
-		} else
-			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+//			} else {
+//				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//			}
+//		} else
+//			return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")

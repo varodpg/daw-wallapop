@@ -17,12 +17,16 @@ export class EditSingleProductComponent implements OnInit {
   private category: String;
 
 
-  constructor(private router: Router, private loginService: LoginService, private productService: ProductService, activatedRoute: ActivatedRoute) { 
-    
-    if(loginService.isLogged){
+  constructor(private router: Router, private loginService: LoginService, private productService: ProductService, private activatedRoute: ActivatedRoute) {    
+  }
 
-      let id = activatedRoute.snapshot.params['id'];
-      this.user = loginService.user;
+
+  ngOnInit() {
+    this.product = new Product();
+    if(this.loginService.isLogged){
+
+      let id = this.activatedRoute.snapshot.params['id'];
+      this.user = this.loginService.user;
 
       this.productService.getSingleProduct(id).subscribe(data =>{
         this.product = data;
@@ -31,12 +35,8 @@ export class EditSingleProductComponent implements OnInit {
   }
 
 
-  ngOnInit() {
-  }
-
-
   save(){
-    this.productService.saveProduct(this.user.id,this.product);
+    this.productService.saveProduct(this.user.id,this.product).subscribe();
   }
 
 }
