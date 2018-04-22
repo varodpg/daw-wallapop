@@ -178,3 +178,9 @@ The angular project use the API Rest calls to interact with backend.
 After develop the project, we include it into the java app (fase 3) on src folder and configure some lines in MyWebMvcConfig.java class that permits access through the same url localhost:8443/new (new for angular app, with not new for java app access)
 
 Finally, docker shell script now include some lines to build the angular project, insert it into backend java app and launch global project with java and angular app.
+
+### CLASSES DIAGRAM
+
+The following image show a diagram of the classes into the angular-app: components, services and templates:
+
+![alt text](https://github.com/varodpg/daw-wallapop/blob/master/screenshots/clasesdiagramangular.png "Classesdiagramangular")
