@@ -1,6 +1,13 @@
 package com.practicaDaw.Dawllapop.ApiRestController;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -8,18 +15,23 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.fasterxml.jackson.annotation.JsonView;
 import com.practicaDaw.Dawllapop.Entities.Category;
 import com.practicaDaw.Dawllapop.Entities.Product;
 import com.practicaDaw.Dawllapop.Entities.User;
+import com.practicaDaw.Dawllapop.ImageManager.Image;
 import com.practicaDaw.Dawllapop.Repository.CategoryRepository;
 import com.practicaDaw.Dawllapop.Repository.ProductRepository;
 import com.practicaDaw.Dawllapop.Repository.UserRepository;
@@ -28,6 +40,9 @@ import com.practicaDaw.Dawllapop.services.ProductServices;
 
 @RestController
 public class RestProduct {
+	
+	
+	
 	@Autowired
 	private ProductRepository pRepository;
 	@Autowired
@@ -42,6 +57,9 @@ public class RestProduct {
 	private CategoryRepository categoryRepo;
 	@Autowired
 	private UserComponent userComponent;
+	
+	private AtomicInteger imageId = new AtomicInteger();
+	private Map<String, Image> images = new ConcurrentHashMap<>();
 
 	@RequestMapping(value = "/api/products/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Product> deletedProduct(@PathVariable long id) {
@@ -231,4 +249,34 @@ public class RestProduct {
     			return new ResponseEntity(HttpStatus.NOT_FOUND);
     		}    		
     }
+    
+    @CrossOrigin(origins = "http://localhost:4200")
+    @RequestMapping(value = "/api/products/image/{id}", method = RequestMethod.POST)
+    public ResponseEntity<HttpStatus> uploadImage(@PathVariable long id, @RequestBody MultipartFile file){
+    	//@RequestParam("files") MultipartFile[] files    		    		
+    		Product p = productRepo.findOne(id);
+    		addImages(p, file);
+    		return new ResponseEntity<>(HttpStatus.OK);
+    }
+    
+    private boolean addImages(Product product, MultipartFile file) {
+		boolean result = true;
+		Path filesFolder = Paths.get(System.getProperty("user.dir"), "ImgFiles");
+		String fileName = "img-" + imageId.getAndIncrement() + ".jpg";
+		String imageTitle = file.getName(); //the title is the name of the uploaded image
+		if (!file.isEmpty()) {
+			try {
+				
+				File uploadedFile = new File(filesFolder.toFile(), fileName);
+				file.transferTo(uploadedFile);
+				images.put(fileName, new Image(imageTitle, fileName));
+				product.addImage(fileName);				
+			} catch (Exception e) {				
+			}
+		} else {
+			result = false;
+		}
+	
+		return result;
+	}
 }

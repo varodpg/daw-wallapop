@@ -12,21 +12,25 @@ export class AddProductComponent implements OnInit {
 
 	private product: Product;
 	private added = false;
+	private addedProduct: any;
 	private categories : Category[];
 	private categoryName: string;
+	private fileToUpload: File = null;
 
 	addProduct(){
 		
 		this.categories.forEach(category => {
 			console.log(category.name);
-			if(category.name == this.categoryName){
-				
-				this.product.category = category;
+			if(category.name == this.categoryName){				
+				this.product.category = category;				
 			}
 		});
-		console.log(this.product);
 		this.productService.addProduct(this.product).subscribe(
-			result => this.added = true
+			result => {
+				this.added = true;
+				this.addedProduct = result;
+				this.productService.addProductImage(this.addedProduct.id, this.fileToUpload).subscribe();
+			}
 		);		
 	}
 
@@ -52,6 +56,10 @@ export class AddProductComponent implements OnInit {
 	
 	deleteSpecificationRow() {
 		this.product.specifications.splice(this.product.specifications.length - 1, 1);
+	}
+
+	handleFileInput(files: FileList) {
+		this.fileToUpload = files.item(0);
 	}
 
 }

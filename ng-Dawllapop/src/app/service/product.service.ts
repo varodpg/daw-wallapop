@@ -12,6 +12,7 @@ const EDIT_PRODUCT = "https://localhost:8443/api/products"
 const DELETE_PRODUCT_URL = "https://localhost:8443/api/products"
 const GET_ALL_PRODUCTS_URL = "https://localhost:8443/api/products/all"
 const GET_CATEGORIES_URL = "https://localhost:8443/api/category"
+const ADD_IMAGE_URL = "https://localhost:8443/api/products/image"
 
 @Injectable()
 export class ProductService {
@@ -54,5 +55,11 @@ export class ProductService {
 
     getCategories(){
         return this.http.get<Category[]>(GET_CATEGORIES_URL);
+    }
+
+    addProductImage(productId: number, fileToUpload: File) {        
+        const formData: FormData = new FormData();
+        formData.append('file', fileToUpload, fileToUpload.name);
+        return this.http.post(ADD_IMAGE_URL + "/" + productId, formData);
     }
 }
