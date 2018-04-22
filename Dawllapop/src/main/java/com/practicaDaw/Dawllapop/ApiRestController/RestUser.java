@@ -31,12 +31,13 @@ public class RestUser {
 	@RequestMapping (value="/api/users", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	public User add_new_user(@RequestBody User user) {
+		user.setActivatedUser(true);
 		userRepository.save(user);
 		return user;
 	}
-	
+	 @CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/users/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User updatedUser, HttpSession session) {
 
