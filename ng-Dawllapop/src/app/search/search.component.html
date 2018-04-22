@@ -14,7 +14,7 @@
 					<div class="card">
 						<div class="thumb-content">							
               <a [routerLink]="['/singleProduct', product.id]" style="cursor: pointer">
-                <img src="https://localhost:8443/imgs/{{product.mainimage}}" class="card-img-top img-fluid" alt="Card image cap">
+                <img src="../../assets/images/{{product.mainimage}}" class="card-img-top img-fluid" alt="Card image cap">
               </a>
 						</div>
 						<div class="card-body">
@@ -47,7 +47,7 @@
 						<div class="thumb-content" style="text-align: center">
 							<a>
 								<div *ngIf="user.image !== '';then hasImage else noImage"></div>                                              
-                <ng-template #hasImage><img src="https://localhost:8443/imgs/{{user.image}}" class="rounded-circle"></ng-template>
+                <ng-template #hasImage><img src="../../assets/images/{{user.image}}" class="rounded-circle"></ng-template>
                 <ng-template #noImage><i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i></ng-template>
 							</a>
 						</div>
