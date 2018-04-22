@@ -30,7 +30,7 @@
                   <ng-template #viewIsLogged>
                     <li class="nav-item">
                       <a class="btn nav-link" [routerLink]="['/dashboard']"><i class = "fa fa-user"></i> ¡Hola {{loginService.user.name}}!</a>                      
-                        
+                      <button class="btn btn-primary" data-target=".bs-logout-modal-sm" data-toggle="modal" (click)="open(logOut)"><a> Cerrar sesión</a> </button>
                           <ul class="navbar-nav ml-auto mt-10" *ngIf="loginService.isLogged">
                               
                               <li class="nav-item" *ngIf="loginService.user.isAdmin">
