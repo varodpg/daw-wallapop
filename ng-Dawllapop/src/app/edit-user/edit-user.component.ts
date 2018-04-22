@@ -21,13 +21,14 @@ export class EditUserComponent implements OnInit {
 
 	
   save(){
-    this.userService.editUser(this.user).subscribe(
-      	result => this.edited = true
-    );
+    this.userService.editUser(this.user).subscribe();
   }
 
 
 	ngOnInit() {
-		this.user=this.loginService.user;
-		}
+    this.user = new User();
+    if(this.loginService.isLogged){
+      this.user = this.loginService.user;
+    }
+	}
 }
