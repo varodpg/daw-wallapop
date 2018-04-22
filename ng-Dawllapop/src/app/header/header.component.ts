@@ -57,10 +57,25 @@ export class HeaderComponent implements OnInit {
     this.activeModal.dismiss();
   }
 
-  logIn(){
-    this.loginService.logIn(this.userLogin, this.pass);
-    console.log("eeeeeeeeeeeeeeeeeey"+ this.userLogin)
+  logIn(event: any, user: string, pass: string) {
+    
+    event.preventDefault();
+
+    this.loginService.logIn(user, pass).subscribe(
+      u => console.log(u),
+      error => alert('Invalid user or password')
+      
+    );
     this.activeModal.dismiss();
+  }
+
+  logOut() {
+    this.loginService.logOut().subscribe(
+      response => { },
+      error => console.log('Error when trying to log out: ' + error)
+    );
+    this.activeModal.dismiss();
+    this.router.navigate(['index']);
   }
   
 }

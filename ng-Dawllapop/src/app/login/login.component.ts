@@ -61,6 +61,13 @@ export class LoginComponent {
         return  `with: ${reason}`;
       }
     }
+    addUser(){
+      this.userService.addUser(this.registerUser).subscribe(
+        result => this.added = true
+        
+      );
+      
+    }
   }
   
 
