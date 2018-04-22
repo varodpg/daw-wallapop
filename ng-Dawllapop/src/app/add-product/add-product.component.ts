@@ -19,8 +19,7 @@ export class AddProductComponent implements OnInit {
 
 	addProduct(){
 		
-		this.categories.forEach(category => {
-			console.log(category.name);
+		this.categories.forEach(category => {			
 			if(category.name == this.categoryName){				
 				this.product.category = category;				
 			}

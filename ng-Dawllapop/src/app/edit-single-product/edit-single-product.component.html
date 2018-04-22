@@ -28,13 +28,13 @@
 												<label for="fs_product_category">Categoría producto</label>
 										</div>
 										<div class="row col-md-12">
-											<select [(ngModel)]="product.category" class="selectpicker">
-												<option selected disabled>{{category}}</option>
-												<option value="informatica">Informática y Electrónica</option>
-												<option value="inmobiliaria">Inmobiliaria</option>
-												<option value="deportes">Deportes y Ocio</option>
-												<option value="videojuegos">Videojuegos</option>
-												<option value="moda">Moda</option>
+											<select [(ngModel)]="categoryName" class="selectpicker">
+												<option disabled></option>
+												<option value="Informatica">Informática y Electrónica</option>
+												<option value="Inmobiliaria">Inmobiliaria</option>
+												<option value="Deportes">Deportes y Ocio</option>
+												<option value="Videojuegos">Videojuegos</option>
+												<option value="Moda">Moda</option>
 											</select>
 										</div>
 									</div>
@@ -85,7 +85,28 @@
 								<ngb-tab class="tab-pane fade" title="Especificaciones">
 									<ng-template ngbTabContent>
 										<h3 class="tab-title">Especificaciones del producto</h3>
-										
+										<div class="row">
+											<div class="col-md-2">
+												<a class="btn btn-transparent table-btn" (click)="deleteSpecificationRow()">-</a>
+												<a class="btn btn-transparent table-btn" (click)="addSpecificationRow()">+</a>
+											</div>
+										</div>
+										<table class="table table-bordered">
+											<tbody>
+												<tr *ngFor="let specification of product.specifications; let i = index">
+													<td>
+														<div class="form_group">
+															<input type="text" class="form-control w-bg" placeholder="Titulo" [(ngModel)]="product.specifications[i][0]">
+														</div>
+													</td>
+													<td>
+														<div class="form_group">
+															<input type="text" class="form-control w-bg" placeholder="Especificación" [(ngModel)]="product.specifications[i][1]">
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>										
 									</ng-template>
 								</ngb-tab>							
 							</ngb-tabset>

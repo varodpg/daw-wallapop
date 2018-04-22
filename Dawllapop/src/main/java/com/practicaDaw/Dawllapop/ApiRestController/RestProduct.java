@@ -149,6 +149,11 @@ public class RestProduct {
 				} else {
 					product.setTags(product.getTags());
 				}
+				if ((productUpdate.getCategory()) != null) {
+					product.setCategory(productUpdate.getCategory());
+				} else {
+					product.setCategory(product.getCategory());
+				}
 
 				product.setSold(false);
 				product.setPrice(productUpdate.getPrice());
