@@ -6,7 +6,7 @@
                 <div class="widget user-dashboard-profile" *ngIf="user">
                     <div class="profile-thumb" > 
                         <div *ngIf="user.image !== '';then hasImage else noImage"></div>                                              
-                        <ng-template #hasImage><img src="https://localhost:8443/imgs/{{user.image}}" class="rounded-circle"></ng-template>
+                        <ng-template #hasImage><img src="../../assets/images/{{user.image}}" class="rounded-circle"></ng-template>
                         <ng-template #noImage><i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i></ng-template>
                     </div>
                     <h5 class="text-center">{{user.name}}</h5>
@@ -29,7 +29,7 @@
                             <div class="product-item bg-light">
                                 <div class="card">
                                     <div class="thumb-content">
-                                        <a> <img class="card-img-top img-fluid" src="https://localhost:8443/imgs/{{sProduct.mainimage}}"></a>
+                                        <a> <img class="card-img-top img-fluid" src="../../assets/images/{{sProduct.mainimage}}"></a>
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title"><a>{{sProduct.name}}</a></h4>
@@ -59,7 +59,7 @@
                             <div class="product-item bg-light">
                                 <div class="card">
                                     <div class="thumb-content">                                    
-                                        <a><img class="card-img-top img-fluid" alt="Card image cap" src="https://localhost:8443/imgs/{{soProduct.mainimage}}"></a>
+                                        <a><img class="card-img-top img-fluid" alt="Card image cap" src="../../assets/images/{{soProduct.mainimage}}"></a>
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title">
@@ -90,7 +90,7 @@
                                     <div class="product-review">
                                         <div class="media">
                                             <div *ngIf="assessment.userFrom.image !== '';then hasImage else noImage"></div>
-                                            <ng-template #hasImage><img src="https://localhost:8443/imgs/{{assessment.userFrom.image}}" class="rounded-circle"></ng-template>
+                                            <ng-template #hasImage><img src="../../assets/images/{{assessment.userFrom.image}}" class="rounded-circle"></ng-template>
                                             <ng-template #noImage><i class="fa fa-user" style="color: #007bff; font-size: 125px; margin-top: 3px"></i></ng-template>
                                             <div class="media-body">                                                
                                                 <div class="name">
