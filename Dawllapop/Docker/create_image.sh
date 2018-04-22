@@ -1,5 +1,15 @@
 #!/bin/sh
 
+## build angular project
+
+docker run -it --rm --name dawllapop-angular -v /Users/alberto/DAW2018/daw-wallapop/ng-Dawllapop:/otp/dawllapop -w /otp/dawllapop teracy/angular-cli ng build --base-href /new/
+
+
+##copy angular project into java project
+
+rm /Users/alberto/DAW2018/daw-wallapop/Dawllapop/src/main/resources/static/new/*
+cp /Users/alberto/DAW2018/daw-wallapop/ng-Dawllapop/dist/* /Users/alberto/DAW2018/daw-wallapop/Dawllapop/src/main/resources/static/new
+
 ## create_image
 ## mount the route from app where POM is located. In this case: (/Users/alberto/DAW2018/daw-wallapop/Dawllapop)
 
